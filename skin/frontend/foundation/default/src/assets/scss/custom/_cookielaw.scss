@@ -5,24 +5,17 @@
   bottom: 0;
   z-index: 990;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(255, 255, 255, 0.6) !important;
   color: $primary-color;
   border-top: 1px solid $primary-color;
   .message {
+    margin-top: $global-margin;
     text-align: center;
     float: none;
     p {
-      margin-top: 1rem;
-      font-size: 0.7rem;
+      font-size: rem-calc(15);
     }
   }
-  .button-group {
-    margin: 1.25rem 0 1.25rem 0;
-    a {
-      font-size: 0.7rem !important;
-    }
-  }
-
 }
 
 @include breakpoint(medium) {

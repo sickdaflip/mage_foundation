@@ -18,7 +18,7 @@
 .col2-right-layout,
 .col3-layout,
 nav {
-  @include xy-grid-container();
+  @include xy-grid-container;
 }
 
 // Layout
@@ -346,13 +346,15 @@ footer {
 
 //Cookie
 .cookie-container {
-  @include xy-cell(12, false, 0);
-  @include xy-grid;
-  .message {
-    @include xy-cell(12, false, 0);
-  }
-  .actions {
-    @include xy-cell(12, false, 0);
+  .cookie-content {
+    @include xy-grid-container;
+    @include xy-grid;
+    .message {
+      @include xy-cell(12, false, 0);
+    }
+    .actions {
+      @include xy-cell(12, false, 0);
+    }
   }
 }
 
@@ -579,7 +581,7 @@ footer {
   }
 
   .cookie-container {
-    .notification {
+    .cooki-content {
       .message {
         @include xy-cell(6);
       }
