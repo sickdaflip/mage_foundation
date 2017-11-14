@@ -1,5 +1,5 @@
 {
-  "name": "sickdaflip/mage_foundation",
+  "name": "sickdaflip/foundation",
   "type": "magento-theme",
   "license": "MIT",
   "description": "Magento 1.9.3. Theme",
@@ -9,7 +9,48 @@
       "email": "philippbreitsprecher@gmail.com"
     }
   ],
-  "require": {
-    "magento-hackathon/magento-composer-installer": "*"
-  }
+  "extra": {
+  "map": [
+    [
+      "app/code/local/Foundation/",
+      "app/code/local/Foundation/"
+    ],
+    [
+      "app/code/local/Mage/",
+      "app/code/local/Mage/"
+    ],
+    [
+      "app/design/frontend/foundation/default",
+      "app/design/frontend/foundation/default"
+    ],
+    [
+      "app/etc/modules/*.xml",
+      "app/etc/modules/"
+    ],
+    [
+      "app/locale/de_DE/",
+      "app/locale/de_DE/"
+    ],
+    [
+      "js/varien/product_options.js",
+      "js/varien/product_options.js"
+    ],
+    [
+      "media/catalog/brands/",
+      "media/catalog/brands/"
+    ],
+    [
+      "skin/frontend/foundation/default/",
+      "skin/frontend/foundation/default/"
+    ],
+    [
+      "favicon.ico",
+      "favicon.ico"
+    ],
+    [
+      "manifest.json",
+      "manifest.json"
+    ]
+  ]
+}
 }
