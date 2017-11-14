@@ -1,0 +1,49 @@
+<?php
+/**
+ * @var $this FireGento_MageSetup_Block_Checkout_Agreements
+ */
+
+/** @var $helper FireGento_MageSetup_Helper_Data */
+$helper = Mage::helper('magesetup');
+$agreements = $this->getAgreements();
+?>
+
+<?php if (!$agreements) return; ?>
+<form id="checkout-agreements" onsubmit="return false;">
+    <ol class="checkout-agreements">
+        <?php foreach ($agreements as $agreement): ?>
+            <li>
+                <?php if ($agreement->getIsRequired()): ?>
+                    <input type="checkbox" id="agreement-<?php echo $agreement->getId() ?>"
+                           name="agreement[<?php echo $agreement->getId() ?>]" value="1"
+                           title="<?php echo $this->escapeHtml($agreement->getCheckboxText()) ?>"/>
+                <?php endif; ?>
+
+                <label
+                    <?php if ($agreement->getIsRequired()): ?>for="agreement-<?php echo $agreement->getId() ?>"<?php endif; ?>><?php echo $agreement->getIsHtml() ? $agreement->getCheckboxText() : $this->escapeHtml($agreement->getCheckboxText()) ?></label>
+                <?php if (trim($agreement->getContent())): ?>
+                    <div class="reveal large" id="agreement<?php echo $agreement->getId() ?>" data-reveal>
+                        <?php
+                        $helper = Mage::helper('cms');
+                        $processor = $helper->getPageTemplateProcessor();
+                        echo $processor->filter($agreement->getContent());
+                        ?>
+                        <button class="close-button" data-close aria-label="Close reveal" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <a data-open="agreement<?php echo $agreement->getId() ?>"
+                       class="agreement<?php echo $agreement->getId() ?>"><?php echo $this->__('[Show]') ?></a>
+                    <script type="text/javascript">
+                        //<![CDATA[
+                        var popup = new Foundation.Reveal(jQuery('#agreement<?php echo $agreement->getId() ?>'));
+                        jQuery('.agreement<?php echo $agreement->getId() ?>').click(function () {
+                            popup.open();
+                        });
+                        //]]>
+                    </script>
+                <?php endif ?>
+            </li>
+        <?php endforeach ?>
+    </ol>
+</form>

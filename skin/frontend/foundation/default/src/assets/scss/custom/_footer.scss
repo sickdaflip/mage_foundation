@@ -1,0 +1,137 @@
+footer {
+  .footer-top {
+    background: $primary-color;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid $white;
+    text-align: center;
+    a {
+      color: $white;
+    }
+    &:hover, &:focus {
+      background: scale-color($primary-color, $lightness: -60%);
+    }
+  }
+  .footer-info {
+    padding: 1rem 0;
+    background: scale-color($primary-color, $lightness: -15%);
+    color: $white;
+    ul li {
+      @include breakpoint(small only) {
+        text-align: center;
+      }
+    }
+    p {
+      font-size: 1.2rem;
+      @include breakpoint(small only) {
+        text-align: center;
+        padding: 1rem 0 0 0;
+      }
+    }
+    a {
+      font-size: .9rem;
+      color: #DDDDDD;
+      &:hover, &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+  .footer-shipping {
+    background: scale-color($primary-color, $lightness: -30%);
+    .content {
+      text-align: center;
+      img {
+        padding: .5rem 0;
+      }
+    }
+  }
+  .footer-payments {
+    background: scale-color($primary-color, $lightness: -45%);
+    text-align: center;
+    .payments {
+      ul {
+        li {
+          display: inline;
+          margin: .5rem;
+          a {
+            i {
+              font-size: 2rem;
+              color: $white;
+            }
+            &:hover i, &:focus i {
+              color: $secondary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer-bottom {
+    background: scale-color($primary-color, $lightness: -60%);
+    .social {
+      text-align: center;
+      margin: 0 0 1rem 0;
+      ul {
+        li {
+          display: inline;
+          margin: .5rem;
+          a {
+            i {
+              font-size: 2rem;
+              color: $white;
+            }
+            &:hover i, &:focus i {
+              color: $secondary-color;
+            }
+          }
+        }
+      }
+    }
+    .org {
+      text-align: center;
+      ul {
+        @include menu-base;
+        display: block;
+        li {
+          display: inline-block;
+          a {
+            font-size: .9rem;
+            color: #DDDDDD;
+            &:hover, &:focus {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.reasons {
+  @include show-for(large);
+  display: none;
+  position: fixed;
+  padding: .5em .5em .5em 1.5em;
+  left: 0;
+  top: 15em;
+  background-color: #00bbff;
+  margin-left: -1em;
+  border-radius: 3px;
+  span:first-child {
+    padding: 0;
+    font-family: 'Open Sans';
+    color: #ffffff;
+    font-size: 3em;
+    font-weight: bold;
+    display: block;
+    sup {
+      font-size: .5em;
+    }
+  }
+  span:nth-child(2n) {
+    display: block;
+    text-transform: uppercase;
+    font-family: 'Open Sans';
+    color: #ffffff;
+    font-size: .7em;
+  }
+}

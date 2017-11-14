@@ -1,0 +1,42 @@
+<?php
+$_helper          =  Mage::helper('catalogsearch');
+$_value           = $_helper->getEscapedQueryText();
+$_currentCategory = Mage::getSingleton('core/app')->getRequest()->getParam('cat');
+$_filterType      = $this->getFilterType();
+$_url             = $this->getAjaxUrl();
+?>
+<form class="searchautocomplete searchautocomplete-widget UI-SEARCHAUTOCOMPLETE" action="<?php echo $this->helper('catalogsearch')->getResultUrl() ?>" method="get"
+    data-tip="<?php echo $this->__(Mage::getStoreConfig('searchautocomplete/general/tip')) ?>"
+    data-url="<?php echo $_url ?>"
+    data-minchars="<?php echo Mage::getStoreConfig('searchautocomplete/general/min_chars') ?>"
+    data-delay="<?php echo Mage::getStoreConfig('searchautocomplete/general/delay') ?>">
+
+    <label for="search"><?php echo $this->__('Search') ?></label>
+    <div class="nav">
+        <?php if ($_filterType == 'category'): ?>
+        <div class="nav-search-in">
+            <span class="category-fake UI-CATEGORY-TEXT"><?php echo $this->__('All') ?></span>
+            <span class="nav-down-arrow"></span>
+            <select name="cat" class="category UI-CATEGORY">
+                <option value="0"><?php echo $this->__('All') ?></option>
+                <?php foreach ($this->getCategories() as $_category): ?>
+                <option value="<?php echo $_category->getId() ?>" <?php if ($_currentCategory == $_category->getId()): ?>selected<?php endif ?>>
+                    <?php echo $_category->getName() ?>
+                </option>
+                <?php endforeach ?>
+            </select>
+        </div>
+        <?php endif ?>
+
+        <div class="nav-input UI-NAV-INPUT">
+            <input class="input-text UI-SEARCH" type="text" autocomplete="off" name="<?php echo $_helper->getQueryParamName() ?>" value="<?php echo $_helper->getEscapedQueryText() ?>" maxlength="<?php echo $_helper->getMaxQueryLength() ?>" />
+        </div>
+
+        <div class="searchautocomplete-loader UI-LOADER" style="display:none;"></div>
+
+    </div>
+    <div class="nav-submit-button">
+        <button type="submit" title="<?php echo $this->__('Go') ?>" class="button"><?php echo $this->__('Go') ?></button>
+    </div>
+    <div style="display:none" class="searchautocomplete-placeholder UI-PLACEHOLDER"></div>
+</form>

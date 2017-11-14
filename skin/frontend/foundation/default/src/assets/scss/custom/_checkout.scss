@@ -1,0 +1,906 @@
+#checkout-step-billing,
+#checkout-step-shipping,
+#checkout-step-login,
+#checkout-step-shipping_method,
+#checkout-step-payment {
+  ul,
+  fieldset {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.opc {
+  list-style: none;
+  .section {
+    .step-title {
+      clear: both;
+      h2 {
+        display: inline-block;
+      }
+      a {
+        display: none;
+      }
+    }
+    &.allow:not(.active) {
+      .step-title a {
+        display: block;
+        float: right;
+        line-height: 40px;
+        height: 40px;
+        padding: 0 10px;
+      }
+    }
+    .step {
+      margin: 1rem 0;
+    }
+    #billing-new-address-form, #co-shipping-form {
+      .customer-name, .fields {
+        @include flex-grid-row(nest);
+        .name-field, div {
+          @include flex-grid-column(6);
+        }
+      }
+    }
+    .please-wait {
+      width: 100%;
+      height: 100%;
+      z-index: 2200000000; /* btw Trusted Shops Widget */
+      background: rgba(255, 255, 255, 0.5) !important;
+      position: fixed;
+      top: 0;
+      left: 0;
+      line-height: 100%;
+      text-align: center;
+      &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -0.25em; /* Adjusts for spacing */
+      }
+      .centered {
+        display: inline-block;
+        vertical-align: middle;
+        i {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+  #opc-payment {
+    #checkout-step-payment {
+      .sp-methods {
+        ul.form-list, #payment_form_invoice {
+          @extend .callout;
+          ul:not([class]) {
+            display: block;
+            list-style-type: disc;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            padding-left: 1rem;
+            color: $primary-color;
+          }
+          ol {
+            margin-left: 0;
+            margin-bottom: 1rem;
+            counter-reset: item;
+            li {
+              display: block;
+            }
+            li:before {
+              content: counter(item) ". ";
+              counter-increment: item;
+              color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.osc-column-wrapper {
+  .customer-name, .osc-double-fields {
+    @include flex-grid-row(nest);
+    .name-field, div {
+      @include flex-grid-column(6);
+    }
+  }
+  .login-method, .agreement-field {
+    .button {
+      font-size: 0.8rem;
+      i {
+        font-size: 0.8rem;
+      }
+      @include breakpoint(small only) {
+        width: 100%;
+      }
+    }
+  }
+  #co-payment-form, #co-shipping-method-form {
+    label {
+      width: 100%;
+    }
+  }
+  .agreement-field {
+    label {
+      margin: 0;
+    }
+    .agreement-info {
+      @include button(false, $primary-color, $button-background-hover, $button-color);
+      @include breakpoint(small) {
+        width: 100%;
+      }
+    }
+    small.error {
+      margin-top: -4px !important;
+      @include breakpoint(medium up) {
+        width: 70%;
+
+      }
+    }
+    @include breakpoint(medium) {
+      label:nth-child(2) {
+        width: 70%;
+        display: inline-block;
+      }
+      a:nth-child(3) {
+        width: 29%;
+        display: inline-block;
+        float: right;
+      }
+    }
+
+    label:last-of-type {
+      margin: 0.1rem 0 1rem 0 !important;
+    }
+  }
+
+  #co-login-form, #co-payment-form, .use-for-shipping-field, #checkout-agreements, #checkout-load-shipping_method, .same-as-billing-field, .billing-address-select-field, #co-shipping-form, #co-shipping-method-form {
+    input[type='radio'], input[type='checkbox'] {
+      display: none;
+    }
+    input[type='radio'] + label, input[type='checkbox'] + label {
+      @include button(false, $primary-color, $button-background-hover, $button-color);
+      @include breakpoint(small only) {
+        width: 100%;
+      }
+      a {
+        color: $white;
+      }
+      & + label {
+        @include button(false, $primary-color, $button-background-hover, $button-color);
+        @include breakpoint(small only) {
+          width: 100%;
+        }
+        a {
+          color: $white;
+        }
+      }
+    }
+    input[type='radio']:checked + label, input[type='checkbox']:checked + label {
+      @include button(false, $success-color, $button-background-hover, $button-color);
+      &:after {
+        font-family: FontAwesome;
+        content: '\f00c';
+      }
+    }
+  }
+  .billing-address-select-field, #co-shipping-form {
+    label {
+      width: 100%;
+    }
+  }
+  #co-payment-form {
+    label {
+      position: relative;
+      .form-error {
+        position: absolute;
+        bottom: -2rem;
+        width: 100%;
+      }
+    }
+    dd p:first-of-type, dd ul:first-of-type {
+      @extend .callout;
+    }
+  }
+  #checkout-review-table-wrapper {
+    overflow-x: hidden;
+    #checkout-review-table {
+      width: 100%;
+      ul.item-options li {
+        font-size: 0.9rem;
+        display: inline;
+      }
+    }
+  }
+  .step-please-wait {
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    background: rgba(255, 255, 255, 0.5) !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    line-height: 100%;
+    text-align: center;
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      margin-right: -0.25em; /* Adjusts for spacing */
+    }
+    .centered {
+      display: inline-block;
+      vertical-align: middle;
+      i {
+        color: $primary-color;
+      }
+    }
+  }
+  #checkout-agreements {
+    label.agreement span {
+      border-color: $alert-color;
+      border-width: 0 1px 1px 1px;
+      border-style: solid;
+      padding: 0.6rem 0;
+    }
+  }
+  .is-invalid-label {
+    span.form-error {
+      display: block;
+    }
+  }
+  .sp-methods {
+    label {
+      .form-error {
+      }
+    }
+  }
+}
+
+.opc .section .step-title {
+  width: 100%;
+  border-top: 1px solid $medium-gray;
+  position: relative;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.opc .section .step-title:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.opc .section.allow:not(.active) .step-title {
+  cursor: pointer;
+}
+
+.opc .section.active .step-title {
+  border-bottom: 1px solid $medium-gray;
+}
+
+.opc .section .step-title a {
+  display: none;
+}
+
+.opc .section.allow:not(.active) .step-title a {
+  @include breakpoint(small only) {
+    display: none !important;
+  }
+  display: block;
+  float: right;
+  line-height: 40px;
+  height: 40px;
+  padding: 0px 10px;
+}
+
+.no-touch .opc .section .step-title a:hover {
+  text-decoration: none;
+}
+
+.opc .section .step-title .number,
+.opc .section.allow.active .step-title .number,
+.no-touch .opc .section.allow:hover .step-title .number {
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  color: #FFFFFF;
+  line-height: 26px;
+  background-color: $primary-color;
+  border-radius: $global-radius;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  margin-top: -13px;
+}
+
+.opc .section.allow .step-title .number {
+  background-color: $medium-gray;
+}
+
+.opc .section.allow .step-title h2 {
+  color: $medium-gray;
+}
+
+.opc .section.allow .step-title:hover h2,
+.opc .section.active .step-title h2 {
+  color: $primary-color;
+}
+
+.opc .section .step-title h2 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 40px;
+  height: 40px;
+  float: left;
+  margin: 0px 4px 0px 45px;
+}
+
+.opc .section .step {
+  padding: 20px;
+}
+
+.opc .section .step:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.opc h3 {
+  font-weight: 500;
+}
+
+.opc .buttons-set .back-link {
+  float: right;
+  margin: 0;
+}
+
+.opc #opc-login .step {
+  padding: 0px;
+}
+
+.opc #opc-login .buttons-set {
+  border-top: 0;
+  padding-top: 5px;
+}
+
+#opc-payment .note {
+  padding: 10px;
+}
+
+.opc.opc-firststep-login .section:not(#opc-login) .step-title,
+.opc-block-progress-step-login {
+  -webkit-transition: opacity 300ms linear;
+  -webkit-transition-delay: 0;
+  -moz-transition: opacity 300ms linear 0;
+  -o-transition: opacity 300ms linear 0;
+  transition: opacity 300ms linear 0;
+}
+
+.opc.opc-firststep-login .section#opc-login .step-title .number {
+  -webkit-transition: width 80ms linear;
+  -webkit-transition-delay: 0;
+  -moz-transition: width 80ms linear 0;
+  -o-transition: width 80ms linear 0;
+  transition: width 80ms linear 0;
+}
+
+.opc.opc-firststep-login .section#opc-login .step-title h2 {
+  -webkit-transition: margin-left 80ms linear;
+  -webkit-transition-delay: 0;
+  -moz-transition: margin-left 80ms linear 0;
+  -o-transition: margin-left 80ms linear 0;
+  transition: margin-left 80ms linear 0;
+}
+
+/* When a user progresses from the "Checkout Method" to "Billing Information" for the first time, the              */
+/* "opc-has-progressed-from-login" class gets added to the body. Also, the .opc element will only have the         */
+/* "opc-firststep-login" class if the first step of the checkout is the "Checkout Method" (eg, not when logged in) */
+body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section:not(#opc-login) .step-title,
+body:not(.opc-has-progressed-from-login) .opc-block-progress-step-login {
+  opacity: 0;
+}
+
+body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-login .step-title .number {
+  width: 0px;
+  overflow: hidden;
+}
+
+body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-login .step-title h2 {
+  margin-left: 0px;
+}
+
+/* -------------------------------------------- *
+ * Shipping and Payment methods
+ */
+.sp-methods {
+  margin: 0 0 8px;
+}
+
+.sp-methods dt {
+  margin: 13px 0 5px;
+  font-weight: bold;
+}
+
+.sp-methods dt:first-child {
+  margin: 0 0 5px;
+}
+
+.sp-methods dd li {
+  margin: 5px 0;
+}
+
+.sp-methods label img {
+  float: left;
+}
+
+.sp-methods label a {
+  margin-top: 6px;
+  float: right;
+  margin-left: 10px;
+}
+
+.sp-methods .price {
+  font-weight: bold;
+}
+
+.sp-methods .form-list {
+  padding-left: 20px;
+}
+
+.sp-methods .form-list li {
+  margin: 0 0 8px;
+}
+
+.sp-methods select.month {
+  width: 120px;
+  margin-right: 10px;
+}
+
+.sp-methods select.year {
+  width: 96px;
+}
+
+.sp-methods input.cvv {
+  width: 4em !important;
+}
+
+.sp-methods #advice-validate-cc-exp-ccsave_expiration {
+  max-width: 130px;
+}
+
+.sp-methods .checkmo-list li {
+  margin: 0 0 5px;
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.sp-methods .checkmo-list label {
+  width: 165px;
+  padding-right: 15px;
+  text-align: right;
+  float: left;
+}
+
+.sp-methods .checkmo-list address {
+  float: left;
+}
+
+.sp-methods .release-amounts {
+  margin: 0.5em 0;
+}
+
+.sp-methods .release-amounts button {
+  float: left;
+  margin: 5px 10px 0 0;
+}
+
+/* One Page Checkout */
+
+.block-progress .block-content {
+  font-size: 13px;
+}
+
+.block-progress dt {
+  padding-top: 6px;
+  margin: 0;
+  margin-bottom: 10px;
+  color: $primary-color;
+  font-size: 16px;
+  text-rendering: optimizeSpeed;
+  margin-bottom: 6px;
+  font-weight: normal;
+}
+
+.block-progress dt.complete {
+  color: #636363;
+}
+
+.block-progress dd {
+  padding-left: 15px;
+  margin-bottom: 10px;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-style: italic;
+}
+
+.block-progress dd address {
+  font-style: italic;
+}
+
+.block-progress #payment-progress-opcheckout .subtitle {
+  margin-bottom: 3px;
+}
+
+.block-progress .payment-info dt {
+  padding: 0;
+  margin: 0 0 3px 0;
+  color: #636363;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  text-transform: none;
+  font-style: italic;
+  float: left;
+  clear: both;
+  font-size: 13px;
+}
+
+.block-progress .payment-info dt:after {
+  content: ': ';
+}
+
+.block-progress .payment-info dd {
+  float: left;
+  margin-bottom: 3px;
+  font-size: 13px;
+}
+
+.block-progress .payment-info:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* review step */
+#checkout-review-table .btn-remove img {
+  display: none;
+}
+
+#checkout-review-table-wrapper {
+  clear: both;
+}
+
+#review-buttons-container {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#review-buttons-container .btn-checkout {
+  min-width: 220px;
+}
+
+#review-buttons-container .please-wait {
+  float: left;
+  margin-right: 10px;
+}
+
+#review-buttons-container .f-left {
+  float: right;
+}
+
+/* show/hide "change" link for progress step depend on complete status
+ * should be placed in .css file */
+.opc-block-progress dt.complete a,
+.opc-block-progress dt.complete .separator {
+  display: inline;
+}
+
+.opc-block-progress dt a,
+.opc-block-progress dt .separator {
+  display: none;
+}
+
+/* On small screens, the progress review content will be moved to the review step via JS. Styled via this CSS: */
+#checkout-step-review .opc-block-progress {
+  border-left: none;
+  padding-left: 0;
+}
+
+#checkout-step-review .opc-block-progress .block-title {
+  display: none;
+}
+
+#checkout-step-review .opc-block-progress .block-content {
+  display: block !important;
+  padding: 0;
+}
+
+#checkout-step-review .opc-block-progress .block-content > dl > div {
+  float: left;
+  width: 50%;
+}
+
+@media only screen and (max-width: 479px) {
+  #checkout-step-review .opc-block-progress .block-content > dl > div {
+    float: none;
+    width: auto;
+  }
+}
+
+#checkout-step-review .opc-block-progress .block-content .changelink {
+  display: none;
+}
+
+@media only screen and (max-width: 479px) {
+  #checkout-review-table thead > tr > th {
+    display: none;
+  }
+  #checkout-review-table thead > tr > th:first-child {
+    display: block;
+  }
+
+  #checkout-review-table thead > tr > th:first-child {
+    display: block;
+  }
+}
+
+#checkout-step-review .centinel > p {
+  margin-bottom: 10px;
+}
+
+#checkout-step-review .centinel iframe {
+  width: 100%;
+  min-height: 400px;
+}
+
+/* Gift options */
+.gift-messages-form .item {
+  content: '';
+  display: table;
+  clear: both;
+  margin-top: 30px;
+}
+
+.gift-messages-form .item h5 {
+  font-weight: bold;
+}
+
+.gift-messages-form .item .product-img-box {
+  width: auto;
+  float: left;
+  padding-right: 15px;
+}
+
+.gift-messages-form .item .details {
+  float: left;
+}
+
+.gift-message-form .inner-box > div {
+  content: '';
+  display: table;
+  clear: both;
+  width: 100%;
+  margin-top: 15px;
+  display: block;
+}
+
+.gift-message-form .inner-box > div.extra-options-container p {
+  margin-bottom: 15px;
+}
+
+.gift-message-form .gift-wrapping-form label {
+  margin-right: 10px;
+}
+
+.gift-message-form .gift-wrapping-form img {
+  float: left;
+}
+
+.gift-message-form .gift-wrapping-form .gift-wrapping-design {
+  height: 75px;
+}
+
+.gift-message-form .gift-wrapping-form .gift-wrapping-design:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.gift-message-form .gift-wrapping-form .gift-wrapping-design .image-box {
+  margin-right: 5px;
+}
+
+.gift-message-form .gift-item {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: solid 1px #ececec;
+}
+
+.gift-message-form .gift-item:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.gift-message-form .gift-item .product-img-box {
+  width: 200px;
+}
+
+.gift-message-form .gift-item .product-img-box .product-image {
+  width: 75px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gift-message-form .gift-item .product-img-box .product-name {
+  display: block;
+}
+
+.gift-message-form .gift-item .fieldset {
+  margin-left: 200px;
+}
+
+@media only screen and (max-width: 770px) {
+  .gift-message-form .giftmessage-area {
+    max-width: 100%;
+  }
+  .gift-message-form .gift-item .product-img-box {
+    width: 100%;
+    float: none;
+  }
+  .gift-message-form .gift-item .fieldset {
+    margin-left: 0px;
+  }
+  .gift-message-form .gift-item .fieldset textarea {
+    width: 100%;
+  }
+}
+
+/* ============================================ *
+ * Checkout - Success
+ * ============================================ */
+.checkout-onepage-success .col-main {
+  padding: 0;
+  text-align: center;
+}
+
+.checkout-onepage-success .buttons-set {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.checkout-onepage-success .buttons-set button {
+  float: none;
+}
+
+.trusted-shops {
+  border-radius: $global-radius;
+  select {
+    width: 50%;
+    @include breakpoint(small only) {
+      width: 100%;
+    }
+  }
+}
+
+.sp-methods {
+  margin: 0 0 8px;
+}
+
+.sp-methods dt {
+  margin: 13px 0 5px;
+  font-weight: bold;
+}
+
+.sp-methods dt:first-child {
+  margin: 0 0 5px;
+}
+
+.sp-methods dd li {
+  margin: 5px 0;
+}
+
+.sp-methods label img {
+  float: left;
+}
+
+.sp-methods label a {
+  margin-top: 6px;
+  float: right;
+  margin-left: 10px;
+}
+
+.sp-methods .price {
+  font-weight: bold;
+}
+
+.sp-methods .form-list {
+  padding-left: 20px;
+}
+
+.sp-methods .form-list li {
+  margin: 0 0 8px;
+}
+
+.sp-methods select.month {
+  width: 120px;
+  margin-right: 10px;
+}
+
+.sp-methods select.year {
+  width: 96px;
+}
+
+.sp-methods input.cvv {
+  width: 4em !important;
+}
+
+.sp-methods #advice-validate-cc-exp-ccsave_expiration {
+  max-width: 130px;
+}
+
+.sp-methods .checkmo-list li {
+  margin: 0 0 5px;
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.sp-methods .checkmo-list label {
+  width: 165px;
+  padding-right: 15px;
+  text-align: right;
+  float: left;
+}
+
+.sp-methods .checkmo-list address {
+  float: left;
+}
+
+@media only screen and (max-width: 479px) {
+  .sp-methods .checkmo-list {
+    padding-left: 0;
+  }
+  .sp-methods .checkmo-list label {
+    width: 135px;
+  }
+}
+
+.sp-methods .release-amounts {
+  margin: 0.5em 0;
+}
+
+.sp-methods .release-amounts button {
+  float: left;
+  margin: 5px 10px 0 0;
+}
+
+.checkout-onepage-index {
+  .col-right {
+    @media #{$small-only} {
+      margin-top: 0;
+      border-left: 0;
+    }
+    margin-top: 1em;
+    border-left: 1px solid $medium-gray;
+    #checkout-progress-wrapper {
+      margin-left: 1em;
+    }
+    .block-title strong {
+      display: block;
+    }
+    #payment-progress-opcheckout {
+      table tbody td {
+        padding: 0;
+      }
+    }
+  }
+}

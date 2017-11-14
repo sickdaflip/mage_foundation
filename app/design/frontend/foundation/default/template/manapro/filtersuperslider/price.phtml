@@ -1,0 +1,70 @@
+<?php 
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterSlider
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+/** 
+ * Template for showing options for filter as a slider 
+ * @author Mana Team
+ * Injected instead of standard catalog/layer/filter.phtml in Mana_Filters_Block_Filter_Attribute init() method.
+ * This template is overridden by copying (template body was pasted from catalog/layer/filter.phtml 
+ * and modified as needed). All changes are marked with comments.
+ */
+/* @var $this Mana_Filters_Block_Filter_Price */
+?>
+<?php /* @var $_helper Mana_Filters_Helper_Data */ $_helper = Mage::helper(strtolower('Mana_Filters')); ?>
+<?php /* @var $_superHelper ManaPro_FilterSuperSlider_Helper_Data */ $_superHelper = Mage::helper(strtolower('ManaPro_FilterSuperSlider')); ?>
+<?php /* @var $_slider ManaPro_FilterSlider_Helper_Data */ $_slider = Mage::helper(strtolower('ManaPro_FilterSlider'));?>
+<?php /* @var $_filter Mana_Filters_Model_Filter_Price */ $_filter = $this->getFilter(); ?>
+<?php $_id = $_helper->getFilterName($this, $_filter); ?>
+<div id="<?php echo $_id ?>-track" class="m-filter-slider <?php echo Mage::getStoreConfig('mana_filters/slider/style') ?>">
+	<div id="<?php echo $_id ?>-span" class="m-slider-span"></div>
+	<div id="<?php echo $_id ?>-from" class="m-slider-from"></div>
+	<div id="<?php echo $_id ?>-to" class="m-slider-to"></div>
+</div>
+	<div class="m-slider-values">
+		<span id="<?php echo $_id ?>-range-from" class="m-slider-min-value"><?php echo $_superHelper->formatNumber($_filter->getLowestPossibleValue(), $_filter->getFilterOptions()) ?></span>
+		<span id="<?php echo $_id ?>-range-to" class="m-slider-max-value"><?php echo $_superHelper->formatNumber($_filter->getHighestPossibleValue(), $_filter->getFilterOptions()) ?></span>
+        <?php if ($_filter->getFilterOptions()->getSliderManualEntry()) : ?>
+        <span id="<?php echo $_id ?>-applied" class="m-slider-selected-value">
+            <?php
+                $manualEntryOptions = clone $_filter->getFilterOptions();
+                $manualEntryOptions->setSliderNumberFormat('0')->setSliderNumberFormat2('0')->setThousandSeparator('0');
+            ?>
+            <?php echo $_superHelper->beforeInput($_filter->getFilterOptions()) ?><input type="text" class="m-slider m-from" size="2" value="<?php echo $_superHelper->formatNumber($_filter->getCurrentRangeLowerBound(), $manualEntryOptions) ?>" /><?php echo $_superHelper->afterInput($_filter->getFilterOptions()) ?>
+            <?php echo $_superHelper->__('to') ?>
+            <?php echo $_superHelper->beforeInput($_filter->getFilterOptions()) ?><input type="text" class="m-slider m-to"size="2" value="<?php echo $_superHelper->formatNumber($_filter->getCurrentRangeHigherBound(), $manualEntryOptions) ?>" /><?php echo $_superHelper->afterInput($_filter->getFilterOptions()) ?>
+        </span>
+        <?php else: ?>
+		<span id="<?php echo $_id ?>-applied" class="m-slider-selected-value"><?php echo $_helper->__('%s to %s', $_superHelper->formatNumber($_filter->getCurrentRangeLowerBound(), $_filter->getFilterOptions()), $_superHelper->formatNumber($_filter->getCurrentRangeHigherBound(), $_filter->getFilterOptions()))?></span>
+		<?php endif; ?>
+	</div>
+
+<script type="text/javascript">
+//<![CDATA[
+ManaPro.filterSuperSlider('<?php echo $_id ?>', {
+	rangeFrom: <?php echo $_filter->getLowestPossibleValue() ?>,
+	rangeTo: <?php echo $_filter->getHighestPossibleValue() ?>,
+	appliedFrom: <?php echo $_filter->getCurrentRangeLowerBound() ?>,
+	appliedTo: <?php echo $_filter->getCurrentRangeHigherBound() ?>,
+	numberFormat: "<?php echo addslashes($_filter->getFilterOptions()->getSliderNumberFormat()) ?>",
+	appliedFormat: '<?php echo $_helper->__('__0__ to __1__') ?>',
+	url: '<?php echo  Mage::helper('mana_core')->base64EncodeUrl($_slider->getUrl($_filter->getRequestVar())) ?>',
+	clearUrl: '<?php echo  Mage::helper('mana_core')->base64EncodeUrl($_slider->getClearUrl($_filter->getRequestVar())) ?>',
+	manualEntry: <?php echo $_filter->getFilterOptions()->getSliderManualEntry() ? 1 : 0 ?>,
+	formatThreshold: <?php echo $_filter->getFilterOptions()->getSliderThreshold() ? $_filter->getFilterOptions()->getSliderThreshold() : 0 ?>,
+    numberFormat2: "<?php echo addslashes($_filter->getFilterOptions()->getSliderNumberFormat2()) ?>",
+    existingValues: <?php echo $_filter->getFilterOptions()->getSliderUseExistingValues() ? json_encode($_filter->getExistingValues()) : '{}' ?>,
+    decimalDigits: <?php echo $_filter->getFilterOptions()->getSliderDecimalDigits() ?>,
+    decimalDigits2: <?php echo $_filter->getFilterOptions()->getSliderDecimalDigits2() ?>,
+    thousandSeparator: '<?php echo $_filter->getFilterOptions()->getThousandSeparator() ?>',
+    decimalSymbol: "<?php echo $_superHelper->getDecimalSymbol() ?>",
+    groupSymbol: "<?php echo $_superHelper->escapeHtml($_superHelper->getGroupSymbol()) ?>"
+});
+//]]>
+</script>
+<?php if (Mage::helper('mana_core')->isSpecialPagesInstalled()): ?>
+    <?php echo Mage::helper('mana_page/special')->getSliderSpecialOptionsHtml($_filter) ?>
+<?php endif; ?>

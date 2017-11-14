@@ -1,0 +1,41 @@
+<?php 
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterTree
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+/** 
+ * Template for showing options for filter as a list of radio buttons 
+ * @author Mana Team
+ * Injected instead of standard catalog/layer/filter.phtml in Mana_Filters_Block_Filter_Attribute init() method.
+ * This template is overridden by copying (template body was pasted from catalog/layer/filter.phtml 
+ * and modified as needed). All changes are marked with comments.
+ */
+/* @var $this ManaPro_FilterTree_Block_Item */
+/* @var $filters Mana_Filters_Helper_Data */ $filters = Mage::helper(strtolower('Mana_Filters'));
+?>
+<?php /* @var $_item Mana_Filters_Model_Item */ $_item = $this->getItem(); ?>
+<li <?php if ($_item->getMSelected()): ?>class="m-selected-ln-item"<?php endif; ?>>
+    <div class="m-tree-item" id="m-tree-item-<?php echo $_item->getValue() ?>">
+        <?php if ($_item->getMSelected()): ?>
+        <span class="m-selected-filter-item"><?php echo $_item->getEscapedLabel() ?></span>
+        <?php else : ?>
+        <?php if (!$_item->getFilter()->getFilterOptions()->getDisableNoResultOptions() || $_item->getCount() > 0 || $_item->getMSelected()): ?>
+            <a href="<?php echo $this->urlEscape($_item->getReplaceUrl()) ?>"
+               title="<?php echo $_item->getEscapedLabel() ?>"><?php echo $_item->getEscapedLabel() ?></a>
+            <?php else: echo $_item->getEscapedLabel() ?>
+            <?php endif; ?>
+        <?php endif; ?>
+        <?php if (Mage::getStoreConfigFlag('mana_filters/display/count')) : ?>
+            (<?php echo $_item->getCount() ?>)
+        <?php endif; ?>
+    </div>
+    <?php if (count($this->getChild())) : ?>
+    <ul>
+        <?php foreach($this->getChild() as /* @var $childBlock ManaPro_FilterTree_Block_Item */ $childBlock) : ?>
+            <?php echo $childBlock->toHtml() ?>
+        <?php endforeach ?>
+    </ul>
+    <?php endif; ?>
+</li>

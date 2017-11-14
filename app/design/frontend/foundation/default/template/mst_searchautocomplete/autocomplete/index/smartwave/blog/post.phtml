@@ -1,0 +1,7 @@
+<?php
+$_item = $this->getItem();
+$url = $this->getUrl('blog/'.$_item->getIdentifier());
+?>
+<li data-url="<?php echo $url ?>">
+    <a class="name highlight" href="<?php echo $url ?>"><?php echo $_item->getTitle() ?></div></a>
+</li>

@@ -1,0 +1,12 @@
+.password-field {
+  #toolTipPasswordStrength {
+    display: none;
+    #toolTipPasswordStrengthWrapper {
+      border: 1px solid $medium-gray;
+      border-radius: $global-radius;
+      overflow: hidden;
+      padding: 10px;
+      margin: 0 0 1rem;
+    }
+  }
+}

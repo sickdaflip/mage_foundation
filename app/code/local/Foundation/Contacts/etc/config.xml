@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Foundation_Contacts>
+            <version>1.0.0</version>
+        </Foundation_Contacts>
+    </modules>
+    <global>
+        <template>
+            <email>
+                <contacts_email_email_template>
+                    <type>text</type>
+                </contacts_email_email_template>
+            </email>
+        </template>
+    </global>
+</config>

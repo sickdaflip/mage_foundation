@@ -1,0 +1,8 @@
+<?php
+$_item         = $this->getItem();
+$_url          = $_item->getUrl();
+$_configHelper = Mage::helper('searchautocomplete/config');
+?>
+<li data-url="<?php echo $_url ?>">
+    <a class="name highlight" href="<?php echo $_url ?>"><?php echo $_item->getTitle() ?></a>
+</li>

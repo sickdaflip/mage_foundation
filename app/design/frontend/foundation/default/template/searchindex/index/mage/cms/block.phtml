@@ -1,0 +1,20 @@
+<div class="searchindex-result">
+    <?php echo $this->getPager() ?>
+    <ul>
+        <?php foreach($this->getCollection() as $_block) : ?>
+        <li>
+            <div class="title">
+                <b><?php echo $_block->getData('title') ?></b>
+            </div>
+            <div class="content">
+                <?php 
+                    $_html = Mage::helper('cms')->getPageTemplateProcessor()->filter($_block->getContent());
+                    $_html = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', '', $_html);
+                ?>
+                <?php echo Mage::helper('core/string')->truncate(strip_tags($_html), 300) ?>
+            </div>
+        </li>
+        <?php endforeach ?>
+    </ul>
+    <?php echo $this->getPager() ?>
+</div>

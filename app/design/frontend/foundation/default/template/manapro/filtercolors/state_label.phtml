@@ -1,0 +1,25 @@
+<?php 
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterColors
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+/** 
+ * Template for showing options for filter as a list of color boxes 
+ * @author Mana Team
+ * Injected instead of standard catalog/layer/filter.phtml in Mana_Filters_Block_Filter_Attribute init() method.
+ */
+/* @var $this Mana_Filters_Block_Filter_Attribute */
+$_filter = $this->getItem();
+?>
+<li>
+    <a href="<?php echo $_filter->getRemoveUrl() ?>" title="<?php echo $this->__('Remove This Item') ?>" class="btn-remove"><?php echo $this->__('Remove This Item') ?></a>
+    <span class="label"><?php echo $this->__($_filter->getName()) ?>:</span>
+    <?php echo $_filter->getMShowSelected() ? $this->__('not') : '' ?>
+    <div class="m-color state <?php if ($_filter->getMSelected()): ?>selected<?php endif; ?> <?php echo $this->getFilterValueClass($this->getItem()) ?>-state"
+        title="<?php echo $this->escapeHtml($_filter->getLabel()) ?>">
+        <div class="m-layer1"></div>
+    </div>
+    <?php echo $this->escapeHtml($_filter->getLabel()) ?>
+</li>

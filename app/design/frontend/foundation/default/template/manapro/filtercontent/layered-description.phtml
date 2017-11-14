@@ -1,0 +1,21 @@
+<?php
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterContent
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+/**
+ * @author Mana Team
+ *
+ */
+/* @var $this ManaPro_FilterContent_Block_LayeredDescription */
+?>
+<ul class="m-additional-description" data-m-block="ManaPro/FilterContent/LayeredDescription">
+    <li class="m-background">
+        <img <?php echo $this->fileHelper()->renderImageAttributes($this->getBackgroundImage()) ?> />
+    </li>
+    <li class="m-text">
+        <?php echo $this->getAdditionalDescription() ?>
+    </li>
+</ul>

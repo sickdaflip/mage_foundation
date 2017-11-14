@@ -1,0 +1,24 @@
+<?php $_code = $this->getMethodCode(); ?>
+<?php if (!$this->isBanner()): ?>
+    <ul class="form-list" id="payment_form_<?php echo $_code ?>" style="display: none;">
+        <?php if ($this->isCustomerProtectionEnabled()): ?>
+        <li><?php echo $this->__('Buyer protection for payment by SOFORT Banking! <a href="https://www.sofort-bank.com/eng-DE/general/kaeuferschutz/informationen-fuer-kaeufer/">More information.</a>'); ?></li>
+        <?php endif; ?>
+        <?php if ($this->isBanner()): ?>
+            <?php if (!$this->isCustomerProtectionEnabled()): ?>
+                <li><a href="https://images.sofort.com/<?php echo $this->__('en'); ?>/su/landing.php" target="_blank">
+                    <img src="https://images.sofort.com/<?php echo $this->__('en'); ?>/su/banner_300x100.png" alt="<?php echo $this->__('sofort_banner_alt_text'); ?>"/>
+                </a></li>
+            <?php else: ?>
+                <li><a href="https://images.sofort.com/<?php echo $this->__('en'); ?>/su/landing.php" target="_blank">
+                    <img src="https://images.sofort.com/<?php echo $this->__('en'); ?>/su/banner_400x100_ks.png" alt="<?php echo $this->__('sofort_banner_alt_text'); ?>"/>
+                </a></li>
+            <?php endif; ?>
+        <?php else: ?>
+            <li><a href="https://images.sofort.com/<?php echo $this->__('en'); ?>/su/landing.php" target="_blank">
+                <img src="https://images.sofort.com/<?php echo $this->__('en'); ?>/su/logo_155x50.png" alt="<?php echo $this->__('sofort_banner_alt_text'); ?>"/>
+            </a></li>
+        <?php endif; ?>
+        <?php echo $this->__('<li>Payment system with data protection certified by TÜV Saarland</li><li>No registration required</li><li>Stock goods/content can be shipped/activated immediately</li><li>Please have your online banking details ready</li>'); ?>
+    </ul>
+<?php endif; ?>

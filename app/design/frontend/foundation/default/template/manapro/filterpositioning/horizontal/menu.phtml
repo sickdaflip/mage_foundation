@@ -1,0 +1,75 @@
+<?php
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterPositioning
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+?>
+<?php
+/**
+ * Category layered navigation
+ *
+ * @see Mage_Catalog_Block_Layer_View
+ */
+
+/* @var $_filterHelper Mana_Filters_Helper_Data */
+$_filterHelper = Mage::helper('mana_filters');
+
+?>
+<?php if($this->canShowBlock()): ?>
+<div class="block block-layered-nav m-topmenu mb-top-layered-navigation m-wide <?php echo Mage::getStoreConfig('mana_filters/mobile/slider') ?> <?php echo $this->areAllFiltersMobileOnly() ? 'm-mobile-only': ''?>"
+     data-m-block="Mana/LayeredNavigation/Top/MenuBlock"
+     data-behavior="<?php echo Mage::getStoreConfig('mana_filters/mobile/behavior') ?>"
+     data-subtitle-behavior="<?php echo Mage::getStoreConfig('mana_filters/mobile/subtitle_behavior') ?>"
+     data-duration="<?php echo Mage::getStoreConfig('mana_filters/mobile/duration') ?>"
+     data-hide-sidebars="<?php echo Mage::getStoreConfig('mana_filters/mobile/column_filters') == 'move' ? '1' : '0' ?>"
+     data-one-column="<?php echo Mage::getStoreConfig('mana_filters/mobile/max_width') ?>"
+     data-title="<?php echo $this->__('Filter') ?>"
+     data-column-filters="<?php echo Mage::getStoreConfig('mana_filters/mobile/column_filters') ?>"
+     data-min-width="<?php echo Mage::getStoreConfig('mana_filters/positioning_menu/min_width') ?>"
+     data-max-width="<?php echo Mage::getStoreConfig('mana_filters/positioning_menu/width') ?>">
+    <div class="block-content">
+        <?php echo $this->getStateHtml() ?>
+        <?php if (Mage::helper('mana_core')->isMageVersionEqualOrGreater('1.7') && $this->getLayer()->getState()->getFilters()) : ?>
+        <div class="actions"><a href="<?php echo $this->getClearUrl() ?>"><?php echo $this->__('Clear All') ?></a></div>
+        <?php endif; ?>
+        <?php if($this->canShowOptions()): ?>
+            <div id="narrow-by-list">
+            <dl class="m-shop-by">
+              <dt class="block-subtitle <?php echo Mage::getStoreConfigFlag('mana_filters/positioning/shop_by_title') ? '' : 'hidden' ?>">
+                <div class="m-subtitle-actions">
+                    <div class="m-expand-collapse">
+                        <div class="btn-expand-collapse"></div>
+                    </div>
+                </div>
+                      <strong><span><?php echo $this->__('Shop By') ?></span></strong>
+              </dt>
+              <dd class="hidden"></dd>
+            </dl>
+                <div>
+                <?php $_filters = $this->getFilters() ?>
+                <?php foreach ($_filters as $_filter): ?>
+                <?php if($_filter->getItemsCount()): ?>
+                    <?php $_visible = Mage::helper('mana_filters')->renderHtml($this, 'menu_visible', array('filter' => $_filter)); ?>
+                <dl class="<?php echo $_filter->getFilterOptions() ? 'm-'. $_filter->getFilterOptions()->getDisplay() : '' ?>  <?php Mage::helper('mana_filters')->renderHtml($this, 'menu_container_css', array('filter' => $_filter)); ?> <?php echo $_filter->getData('mobile') ? 'm-mobile' : '' ?>">
+                    <dt class="m-ln" data-id="<?php echo $_filterHelper->getFilterLayoutName($this, $_filter->getFilterOptions()) ?>">
+                        <div class="m-horizontal-actions">
+                            <?php Mage::helper('mana_filters')->renderHtml($this, 'menu_name_before', array('filter' => $_filter)); ?>
+                            <div class="m-expand-collapse">
+                                <div class="btn-expand-collapse"></div>
+                            </div>
+                        </div>
+                        <?php echo $this->__($_filter->getName()) ?>
+                    </dt>
+                    <dd class="<?php if(!$_visible): ?>hidden<?php endif?> m-ln"><?php echo $_filter->getHtml() ?></dd>
+                </dl>
+                <?php endif; ?>
+                <?php endforeach; ?>
+                </div>
+            </div>
+            <script type="text/javascript">decorateDataList('narrow-by-list')</script>
+        <?php endif; ?>
+    </div>
+</div>
+<?php endif; ?>

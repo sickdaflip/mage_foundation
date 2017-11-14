@@ -1,0 +1,38 @@
+<?php
+$tabs = array();
+foreach ($this->getTabs() as $_index => $_tab) {
+    if (!($childHtml = $this->getChildHtml($_tab['alias']))
+        || $this->isEmptyString($childHtml)
+    ) {
+        continue;
+    }
+    $_tab['child_html'] = $childHtml;
+    $_tab['title'] = $this->getTabTitle($_tab);
+    $tabs[$_index] = $_tab;
+}
+?>
+<ul class="tabs" data-responsive-accordion-tabs="accordion large-tabs" id="product-tabs" data-multi-expand="true" data-allow-all-closed="true">
+    <?php $i1 = 0 ?>
+    <?php foreach ($tabs as $_index => $_tab) : ?>
+        <li class="tabs-title<?php if ($i1 == 0) {
+            echo ' is-active';
+        } ?>" data-accordion-item>
+            <a href="#<?php echo $_tab['alias'] ?>" aria-selected="<?php if ($i1 == 0) {
+                echo 'true';
+            } ?>"
+            ><?php echo $this->__($_tab['title']); ?></a>
+        </li>
+        <?php $i1++ ?>
+    <?php endforeach; ?>
+</ul>
+<div class="tabs-content" data-tabs-content="product-tabs">
+    <?php $i2 = 0 ?>
+    <?php foreach ($tabs as $_index => $_tab) : ?>
+        <div class="tabs-panel <?php if ($i2 == 0) {
+            echo 'is-active';
+        } ?>" id="<?php echo $_tab['alias'] ?>">
+                <?php echo $_tab['child_html']; ?>
+        </div>
+        <?php $i2++ ?>
+    <?php endforeach; ?>
+</div>

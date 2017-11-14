@@ -1,0 +1,14 @@
+<div class="reasons">
+    <a class="reasons-modal" onClick="ga('send', 'event', { eventCategory: 'Interaktion', eventAction: 'button_click', eventLabel: 'reasons'});">
+        <span><?php echo $this->__('12<sup>+++</sup>') ?></span>
+        <span><?php echo $this->__('Gute Gründe,<br />warum Sie bei<br /><strong>Gastrodax.de</strong><br />bestellen') ?></span>
+    </a>
+</div>
+<div class="large reveal" id="reasons" data-reveal></div>
+<script>
+    jQuery('.reasons-modal').click(function() {
+        jQuery.ajax("<?php echo Mage::getUrl('ajax/cms/block/id/44'); ?>").done(function(data) {
+            jQuery("#reasons").html(data).foundation('open');
+        });
+    });
+</script>

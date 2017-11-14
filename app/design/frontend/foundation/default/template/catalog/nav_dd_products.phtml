@@ -1,0 +1,84 @@
+<?php
+$chosen_category = Mage::getModel('catalog/category')->load($this->getCategoryId());
+$_productCollection = $this->getLoadedProductCollection();
+$number_of_products = $this->getNumProducts();
+if (sizeof($_productCollection) < $number_of_products) {
+    $number_of_products = sizeof($_productCollection);
+}
+$displayed_products = array();
+foreach ($_productCollection as $_product) {
+    $displayed_products[] = $_product;
+}
+$random_products = array();
+if (sizeof($_productCollection) > 1) {
+    $random_products = array_rand($displayed_products, $number_of_products);
+} else {
+    $random_products = array('0');
+}
+?>
+<?php if (!$_productCollection->getSize()): ?>
+    <div class="note-msg">
+        <?= $this->__('There are no products matching the selection.') ?>
+    </div>
+<?php else: ?>
+            <div class="category-products">
+                <ul class="products-grid" data-equalizer="pgrid">
+                    <?php
+                    $k = 0;
+                    for ($i = 0; $i < $number_of_products; $i++): ?>
+                    <?php if ($k == 0) { ?>
+                    <tr class="first odd">
+                        <?php } if ($k == 3)    {
+                        $k = 0; ?>
+                    </tr>
+                    <tr class="first odd even">
+                        <?php } ?>
+                        <td id="td_<?php echo($k + 1); ?>" <?php if ($k == 3){ ?>class="last"<? } ?> >
+                            <div class="cms-box">
+                                <div id="cont_<?php echo($k + 1); ?>">
+                                    <div class="product-name-block">
+                                        <?php
+                                        $pname = $this->htmlEscape($displayed_products[$random_products[$i]]->getName());
+                                        ?>
+                                        <h3 class="product-name">
+                                            <a href="<?php echo $displayed_products[$random_products[$i]]->getProductUrl() ?>"
+                                               title="<?php echo $pname; ?>">
+                                                <?php if (strlen($pname) > 28) {
+                                                    echo substr($pname, 0, 25) . "...";
+                                                } else {
+                                                    echo $pname;
+                                                } ?>
+                                            </a></h3>
+                                    </div>
+                                    <div class="image-box">
+                                        <a class="product-image"
+                                           href="<?php echo $displayed_products[$random_products[$i]]->getProductUrl() ?>">
+                                            <img
+                                                src="<?php echo $this->helper('catalog/image')->init($displayed_products[$random_products[$i]], 'small_image')->resize(100); ?>"
+                                                alt="<?php echo $this->htmlEscape($displayed_products[$random_products[$i]]->getName()) ?>"
+                                                title="<?php echo $this->htmlEscape($displayed_products[$random_products[$i]]->getName()) ?>"/>
+                                        </a>
+                                    </div>
+                                    <div class="cms-price-box" style=" text-align:center;">
+					<span class="regular-price" id="product-price-37">
+						<span class="price"><?php echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->
+                                getCurrentCurrencyCode())->getSymbol() . $displayed_products[$random_products[$i]]->getPrice(); ?></span>
+					</span>
+                                    </div>
+                                    <div class="button-row" style="text-align:center;">
+                                        <button
+                                            onclick="setLocation('<?php echo $displayed_products[$random_products[$i]]->getProductUrl(); ?>')"
+                                            class="button" type="button"><span><span><span>Details</span></span></span>
+                                        </button>
+                                        <button
+                                            onclick="setLocation('<?php echo $this->getUrl('') . "/checkout/cart/add?product=" . $displayed_products[$random_products[$i]]->getId() . "&qty=1" ?>')"
+                                            class="button"><span><?php echo $this->__('Add to Cart') ?></span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <?php $k++; ?>
+                        <?php endfor; ?>
+                </ul>
+            </div>
+<?php endif; ?>

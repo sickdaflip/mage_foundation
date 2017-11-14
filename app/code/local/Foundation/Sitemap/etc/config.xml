@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Foundation_Sitemap>
+            <version>1.0.0</version>
+        </Foundation_Sitemap>
+    </modules>
+    <global>
+        <models>
+            <foundation_sitemap>
+                <class>Foundation_Sitemap_Model</class>
+            </foundation_sitemap>
+            <sitemap>
+                <rewrite>
+                    <sitemap>Foundation_Sitemap_Model_Sitemap</sitemap>
+                </rewrite>
+            </sitemap>
+        </models>
+        <helpers>
+            <foundation_sitemap>
+                <class>Foundation_Sitemap_Helper</class>
+            </foundation_sitemap>
+        </helpers>
+    </global>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <foundation_sitemap>
+                                            <title>Foundation Sitemap</title>
+                                        </foundation_sitemap>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

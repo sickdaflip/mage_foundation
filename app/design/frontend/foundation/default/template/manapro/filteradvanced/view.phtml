@@ -1,0 +1,82 @@
+<?php
+/**
+ * @project gastrodax
+ *
+ * @author pbreitsprecher
+ * @copyright 2016
+ * @license https://opensource.org/licenses/MIT The MIT License (MIT)
+ *
+ * @last_modified 18.07.15 21:35
+ * @file view.phtml
+ *
+ */
+/**
+ * Category layered navigation
+ * @author Mana Team
+ * Injected instead of standard catalog/layer/view.phtml.
+ */
+/* @var $this Mana_Filters_Block_View */
+?>
+<?php
+/**
+ * Category layered navigation
+ *
+ * @see Mage_Catalog_Block_Layer_View
+ */
+
+/* @var $core Mana_Core_Helper_Data */
+$core = Mage::helper('mana_core');
+
+/* @var $filterHelper Mana_Filters_Helper_Data */
+$filterHelper = Mage::helper('mana_filters');
+
+?>
+<?php if($this->canShowBlock()): ?>
+<div class="block block-layered-nav">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Shop By') ?></span></strong>
+    </div>
+    <div class="block-content">
+        <?php echo $this->getStateHtml() ?>
+        <?php if ($core->isMageVersionEqualOrGreater('1.7') && $this->getLayer()->getState()->getFilters()) : ?>
+        <div class="actions"><a href="<?php echo $this->getClearUrl() ?>" class="button"><?php echo $this->__('Clear All') ?></a></div>
+        <?php endif; ?>
+        <?php if($this->canShowOptions()): ?>
+            <?php $_filterGroups = Mage::helper('mana_filters')->renderHtml($this, 'groups'); ?>
+            <?php foreach ($_filterGroups as $_filterGroup): ob_start(); ?>
+                <?php $_filters = $_filterGroup->getFilters(); ?>
+                <?php foreach ($_filters as $_filter): ?>
+                <?php if($_filter->getItemsCount()): ?>
+                    <dt class="<?php $filterHelper->renderHtml($this, 'name_css', array('filter' => $_filter)); ?>"
+                        <?php $filterHelper->renderHtml($this, 'name_attributes', array('filter' => $_filter)); ?>
+                    >
+                        <?php $filterHelper->renderHtml($this, 'name_before', array('filter' => $_filter)); ?>
+                        <?php echo $this->__($_filter->getName()) ?>
+                        <?php $filterHelper->renderHtml($this, 'name_after', array('filter' => $_filter)); ?>
+                    </dt>
+                    <dd class="<?php $filterHelper->renderHtml($this, 'value_css', array('filter' => $_filter)); ?>">
+                        <?php echo $_filter->getHtml() ?>
+                    </dd>
+                <?php endif; ?>
+                <?php endforeach; ?>
+                <?php if($_filterGroupHtml = trim(ob_get_clean())) : ?>
+                    <?php $_filterGroupName = $_filterGroup->getName() ? $this->__($_filterGroup->getName()) : $this->__('Shopping Options'); ?>
+
+                    <div class="block-subtitle m-filter-group <?php $filterHelper->renderHtml($this, 'group_css', array('group' => $_filterGroup)); ?>"
+                        <?php $filterHelper->renderHtml($this, 'group_attributes', array('group' => $_filterGroup)); ?>
+                    >
+                        <?php $filterHelper->renderHtml($this, 'group_before', array('group' => $_filterGroup)); ?>
+                        <?php echo $_filterGroupName ?>
+                        <?php $filterHelper->renderHtml($this, 'group_after', array('group' => $_filterGroup)); ?>
+                    </div>
+
+                    <dl class="narrow-by-list" id="narrow-by-list-<?php echo $_filterGroup->getId() ?>">
+                        <?php echo $_filterGroupHtml ?>
+                    </dl>
+                    <script type="text/javascript">decorateDataList('narrow-by-list-<?php echo $_filterGroup->getId() ?>')</script>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+</div>
+<?php endif; ?>

@@ -1,0 +1,39 @@
+<?php 
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterCheckboxes
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+/** 
+ * Template for showing options for filter as a HTML list 
+ * @author Mana Team
+ * Injected instead of standard catalog/layer/filter.phtml in Mana_Filters_Block_Filter_Attribute constructor.
+ * This template is overridden by copying (template body was pasted from catalog/layer/filter.phtml 
+ * and modified as needed). All changes are marked with comments.
+ */
+/* @var $this Mana_Filters_Block_Filter */
+
+?>
+<?php echo Mage::helper('mana_core')->getNamedHtml('mana_filters/markup', 'before_items', array('block' => $this)) ?>
+<ol class="m-filter-css-checkboxes <?php echo $this->getFilterOptions()->getIsReverse() ? 'm-reverse' : '' ?>">
+<?php foreach ($this->getItems() as $_item): ?>
+    <?php $_itemUrl = $this->urlEscape($_item->getMSelected() ? $_item->getRemoveUrl() : $_item->getUrl()); ?>
+    <li <?php echo $this->getListItemClass($_item) ?> >
+        <?php // MANA BEGIN ?>
+            <?php if (!$this->getFilterOptions()->getDisableNoResultOptions() || $_item->getCount() || $_item->getMSelected()): ?>
+                <a class="<?php echo $_item->getMShowSelected() ? 'm-checkbox-checked' : 'm-checkbox-unchecked' ?>"
+                   onclick="this.className='<?php echo $_item->getMShowSelected() ? 'm-checkbox-unchecked' : 'm-checkbox-checked' ?>'"
+                   href="<?php echo $_itemUrl ?>" title="<?php echo $this->escapeHtml($_item->getLabel()) ?>"><?php echo $this->escapeHtml($_item->getLabel()) ?></a>
+            <?php else: ?>
+                <a class="<?php echo $_item->getMShowSelected() ? 'm-checkbox-checked' : 'm-checkbox-unchecked' ?>"
+                   href="javascript:void(0)" title="<?php echo $this->escapeHtml($_item->getLabel()) ?>"><?php echo $this->escapeHtml($_item->getLabel()) ?></a>
+            <?php endif; ?>
+        <?php // MANA END ?>
+        <?php if (Mage::getStoreConfigFlag('mana_filters/display/count')) : ?>
+            (<?php echo $_item->getCount() ?>)
+        <?php endif; ?>
+    </li>
+<?php endforeach ?>
+</ol>
+<?php echo Mage::helper('mana_core')->getNamedHtml('mana_filters/markup', 'after_items', array('block' => $this)) ?>

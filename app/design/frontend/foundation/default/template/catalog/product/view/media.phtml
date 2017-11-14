@@ -1,0 +1,77 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product media data template
+ *
+ * @see Mage_Catalog_Block_Product_View_Media
+ */
+?>
+<?php
+$_product = $this->getProduct();
+$_helper = $this->helper('catalog/output');
+?>
+<div class="product-image">
+    <?php if($_product->getFinalPrice() < $_product->getPrice()){ ?>
+        <?php $_savingPercent = 100 - round(($_product->getFinalPrice() / $_product->getPrice())*100); ?>
+        <div class="special-ribbon"><span><?php echo $_savingPercent; ?>% Rabatt</span></div>
+    <?php } ?>
+    <a href="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" class="item">
+        <img data-interchange="[<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(250, 250) ?>, small], [<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(700, 700) ?>, large]"
+            alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
+            title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>"/>
+    </a>
+</div>
+<?php
+$attributeCodevideo = 'video';
+$attributevideo = $_product->getResource()->getAttribute($attributeCodevideo);
+$contentvideo = $attributevideo->getFrontend()->getValue($_product);
+$attributeCodethreesixty = 'threesixty';
+$attributethreesixty = $_product->getResource()->getAttribute($attributeCodethreesixty);
+$contentthreesixty = $attributethreesixty->getFrontend()->getValue($_product);
+$_helper = $this->helper('catalog/output');
+
+?>
+<?php if (count($this->getGalleryImages()) > 0 || !empty($contentthreesixty)): ?>
+    <div class="product-images">
+        <p><?php echo $this->__('More Views') ?></p>
+        <ul>
+            <?php if (!empty($contentthreesixty)) { ?>
+                <li><a class="item" data-iframe="true" data-src="<?php echo $_helper->productAttribute($this->getProduct(), $contentthreesixty, $attributeCodethreesixty) ?>"><img src="<?php echo $this->getSkinUrl('dist/assets/img/360-degree.jpg') ?>" alt="360° Ansicht"/></a></li>
+            <?php } ?>
+            <?php foreach ($this->getGalleryImages() as $_image): ?>
+                <li>
+                    <a href="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile()); ?>"
+                       title="<?php echo $this->htmlEscape($_image->getLabel()) ?>" class="item">
+                        <img data-interchange="[<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(80, 80); ?>, small], [<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(120, 120); ?>, large]"
+                            alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>"
+                            title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"/>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>

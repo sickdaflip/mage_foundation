@@ -1,0 +1,58 @@
+<div id="mini_login" data-dropdown-content class="f-dropdown content row" aria-hidden="true" aria-autoclose="false">
+    <div class="columns small-12">
+        <script type="text/javascript">
+            //<![CDATA[
+            function captcha() {
+                var v = grecaptcha.getResponse();
+                if (v.length == 0) {
+                    document.getElementById('recaptcha_validation').value = "";
+                    return false;
+                }
+                if (v.length != 0) {
+                    document.getElementById('recaptcha_validation').value = "1";
+                    return true;
+                }
+            };
+            //]]>
+        </script>
+        <form action="<?php echo $this->getUrl('customer/account/loginPost') ?>" method="post" data-abide onsubmit="return jQuery(this) && captcha()">
+            <?php echo $this->getBlockHtml('formkey'); ?>
+            <div class="row fullWidth">
+                <div class="large-12 columns email-field">
+                    <label for="mini-login"><?php echo $this->__('Customer Login') ?></label>
+                    <label for="mini-login"><?php echo $this->__('Email:') ?>
+                        <input type="email" name="login[username]" id="mini-login" required/>
+                    </label>
+                    <small class="error"><?php echo $this->__('Please enter your email.') ?></small>
+                </div>
+            </div>
+            <div class="row fullWidth">
+                <div class="large-12 columns password-field">
+                    <label for="mini-password"><?php echo $this->__('Password:') ?>
+                        <input type="password"
+                               name="login[password]"
+                               id="mini-password"
+                               required/>
+                    </label>
+                    <small class="error"><?php echo $this->__('Please enter your password.') ?></small>
+                </div>
+            </div>
+            <?php echo $this->getChildHtml('form.additional.info'); ?>
+            <div class="additional-actions row fullWidth">
+                <div class="columns small-6">
+                    <a href="<?php echo Mage::getUrl('customer/account/forgotpassword'); ?>"
+                       class="left"><?php echo $this->__('Forgot Your Password?') ?></a>
+                </div>
+                <div class="columns small-6">
+                    <a href="<?php echo Mage::getUrl('customer/account/create'); ?>"
+                       class="right"><?php echo $this->__('Create an Account') ?></a>
+                </div>
+            </div>
+            <div class="actions row fullWidth">
+                <div class="columns small-12">
+                    <button type="submit" class="button tiny right"><?php echo $this->__('Login') ?></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

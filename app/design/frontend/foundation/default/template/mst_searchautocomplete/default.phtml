@@ -1,0 +1,80 @@
+<?php
+/**
+ * @project gastrodax
+ *
+ * @author pbreitsprecher
+ * @copyright 2017
+ * @license https://opensource.org/licenses/MIT The MIT License (MIT)
+ *
+ * @last_modified 02.03.17 08:49
+ * @file default.phtml
+ *
+ */
+
+$_helper = Mage::helper('catalogsearch');
+$_value = $_helper->getEscapedQueryText();
+$_currentCategory = Mage::getSingleton('core/app')->getRequest()->getParam('cat');
+$_currentAttribute = Mage::getSingleton('core/app')->getRequest()->getParam('attr');
+$_filterType = $this->getFilterType();
+$_url = $this->getAjaxUrl();
+?>
+<form id="search_mini_form" action="<?php echo $_helper->getResultUrl() ?>" method="get"
+      class="searchautocomplete UI-SEARCHAUTOCOMPLETE"
+      data-tip="<?php echo $this->__(Mage::getStoreConfig('searchautocomplete/general/tip')) ?>"
+      data-url="<?php echo $_url ?>"
+      data-minchars="<?php echo Mage::getStoreConfig('searchautocomplete/general/min_chars') ?>"
+      data-delay="<?php echo Mage::getStoreConfig('searchautocomplete/general/delay') ?>">
+
+    <div class="search-row">
+        <div class="search-input">
+            <?php if ($_filterType == 'category'): ?>
+                <div class="nav-search-in">
+                    <span class="category-fake UI-CATEGORY-TEXT"><?php echo $this->__('All') ?></span>
+                    <span class="nav-down-arrow"></span>
+                    <select name="cat" class="category UI-CATEGORY">
+                        <option value="0"><?php echo $this->__('All') ?></option>
+                        <?php foreach ($this->getCategories() as $_category): ?>
+                            <option value="<?php echo $_category->getId() ?>"
+                                    <?php if ($_currentCategory == $_category->getId()): ?>selected<?php endif ?>>
+                                <?php echo $_category->getName() ?>
+                            </option>
+                        <?php endforeach ?>
+                    </select>
+                </div>
+            <?php elseif ($_filterType == 'attribute'): ?>
+                <div class="nav-search-in">
+                    <span class="category-fake UI-CATEGORY-TEXT"><?php echo $this->__('All') ?></span>
+                    <span class="nav-down-arrow"></span>
+                    <select name="attr" class="category UI-CATEGORY">
+                        <option value="0"><?php echo $this->__('All') ?></option>
+                        <?php foreach ($this->getAttributes() as $_code => $_name): ?>
+                            <option value="<?php echo $_code ?>"
+                                    <?php if ($_currentAttribute == $_code): ?>selected<?php endif ?>>
+                                <?php echo $_name ?>
+                            </option>
+                        <?php endforeach ?>
+                    </select>
+                </div>
+            <?php endif ?>
+            <input id="search"
+                   type="text"
+                   autocomplete="off"
+                   name="<?php echo $_helper->getQueryParamName() ?>"
+                   value="<?php echo $_helper->getEscapedQueryText() ?>"
+                   class="input-text UI-SEARCH UI-NAV-INPUT"
+                   maxlength="<?php echo $_helper->getMaxQueryLength(); ?>" />
+        </div>
+        <div class="search-button">
+            <button class="button secondary expanded"
+                    type="submit"
+                    title="<?php echo Mage::helper('core')->quoteEscape($this->__('Search')) ?>">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="searchautocomplete-loader UI-LOADER">
+            <i class="fa fa-circle-o-notch fa-spin fa-fw margin-bottom"></i>
+        </div>
+    </div>
+    <div style="display:none" id="search_autocomplete"
+         class="UI-PLACEHOLDER search-autocomplete searchautocomplete-placeholder"></div>
+</form>

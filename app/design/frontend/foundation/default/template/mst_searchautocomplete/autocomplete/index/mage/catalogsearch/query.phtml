@@ -1,0 +1,7 @@
+<?php
+$_item = $this->getItem();
+$_url  = Mage::getUrl('catalogsearch/result/index', array('_query' => array('q' => $_item->getName())));
+?>
+<li data-url="<?php echo $_url ?>">
+    <a class="name highlight" href="<?php echo $_url ?>"><?php echo $_item->getName() ?> <div class="pull-right"><?php echo $_item->getNumResults() ?></div></a>
+</li>

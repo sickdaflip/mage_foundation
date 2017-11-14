@@ -1,0 +1,49 @@
+<?php 
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterSlider
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+/** 
+ * Template for showing options for filter as a slider 
+ * @author Mana Team
+ * Injected instead of standard catalog/layer/filter.phtml in Mana_Filters_Block_Filter_Attribute init() method.
+ * This template is overridden by copying (template body was pasted from catalog/layer/filter.phtml 
+ * and modified as needed). All changes are marked with comments.
+ */
+/* @var $this Mana_Filters_Block_Filter_Price */
+?>
+<?php /* @var $_helper Mana_Filters_Helper_Data */ $_helper = Mage::helper(strtolower('Mana_Filters')); ?>
+<?php /* @var $_superHelper ManaPro_FilterSuperSlider_Helper_Data */ $_superHelper = Mage::helper(strtolower('ManaPro_FilterSuperSlider')); ?>
+<?php /* @var $_slider ManaPro_FilterSlider_Helper_Data */ $_slider = Mage::helper(strtolower('ManaPro_FilterSlider'));?>
+<?php /* @var $_filter Mana_Filters_Model_Filter_Price */ $_filter = $this->getFilter(); ?>
+<?php $_id = $_helper->getFilterName($this, $_filter); ?>
+	<div class="m-slider-values left-aligned">
+        <span id="<?php echo $_id ?>-applied" class="m-slider-selected-value">
+            <?php
+                $manualEntryOptions = clone $_filter->getFilterOptions();
+                $manualEntryOptions->setSliderNumberFormat('0')->setSliderNumberFormat2('0')->setThousandSeparator('0');
+            ?>
+            <?php echo $_superHelper->__('From') ?>
+            <?php echo $_superHelper->beforeInput($_filter->getFilterOptions()) ?><input type="text" class="m-slider m-from" size="2" value="<?php echo $_superHelper->formatNumber($_filter->getCurrentRangeLowerBound(), $manualEntryOptions) ?>" /><?php echo $_superHelper->afterInput($_filter->getFilterOptions()) ?>
+            <?php echo $_superHelper->__('to') ?>
+            <?php echo $_superHelper->beforeInput($_filter->getFilterOptions()) ?><input type="text" class="m-slider m-to"size="2" value="<?php echo $_superHelper->formatNumber($_filter->getCurrentRangeHigherBound(), $manualEntryOptions) ?>" /><?php echo $_superHelper->afterInput($_filter->getFilterOptions()) ?>
+        </span>
+	</div>
+
+<script type="text/javascript">
+//<![CDATA[
+ManaPro.filterRangeInput('<?php echo $_id ?>', {
+	rangeFrom: <?php echo $_filter->getLowestPossibleValue() ?>,
+	rangeTo: <?php echo $_filter->getHighestPossibleValue() ?>,
+	url: '<?php echo Mage::helper('mana_core')->base64EncodeUrl($_slider->getUrl($_filter->getRequestVar())) ?>',
+	clearUrl: '<?php echo Mage::helper('mana_core')->base64EncodeUrl($_slider->getClearUrl($_filter->getRequestVar())) ?>',
+	formatThreshold: <?php echo $_filter->getFilterOptions()->getSliderThreshold() ? $_filter->getFilterOptions()->getSliderThreshold() : 0 ?>,
+    decimalDigits: <?php echo $_filter->getFilterOptions()->getSliderDecimalDigits() ?>,
+    decimalDigits2: <?php echo $_filter->getFilterOptions()->getSliderDecimalDigits2() ?>,
+    decimalSymbol: "<?php echo $_superHelper->getDecimalSymbol() ?>",
+    groupSymbol: "<?php echo $_superHelper->escapeHtml($_superHelper->getGroupSymbol()) ?>"
+});
+//]]>
+</script>

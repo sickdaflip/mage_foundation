@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Foundation_ShaModule>
+            <active>true</active>
+            <codePool>local</codePool>
+    	</Foundation_ShaModule>
+    </modules>
+</config>

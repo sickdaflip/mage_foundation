@@ -1,0 +1,158 @@
+<?php if ($this->getTitle()): ?>
+    <div class="page-title">
+        <h1><?php echo $this->getTitle() ?></h1>
+    </div>
+<?php endif; ?>
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+<form action="<?php echo $this->getSaveUrl() ?>" method="post" id="form-validate" data-abide novalidate>
+    <div class="row fullWidth">
+        <div class="small-12 medium-6 columns">
+            <?php echo $this->getBlockHtml('formkey') ?>
+            <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>"/>
+            <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>"/>
+            <h2><?php echo $this->__('Contact Information') ?></h2>
+            <?php echo $this->getNameBlockHtml() ?>
+            <?php if (Mage::app()->getStore()->getId() == '4') { ?>
+                <div class="company-field">
+                    <label for="company"><?php echo $this->__('Company') ?>
+                        <small><?php echo $this->__('required') ?></small>
+                        <input type="text" name="company" id="company"
+                               title="<?php echo Mage::helper('core')->quoteEscape($this->__('Company')) ?>"
+                               value="<?php echo $this->escapeHtml($this->getAddress()->getCompany()) ?>" required
+                               pattern="text"/>
+                        <span class="form-error"><?php echo $this->__('Please enter the company.') ?></span>
+                    </label>
+                </div>
+            <?php } ?>
+            <div class="telephone-field">
+                <label for="telephone"><?php echo $this->__('Telephone') ?>
+                    <small><?php echo $this->__('required') ?></small>
+                    <input type="text" name="telephone"
+                           value="<?php echo $this->escapeHtml($this->getAddress()->getTelephone()) ?>"
+                           title="<?php echo Mage::helper('core')->quoteEscape($this->__('Telephone')) ?>"
+                           id="telephone" required/>
+                    <span class="form-error"><?php echo $this->__('Please enter the telephone number.') ?></span>
+                </label>
+            </div>
+            <?php if (Mage::app()->getStore()->getId() == '4') { ?>
+                <div class="input-box">
+                    <label for="fax"><?php echo $this->__('Fax') ?>
+                        <input type="text" name="fax" id="fax"
+                               title="<?php echo Mage::helper('core')->quoteEscape($this->__('Fax')) ?>"
+                               value="<?php echo $this->escapeHtml($this->getAddress()->getFax()) ?>"/>
+                    </label>
+                </div>
+            <?php } ?>
+        </div>
+        <div class="small-12 medium-6 columns">
+            <h2><?php echo $this->__('Address') ?></h2>
+            <div class="street-field">
+                <label for="street_1"><?php echo $this->__('Street Address') ?>
+                    <small><?php echo $this->__('required') ?></small>
+                    <input type="text" name="street[]"
+                           value="<?php echo $this->escapeHtml($this->getAddress()->getStreet(1)) ?>"
+                           title="<?php echo Mage::helper('core')->quoteEscape($this->__('Street Address')) ?>"
+                           id="street_1" required/>
+                    <span class="form-error"><?php echo $this->__('Please enter the street.') ?></span>
+                </label>
+            </div>
+            <?php for ($_i = 2, $_n = $this->helper('customer/address')->getStreetLines(); $_i <= $_n; $_i++): ?>
+                <div class="street-field">
+                    <input type="text" name="street[]"
+                           value="<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>"
+                           title="<?php echo Mage::helper('core')->quoteEscape($this->__('Street Address %s', $_i)) ?>"
+                           id="street_<?php echo $_i ?>"/>
+                </div>
+            <?php endfor; ?>
+            <?php if ($this->helper('customer/address')->isVatAttributeVisible()) : ?>
+                <?php if (Mage::app()->getStore()->getId() == '4') { ?>
+                    <div class="input-box">
+                        <label for="vat_id"><?php echo $this->__('VAT Number') ?>
+                            <input type="text" name="vat_id"
+                                   value="<?php echo $this->escapeHtml($this->getAddress()->getVatId()) ?>"
+                                   title="<?php echo Mage::helper('core')->quoteEscape($this->__('VAT Number')) ?>"
+                                   id="vat_id"/>
+                        </label>
+                    </div>
+                <?php } ?>
+            <?php endif; ?>
+            <div class="city-field">
+                <label for="city"><?php echo $this->__('City') ?>
+                    <small><?php echo $this->__('required') ?></small>
+                    <input type="text" name="city"
+                           value="<?php echo $this->escapeHtml($this->getAddress()->getCity()) ?>"
+                           title="<?php echo Mage::helper('core')->quoteEscape($this->__('City')) ?>"
+                           id="city" required/>
+                    <span class="form-error"><?php echo $this->__('Please enter the city.') ?></span>
+                </label>
+            </div>
+            <div class="region-field">
+                <label for="region_id"><?php echo $this->__('State/Province') ?>
+                    <select id="region_id" name="region_id"
+                            title="<?php echo Mage::helper('core')->quoteEscape($this->__('State/Province')) ?>"
+                            style="display:none;">
+                        <option value=""><?php echo $this->__('Please select region, state or province') ?></option>
+                    </select>
+                    <script type="text/javascript">
+                        //<![CDATA[
+                        $('region_id').setAttribute('defaultValue', "<?php echo $this->getAddress()->getRegionId() ?>");
+                        //]]>
+                    </script>
+                    <input type="text" id="region" name="region"
+                           value="<?php echo $this->escapeHtml($this->getAddress()->getRegion()) ?>"
+                           title="<?php echo Mage::helper('core')->quoteEscape($this->__('State/Province')) ?>"/>
+                </label>
+            </div>
+            <div class="zip-field">
+                <label for="zip"><?php echo $this->__('Zip/Postal Code') ?>
+                    <small><?php echo $this->__('required') ?></small>
+                    <input type="text" name="postcode"
+                           value="<?php echo $this->escapeHtml($this->getAddress()->getPostcode()) ?>"
+                           title="<?php echo Mage::helper('core')->quoteEscape($this->__('Zip/Postal Code')) ?>"
+                           id="zip" required/>
+                    <span class="form-error"><?php echo $this->__('Please enter the zip/postal code.') ?></span>
+                </label>
+            </div>
+            <div class="country-field">
+                <label for="country"><?php echo $this->__('Country') ?>
+                    <small><?php echo $this->__('required') ?></small>
+                    <?php echo $this->getCountryHtmlSelect() ?>
+                    <span class="form-error"><?php echo $this->__('Please enter the country.') ?></span>
+                </label>
+            </div>
+            <?php if ($this->isDefaultBilling()): ?>
+                <strong><?php echo $this->__('Default Billing Address') ?></strong>
+            <?php elseif ($this->canSetAsDefaultBilling()): ?>
+                <input type="checkbox" id="primary_billing" name="default_billing" value="1"
+                       title="<?php echo Mage::helper('core')->quoteEscape($this->__('Use as My Default Billing Address')) ?>"
+                       class="checkbox"/><label
+                    for="primary_billing"><?php echo $this->__('Use as my default billing address') ?></label>
+            <?php else: ?>
+                <input type="hidden" name="default_billing" value="1"/>
+            <?php endif; ?>
+
+            <?php if ($this->isDefaultShipping()): ?>
+                <strong><?php echo $this->__('Default Shipping Address') ?></strong>
+            <?php elseif ($this->canSetAsDefaultShipping()): ?>
+                <input type="checkbox" id="primary_shipping" name="default_shipping" value="1"
+                       title="<?php echo Mage::helper('core')->quoteEscape($this->__('Use as My Default Shipping Address')) ?>"
+                       class="checkbox"/><label
+                    for="primary_shipping"><?php echo $this->__('Use as my default shipping address') ?></label>
+            <?php else: ?>
+                <input type="hidden" name="default_shipping" value="1"/>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <a href="<?php echo $this->escapeUrl($this->getBackUrl()) ?>"
+       class="button left"><?php echo $this->__('Back') ?></a>
+    <button data-action="save-customer-address" type="submit"
+            title="<?php echo Mage::helper('core')->quoteEscape($this->__('Save Address')) ?>"
+            class="button float-right"><?php echo $this->__('Save Address') ?>
+    </button>
+</form>
+<script type="text/javascript">
+    //<![CDATA[
+    new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'zip');
+    //]]>
+</script>

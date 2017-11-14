@@ -1,0 +1,7 @@
+<?php $_menu = $this->getHtml('level-top') ?>
+<?php if ($_menu): ?>
+    <ul class="vertical menu accordion-menu nav" data-accordion-menu data-multi-open="false" data-submenu-toggle="true">
+        <?php echo $_menu ?>
+        <li><a href="<?php echo $this->getUrl('marken')?>"><?php echo $this->__('Gastro-Marken') ?></a></li>
+    </ul>
+<?php endif ?>

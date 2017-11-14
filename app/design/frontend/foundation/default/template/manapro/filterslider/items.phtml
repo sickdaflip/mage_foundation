@@ -1,0 +1,45 @@
+<?php 
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterSlider
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+/** 
+ * Template for showing options for filter as a slider 
+ * @author Mana Team
+ * Injected instead of standard catalog/layer/filter.phtml in Mana_Filters_Block_Filter_Attribute init() method.
+ * This template is overridden by copying (template body was pasted from catalog/layer/filter.phtml 
+ * and modified as needed). All changes are marked with comments.
+ */
+/* @var $this Mana_Filters_Block_Filter_Price */
+?>
+<?php /* @var $_helper Mana_Filters_Helper_Data */ $_helper = Mage::helper(strtolower('Mana_Filters')); ?>
+<?php /* @var $_slider ManaPro_FilterSlider_Helper_Data */ $_slider = Mage::helper(strtolower('ManaPro_FilterSlider'));?>
+<?php /* @var $_filter Mana_Filters_Model_Filter_Price */ $_filter = $this->getFilter(); ?>
+<?php $_id = $_helper->getFilterName($this, $_filter); ?>
+<div id="<?php echo $_id ?>-track" class="m-filter-slider">
+	<div id="<?php echo $_id ?>-span" class="m-slider-span"></div>
+	<div id="<?php echo $_id ?>-from" class="m-slider-from"></div>
+	<div id="<?php echo $_id ?>-to" class="m-slider-to"></div>
+</div>
+	<div class="m-slider-values">
+		<span id="<?php echo $_id ?>-range-from" class="m-slider-min-value"><?php echo $_helper->formatPrice($_filter->getLowestPossibleValue()) ?></span>
+		<span id="<?php echo $_id ?>-range-to" class="m-slider-max-value"><?php echo $_helper->formatPrice($_filter->getHighestPossibleValue()) ?></span>
+		<span id="<?php echo $_id ?>-applied" class="m-slider-selected-value"><?php echo $_helper->__('%s bis %s', $_helper->formatPrice($_filter->getCurrentRangeLowerBound()), $_helper->formatPrice($_filter->getCurrentRangeHigherBound()))?></span>
+	</div>
+
+<script type="text/javascript">
+//<![CDATA[
+ManaPro.filterSlider('<?php echo $_id ?>', {
+	rangeFrom: <?php echo $_filter->getLowestPossibleValue() ?>,
+	rangeTo: <?php echo $_filter->getHighestPossibleValue() ?>,
+	appliedFrom: <?php echo $_filter->getCurrentRangeLowerBound() ?>,
+	appliedTo: <?php echo $_filter->getCurrentRangeHigherBound() ?>,
+	numberFormat: '<?php echo $_helper->getJsPriceFormat() ?>',
+	appliedFormat: '<?php echo $_helper->__('__0__ bis __1__') ?>',
+	url: '<?php echo $_slider->getUrl($_filter->getRequestVar()) ?>',
+	clearUrl: '<?php echo $_slider->getClearUrl($_filter->getRequestVar()) ?>'
+});
+//]]>
+</script>

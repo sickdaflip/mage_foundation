@@ -1,0 +1,4 @@
+<?php if($this->getMessagesBlock()->getMessageCollection()->count()): ?>
+		<?php echo $this->getMessagesBlock()->getGroupedHtml(); ?>
+	<?php $this->getMessagesBlock()->getMessageCollection()->clear(); ?>
+<?php endif; ?>

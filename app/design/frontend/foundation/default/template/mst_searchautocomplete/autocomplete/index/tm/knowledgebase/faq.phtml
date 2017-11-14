@@ -1,0 +1,7 @@
+<?php
+$_item = $this->getItem();
+$tm     = new TM_KnowledgeBase_Block_Categories;
+?>
+<li data-url="<?php echo $tm->getUrl('knowledgebase/index/view') . 'faq/' . $_item['identifier'] ?>">
+    <a class="name highlight" href="<?php echo $tm->getUrl('knowledgebase/index/view') . 'faq/' . $_item['identifier'] ?>"><?php echo $_item->getTitle() ?></div></a>
+</li>

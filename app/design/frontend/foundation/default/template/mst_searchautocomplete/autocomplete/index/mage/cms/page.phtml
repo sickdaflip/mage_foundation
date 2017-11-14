@@ -1,0 +1,15 @@
+<?php
+$_item         = $this->getItem();
+$_url          = Mage::getUrl($_item->getData('identifier'));
+$_content      = Mage::helper('cms')->getPageTemplateProcessor()->filter($_item->getContent());
+$_configHelper = Mage::helper('searchautocomplete/config');
+?>
+<li data-url="<?php echo $_url ?>">
+    <a class="name highlight" href="<?php echo $_url ?>"><?php echo $_item->getTitle() ?></a>
+    <br>
+    <?php if ($_configHelper->isShowShortDescription()): ?>
+    <div class="highlight">
+        <?php echo Mage::helper('core/string')->truncate(strip_tags($_content), $_configHelper->getShortDescriptionLen()) ?>
+    </div>
+    <?php endif ?>
+</li>

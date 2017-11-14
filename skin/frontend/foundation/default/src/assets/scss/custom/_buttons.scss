@@ -1,0 +1,104 @@
+.scrollToTop {
+  display: none;
+  position: fixed;
+  cursor: pointer;
+  left: 1em;
+  bottom: 1em;
+  color: $primary-color;
+  z-index: 2;
+}
+
+.button.split {
+  position: relative;
+  padding-right: 3rem;
+  @include breakpoint(small only) {
+    span {
+      display: none;
+    }
+  }
+  @include breakpoint(medium) {
+    span {
+      width: 2.5rem;
+      display: block;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      border-left: $white solid 1px;
+      > i {
+        display: block;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        margin-left: -0.5em;
+        margin-top: -0.5em;
+      }
+    }
+  }
+}
+
+.button-arrow {
+  margin-top: 0.5rem;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  ul {
+    margin-left: 0;
+    list-style: none;
+    overflow: hidden;
+
+    li {
+      float: left;
+      &:nth-child(1) a {
+        padding-right: 0 !important;
+      }
+      &:nth-child(2) a {
+        @extend .button;
+      }
+      &:nth-child(2) a:before {
+        border: none;
+      }
+      &:nth-child(2) a:after {
+        border: none;
+      }
+      a {
+        position: relative;
+        display: block;
+        float: left;
+        &:hover:after {
+          border-left-color: scale-color($secondary-color, $lightness: -20%);
+        }
+        &:before {
+          content: " ";
+          display: block;
+          width: 0;
+          height: 0;
+          border-top: 20px solid transparent;
+          border-bottom: 20px solid transparent;
+          border-left: 10px solid white;
+          position: absolute;
+          top: 50%;
+          margin-top: -20px;
+          margin-left: 1px;
+          left: 100%;
+          z-index: 1;
+        }
+        &:after {
+          content: " ";
+          display: block;
+          width: 0;
+          height: 0;
+          border-top: 20px solid transparent; /* Go big on the size, and let overflow hide */
+          border-bottom: 20px solid transparent;
+          border-left: 10px solid $secondary-color;
+          position: absolute;
+          top: 50%;
+          margin-top: -20px;
+          left: 100%;
+          z-index: 2;
+          transition: border-left-color 0.25s ease-out;
+        }
+      }
+    }
+  }
+}

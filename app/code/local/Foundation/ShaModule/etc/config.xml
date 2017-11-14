@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Foundation_ShaModule>
+            <version>0.1.0</version>
+            <depends>
+                <Mage_Core />
+            </depends>
+        </Foundation_ShaModule>
+    </modules>
+    <global>
+        <models>
+            <core>
+                <rewrite>
+                    <encryption>Foundation_ShaModule_Model_Encryption</encryption>
+                </rewrite>
+            </core>
+        </models>
+        <helpers>
+            <core>
+                <encryption_model>Foundation_ShaModule_Model_Encryption</encryption_model>
+            </core>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <foundation_shamodule>
+                <use>standard</use>
+                <args>
+                    <module>Foundation_ShaModule</module>
+                    <frontName>shamodule</frontName>
+                </args>
+            </foundation_shamodule>
+        </routers>
+    </frontend>
+</config>

@@ -1,0 +1,25 @@
+<?php if (!$this->getAgreements()) return; ?>
+<form action="" id="checkout-agreements" onsubmit="return false;">
+    <?php foreach ($this->getAgreements() as $_a): ?>
+        <div class="agreement-field stack-for-small">
+            <input type="checkbox" id="agreement-<?php echo $_a->getId() ?>"
+                   name="agreement[<?php echo $_a->getId()?>]" value="1"
+                   title="<?php echo $this->escapeHtml($_a->getCheckboxText()) ?>" required/>
+            <label for="agreement-<?php echo $_a->getId() ?>">
+                <?php echo $_a->getIsHtml() ? $_a->getCheckboxText() : $this->escapeHtml($_a->getCheckboxText()) ?>
+            </label>
+            <a data-toggle="modal<?php echo $_a->getId() ?>"><i class="fa fa-info"></i></a>
+        </div>
+        <div id="modal<?php echo $_a->getId() ?>" class="reveal" data-reveal data-overlay="false">
+            <h2 id="agreement-<?php echo $_a->getId() ?>-title"><?php echo $_a->getIsHtml() ? $_a->getTitle() : $this->escapeHtml($_a->getTitle()) ?></h2>
+            <?php if ($_a->getIsHtml()): ?>
+                <?php echo $_a->getContent() ?>
+            <?php else: ?>
+                <?php echo nl2br($this->escapeHtml($_a->getContent())) ?>
+            <?php endif; ?>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    <?php endforeach ?>
+</form>

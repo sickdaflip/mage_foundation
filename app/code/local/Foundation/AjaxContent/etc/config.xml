@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Foundation_AjaxContent>
+            <version>0.0.1</version>
+        </Foundation_AjaxContent>
+    </modules>
+    <frontend>
+        <routers>
+            <ajaxcontent>
+                <use>standard</use>
+                <args>
+                    <module>Foundation_AjaxContent</module>
+                    <frontName>ajax</frontName>
+                </args>
+            </ajaxcontent>
+        </routers>
+    </frontend>
+</config>

@@ -1,0 +1,42 @@
+<?php 
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterShowMore
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+/** 
+ * Template for showing Show More / Show less actions 
+ * @author Mana Team
+ * Injected in designated place in filter items template used. In default template, designated place is right 
+ * under list of items
+ */
+/* @var $block Mana_Filters_Block_Filter */
+?>
+<?php
+    /* @var $_helper ManaPro_FilterShowMore_Helper_Data */
+    $_helper = Mage::helper(strtolower('ManaPro_FilterShowMore'));
+
+    /* @var $_core Mana_Core_Helper_Data */
+    $_core = Mage::helper(strtolower('Mana_Core'));
+
+    /* @var $_core Mana_Filters_Helper_Data */
+    $_filterHelper = Mage::helper('mana_filters');
+
+    /* @var $_filter Mana_Filters_Model_Filter_Attribute */
+    $_filter = $block->getFilter();
+
+    /* @var $_filter Mana_Filters_Model_Filter_Attribute */
+    $_filterOptions = $block->getFilterOptions();
+
+    /* @var $_urlTemplate Mana_Core_Helper_UrlTemplate */
+    $_urlTemplate = Mage::helper('mana_core/urlTemplate');
+?>
+<?php if ($_filterOptions->getData('show_option_search') && ($method = $_helper->getMethod($block, $_filter)) == 'popup') : ?>
+    <div class="m-option-search" id="m-m-option-search-<?php echo Mage::helper('mana_filters')->getFilterName($block, $_filter) ?>-popup"
+         data-m-block="Mana/LayeredNavigation/OptionSearch/Popup">
+        <input class="m-empty" type="text" title="<?php echo $_helper->__('Search an option ...') ?>"
+            value="<?php echo $_helper->__('Search an option ...') ?>" />
+    </div>
+<?php endif; ?>
+

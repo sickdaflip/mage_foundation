@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Foundation_SecDesc>
+            <version>0.0.1</version>
+        </Foundation_SecDesc>
+    </modules>
+    <global>
+        <resources>
+            <secdesc_setup>
+                <setup>
+                    <module>Foundation_SecDesc</module>
+                    <class>Mage_Catalog_Model_Resource_Eav_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </secdesc_setup>
+            <secdesc_setup_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </secdesc_setup_write>
+            <secdesc_setup_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </secdesc_setup_read>
+        </resources>
+    </global>
+</config>

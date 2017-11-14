@@ -1,0 +1,21 @@
+<?php
+$_helper = Mage::helper('searchautocomplete');
+$_query  = Mage::helper('catalogsearch')->getQueryText();
+?>
+<?php if (count($this->getIndexes()) > 0): ?>
+    <?php foreach ($this->getIndexes() as $_index => $_label): ?>
+        <?php if (count($this->getIndexes()) > 1): ?>
+        <div class="index-title"><?php echo $this->__($_label) ?> <span>(<?php echo $this->getCollection($_index)->getSize() ?>)</span></div>
+        <?php endif ?>
+        <ul>
+        <?php
+            $_collection = $this->getCollection($_index);
+        ?>
+        <?php foreach ($_collection as $_item): ?>
+            <?php echo $this->getItemHtml($_index, $_item) ?>
+        <?php endforeach ?>
+        </ul>
+    <?php endforeach ?>
+    <div class="all"><a href="<?php echo Mage::getUrl('catalogsearch/result', array('_query' => array('q' => $_query, 'cat' => $this->getCategoryId()))) ?>"><?php echo $this->__('All search results →') ?></a></div>
+    <div class="clearfix"></div>
+<?php endif ?>

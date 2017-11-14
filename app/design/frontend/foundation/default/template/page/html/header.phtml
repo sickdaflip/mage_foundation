@@ -1,0 +1,77 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<a id="nav-top"></a>
+<header>
+    <div class="header-top">
+        <div class="brand">
+                <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo">
+                    <img src="<?php echo $this->getSkinUrl('dist/assets/img/logo.png'); ?>" alt="<?php echo $this->getLogoAlt() ?>"/>
+                </a>
+        </div>
+        <div class="search">
+            <?php echo $this->getChildHtml('topSearch') ?>
+        </div>
+        <div class="hotline">
+            <p>Bestell- und Beratungs-Hotline
+            <a href="tel:+498004566000">0800 456 6000</a>
+            <span>Mo.-Do. 8-18 / Fr. 8-17 / Sa. 10-14</span>
+        </div>
+    </div>
+    <div class="header-bottom">
+        <nav>
+            <button type="button" class="button" data-toggle="offCanvas">
+                <i class="fa fa-bars" aria-hidden="true"></i> <?php echo $this->__('Alle<br/>Kategorien') ?>
+            </button>
+        </nav>
+        <div class="trusted">
+            <ul class="menu">
+                <li class="quality-since">über 25 Jahre <span>beste Gastro-Qualität</span></li>
+                <li>
+                    <a href="https://www.google.com/shopping/seller?q=gastrodax.de&hl=de" target="_blank" rel="nofollow noopener noreferrer">
+                        <img src="<?php echo $this->getSkinUrl('dist/assets/img/gzh.png'); ?>" alt="Google zertifizierter Händler" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.trustedshops.eu/buyerrating/info_X6B5E9287FD5871CE74DA1B1775EB2D64.html" target="_blank" rel="nofollow noopener noreferrer">
+                        <img src="<?php echo $this->getSkinUrl('dist/assets/img/trusted-shops.png'); ?>" alt="Trusted Shops" />
+                    </a>
+                </li>
+                <li>
+                    <a class="tuvsudmodal">
+                        <img src="<?php echo $this->getSkinUrl('dist/assets/img/safer-shopping.png'); ?>" alt="TÜV Süd s@fer shopping" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="account">
+            <?php echo $this->getChildHtml('topLinks', false) ?>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,16 @@
+<?php
+$_helper = $this->helper('catalog/output');
+$_product = $this->getProduct()
+?>
+<?php if ($_additional = $this->getAdditionalData()): ?>
+    <table class="fullWidth no-bottom">
+        <tbody>
+        <?php foreach ($_additional as $_data): ?>
+            <tr>
+                <td width><?php echo $this->htmlEscape($this->__($_data['label'])) ?></td>
+                <td><?php echo $_helper->productAttribute($_product, $_data['value'], $_data['code']) ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php endif; ?>

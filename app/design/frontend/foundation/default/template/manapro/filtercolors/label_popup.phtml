@@ -1,0 +1,58 @@
+<?php
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterColors
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+/** 
+ * @author Mana Team
+ */
+/* @var $this Mana_Filters_Block_Filter_Attribute */
+/* @var $filters Mana_Filters_Helper_Data */ $filters = Mage::helper(strtolower('Mana_Filters'));
+/* @var $showmore ManaPro_FilterShowMore_Helper_Data */ $showmore = Mage::helper(strtolower('ManaPro_FilterShowMore'));
+/* @var $jsonHelper Mana_Core_Helper_Json */
+$jsonHelper = Mage::helper('mana_core/json');
+?>
+<div class="m-filter-popup">
+<?php echo Mage::helper('mana_core')->getNamedHtml('mana_filters/markup', 'before_popup_items', array('block' => $this)) ?>
+<ol class="m-rows">
+    <li>
+        <ol class="m-columns m-filter-colors labels <?php echo $this->getFilterClass() ?>">
+            <?php foreach ($this->getItems() as $_index => $_item) : /*@var $_item Mana_Filters_Model_Item */ ?>
+            <li  <?php echo $this->getListItemClass($_item) ?> >
+                <?php if (!$this->getFilterOptions()->getDisableNoResultOptions() || $_item->getCount() || $_item->getMSelected()): ?>
+                    <a href="#"
+                       data-item="<?php echo $jsonHelper->encodeAttribute($_item->getSeoData()) ?>"
+                       data-is-reverse="<?php echo $this->getFilterOptions()->getIsReverse() ?>"
+                       data-index="<?php echo $_index ?>">
+                        <div class="m-color <?php if ($_item->getMShowSelected()): ?>selected<?php endif; ?> <?php echo $this->getFilterValueClass($_item) ?>"
+                             title="<?php echo $this->escapeHtml($_item->getLabel()) ?> (<?php echo $_item->getCount() ?>)">
+                            <div class="m-layer1"></div>
+                        </div>
+                        <?php echo $this->escapeHtml($_item->getLabel()) ?>
+                    </a>
+                <?php else: ?>
+                    <a href="javascript:void(0)">
+                        <div class="m-color <?php if ($_item->getMShowSelected()): ?>selected<?php endif; ?> <?php echo $this->getFilterValueClass($_item) ?>"
+                             title="<?php echo $this->escapeHtml($_item->getLabel()) ?> (<?php echo $_item->getCount() ?>)">
+                            <div class="m-layer1"></div>
+                        </div>
+                        <?php echo $this->escapeHtml($_item->getLabel()) ?>
+                    </a>
+                <?php endif; ?>
+                <?php if (Mage::getStoreConfigFlag('mana_filters/display/count')) : ?>
+                    (<?php echo $_item->getCount() ?>)
+                <?php endif; ?>
+            </li>
+            <?php endforeach; ?>
+        </ol>
+    </li>
+</ol>
+<div class="buttons-set">
+    <button type="button" title="<?php echo $this->__('Close') ?>" class="button m-close">
+        <span><span><?php echo $this->__('Close') ?></span></span></button>
+    <button type="button" title="<?php echo $this->__('Apply') ?>" class="button m-apply">
+        <span><span><?php echo $this->__('Apply') ?></span></span></button>
+</div>
+</div>

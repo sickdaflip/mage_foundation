@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Foundation_Layout>
+            <version>0.0.1</version>
+        </Foundation_Layout>
+        <depends>
+            <!-- no dependencies -->
+        </depends>
+    </modules>
+    <global>
+        <page>
+            <layouts>
+                <home_layout module="page" translate="label">
+                    <label>Startseite</label>
+                    <template>page/home.phtml</template>
+                    <layout_handle>home_layout</layout_handle>
+                </home_layout>
+            </layouts>
+            <layouts>
+                <manufactures_layout module="page" translate="label">
+                    <label>Herstellerseite</label>
+                    <template>page/manufactures.phtml</template>
+                    <layout_handle>manufactures_layout</layout_handle>
+                </manufactures_layout>
+            </layouts>
+        </page>
+        <blocks>
+            <page>
+                <rewrite>
+                    <html_topmenu>Foundation_Layout_Block_Topmenu</html_topmenu>
+                </rewrite>
+            </page>
+        </blocks>
+        <helpers>
+            <layout>
+                <class>Foundation_Layout_Helper</class>
+            </layout>
+        </helpers>
+    </global>
+</config>

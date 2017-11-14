@@ -1,0 +1,25 @@
+<?php
+$attribute = Mage::getModel('eav/entity_attribute')
+    ->loadByCode('catalog_product', 'manufacturer');
+
+$valuesCollection = Mage::getResourceModel('eav/entity_attribute_option_collection')
+    ->setAttributeFilter($attribute->getData('attribute_id'))
+    ->setStoreFilter(0, false);
+
+$preparedManufacturers = array();
+
+foreach($valuesCollection as $value) {
+    $preparedManufacturers[$value->getOptionId()] = $value->getValue();
+}
+
+if (count($preparedManufacturers)) {
+    $search = array("ä", "ö", "ü", "ß", "Ä", "Ö", "Ü", " ");
+    $replace = array("a", "o", "u", "s", "A", "O", "U", "-");
+    echo '<ul class="inline-list">';
+    foreach($preparedManufacturers as $optionId => $value) {
+        echo '<li><a href="/'.str_replace($search, $replace, strtolower($value)).'">'.$value.'</a></li>';
+    }
+    echo '<li><a href="/marken"><strong>'.$this->__('Alle Gastro-Marken').'</strong></a></li>';
+    echo '</ul>';
+}
+?>

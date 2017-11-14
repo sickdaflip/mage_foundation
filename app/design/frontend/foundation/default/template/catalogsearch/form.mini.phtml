@@ -1,0 +1,26 @@
+<?php
+$catalogSearchHelper = $this->helper('catalogsearch');
+?>
+<form id="search_mini_form" action="<?php echo $catalogSearchHelper->getResultUrl() ?>" method="get">
+    <div class="search-row" id="algolia-autocomplete-container">
+        <div class="search-input">
+            <input id="search"
+                   type="text"
+                   name="<?php echo $catalogSearchHelper->getQueryParamName() ?>"
+                   value="<?php echo $catalogSearchHelper->getEscapedQueryText() ?>"
+                   maxlength="<?php echo $catalogSearchHelper->getMaxQueryLength(); ?>"
+                   placeholder="<?php echo $this->__('Search') ?>"
+                   autocomplete="off"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocapitalize="off" />
+        </div>
+        <div class="search-button">
+            <button class="button secondary expanded"
+                   type="submit"
+                   title="<?php echo Mage::helper('core')->quoteEscape($this->__('Search')) ?>">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+</form>

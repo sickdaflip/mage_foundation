@@ -1,0 +1,13 @@
+<h2>404 - Seite nicht gefunden</h2>
+<p>Leider konnte die angeforderte Seite nicht gefunden werden, scheinbar wurde eine nicht korrekte URL eingegeben. So ist der 404 Fehler entstanden. Bitte nutzen Sie unsere Suche oder wechseln Sie zu unserer Startseite um in unserem umfangreichen Sortiment zu stöbern.</p>
+<div class="button-group">
+    <a href="<?php echo Mage::getBaseUrl(); ?>" class="button">Startseite</a>
+    <a href="<?php echo Mage::getUrl('catalogsearch/advanced/'); ?>" class="button">Suche</a>
+</div>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-40811127-1', 'auto');
+    
+    ga('set', 'anonymizeIp', true);
+    ga('send','event','Error','404','Seite: ' + document.location.pathname + document.location.search + ' Verweis: ' + document.referrer );
+</script>

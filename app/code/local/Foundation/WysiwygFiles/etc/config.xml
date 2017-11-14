@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Foundation_WysiwygFiles>
+            <version>0.0.1</version>
+        </Foundation_WysiwygFiles>
+    </modules>
+    <adminhtml>
+        <cms>
+            <browser>
+                <extensions>
+                    <allowed>
+                        <jpg>1</jpg>
+                        <jpeg>1</jpeg>
+                        <png>1</png>
+                        <gif>1</gif>
+                        <pdf>1</pdf>
+                        <map>1</map>
+                    </allowed>
+                </extensions>
+            </browser>
+        </cms>
+    </adminhtml>
+</config>

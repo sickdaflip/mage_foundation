@@ -1,0 +1,7 @@
+<?php
+$_item 		= $this->getItem();
+$_index 	= Mage::helper('searchindex/index')->getIndex('mage_catalog_attribute');
+?>
+<li data-url="<?php echo $_index->getUrl($_item); ?>">
+    <a class="name highlight" href="<?php echo $_index->getUrl($_item); ?>"><?php echo $_item->getData('label'); ?></a>
+</li>

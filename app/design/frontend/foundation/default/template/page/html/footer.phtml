@@ -1,0 +1,173 @@
+<footer>
+    <div class="footer-top">
+        <a href="#nav-top" id="backtotop">
+            <div class="backtotop">
+                <span class="navFooterBackToTopText"><?php echo $this->__('Zurück zum Seitenanfang') ?></span>
+            </div>
+        </a>
+    </div>
+    <div class="footer-info">
+        <div class="content">
+            <div class="footer_links">
+                <p><?php echo $this->__('Informationen') ?></p>
+                <ul>
+                    <li><a href="<?php echo Mage::getUrl('bestellvorgang'); ?>"><?php echo $this->__('Bestellvorgang') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('lieferung'); ?>"><?php echo $this->__('Lieferung') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('zahlungsarten'); ?>"><?php echo $this->__('Zahlungsarten') ?></a></li>
+                    <?php if (Mage::app()->getStore()->getId() == '5'): /* B2C */ ?>
+                        <li><a href="<?php echo Mage::getUrl('widerrufsbelehrung'); ?>"><?php echo $this->__('Widerrufsbelehrung') ?></a></li>
+                        <li><a href="<?php echo Mage::getUrl('widerrufsformular'); ?>"><?php echo $this->__('Widerrufsformular') ?></a></li>
+                        <li><a href="<?php echo Mage::getUrl('streitschlichtung'); ?>"><?php echo $this->__('Streitschlichtung') ?></a></li>
+                    <?php endif ?>
+                    <li><a href="<?php echo Mage::getUrl('batteriegesetz'); ?>"><?php echo $this->__('Hinweis nach dem Batteriegesetz') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('referenzen'); ?>"><?php echo $this->__('Referenzen') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('catalogsearch/advanced'); ?>"><?php echo $this->__('Erweiterte Suche') ?></a></li>
+                </ul>
+            </div>
+            <div class="footer_service">
+                <p><?php echo $this->__('Kundenservice') ?></p>
+                <ul>
+                    <li><a class="quality"><?php echo $this->__('Sicher einkaufen') ?></a></li>
+                    <li><a class="zertifikate"><?php echo $this->__('Zertifikate') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('contacts'); ?>"><?php echo $this->__('Kontakt') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('leistungen'); ?>"><?php echo $this->__('Leistungen') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('planung'); ?>"><?php echo $this->__('Planung') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('altgeraeteentsorgung'); ?>"><?php echo $this->__('Altger&auml;teentsorgung') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('montage'); ?>"><?php echo $this->__('Montage-Service') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('service'); ?>"><?php echo $this->__('Gastro-Service') ?></a></li>
+                    <li>
+                        <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/fax/faxbestellung.pdf'; ?>"
+                           target="_blank" rel="nofollow noopener noreferrer">Faxbestellung</a></li>
+                    <?php echo $this->getChildHtml('store_switcher', false) ?>
+                </ul>
+                <div class="reveal large" id="zertifikate" data-reveal></div>
+                <div class="reveal large" id="quality" data-reveal></div>
+                <script>
+                    jQuery('.zertifikate').click(function () {
+                        jQuery.ajax({
+                            url: '<?php echo $this->getUrl('ajax/cms/block/id/37');?>',
+                            beforeSend: function () {
+                                jQuery('#reveal-wait').show();
+                            }
+                        })
+                            .done(function (data) {
+                                jQuery('#reveal-wait').hide();
+                                jQuery('#zertifikate').html(data).foundation('open');
+                            });
+                    });
+                    jQuery('.quality').click(function () {
+                        jQuery.ajax({
+                            url: '<?php echo $this->getUrl('ajax/cms/block/id/14');?>',
+                            beforeSend: function () {
+                                jQuery('#reveal-wait').show();
+                            }
+                        })
+                            .done(function (data) {
+                                jQuery('#reveal-wait').hide();
+                                jQuery('#quality').html(data).foundation('open');
+                            });
+                    });
+                </script>
+            </div>
+            <div class="footer_manufactures">
+                <p><?php echo $this->__('Unsere starken Gastro-Marken') ?></p>
+                <ul>
+                    <li><a href="<?php echo Mage::getUrl('rational'); ?>"><?php echo $this->__('Rational Kombidämpfer') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('winterhalter'); ?>"><?php echo $this->__('Winterhalter Spülmaschinen') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('jura'); ?>"><?php echo $this->__('Jura Kaffeevollautomaten') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('panasonic'); ?>"><?php echo $this->__('Panasonic Mikrowellen') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('hoshizaki'); ?>"><?php echo $this->__('Hoshizaki Eiswürfelbereiter') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('bartscher'); ?>"><?php echo $this->__('Bartscher Gastronomiebedarf') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('marken'); ?>"><?php echo $this->__('weitere Gastro-Marken') ?></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-shipping">
+        <div class="content">
+            <a href="<?php echo Mage::getUrl('lieferung'); ?>">
+                <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/versandkostenfrei.png' ?>"
+                     alt="kostenfreie Lieferung ab 99 EUR">
+            </a>
+        </div>
+    </div>
+    <div class="footer-payments">
+        <div class="payments">
+            <ul>
+                <li>
+                    <a href="<?php echo Mage::getUrl('zahlungsarten'); ?>#paypal">
+                        <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/payments/paypal-white.png' ?>"
+                             alt="PayPal Logo">
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo Mage::getUrl('zahlungsarten'); ?>#moneyorder">
+                        <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/payments/vorkasse-white.png' ?>"
+                             alt="Vorkasse"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo Mage::getUrl('zahlungsarten'); ?>#sofort">
+                        <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/payments/sofort-white.png' ?>"
+                             alt="Sofortüberweisung Logo"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo Mage::getUrl('zahlungsarten'); ?>#invoice">
+                        <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/payments/rechnung-white.png' ?>"
+                             alt="Rechnung"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo Mage::getUrl('zahlungsarten'); ?>#amazon">
+                        <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/payments/amazon-payments-white.png' ?>"
+                             alt="Amazon payments"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo Mage::getUrl('zahlungsarten'); ?>#finanz">
+                        <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/payments/finanz-white.png' ?>"
+                             alt="Finanzierung"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="org">
+            <ul>
+                <li><a href="<?php echo Mage::getUrl('agb'); ?>"><?php echo $this->__('AGB') ?></a></li>
+                <li><a href="<?php echo Mage::getUrl('impressum'); ?>"><?php echo $this->__('Impressum') ?></a></li>
+                <li><a href="<?php echo Mage::getUrl('datenschutz'); ?>"><?php echo $this->__('Datenschutz') ?></a></li>
+            </ul>
+        </div>
+        <div class="social">
+            <ul>
+                <li><a href="https://facebook.com/gastrodax/" target="_blank" rel="nofollow noopener noreferrer"><i
+                                class="fa fa-facebook-square"
+                                aria-hidden="true"></i></a></li>
+                <li><a href="https://plus.google.com/+gastrodax" target="_blank" rel="nofollow noopener noreferrer"><i
+                                class="fa fa-google-plus-square"
+                                aria-hidden="true"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCTr6z7_W4adeggGR1Sa717g" target="_blank"
+                       rel="nofollow noopener noreferrer"><i
+                                class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
+                <li><a href="https://twitter.com/gastrodax" target="_blank" rel="nofollow noopener noreferrer"><i
+                                class="fa fa-twitter-square"
+                                aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<div class="cookie-container">
+    <div class="message">
+        <p><?php echo $this->__('Wir verwenden Cookies, um Ihnen den bestmöglichen Service zu gewährleisten. Wenn Sie auf der Seite weitersurfen stimmen Sie der Cookie-Nutzung zu.') ?></p>
+    </div>
+    <div class="actions">
+        <div class="button-group stacked-for-small">
+            <a class="button close-cookie"><?php echo $this->__('schließen') ?></a>
+            <a class="button hollow"
+               href="<?php echo $this->getUrl('datenschutz') ?>"><?php echo $this->__('Datenschutzerklärung') ?></a>
+        </div>
+    </div>
+</div>

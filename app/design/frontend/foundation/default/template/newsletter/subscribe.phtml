@@ -1,0 +1,23 @@
+<form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail" data-abide
+      novalidate>
+    <div class="row">
+        <div class="small-3 column">
+            Gastrodax Newsletter
+        </div>
+        <div class="small-9 column email-field">
+            <div class="input-group">
+                <input class="input-group-field" type="email" name="email" id="newsletter"
+                       title="<?php echo Mage::helper('core')->quoteEscape($this->__('Sign up for our newsletter')) ?>"
+                       placeholder="example@domain.com"
+                       required/>
+                <div class="input-group-button">
+                    <input type="submit" value="<?php echo $this->__('Subscribe') ?>"
+                           class="button secondary">
+                </div>
+            </div>
+            <small class="form-error float-left"><?php echo $this->__('Enter your email address') ?></small>
+        </div>
+    </div>
+</form>
+
+

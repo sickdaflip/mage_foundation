@@ -1,0 +1,71 @@
+/*
+ * 	Default theme - Owl Carousel CSS File
+ */
+
+$color-base: #869791 !default;
+$color-white: #FFF !default;
+$color-gray: #D6D6D6 !default;
+
+//nav
+
+$nav-color: $white;
+$nav-color-hover: $white;
+$nav-font-size: .9rem;
+$nav-rounded: $global-radius;
+$nav-margin: 0 $global-margin;
+$nav-padding: 0;
+$nav-background: $primary-color;
+$nav-background-hover: scale-color($button-background, $lightness: -15%);
+$nav-disabled-opacity: 0.5 !default;
+
+//dots
+
+$dot-width: 10px !default;
+$dot-height: 10px !default;
+$dot-rounded: 30px !default;
+$dot-margin: 5px 7px !default;
+$dot-background: $color-gray !default;
+$dot-background-active: $color-base !default;
+
+@import '../../../node_modules/owl.carousel/src/scss/owl.carousel';
+@import '../../../node_modules/owl.carousel/src/scss/theme.default';
+
+.owl-theme .owl-nav [class*=owl-] {
+  width: 40px;
+  height: 40px;
+  i {
+    line-height: 40px;
+  }
+}
+
+.homeslider {
+  @include hide-for-only(small);
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  position: relative;
+  .owl-nav {
+    position: absolute;
+    width: 100%;
+    top: 45%;
+    .owl-prev {
+      float: left;
+    }
+    .owl-next {
+      float: right;
+    }
+  }
+  .owl-dots {
+    position: absolute;
+    width: 100%;
+    bottom: 3%;
+    .owl-dot {
+      span {
+        margin: 5px 5px;
+        border-radius: 0;
+      }
+    }
+    .owl-dot.active span {
+      background: $primary-color;
+    }
+  }
+}

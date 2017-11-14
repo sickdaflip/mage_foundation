@@ -1,0 +1,22 @@
+<?php 
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterTree
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+/** 
+ * Template for showing options for filter as a list of radio buttons 
+ * @author Mana Team
+ * Injected instead of standard catalog/layer/filter.phtml in Mana_Filters_Block_Filter_Attribute init() method.
+ * This template is overridden by copying (template body was pasted from catalog/layer/filter.phtml 
+ * and modified as needed). All changes are marked with comments.
+ */
+/* @var $this ManaPro_FilterTree_Block_Filter */
+/* @var $filters Mana_Filters_Helper_Data */ $filters = Mage::helper(strtolower('Mana_Filters'));
+?>
+<ol class="m-filter-item-list m-tree" id="m-tree-<?php echo $filters->getFilterName($this, $this->getFilter()) ?>">
+    <?php foreach ($this->getChild() as /* @var $childBlock ManaPro_FilterTree_Block_Item */$childBlock) : ?>
+    <?php echo $childBlock->toHtml() ?>
+    <?php endforeach ?>
+</ol>

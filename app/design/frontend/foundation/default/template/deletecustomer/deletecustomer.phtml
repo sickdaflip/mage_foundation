@@ -1,0 +1,34 @@
+<?php
+/**
+ * @project gastrodax
+ *
+ * @author pbreitsprecher
+ * @copyright 2017
+ * @license https://opensource.org/licenses/MIT The MIT License (MIT)
+ *
+ * @last_modified 09.02.17 13:52
+ * @file deletecustomer.phtml
+ *
+ */
+
+echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="page-title">
+    <h1><?php echo Mage::helper('downloadable')->__('Delete Account') ?></h1>
+</div>
+<p class="callout alert">
+    <?php echo $this->__('Are sure you want to permanently delete your Account? Remember, this action is irreversible.') ?>
+</p>
+<p class="float-left">
+    <?php echo $this->__('If you are sure, click '); ?>
+</p>
+
+    <button onclick="show_confirm()" title="<?php echo $this->__('Delete My Account') ?>" class="button float-right"><?php echo $this->__('Delete My Account') ?></button>
+</div>
+
+<script type="text/javascript">
+    function show_confirm() {
+        if (confirm("<?php echo $this->__('Are you sure?'); ?>")) {
+            window.location.href = '<?php echo Mage::getUrl('*/*/sendConfirmationMail') ?>';
+        }
+    }
+</script>

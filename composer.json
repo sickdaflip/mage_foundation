@@ -1,0 +1,15 @@
+{
+  "name": "sickdaflip/foundation",
+  "type": "magento-theme",
+  "license": "MIT",
+  "description": "Magento 1.9.3. Theme",
+  "authors": [
+    {
+      "name": "SickDaFlip",
+      "email": "philippbreitsprecher@gmail.com"
+    }
+  ],
+  "require": {
+    "magento-hackathon/magento-composer-installer": "*"
+  }
+}

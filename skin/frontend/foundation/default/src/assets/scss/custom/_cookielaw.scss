@@ -1,0 +1,42 @@
+.cookie-container {
+  display: none;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 990;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: $primary-color;
+  border-top: 1px solid $primary-color;
+  .message {
+    text-align: center;
+    float: none;
+    p {
+      margin-top: 1rem;
+      font-size: 0.7rem;
+    }
+  }
+  .button-group {
+    margin: 1.25rem 0 1.25rem 0;
+    a {
+      font-size: 0.7rem !important;
+    }
+  }
+
+}
+
+@include breakpoint(medium) {
+  .cookie-container {
+    .notification {
+      .message {
+        text-align: left;
+        p {
+          margin: 0;
+        }
+      }
+      .button-group {
+        margin-top: 1.25rem;
+      }
+    }
+  }
+}

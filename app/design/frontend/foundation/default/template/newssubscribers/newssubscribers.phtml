@@ -1,0 +1,33 @@
+<?php
+if ($this->isActivePopUp()):
+?>
+<div class="reveal" id="esns" data-reveal>
+    <?php if ($this->getFirstTitle()): ?>
+        <h1><?php echo $this->getFirstTitle() ?></h1>
+    <?php endif; ?>
+    <?php if ($this->getSecondTitle()): ?>
+        <h2><?php echo $this->getSecondTitle() ?></h2>
+    <?php endif; ?>
+    <?php if ($this->getText()): ?>
+        <p><?php echo $this->getText() ?></p>
+    <?php endif; ?>
+    <hr>
+    <div id="esns_box_subscribe">
+        <div id="esns_box_subscribe_response_error"></div>
+        <div id="esns_box_subscribe_response_success"></div>
+        <div id="esns_box_subscribe_form">
+            <div id="esns_box_subscribe_input">
+                <input onclick="if(this.value=='<?php echo $this->__('Email'); ?>') this.value=''"
+                       onblur="if(this.value=='') this.value='<?php echo $this->__('Email'); ?>'" id="esns_email"
+                       name="subscribe_email" value="<?php echo $this->__('Email'); ?>" type="text">
+            </div>
+            <div id="esns_box_subscribe_submit">
+                <a href="javascript:void(0)" id="esns_submit" class="button"><?php echo $this->__('Subscribe'); ?></a>
+            </div>
+        </div>
+    </div>
+    <button class="close-button" data-close aria-label="Close reveal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<?php endif; ?>

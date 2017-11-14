@@ -1,0 +1,16 @@
+<?php
+$_item = $this->getItem();
+$_url = $_item->getUrl();
+
+?>
+<li data-url="<?php echo $_url ?>">
+    <a class="name highlight" href="<?php echo $_url ?>">
+        <?php $_path = $this->getFullPath($_item->getId()) ?>
+        <?php if (is_array($_path)): ?>
+            <?php foreach ($_path as $_topItem): ?>
+                <?php echo $_topItem->getName() ?> >
+            <?php endforeach ?>
+            <?php echo $_item->getName() ?>
+        <?php endif ?>
+    </a>
+</li>

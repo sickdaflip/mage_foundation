@@ -1,0 +1,50 @@
+<?php
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterCheckboxes
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+/** 
+ * @author Mana Team
+ */
+/* @var $this Mana_Filters_Block_Filter_Attribute */
+/* @var $filters Mana_Filters_Helper_Data */ $filters = Mage::helper(strtolower('Mana_Filters'));
+/* @var $showmore ManaPro_FilterShowMore_Helper_Data */ $showmore = Mage::helper(strtolower('ManaPro_FilterShowMore'));
+/* @var $jsonHelper Mana_Core_Helper_Json */
+$jsonHelper = Mage::helper('mana_core/json');
+?>
+<div class="m-filter-popup">
+<?php echo Mage::helper('mana_core')->getNamedHtml('mana_filters/markup', 'before_popup_items', array('block' => $this)) ?>
+<ol class="m-rows">
+    <li>
+        <ol class="m-columns m-filter-css-checkboxes">
+            <?php foreach ($this->getItems() as $_index => $_item) : /*@var $_item Mana_Filters_Model_Item */ ?>
+            <li  <?php echo $this->getListItemClass($_item) ?> >
+                <?php /* @var $_item Mana_Filters_Model_Item */ ?>
+                <?php if (!$this->getFilterOptions()->getDisableNoResultOptions() || $_item->getCount() || $_item->getMSelected()): ?>
+                <a class="<?php echo $_item->getMShowSelected() ? 'm-checkbox-checked' : 'm-checkbox-unchecked' ?>"
+                   data-item="<?php echo $jsonHelper->encodeAttribute($_item->getSeoData()) ?>"
+                   data-is-reverse="<?php echo $this->getFilterOptions()->getIsReverse() ?>"
+                   data-index="<?php echo $_index ?>"
+                   href="#" title="<?php echo $this->escapeHtml($_item->getLabel()) ?>"><?php echo $this->escapeHtml($_item->getLabel()) ?></a>
+                <?php else: ?>
+                    <a class="<?php echo $_item->getMShowSelected() ? 'm-checkbox-checked' : 'm-checkbox-unchecked' ?>"
+                       href="javascript:void(0)" title="<?php echo $this->escapeHtml($_item->getLabel()) ?>"><?php echo $this->escapeHtml($_item->getLabel()) ?></a>
+                <?php endif; ?>
+                <?php // MANA END ?>
+                <?php if (Mage::getStoreConfigFlag('mana_filters/display/count')) : ?>
+                    (<?php echo $_item->getCount() ?>)
+                <?php endif; ?>
+            </li>
+            <?php endforeach; ?>
+        </ol>
+    </li>
+</ol>
+<div class="buttons-set">
+    <button type="button" title="<?php echo $this->__('Close') ?>" class="button m-close">
+        <span><span><?php echo $this->__('Close') ?></span></span></button>
+    <button type="button" title="<?php echo $this->__('Apply') ?>" class="button m-apply">
+        <span><span><?php echo $this->__('Apply') ?></span></span></button>
+</div>
+</div>

@@ -1,0 +1,83 @@
+<?php
+/**
+ * This file is part of a FireGento e.V. module.
+ *
+ * This FireGento e.V. module is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License version 3 as
+ * published by the Free Software Foundation.
+ *
+ * This script is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * @category  FireGento
+ * @package   FireGento_MageSetup
+ * @author    FireGento Team <team@firegento.com>
+ * @copyright 2013-2015 FireGento Team (http://www.firegento.com)
+ * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
+ */
+?>
+<?php
+/**
+ * @var $this FireGento_MageSetup_Block_Catalog_Product_Price
+ */
+$_taxHelper = $this->helper('tax');
+$_product = $this->getProduct();
+$_storeId = $_product->getStoreId();
+$_store = $_product->getStore();
+$_id = $_product->getId();
+$_convertedFinalPrice = $_store->roundPrice($_store->convertPrice($_product->getFinalPrice()));
+$_finalPrice = $_taxHelper->getPrice($_product, $_convertedFinalPrice);
+?>
+<?php $shippingCostUrl = Mage::helper( 'magesetup' )->getShippingCostUrl() ?>
+<?php if( !empty( $shippingCostUrl ) && $this->getIsShowShippingLink() ): ?>
+    <?php if( $this->getPriceDisplayType() == Mage_Tax_Model_Config::DISPLAY_TYPE_EXCLUDING_TAX ): ?>
+        <?php if( $this->getIsIncludingShippingCosts() ): ?>
+            <?php if( $_finalPrice >= '83.19' ): ?>
+            <span class="shipping-cost-details"><?php echo $this->__( '<a href="%s">Free Shipping</a>', $shippingCostUrl ) ?></span>
+                <?php else: ?>
+                <span class="shipping-cost-details"><?php echo $this->__( 'incl. <a href="%s">Shipping Cost</a>', $shippingCostUrl ) ?></span>
+            <?php endif ?>
+        <?php else: ?>
+            <?php if( $_finalPrice >= '83.19' ): ?>
+               <span class="shipping-cost-details"><?php echo $this->__( '<a href="%s">Free Shipping</a>', $shippingCostUrl ) ?></span>
+            <?php else: ?>
+            <span class="shipping-cost-details"><?php echo $this->__( 'excl. <a href="%s">Shipping Cost</a>', $shippingCostUrl ) ?></span>
+            <?php endif ?>
+        <?php endif ?>
+    <?php elseif( $this->getPriceDisplayType() == Mage_Tax_Model_Config::DISPLAY_TYPE_INCLUDING_TAX ): ?>
+        <?php if( $this->getIsIncludingShippingCosts() ): ?>
+            <span class="tax-details"><?php echo $this->__( 'Incl. %s Tax', $this->getFormattedTaxRate() ) ?><span class="tax-separator">, </span><span class="shipping-cost-details"><?php echo $this->__( 'incl. <a href="%s">Shipping Cost</a>', $shippingCostUrl ) ?></span></span>
+        <?php else: ?>
+            <?php if( $_finalPrice >= '99' ): ?>
+            <span class="shipping-cost-details"><?php echo $this->__( '<a href="%s">Free Shipping</a>', $shippingCostUrl ) ?></span>
+                <?php else: ?>
+                <span class="shipping-cost-details"><?php echo $this->__( 'excl. <a href="%s">Shipping Cost</a>', $shippingCostUrl ) ?></span>
+            <?php endif ?>
+        <?php endif ?>
+    <?php elseif( $this->getPriceDisplayType() == Mage_Tax_Model_Config::DISPLAY_TYPE_BOTH ): ?>
+        <?php if( $this->getIsIncludingShippingCosts() ): ?>
+                <span class="tax-details"><?php echo $this->__('incl. <a href="%s">Shipping Cost</a>', $shippingCostUrl) ?></span>
+        <?php else: ?>
+                <span class="tax-details"><?php echo $this->__('excl. <a href="%s">Shipping Cost</a>', $shippingCostUrl) ?></span>
+        <?php endif ?>
+    <?php endif ?>
+    <?php if ($this->getIsShowWeightInfo()): ?>
+        (<?php echo $this->__('Shipping Weight %s', $this->getFormattedWeight()) ?>)
+    <?php endif ?>
+<?php else: ?>
+    <?php if( $this->getPriceDisplayType() == Mage_Tax_Model_Config::DISPLAY_TYPE_EXCLUDING_TAX ): ?>
+        <span class="tax-details"><?php echo $this->__( 'Excl. %s Tax', $this->getFormattedTaxRate() ) ?></span>
+    <?php elseif( $this->getPriceDisplayType() == Mage_Tax_Model_Config::DISPLAY_TYPE_INCLUDING_TAX ): ?>
+        <span class="tax-details"><?php echo $this->__( 'Incl. %s Tax', $this->getFormattedTaxRate() ) ?></span>
+    <?php endif ?>
+<?php endif ?>
+<?php
+$tablerateColl = Mage::getResourceModel('shipping/carrier_tablerate_collection');
+/* @var $tablerateColl Mage_Shipping_Model_Resource_Carrier_Tablerate_Collection */
+
+foreach ($tablerateColl as $tablerate) {
+/* @var $tablerate Mage_Shipping_Model_Carrier_Tablerate */
+//Zend_Debug::dump($tablerate->debug());
+}
+?>

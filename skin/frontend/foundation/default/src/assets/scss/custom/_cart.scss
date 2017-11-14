@@ -1,0 +1,95 @@
+.cart {
+  .page-title {
+    h1 {
+      & + ul {
+        display: none;
+      }
+    }
+  }
+  form {
+    overflow-x: hidden;
+    fieldset {
+      margin: 0.5em 0;
+      padding: 0;
+      #shopping-cart-table {
+        tbody {
+          img {
+            max-width: inherit;
+          }
+        }
+        width: 100%;
+        tfoot {
+          td.last {
+            padding: 0.5em;
+          }
+          .button-group,
+          button {
+            margin-bottom: 0;
+          }
+          .button-group {
+            button {
+              padding: 0.25em;
+            }
+          }
+          .btn-empty {
+            float: left;
+          }
+          .btn-update,
+          .btn-continue {
+            float: right;
+          }
+          .btn-update {
+            margin: 0 0.5em;
+          }
+          @include breakpoint(small) {
+            button {
+              clear: both;
+            }
+            .btn-empty {
+              margin: 1em 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .cart-collaterals {
+    .shipping {
+      .buttons-set {
+        .button {
+          float: right;
+        }
+      }
+    }
+    .totals {
+      table {
+        margin-top: 1em;
+      }
+
+      .checkout-types {
+        text-align: center;
+        @include menu-base;
+        @include menu-direction(vertical);
+        li {
+          min-height: 3rem;
+          margin-bottom: 2px;
+          padding: 0.5rem;
+          background: smart-scale($table-background, $table-color-scale);
+          &:nth-child(2n) {
+            display: none;
+          }
+          button, a {
+            display: inline !important;
+          }
+        }
+
+        p {
+          margin: 0;
+        }
+        .paypal-or, .amazon-or {
+          margin: 0 1rem;
+        }
+      }
+    }
+  }
+}

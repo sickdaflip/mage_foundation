@@ -1,0 +1,22 @@
+<?php
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterAdvanced
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+/* @var $this ManaPro_FilterAdvanced_Block_Actions */
+if ($this->getFilter()) {
+    $_actions = $this->sortActions(Mage::helper('mana_filters')->renderHtml($this, 'name_action', array('filter' => $this->getFilter())));
+    $_cssClass = 'm-filter-actions';
+}
+else {
+    $_actions = $this->sortActions(Mage::helper('mana_filters')->renderHtml($this, 'group_action', array('group' => $this->getGroup())));
+    $_cssClass = 'm-group-actions';
+}
+?>
+<?php if (count($_actions)) : ?>
+    <div class="<?php echo $_cssClass ?>">
+        <?php foreach ($_actions as $_action) echo $_action['html']; ?>
+    </div>
+<?php endif; ?>

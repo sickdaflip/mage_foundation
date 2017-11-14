@@ -1,0 +1,11 @@
+<?php $helper = $this->helper('magesetup'); ?>
+<?php if (!$this->getAgreements()) return; ?>
+<?php foreach ($this->getAgreements() as $_a): ?>
+
+            <?php if( $_a->getIsRequired() ): ?>
+                <input type="checkbox" id="agreement-<?php echo $_a->getId()?>" name="agreement[<?php echo $_a->getId()?>]" value="1" title="<?php echo $this->escapeHtml( $_a->getCheckboxText() ) ?>" class="checkbox required-entry"/>
+            <?php endif; ?>
+            <label <?php if( $_a->getIsRequired() ): ?>for="agreement-<?php echo $_a->getId()?>"<?php endif; ?> style="float:none;"><?php echo $_a->getIsHtml() ? $_a->getCheckboxText() : $this->escapeHtml( $_a->getCheckboxText() ) ?></label>
+            <a href="<?php echo $helper->getAgreementUrl( $_a ) ?>" data-reveal-id="myModal" data-reveal-ajax="true"><?php echo $this->__( '[Show]' ) ?></a>
+
+<?php endforeach ?>

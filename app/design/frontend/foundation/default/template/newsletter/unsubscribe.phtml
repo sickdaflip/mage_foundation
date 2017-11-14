@@ -1,0 +1,22 @@
+<form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-unsubscribe-validate-detail"
+      data-abide
+      novalidate>
+    <div class="row">
+        <div class="small-12 column">
+            <label for="newsletter-unsubscribe"><?php echo $this->__('Vom Newsletter abmelden') ?></label>
+        </div>
+        <div class="small-12 column email-field">
+            <div class="input-group">
+                <input class="input-group-field" type="email" name="email" id="newsletter-unsubscribe"
+                       title="<?php echo Mage::helper('core')->quoteEscape($this->__('Unsubscribe Our Newsletter')) ?>"
+                       placeholder="example@domain.com"
+                       required/>
+                <div class="input-group-button">
+                    <input type="submit" value="<?php echo $this->__('Unsubscribe') ?>" class="button">
+                </div>
+            </div>
+            <small class="form-error float-left"><?php echo $this->__('Enter your email address') ?></small>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,11 @@
+<?php
+$_item = $this->getItem();
+?>
+<li data-url="<?php echo $_item->getViewUrl() ?>">
+    <a class="name highlight" href="<?php echo $_item->getViewUrl() ?>">
+    	<?php echo $_item->getName() ?>
+    </a>
+    <div class="highlight">
+    	<?php echo $this->__('Registrant: %s', $_item->getRegistrantAndCoName()) ?>
+    </div>
+</li>

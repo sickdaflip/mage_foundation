@@ -1,0 +1,36 @@
+<?php 
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterColors
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+/** 
+ * Template for showing options for filter as a list of color boxes 
+ * @author Mana Team
+ * Injected instead of standard catalog/layer/filter.phtml in Mana_Filters_Block_Filter_Attribute init() method.
+ */
+/* @var $this Mana_Filters_Block_Filter_Attribute */
+?>
+<?php echo Mage::helper('mana_core')->getNamedHtml('mana_filters/markup', 'before_items', array('block' => $this)) ?>
+<div class="m-filter-colors horizontal <?php echo $this->getFilterClass() ?> <?php echo $this->getFilterOptions()->getIsReverse() ? 'm-reverse' : '' ?>">
+<?php foreach ($this->getItems() as $_item): ?>
+
+    <?php if (!$this->getFilterOptions()->getDisableNoResultOptions() || $_item->getCount() || $_item->getMSelected()): ?>
+        <a href="#" onclick="jQuery(this).find('div').<?php echo $_item->getMShowSelected() ? 'removeClass' : 'addClass' ?>('selected'); setLocation('<?php echo $this->urlEscape($_item->getMSelected() ? $_item->getRemoveUrl() : $_item->getUrl()) ?>'); return false;">
+            <div class="m-color <?php if ($_item->getMShowSelected()): ?>selected<?php endif; ?> <?php echo $this->getFilterValueClass($_item) ?>"
+                title="<?php echo $this->escapeHtml($_item->getLabel()) ?><?php if (Mage::getStoreConfigFlag('mana_filters/display/count')) : ?> (<?php echo $_item->getCount() ?>)<?php endif; ?>">
+                <div class="m-layer1"></div>
+            </div>
+        </a>
+    <?php else: ?>
+        <a href="javascript:void(0)" class="m-disabled">
+            <div class="m-color <?php if ($_item->getMShowSelected()): ?>selected<?php endif; ?> <?php echo $this->getFilterValueClass($_item) ?>"
+                 title="<?php echo $this->escapeHtml($_item->getLabel()) ?><?php if (Mage::getStoreConfigFlag('mana_filters/display/count')) : ?> (<?php echo $_item->getCount() ?>)<?php endif; ?>">
+                <div class="m-layer1"></div>
+            </div>
+        </a>
+    <?php endif; ?>
+<?php endforeach ?>
+</div>
+<?php echo Mage::helper('mana_core')->getNamedHtml('mana_filters/markup', 'after_items', array('block' => $this)) ?>

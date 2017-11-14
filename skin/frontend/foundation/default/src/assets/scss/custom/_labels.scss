@@ -1,0 +1,24 @@
+.form-language,
+.form-search, 
+.store-switcher, 
+.toolbar{
+	label{
+		display: none;
+	}
+}
+.view-mode, .block-title{
+	strong{
+		display: none;
+	}
+}
+.block-currency .block-title{
+	display: none;
+}
+.product-shop {
+  .label {
+    background-color: $white;
+    color: $primary-color;
+	  margin: 0;
+	  padding: 0;
+  }
+}

@@ -1,0 +1,18 @@
+<?php
+/**
+ * @project gastrodax
+ *
+ * @author pbreitsprecher
+ * @copyright 2016
+ * @license https://opensource.org/licenses/MIT The MIT License (MIT)
+ *
+ * @last_modified 15.06.16 15:00
+ * @file remember_me.phtml
+ *
+ */
+
+$rememberMeId = 'remember_me' . Mage::helper('core')->getRandomString(10); ?>
+<input type="checkbox" name="persistent_remember_me" class="checkbox" id="<?php echo $rememberMeId; ?>"<?php if ($this->isRememberMeChecked()): ?> checked="checked"<?php endif; ?> title="<?php echo Mage::helper('core')->quoteEscape($this->__('Remember Me')) ?>" />
+<label for="<?php echo $rememberMeId; ?>"><?php echo $this->__('Remember Me') ?></label>
+<a class="button tiny secondary remember-me hollow" href="#" data-open="remember-me"><?php echo $this->__('What\'s this?') ?></a>
+

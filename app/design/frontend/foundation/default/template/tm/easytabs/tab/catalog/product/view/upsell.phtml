@@ -1,0 +1,79 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+$_helper = $this->helper('catalog/output');
+?>
+<?php if (count($this->getItemCollection()->getItems())): ?>
+    <div class="box-collateral box-up-sell">
+        <ul class="products-grid">
+            <?php $this->resetItemsIterator() ?>
+            <?php foreach ($this->getItems() as $_product): ?>
+                <li class="item">
+                    <div class="content">
+                        <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"
+                                                    title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a>
+                        </h3>
+                        <div class="products-image float-center">
+                            <?php if ($_product->getFinalPrice() < $_product->getPrice()) { ?>
+                                <?php $_savingPercent = 100 - round(($_product->getFinalPrice() / $_product->getPrice()) * 100); ?>
+                                <div class="special-ribbon"><span><?php echo $_savingPercent; ?>% Rabatt</span>
+                                </div>
+                            <?php } ?>
+                            <a href="<?php echo $_product->getProductUrl() ?>"
+                               title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
+                               class="product-image small-centered">
+                                <img
+                                        src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(200); ?>"
+                                        width="200" height="200"
+                                        alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
+                            </a>
+                        </div>
+                        <?php if ($_product->getRatingSummary()): ?>
+                            <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                        <?php endif; ?>
+                        <div class="extra">
+
+                            <?php if ($_product->getAttributeText('manufacturer')): ?>
+                                <?php $brand = $_product->getAttributeText('manufacturer') ?>
+                                <div class="product-brand">
+                                    <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>catalog/brands/<?php echo clean($brand) ?>.png"
+                                         alt="<?php echo $brand ?> Logo">
+                                </div>
+                            <?php endif; ?>
+
+                            <?php echo $this->getLayout()->createBlock('catalog/product_price')
+                                ->setTemplate('catalog/product/price_catalog.phtml')
+                                ->setProduct($_product)
+                                ->setDisplayMinimalPrice(true)
+                                ->setIdSuffix($idSuffix = 'amit')
+                                ->toHtml(); ?>
+                            <?php //echo $this->getPriceHtml($_product, true) ?>
+                        </div>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif ?>

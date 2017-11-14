@@ -1,0 +1,61 @@
+.main-container {
+  .col-main {
+    .page-title {
+      margin-top: 1rem;
+    }
+    .std {
+      .row {
+        max-width: 100%
+      }
+      h1.center-line,
+      h2.center-line,
+      h3.center-line,
+      h4.center-line,
+      h5.center-line,
+      h6.center-line {
+        overflow: hidden;
+        text-align: center;
+        color: $primary-color;
+        &:before, &:after {
+          background-color: $dark-gray;
+          content: "";
+          display: inline-block;
+          height: 1px;
+          position: relative;
+          vertical-align: middle;
+          width: 50%;
+        }
+        &:before {
+          right: 0.5em;
+          margin-left: -50%;
+        }
+        &:after {
+          left: 0.5em;
+          margin-right: -50%;
+        }
+      }
+    }
+    ul.arrow {
+      margin-left: 0;
+      margin-bottom: 1rem;
+      li:before {
+        font-family: FontAwesome;
+        content: "\f101";
+        color: $primary-color;
+        padding-right: 0.5rem;
+      }
+    }
+  }
+}
+
+.payment-grid {
+  .image {
+    width: 150px;
+  }
+}
+
+.search-grid {
+  li {
+    padding: 1rem;
+  }
+}

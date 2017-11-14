@@ -1,0 +1,45 @@
+<?php
+/**
+ * @project gastrodax
+ *
+ * @author pbreitsprecher
+ * @copyright 2017
+ * @license https://opensource.org/licenses/MIT The MIT License (MIT)
+ *
+ * @last_modified 25.01.17 10:00
+ * @file results_tabs.phtml
+ *
+ */
+
+$_indexes = $this->getIndexes();
+?>
+<div class="page-title">
+    <h1><?php echo ($this->getHeaderText()) ? $this->getHeaderText() : $this->__("Search results for '%s'", $this->helper('catalogsearch')->getEscapedQueryText()) ?></h1>
+</div>
+
+<?php if ($this->isShowTabs()): ?>
+<ul class="menu">
+<?php foreach ($_indexes as $_index): ?>
+    <?php if (
+        ($_index->getCountResults()
+            && ($_index->getContentBlock()->getIsVisible() == true || $_index->getCode() == 'mage_catalog_product'))
+        || ($_index == $this->getCurrentIndex())): ?>
+        <?php if ($_index == $this->getCurrentIndex()): ?>
+        <li class="active">
+        <?php else: ?>
+        <li>
+        <?php endif ?>
+            <a href="<?php echo $this->getIndexUrl($_index) ?>">
+            <?php echo $this->__($_index->getTitle()) ?>
+            &nbsp;<span>(<?php echo $_index->getCountResults() ?>)</span></a>
+        </li>
+    <?php endif ?>
+<?php endforeach ?>
+</ul>
+<?php endif ?>
+
+<?php echo $this->getChildHtml('related_searches') ?>
+
+<?php Mage::helper('mstcore/debug')->dump('product $collection', Mage::getModel('catalogsearch/layer')->getProductCollection()->getSelect()->__toString()); ?>
+
+<?php echo $this->getCurrentContent() ?>

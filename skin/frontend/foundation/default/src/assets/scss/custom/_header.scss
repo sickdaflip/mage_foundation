@@ -1,0 +1,185 @@
+header {
+  color: $white;
+  background-color: $primary-color;
+  padding-top: 0.3rem;
+  .header-top {
+    .brand {
+      @media #{$small-only} {
+        margin: .5em 0;
+      }
+      img {
+        @include breakpoint(medium only) {
+          float: left;
+        }
+      }
+    }
+    .search {
+      #search_mini_form {
+        input {
+          border-top-right-radius: 0 !important;
+          border-bottom-right-radius: 0 !important;
+        }
+        input, button, select {
+          margin: 0;
+          height: 2rem;
+        }
+        button {
+          padding: 0;
+          border-top-left-radius: 0 !important;
+          border-bottom-left-radius: 0 !important;
+        }
+        .empty-message {
+          color: $primary-color;
+        }
+      }
+    }
+    .hotline {
+      text-align: center;
+      @media #{$small-only} {
+        margin: .5em 0;
+      }
+      p {
+        margin-bottom: .2em;
+        font-size: .7rem;
+        @include breakpoint(medium only) {
+          font-size: .6rem;
+        }
+        @include breakpoint(retina) {
+          font-size: .6rem;
+        }
+        line-height: 1;
+        letter-spacing: .17em;
+      }
+      a {
+        color: $white;
+        font-weight: 800;
+        font-size: 1.8rem;
+        @include breakpoint(medium only) {
+          font-size: 1.3rem;
+        }
+        @include breakpoint(retina) {
+          font-size: 1.3rem;
+        }
+        line-height: 1;
+        display: block;
+      }
+      span {
+        display: block;
+        font-size: .7rem;
+        @include breakpoint(medium only) {
+          font-size: .6rem;
+        }
+        @include breakpoint(retina) {
+          font-size: .5rem;
+        }
+        line-height: 1;
+      }
+    }
+  }
+  .header-bottom {
+    nav {
+      .button {
+        margin-bottom: 0;
+        color: $white;
+        border-color: $white;
+        padding: 0.3rem;
+      }
+    }
+    .shipping {
+      a {
+        color: $white;
+        font-size: 1.5rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        span {
+          font-weight: 300;
+          letter-spacing: 0.2px;
+          margin-top: -5px;
+          font-size: 0.6rem;
+          display: block;
+        }
+      }
+    }
+    .trusted {
+      text-align: center;
+      .menu {
+        .quality-since {
+          @include show-for(large);
+          margin-left: 1.5rem;
+          font-size: 1.2rem;
+          font-weight: 500;
+          letter-spacing: 1px;
+          display: block;
+          span {
+            font-weight: 300;
+            letter-spacing: 0.2px;
+            margin-top: -8px;
+            font-size: 0.6rem;
+            display: block;
+          }
+        }
+        a {
+          padding: 0.5rem;
+        }
+      }
+    }
+    .account {
+      @include breakpoint(small only) {
+        font-size: 0.9rem
+      }
+    }
+    .account {
+      .shopping-cart {
+        position: relative;
+      }
+      a {
+        color: $white;
+        display: inline-block;
+        &:hover, &:focus {
+          color: scale-color($white, $lightness: -15%);
+        }
+      }
+      .top-cart {
+        background-image: url(../../../dist/assets/img/top-cart.svg);
+        width: 32px;
+        height: 30px;
+        display: inline-block;
+      }
+      .cart-qty {
+        position: absolute;
+        left: 32px;
+        color: $secondary-color;
+        font-weight: 700;
+      }
+      .cart-qty-10 {
+        position: absolute;
+        left: 26px;
+        color: $secondary-color;
+        font-weight: 700;
+      }
+      .shopping-cart a {
+        padding-right: 0 !important;
+      }
+      @include breakpoint(small only) {
+        .shopping-cart {
+          .title {
+            font-size: 0;
+          }
+        }
+      }
+      ul.menu {
+        li {
+          span {
+            vertical-align: middle;
+            display: inline-block;
+          }
+        }
+        @include breakpoint(small only) {
+          li:nth-child(2) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

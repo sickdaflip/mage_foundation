@@ -1,0 +1,50 @@
+<meta http-equiv="Content-Type" content="<?php echo $this->getContentType() ?>"/>
+<title><?php echo $this->getTitle() ?></title>
+<meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>"/>
+<meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>"/>
+<meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="theme-color" content="#000C44"/>
+<meta name="format-detection" content="telephone=no"/>
+<link rel="icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon"/>
+<link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon"/>
+<link rel="manifest" href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'manifest.json' ?>" />
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script>jQuery.noConflict();</script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('dist/assets/js/app.js') ?>"></script>
+<?php echo $this->getCssJsHtml() ?>
+<?php echo $this->getChildHtml() ?>
+<?php echo $this->helper('core/js')->getTranslatorScript() ?>
+<?php echo $this->getIncludes() ?>
+<?php
+$actionName = $this->getAction()->getFullActionName();
+if ($actionName == 'catalog_category_view') // Category Page
+{
+    $category = Mage::registry('current_category');
+    $prodCol = $category->getProductCollection()->addAttributeToFilter('status', 1)->addAttributeToFilter('visibility', array('in' => array(Mage_Catalog_Model_Product_Visibility::VISIBILITY_IN_CATALOG, Mage_Catalog_Model_Product_Visibility::VISIBILITY_BOTH)));
+    $tool = $this->getLayout()->createBlock('page/html_pager')->setLimit($this->getLayout()->createBlock('catalog/product_list_toolbar')->getLimit())->setCollection($prodCol);
+    $linkPrev = false;
+    $linkNext = false;
+    if ($tool->getCollection()->getSelectCountSql()) {
+        if ($tool->getLastPageNum() > 1) {
+            if (!$tool->isFirstPage()) {
+                $linkPrev = true;
+                if ($tool->getCurrentPage() == 2) {
+                    $url = explode('?', $tool->getPreviousPageUrl());
+                    $prevUrl = @$url[0];
+                }
+                else {
+                    $prevUrl = $tool->getPreviousPageUrl();
+                }
+            }
+            if (!$tool->isLastPage()) {
+                $linkNext = true;
+                $nextUrl = $tool->getNextPageUrl();
+            }
+        }
+    }
+    if ($linkPrev) echo '<link rel="prev" href="' . $prevUrl . '" />';
+    if ($linkNext) echo '<link rel="next" href="' . $nextUrl . '" />';
+}
+
+?>

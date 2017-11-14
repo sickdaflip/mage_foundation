@@ -1,0 +1,109 @@
+<div class="page-title">
+    <h1><?php echo $this->__('Edit Account Information') ?></h1>
+</div>
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+<form action="<?php echo $this->getUrl('customer/account/editPost') ?>" method="post" id="form-validate"
+      autocomplete="off" data-abide novalidate>
+    <?php echo $this->getBlockHtml('formkey') ?>
+    <h2><?php echo $this->__('Account Information') ?></h2>
+    <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getCustomer())->toHtml() ?>
+    <div class="email-field">
+        <label for="email"><?php echo $this->__('Email Address') ?>
+            <small><?php echo $this->__('required') ?></small>
+            <input type="text" name="email" id="email"
+                   value="<?php echo $this->escapeHtml($this->getCustomer()->getEmail()) ?>"
+                   title="<?php echo Mage::helper('core')->quoteEscape($this->__('Email Address')) ?>"
+                   required pattern="email"/>
+            <span class="form-error"><?php echo $this->__('Please enter your email.') ?></span>
+        </label>
+    </div>
+    <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
+    <?php if ($_dob->isEnabled()): ?>
+        <?php echo $_dob->setDate($this->getCustomer()->getDob())->toHtml() ?>
+    <?php endif ?>
+    <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
+    <?php if ($_taxvat->isEnabled()): ?>
+        <?php echo $_taxvat->setTaxvat($this->getCustomer()->getTaxvat())->toHtml() ?>
+    <?php endif ?>
+    <?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
+    <?php if ($_gender->isEnabled()): ?>
+        <?php echo $_gender->setGender($this->getCustomer()->getGender())->toHtml() ?>
+    <?php endif ?>
+    <div class="current-password">
+        <label for="current_password"><?php echo $this->__('Current Password') ?>
+            <small><?php echo $this->__('required') ?></small>
+            <input type="password"
+                   title="<?php echo Mage::helper('core')->quoteEscape($this->__('Current Password')) ?>"
+                   name="current_password" id="current_password" required/>
+            <span class="form-error"><?php echo $this->__('Please enter your password.') ?></span>
+        </label>
+    </div>
+    <div class="change_password">
+        <input type="checkbox" name="change_password" id="change_password" value="1"
+               onclick="setPasswordForm(this.checked)"
+               title="<?php echo Mage::helper('core')->quoteEscape($this->__('Change Password')) ?>"<?php if ($this->getCustomer()->getChangePassword() == 1): ?> checked="checked"<?php endif; ?> /><label
+            for="change_password"><?php echo $this->__('Change Password') ?></label>
+    </div>
+    <h2 class="password-title"><?php echo $this->__('Change Password') ?></h2>
+    <div class="password-field">
+        <label for="password"><?php echo $this->__('New Password') ?>
+            <small><?php echo $this->__('required') ?></small>
+            <input type="password"
+                   title="<?php echo Mage::helper('core')->quoteEscape($this->__('New Password')) ?>"
+                   name="password" id="password"/>
+            <span class="form-error"><?php echo $this->__('Please enter your password.') ?></span>
+            <div id="toolTipPasswordStrength">
+                <div id="toolTipPasswordStrengthWrapper">
+                    <div id="passwordStrengthHeadLine"><?php echo $this->__('Passwortstärke: ') ?></div>
+                    <div id="passwordStrengthBarContainer">
+                        <div id="passwordStrengthBar"></div>
+                    </div>
+                    <div id="passwordStrengthInfo">
+                        <?php echo $this->__('Für ein sicheres Passwort empfehlen wir eine Länge von mindestens 8 Zeichen, der Einsatz von Sonderzeichen, Zahlen und großen sowie kleinen Buchstaben.') ?>
+                    </div>
+                </div>
+            </div>
+        </label>
+    </div>
+    <div class="password-confirmation-field">
+        <label for="confirmation"><?php echo $this->__('Confirm New Password') ?>
+            <small><?php echo $this->__('required') ?></small>
+            <input type="password"
+                   title="<?php echo Mage::helper('core')->quoteEscape($this->__('Confirm New Password')) ?>"
+                   name="confirmation" id="confirmation" data-equalto="password"/>
+            <span class="form-error"><?php echo $this->__('Please make sure your passwords match.') ?></span>
+        </label>
+    </div>
+    <a href="<?php echo $this->escapeUrl($this->getBackUrl()) ?>"
+       class="button"><?php echo $this->__('Back') ?></a>
+    <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Save')) ?>"
+            class="button float-right"><?php echo $this->__('Save') ?></button>
+</form>
+<script type="text/javascript">
+    //<![CDATA[
+    jQuery('.password-title').hide();
+    jQuery('.password-field').hide();
+    jQuery('.password-confirmation-field').hide();
+    jQuery('#password').removeAttr('required');
+    jQuery('#confirmation').removeAttr('required');
+    function setPasswordForm(arg) {
+        if (arg) {
+            jQuery('.password-title').show();
+            jQuery('.password-field').show();
+            jQuery('.password-confirmation-field').show();
+            jQuery('#password').prop('required', true);
+            jQuery('#confirmation').prop('required', true);
+        } else {
+            jQuery('.password-title').hide();
+            jQuery('.password-field').hide();
+            jQuery('.password-confirmation-field').hide();
+            jQuery('#password').removeAttr('required');
+            jQuery('#confirmation').removeAttr('required');
+        }
+    }
+    ;
+    <?php if($this->getCustomer()->getChangePassword()): ?>
+    setPasswordForm(true);
+    <?php endif; ?>
+    //]]>
+</script>

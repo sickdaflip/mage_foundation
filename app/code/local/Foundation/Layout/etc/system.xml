@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <layouttab translate="label">
+            <label>Foundation</label>
+            <sort_order>100</sort_order>
+        </layouttab>
+    </tabs>
+    <sections>
+        <layoutsection>
+            <label>Theme Settings</label>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <tab>layouttab</tab>
+            <groups>
+                <layoutgroup translate="label">
+                    <label>Layout settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <theme translate="label comment">
+                            <label>Layout settings</label>
+                            <comment>Override some default settings</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </theme>
+                    </fields>
+                </layoutgroup>
+            </groups>
+        </layoutsection>
+    </sections>
+</config>

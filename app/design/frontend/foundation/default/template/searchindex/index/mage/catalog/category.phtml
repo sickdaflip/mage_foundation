@@ -1,0 +1,18 @@
+<?php
+$_collection = $this->getCollection()
+?>
+<div class="searchindex-result searchindex-result-category">
+    <ul>
+        <?php foreach ($_collection as $_item): ?>
+            <?php $_path = $this->getFullPath($_item->getId()) ?>
+            <?php if (is_array($_path)): ?>
+                <li>
+                    <?php foreach ($_path as $_topItem): ?>
+                        <a href="<?php echo $_topItem->getUrl() ?>"><?php echo $_topItem->getName() ?></a>  >
+                    <?php endforeach ?>
+                    <a href="<?php echo $_item->getUrl() ?>"><?php echo $_item->getName() ?></a>
+                </li>
+            <?php endif ?>
+        <?php endforeach ?>
+    </ul>
+</div>

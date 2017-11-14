@@ -1,0 +1,47 @@
+<?php 
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterSlider
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+/** 
+ * Template for showing options for filter as a slider 
+ * @author Mana Team
+ * Injected instead of standard catalog/layer/filter.phtml in Mana_Filters_Block_Filter_Attribute init() method.
+ * This template is overridden by copying (template body was pasted from catalog/layer/filter.phtml 
+ * and modified as needed). All changes are marked with comments.
+ */
+/* @var $this Mana_Filters_Block_Filter_Price */
+?>
+<?php /* @var $_helper Mana_Filters_Helper_Data */ $_helper = Mage::helper(strtolower('Mana_Filters')); ?>
+<?php /* @var $_superHelper ManaPro_FilterSuperSlider_Helper_Data */ $_superHelper = Mage::helper(strtolower('ManaPro_FilterSuperSlider')); ?>
+<?php /* @var $_slider ManaPro_FilterSlider_Helper_Data */ $_slider = Mage::helper(strtolower('ManaPro_FilterSlider'));?>
+<?php /* @var $_filter ManaPro_FilterSuperSlider_Model_Attribute */ $_filter = $this->getFilter(); ?>
+<?php $_id = $_helper->getFilterName($this, $_filter); ?>
+<div id="<?php echo $_id ?>-track" class="m-filter-slider <?php echo Mage::getStoreConfig('mana_filters/slider/style') ?>">
+	<div id="<?php echo $_id ?>-span" class="m-slider-span"></div>
+	<div id="<?php echo $_id ?>-from" class="m-slider-from"></div>
+	<div id="<?php echo $_id ?>-to" class="m-slider-to"></div>
+</div>
+	<div class="m-slider-values">
+		<span id="<?php echo $_id ?>-range-from" class="m-slider-min-value"><?php echo $_filter->getLowestPossibleLabel() ?></span>
+		<span id="<?php echo $_id ?>-range-to" class="m-slider-max-value"><?php echo $_filter->getHighestPossibleLabel() ?></span>
+		<span id="<?php echo $_id ?>-applied" class="m-slider-selected-value"><?php echo $_helper->__('%s to %s', $_filter->getCurrentRangeLowerLabel(), $_filter->getCurrentRangeHigherLabel())?></span>
+	</div>
+
+<script type="text/javascript">
+//<![CDATA[
+ManaPro.filterAttributeSlider('<?php echo $_id ?>', {
+	rangeFrom: <?php echo $_filter->getLowestPossibleValue() ?>,
+	rangeTo: <?php echo $_filter->getHighestPossibleValue() ?>,
+	appliedFrom: <?php echo $_filter->getCurrentRangeLowerBound() ?>,
+	appliedTo: <?php echo $_filter->getCurrentRangeHigherBound() ?>,
+	appliedFormat: '<?php echo $_helper->__('__0__ to __1__') ?>',
+	url: '<?php echo  Mage::helper('mana_core')->base64EncodeUrl($_superHelper->getAttributeUrl($_filter->getRequestVar())) ?>',
+	clearUrl: '<?php echo  Mage::helper('mana_core')->base64EncodeUrl($_slider->getClearUrl($_filter->getRequestVar())) ?>',
+    existingValues: <?php echo json_encode($_filter->getExistingValues()) ?>,
+    separator: '<?php echo $this->getMultipleValueSeparator() ?>'
+});
+//]]>
+</script>

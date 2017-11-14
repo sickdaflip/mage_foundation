@@ -1,0 +1,132 @@
+<?php
+if (!function_exists('clean_related')) {
+    function clean_related($string)
+    {
+
+        $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+//$string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+        $string = strtolower($string);
+        $utf8 = array(
+            '/[áàâãªä]/u' => 'a',
+            '/[ÁÀÂÃÄ]/u' => 'A',
+            '/[ÍÌÎÏ]/u' => 'I',
+            '/[íìîï]/u' => 'i',
+            '/[éèêë]/u' => 'e',
+            '/[ÉÈÊË]/u' => 'E',
+            '/[óòôõºö]/u' => 'o',
+            '/[ÓÒÔÕÖ]/u' => 'O',
+            '/[úùûü]/u' => 'u',
+            '/[ÚÙÛÜ]/u' => 'U',
+            '/ç/' => 'c',
+            '/Ç/' => 'C',
+            '/ñ/' => 'n',
+            '/Ñ/' => 'N',
+            '/–/' => '-', // UTF-8 hyphen to "normal" hyphen
+            '/[’‘‹›‚]/u' => ' ', // Literally a single quote
+            '/[“”«»„]/u' => ' ', // Double quote
+            '/ /' => ' ', // nonbreaking space (equiv. to 0x160)
+        );
+
+        return preg_replace(array_keys($utf8), array_values($utf8), $string); // Replaces multiple hyphens with single one.
+    }
+}
+?>
+<?php if ($this->getItems()->getSize()): ?>
+    <p><?php echo $this->__('Check items to add to the cart or') ?>&nbsp;<a href="#"
+                                                                            onclick="selectAllRelated(this);return false;"><?php echo $this->__('select all') ?></a>
+    </p>
+    <ul class="products-grid">
+        <?php foreach ($this->getItems() as $_item): ?>
+            <li class="item<?php if ($_item->isComposite() || !$_item->isSaleable()): ?>  super-products<?php endif; ?>">
+                <div class="content">
+                    <?php if (!$_item->isComposite() && $_item->isSaleable()): ?>
+                        <span class="checkbox-container">
+                <?php if (!$_item->getRequiredOptions()): ?>
+                    <input type="checkbox" class="related-checkbox left"
+                           id="related-checkbox<?php echo $_item->getId() ?>" name="related_products[]"
+                           value="<?php echo $_item->getId() ?>"/>
+                <?php endif; ?>
+                </span>
+                    <?php else: ?>
+                        <span class="checkbox-container">&nbsp;</span>
+                    <?php endif; ?>
+                    <h3 class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"
+                                                title="<?php echo $this->stripTags($_item->getName(), null, true) ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a>
+                    </h3>
+                    <div class="products-image float-center">
+                        <?php if ($_item->getFinalPrice() < $_item->getPrice()) { ?>
+                            <?php $_savingPercent = 100 - round(($_item->getFinalPrice() / $_item->getPrice()) * 100); ?>
+                            <div class="special-ribbon"><span><?php echo $_savingPercent; ?>% Rabatt</span>
+                            </div>
+                        <?php } ?>
+                        <a href="<?php echo $_item->getProductUrl() ?>"
+                           title="<?php echo $this->stripTags($this->getImageLabel($_item, 'small_image'), null, true) ?>"
+                           class="product-image small-centered">
+                            <img
+                                    src="<?php echo $this->helper('catalog/image')->init($_item, 'small_image')->resize(200); ?>"
+                                    width="200" height="200"
+                                    alt="<?php echo $this->stripTags($this->getImageLabel($_item, 'small_image'), null, true) ?>"/>
+                        </a>
+                    </div>
+                    <?php if ($_item->getRatingSummary()): ?>
+                        <?php echo $this->getReviewsSummaryHtml($_item, 'short') ?>
+                    <?php endif; ?>
+                    <div class="extra">
+
+                        <?php if ($_item->getAttributeText('manufacturer')): ?>
+                            <?php $brand = $_item->getAttributeText('manufacturer') ?>
+                            <div class="product-brand">
+                                <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>catalog/brands/<?php echo clean($brand) ?>.png"
+                                     alt="<?php echo $brand ?> Logo">
+                            </div>
+                        <?php endif; ?>
+
+                        <?php echo $this->getLayout()->createBlock('catalog/product_price')
+                            ->setTemplate('catalog/product/price_catalog.phtml')
+                            ->setProduct($_item)
+                            ->setDisplayMinimalPrice(true)
+                            ->setIdSuffix($idSuffix = 'amit')
+                            ->toHtml(); ?>
+                        <?php //echo $this->getPriceHtml($_product, true) ?>
+                    </div>
+                </div>
+            </li>
+        <?php endforeach ?>
+    </ul>
+    <script type="text/javascript">
+        <!--
+        $$('.related-checkbox').each(function (elem) {
+            Event.observe(elem, 'click', addRelatedToProduct)
+        });
+
+        var relatedProductsCheckFlag = false;
+        function selectAllRelated(txt) {
+            if (relatedProductsCheckFlag == false) {
+                $$('.related-checkbox').each(function (elem) {
+                    elem.checked = true;
+                });
+                relatedProductsCheckFlag = true;
+                txt.innerHTML = "<?php echo $this->__('unselect all') ?>";
+            } else {
+                $$('.related-checkbox').each(function (elem) {
+                    elem.checked = false;
+                });
+                relatedProductsCheckFlag = false;
+                txt.innerHTML = "<?php echo $this->__('select all') ?>";
+            }
+            addRelatedToProduct();
+        }
+
+        function addRelatedToProduct() {
+            var checkboxes = $$('.related-checkbox');
+            var values = [];
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) values.push(checkboxes[i].value);
+            }
+            if ($('related-products-field')) {
+                $('related-products-field').value = values.join(',');
+            }
+        }
+        //-->
+    </script>
+<?php endif ?>

@@ -1,0 +1,30 @@
+<?php 
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterDropdown
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+/** 
+ * Template for showing options for filter as a drop down list 
+ * @author Mana Team
+ * Injected instead of standard catalog/layer/filter.phtml in Mana_Filters_Block_Filter_Attribute init() method.
+ * This template is overridden by copying (template body was pasted from catalog/layer/filter.phtml 
+ * and modified as needed). All changes are marked with comments.
+ */
+/* @var $this Mana_Filters_Block_Filter_Attribute */
+/* @var $filters Mana_Filters_Helper_Data */ $filters = Mage::helper(strtolower('Mana_Filters'));
+?>
+<select class="m-filter-dropdown" onChange="setLocation(this.value);">
+	<option value="<?php echo $this->urlEscape($this->getFilter()->getRemoveUrl()) ?>"><?php echo $this->__(' -- All --') ?></option>
+<?php foreach ($this->getItems() as $_item): ?>
+	<option id="<?php echo $_item->getUniqueId($this) ?>" <?php if ($_item->getMSelected()): ?>selected="selected"<?php endif; ?>
+		value="<?php echo $this->urlEscape($_item->getReplaceUrl()) ?>">
+			<?php echo $this->escapeHtml($_item->getLabel()) ?>
+            <?php if (Mage::getStoreConfigFlag('mana_filters/display/count')) : ?>
+                (<?php echo $_item->getCount() ?>)
+            <?php endif; ?>
+	</option>
+<?php endforeach ?>
+</select>
+

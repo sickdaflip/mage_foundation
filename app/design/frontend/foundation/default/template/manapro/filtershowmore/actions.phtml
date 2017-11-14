@@ -1,0 +1,75 @@
+<?php 
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterShowMore
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+/** 
+ * Template for showing Show More / Show less actions 
+ * @author Mana Team
+ * Injected in designated place in filter items template used. In default template, designated place is right 
+ * under list of items
+ */
+/* @var $block Mana_Filters_Block_Filter */
+?>
+<?php
+    /* @var $_helper ManaPro_FilterShowMore_Helper_Data */
+    $_helper = Mage::helper(strtolower('ManaPro_FilterShowMore'));
+
+    /* @var $_core Mana_Core_Helper_Data */
+    $_core = Mage::helper(strtolower('Mana_Core'));
+
+    /* @var $_core Mana_Filters_Helper_Data */
+    $_filterHelper = Mage::helper('mana_filters');
+
+    /* @var $_filter Mana_Filters_Model_Filter_Attribute */
+    $_filter = $block->getFilter();
+
+    /* @var $_urlTemplate Mana_Core_Helper_UrlTemplate */
+    $_urlTemplate = Mage::helper('mana_core/urlTemplate');
+?>
+<?php if ($_filter->getMIsShowMoreApplied() && !$_helper->isMethodDisabled($block, $_filter)) : ?>
+    <?php $method = $_helper->getMethod($block, $_filter) ?>
+    <?php if ($method == 'scrollbar') : ?>
+    <div class="m-more-less" id="m-more-less-<?php echo $_filterHelper->getFilterName($block, $_filter) ?>">
+        <script type="text/javascript">(function ($) {
+                $(document).trigger('m-filter-scroll-reset', [
+                    '<?php echo Mage::helper('mana_filters')->getFilterName($block, $_filter) ?>',
+                    <?php echo $_filter->getFilterOptions()->getShowMoreItemCount() ?>,
+                    <?php echo Mage::getStoreConfigFlag('mana_filters/display/add_space_for_not_visible_selected_items') ? '0' : '1' ?>
+                ]);
+            })(jQuery);</script>
+    </div>
+    <?php elseif ($method == 'popup') : ?>
+    <div class="m-more-less" id="m-more-less-<?php echo Mage::helper('mana_filters')->getFilterName($block, $_filter) ?>"
+         data-m-block="Mana/LayeredNavigation/ShowMore/PopupAction"
+         data-popup-url="<?php echo $_urlTemplate->encodeAttribute($_helper->getPopupUrl($_filter)) ?>"
+         data-target-url="<?php echo $_urlTemplate->encodeAttribute($_helper->getPopupTargetUrl($_filter, true, false)) ?>"
+         data-special-url="<?php echo $_urlTemplate->encodeAttribute($_helper->getPopupTargetUrl($_filter, false, true)) ?>"
+         data-target-special-url="<?php echo $_urlTemplate->encodeAttribute($_helper->getPopupTargetUrl($_filter, true, true)) ?>"
+         data-clear-url="<?php echo $_urlTemplate->encodeAttribute($_helper->getPopupClearUrl($_filter)) ?>"
+         data-selected-items="<?php echo $block->getSelectedSeoValues() ?>"
+         data-popup-block="<?php echo $block->getPopupBlockName() ?>"
+         data-separator="<?php echo $block->getMultipleValueSeparator() ?>"
+         data-column-count="<?php echo Mage::getStoreConfig('mana_filters/show_more_popup/max_columns') ?>"
+         data-row-count="<?php echo Mage::getStoreConfig('mana_filters/show_more_popup/max_rows') ?>">
+        <a href="#" data-open="m-more-less-<?php echo Mage::helper('mana_filters')->getFilterName($block, $_filter) ?>" class="m-show-more-popup-action"><?php echo $block->__('Show More') ?></a>
+    </div>
+    <?php else : ?>
+    <div class="m-more-less" id="m-more-less-<?php echo Mage::helper('mana_filters')->getFilterName($block, $_filter) ?>">
+        <a class="m-show-less-action" href="#"><?php echo $block->__('Show Less') ?></a>
+        <a class="m-show-more-action" href="#"><?php echo $block->__('Show More') ?></a>
+        <script type="text/javascript">(function ($) {
+                $(document).trigger('m-show-more-reset', [
+                    '<?php echo Mage::helper('mana_filters')->getFilterName($block, $_filter) ?>',
+                    <?php echo $_filter->getFilterOptions()->getShowMoreItemCount() ?>,
+                    <?php echo $_helper->isShowAllRequested($_filter) ? 'true' : 'false' ?>,
+                    <?php echo Mage::getStoreConfig('mana_filters/display/show_more_time') ?>,
+                    <?php echo Mage::getStoreConfigFlag('mana_filters/display/add_space_for_not_visible_selected_items') ? '0' : '1' ?>
+                ]);
+            })(jQuery);</script>
+    </div>
+    <?php endif; ?>
+<?php endif; ?>
+

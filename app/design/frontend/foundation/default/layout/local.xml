@@ -1,0 +1,490 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="head">
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/styles.css</name>
+            </action>
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/styles-ie.css</name>
+            </action>
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/print.css</name>
+            </action>
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/widgets.css</name>
+            </action>
+            <action method="removeItem">
+                <type>js</type>
+                <name>lib/ds-sleight.js</name>
+            </action>
+            <action method="removeItem">
+                <type>skin_js</type>
+                <name>js/ie6.js</name>
+            </action>
+            <action method="removeItem">
+                <type>js</type>
+                <name>varien/menu.js</name>
+            </action>
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/magesetup/default.css</name>
+            </action>
+            <!--Disable EasyTabs-->
+            <action method="removeItem" ifconfig="tm_easytabs/general/enabled">
+                <type>skin_css</type>
+                <name>css/tm/easytabs.css</name>
+            </action>
+            <action method="removeItem" ifconfig="tm_easytabs/general/enabled">
+                <type>skin_js</type>
+                <name>js/tm/easytabs.js</name>
+            </action>
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/style-newssubscribers.css</name>
+            </action>
+            <action method="removeItem">
+                <type>js</type>
+                <script>newssubscribers/script.js</script>
+            </action>
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/mirasvit_searchindex.css</name>
+            </action>
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/mirasvit_searchindex.css</name>
+            </action>
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/mirasvit_mstcore.css</name>
+            </action>
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/mixin.css</name>
+            </action>
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/mirasvit/searchautocomplete/default.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>dist/assets/css/app.css</name>
+            </action>
+        </reference>
+
+        <!--Magento's Default Sidebar Blocks-->
+        <remove name="cart_sidebar"/>                   <!--Cart Sidebar-->
+        <remove name="catalog.product.related"/>        <!--Related products sidebar-->
+        <remove name="wishlist_sidebar"/>               <!--Wishlist Sidebar-->
+        <remove name="catalog.compare.sidebar"/>        <!--Compare Items Sidebar-->
+        <remove name="right.permanent.callout"/>        <!--Right Callout Sample Data-->
+        <remove name="left.permanent.callout"/>         <!--Left Callout Sample Data-->
+        <remove name="right.reports.product.viewed"/>   <!--Viewed Products-->
+        <remove name="right.reports.product.compared"/> <!--Compared Products-->
+        <remove name="left.newsletter"/>                <!--Sidebar Newsletter-->
+        <remove name="right.poll"/>                     <!--Poll-->
+        <remove name="tags_popular"/>                   <!--Popular Tags-->
+        <remove name="product_tag_list"/>
+        <remove name="paypal.partner.right.logo"/>      <!--Paypal logo Sample Data-->
+        <remove name="sale.reorder.sidebar"/>           <!--Reorder Sidebar When User Logged, in Dashboard-->
+        <!--<remove name="customer_account_navigation"/>    Customer Navigation-->
+        <remove name="currency"/>
+        <!--<remove name="catalog.leftnav"/>-->
+        <!--<remove name="breadcrumbs"/>-->
+
+        <!-- remove the language and store switcher and footer links blocks, we won't use them -->
+        <remove name="store_language"/>
+        <remove name="footer_links"/>
+        <remove name="newsletter.unsubscriber"/>
+
+        <!-- Add/Remove Top Links -->
+        <reference name="root">
+            <block type="core/template" name="top.search" as="topSearch" template="algoliasearch/autocomplete.phtml"/>
+            <block type="core/template" name="algolia-beforecontent" template="algoliasearch/internals/beforecontent.phtml"/>
+            <reference name="top.links">
+                <remove name="checkout_cart_link_custom"/>
+                <remove name="wishlist_link"/>
+                <action method="removeLinkByUrl">
+                    <url helper="customer/getAccountUrl"/>
+                </action>
+                <remove name="checkout_cart_link"/>
+                <remove name="global_messages"/>
+                <!--<action method="addLink" translate="label title">
+                    <label>Compare</label>
+                    <url>/catalog/product_compare/index/</url>
+                    <title>Compare</title>
+                    <prepare>true</prepare>
+                    <urlParams helper="core/url/getHomeUrl"/>
+                    <position>100</position>
+                    <liParams/>
+                    <aParams/>
+                    <beforeText><![CDATA[<i class="fa fa-exchange"></i>]]></beforeText>
+                    <afterText/>
+                </action>-->
+                <action method="addLink" translate="label title">
+                    <label>Checkout</label>
+                    <url>/checkout</url>
+                    <title>Checkout</title>
+                    <prepare/>
+                    <urlParams/>
+                    <position>20</position>
+                    <liParams/>
+                    <aParams/>
+                    <beforeText/>
+                    <afterText/>
+                </action>
+                <action method="addLink" translate="label title">
+                    <label>My Cart</label>
+                    <url>/checkout/cart</url>
+                    <title>My Cart</title>
+                    <prepare/>
+                    <urlParams/>
+                    <position>30</position>
+                    <liParams/>
+                    <aParams/>
+                    <beforeText><![CDATA[<span class="top-cart"></span>]]></beforeText>
+                    <afterText/>
+                </action>
+            </reference>
+        </reference>
+
+        <reference name="after_body_start">
+            <block type="core/template" name="foundation_global_messages" template="core/global_messages.phtml"
+                   before="-"/>
+        </reference>
+
+        <reference name="footer">
+            <block type="core/template" name="footer.manufacture_list" before="-"
+                   template="page/html/manufacture_list.phtml"/>
+            <block type="page/switch" name="store_switcher" template="page/switch/stores.phtml">
+                <action method="setCacheLifetime">
+                    <s>0</s>
+                </action>
+            </block>
+        </reference>
+
+        <reference name="before_body_end">
+            <block type="core/template" name="safershopping" template="page/html/safershopping.phtml"/>
+            <block type="core/template" name="reasons" template="foundation/reasons.phtml"/>
+        </reference>
+
+    </default>
+
+    <customer_logged_in>
+        <reference name="top.links">
+            <action method="removeLinkByUrl">
+                <url helper="customer/getLogoutUrl"/>
+            </action>
+            <action method="addLink" translate="label title">
+                <label>Account</label>
+                <url>/customer/account/</url>
+                <title>Account</title>
+                <prepare/>
+                <urlParams helper="customer/getAccountUrl"/>
+                <position>10</position>
+                <liParams/>
+                <aParams/>
+                <beforeText/>
+                <afterText/>
+            </action>
+        </reference>
+    </customer_logged_in>
+    <customer_logged_out>
+        <reference name="top.links">
+            <action method="removeLinkByUrl">
+                <url helper="customer/getLoginUrl"/>
+            </action>
+            <action method="addLink" translate="label title">
+                <label>Log In</label>
+                <url>/customer/account/login/</url>
+                <title>Log In</title>
+                <prepare/>
+                <urlParams helper="customer/getLoginUrl"/>
+                <position>10</position>
+                <liParams/>
+                <aParams/>
+                <beforeText/>
+                <afterText/>
+            </action>
+        </reference>
+    </customer_logged_out>
+
+    <catalog_product_view>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <remove name="product.clone_prices"/>
+        <reference name="product.info">
+            <action method="unsetChild">
+                <child>attachments</child>
+            </action>
+            <block type="review/product_view_list" name="product.info.product_additional_data" as="reviews"
+                   template="review/product/view/list.phtml">
+                <block type="review/form" name="product.review.form" as="review_form">
+                    <block type="page/html_wrapper" name="product.review.form.fields.before" as="form_fields_before"
+                           translate="label">
+                        <label>Review Form Fields Before</label>
+                        <action method="setMayBeInvisible">
+                            <value>1</value>
+                        </action>
+                    </block>
+                </block>
+            </block>
+            <block type="catalog/product_list_related" name="product.info.related" as="related_products" before="-"
+                   template="catalog/product/list/related.phtml"/>
+        </reference>
+    </catalog_product_view>
+
+    <catalog_category_default>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+    </catalog_category_default>
+
+    <catalog_category_layered>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+        </reference>
+    </catalog_category_layered>
+
+    <catalogsearch_result_index>
+        <reference name="head">
+            <action method="setRobots">
+                <value>noindex, nofollow</value>
+                <name>robots</name>
+            </action>
+        </reference>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </catalogsearch_result_index>
+
+    <catalogsearch_advanced_result>
+        <reference name="head">
+            <action method="setRobots">
+                <value>noindex, nofollow</value>
+                <name>robots</name>
+            </action>
+        </reference>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </catalogsearch_advanced_result>
+
+    <catalogsearch_advanced_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </catalogsearch_advanced_index>
+
+    <customer_account_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </customer_account_index>
+
+    <customer_account_edit>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </customer_account_edit>
+
+    <customer_address_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </customer_address_index>
+
+    <customer_address_form>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </customer_address_form>
+
+    <sales_order_history>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+            <remove name="customer.account.link.back"/>
+        </reference>
+    </sales_order_history>
+
+    <sales_order_view>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </sales_order_view>
+
+    <sales_order_shipment>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </sales_order_shipment>
+
+    <review_customer_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </review_customer_index>
+
+    <wishlist_index_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="customer.wishlist.buttons">
+            <action method="unsetChild">
+                <name>customer.wishlist.button.share</name>
+            </action>
+        </reference>
+    </wishlist_index_index>
+
+    <newsletter_manage_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </newsletter_manage_index>
+
+    <deletecustomer_index_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </deletecustomer_index_index>
+
+    <customer_account translate="label">
+        <reference name="content">
+            <!--Unset the whole block then add back later-->
+            <action method="unsetChild">
+                <name>customer_account_navigation</name>
+            </action>
+            <block type="customer/account_navigation" name="customer_account_navigation" before="-"
+                   template="customer/account/navigation.phtml">
+                <action method="addLink" translate="label" module="customer">
+                    <name>account</name>
+                    <path>customer/account/</path>
+                    <label><![CDATA[<i class="fa fa-user"></i>]]> Account Dashboard</label>
+                </action>
+                <action method="addLink" translate="label" module="customer">
+                    <name>account_edit</name>
+                    <path>customer/account/edit/</path>
+                    <label><![CDATA[<i class="fa fa-info"></i>]]> Account Information</label>
+                </action>
+                <action method="addLink" translate="label" module="customer">
+                    <name>address_book</name>
+                    <path>customer/address/</path>
+                    <label><![CDATA[<i class="fa fa-book"></i>]]> Address Book</label>
+                </action>
+                <action method="addLink" translate="label" module="sales">
+                    <name>orders</name>
+                    <path>sales/order/history/</path>
+                    <label><![CDATA[<i class="fa fa-shopping-cart"></i>]]> My Orders</label>
+                </action>
+                <action method="addLink" translate="label" module="review">
+                    <name>reviews</name>
+                    <path>review/customer</path>
+                    <label><![CDATA[<i class="fa fa-star"></i>]]> My Product Reviews</label>
+                </action>
+                <action method="addLink" translate="label" module="wishlist" ifconfig="wishlist/general/active">
+                    <name>wishlist</name>
+                    <path>wishlist/</path>
+                    <label><![CDATA[<i class="fa fa-heart"></i>]]> My Favorite</label>
+                </action>
+                <action method="addLink" translate="label" module="newsletter">
+                    <name>newsletter</name>
+                    <path>newsletter/manage/</path>
+                    <label><![CDATA[<i class="fa fa-envelope"></i>]]> Newsletter Subscriptions</label>
+                </action>
+                <action method="addLink" translate="label" module="deletecustomer">
+                    <name>Delete Account</name>
+                    <path>deletecustomer/index/index</path>
+                    <label><![CDATA[<i class="fa fa-user-times"></i>]]> Konto löschen</label>
+                </action>
+                <action method="addLink" translate="label">
+                    <name>Log Out</name>
+                    <path>customer/account/logout/</path>
+                    <label><![CDATA[<i class="fa fa-power-off"></i>]]> Log Out</label>
+                </action>
+            </block>
+            <remove name="catalog.compare.sidebar"/>
+        </reference>
+    </customer_account>
+
+    <contacts_index_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </contacts_index_index>
+
+    <checkout_onepage_index>
+        <remove name="left"/>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-right.phtml</template>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/magesetup/checkout.css</name>
+            </action>
+        </reference>
+    </checkout_onepage_index>
+
+    <checkout_onepage_success>
+        <remove name="left"/>
+        <remove name="right"/>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+    </checkout_onepage_success>
+
+    <cms_page translate="label">
+        <remove name="breadcrumbs"/>
+    </cms_page>
+
+    <cms_index_noroute>
+        <remove name="google_analytics"/>
+    </cms_index_noroute>
+
+</layout>

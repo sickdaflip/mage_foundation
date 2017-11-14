@@ -1,0 +1,52 @@
+<?php if ($this->getCollection()->getSize()): ?>
+    <?php if ($this->getLastPageNum() > 1): ?>
+        <div class="toolbar">
+    <?php else: ?>
+        <div class="toolbar-3">
+    <?php endif; ?>
+    <div class="amount">
+        <?php if ($this->getLastPageNum() > 1): ?>
+            <p><?php echo $this->__('Items %s to %s of %s total', $this->getFirstNum(), $this->getLastNum(), $this->getTotalNum()) ?></p>
+        <?php else: ?>
+            <p><strong><?php echo $this->__('%s Item(s)', $this->getTotalNum()) ?></strong></p>
+        <?php endif; ?>
+    </div>
+    <div class="limiter">
+        <div class="input-group">
+            <select onchange="setLocation(this.value)" class="input-group-field">
+                <?php foreach ($this->getAvailableLimit() as $_key => $_limit): ?>
+                    <option
+                        value="<?php echo $this->getLimitUrl($_key) ?>"<?php if ($this->isLimitCurrent($_key)): ?> selected="selected"<?php endif ?>>
+                        <?php echo $_limit ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+            <span class="input-group-label"><?php echo $this->__('per page') ?></span>
+        </div>
+    </div>
+    <?php echo $this->getPagerHtml() ?>
+    <?php if ($this->isExpanded()): ?>
+        <div class="sort-by">
+            <div class="input-group">
+                <select onchange="setLocation(this.value)" class="input-group-field">
+                    <?php foreach ($this->getAvailableOrders() as $_key => $_order): ?>
+                        <option
+                            value="<?php echo $this->getOrderUrl($_key, 'asc') ?>"<?php if ($this->isOrderCurrent($_key)): ?> selected="selected"<?php endif; ?>>
+                            <?php echo $this->__($_order) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                <?php if ($this->getCurrentDirection() == 'desc'): ?>
+                    <span class="input-group-label"><a href="<?php echo $this->getOrderUrl(null, 'asc') ?>"
+                                                       title="<?php echo $this->__('Set Ascending Direction') ?>"><i
+                                class="fa fa-long-arrow-down"></i></a></span>
+                <?php else: ?>
+                    <span class="input-group-label"><a href="<?php echo $this->getOrderUrl(null, 'desc') ?>"
+                                                       title="<?php echo $this->__('Set Descending Direction') ?>"><i
+                                class="fa fa-long-arrow-up"></i></a></span>
+                <?php endif; ?>
+            </div>
+        </div>
+    <?php endif; ?>
+    </div>
+<?php endif ?>

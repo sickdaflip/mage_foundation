@@ -1,0 +1,53 @@
+<!-- List all categories and their second level subcategories -->
+<div class="block block-layered-nav">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Shop By') ?></span></strong>
+    </div>
+
+    <div class="block-content">
+        <?php $helper = $this->helper('catalog/category') ?>
+        <?php $categories = $this->getStoreCategories() ?>
+        <dl class="narrow-by-list" id="narrow-by-list-0">
+            <dt class="odd" data-id="m_left_category_filter">Kategorie</dt>
+            <dd>
+                <?php if (count($categories) > 0): ?>
+                <ol class="m-filter-item-list m-tree" id="m-tree-left_category">
+                    <?php foreach ($categories as $category): ?>
+                        <?php $_category = Mage::getModel('catalog/category')->load($category->getId()); ?>
+                        <?php $subcategories = $_category->getChildrenCategories(); ?>
+                        <li class="<?php if ($this->isCategoryActive($category)): ?>m-collapsed<?php endif; ?>">
+                            <div class="m-tree-item" id="m-tree-item-<?php echo $category->getId() ?>">
+                            <a href="<?php echo $helper->getCategoryUrl($category) ?>"><span><?php echo $this->escapeHtml($category->getName()) ?></span></a> (<?php echo $category->getProductCollection()->count(); ?>)
+                            </div>
+                            <?php //if ($this->isCategoryActive($category)): ?>
+                            <?php //$subcategories = $category->getChildren() ?>
+                            <?php if (count($subcategories) > 0): ?>
+                                <ul>
+                                    <?php foreach ($subcategories as $subcategory): ?>
+                                    <?php $_subcategory = Mage::getModel('catalog/category')->load($subcategory->getId()); ?>
+                                    <?php $secondLevelSubcategories = $_subcategory->getChildrenCategories(); ?>
+                                    <li class="m-leaf">
+                                        <a href="<?php echo $helper->getCategoryUrl($subcategory) ?>"><?php echo $this->escapeHtml(trim($subcategory->getName(), '- ')) ?></a>
+                                        <?php //$secondLevelSubcategories = $subcategory->getChildren() ?>
+                                        <?php if (count($secondLevelSubcategories) > 0): ?>
+                                            <ul id="leftnav-tree-<?php echo $subcategory->getId() ?>" class="level2">
+                                                <?php foreach ($secondLevelSubcategories as $secondLevelSubcategory): ?>
+                                                    <li class="level2<?php if ($this->isCategoryActive($secondLevelSubcategory)): ?> active<?php endif; ?>">
+                                                        <a href="<?php echo $helper->getCategoryUrl($secondLevelSubcategory) ?>"><?php echo $this->escapeHtml(trim($secondLevelSubcategory->getName(), '- ')) ?></a>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        <?php endif; ?>
+                                        <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                            <?php //endif; ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ol>
+            </dd>
+        </dl>
+        <script type="text/javascript">decorateDataList('narrow-by-list-0')</script>
+    <?php endif; ?>
+    </div>
+</div>

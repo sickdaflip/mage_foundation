@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Foundation_Contacts>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Contacts/>
+            </depends>
+        </Foundation_Contacts>
+    </modules>
+</config>
