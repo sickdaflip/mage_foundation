@@ -62,7 +62,7 @@ function loadConfig() {
 
 // Build the "dist" folder by running all of the below tasks
 gulp.task('build',
- gulp.series(clean, sass, javascript, node_images, images, fonts, copy));
+ gulp.series(clean, sass, javascript, node_images, images, fonts, js, copy));
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
@@ -171,6 +171,12 @@ function archive() {
 function fonts() {
     return gulp.src(PATHS.fonts)
         .pipe(gulp.dest(PATHS.dist + '/assets/fonts'));
+}
+
+// Copy JS
+function js() {
+    return gulp.src(PATHS.js)
+        .pipe(gulp.dest(PATHS.dist + '/assets/js'));
 }
 
 // PHP Code Sniffer task

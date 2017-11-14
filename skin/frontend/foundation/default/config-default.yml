@@ -54,3 +54,6 @@ PATHS:
   fonts:
     - "node_modules/components-font-awesome/fonts/**"
     - "node_modules/lightgallery/src/fonts/**"
+  js:
+    - "src/assets/js/accordion.js"
+    - "src/assets/js/opcheckout.js"
