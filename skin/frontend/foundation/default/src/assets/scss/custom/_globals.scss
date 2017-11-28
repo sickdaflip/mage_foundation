@@ -85,12 +85,6 @@ a {
   border-radius: 0;
 }
 
-a[href^="tel:"]:before {
-  font-family: FontAwesome;
-  content: "\f095";
-  margin-right: 0.5em;
-}
-
 a[href^="mailto:"]:before {
   font-family: FontAwesome;
   content: "\f0e0";

@@ -4,13 +4,90 @@ header {
   padding-top: 0.3rem;
   .header-top {
     .brand {
+      margin: 0 auto;
+      text-align: center;
+      justify-content: center;
       @media #{$small-only} {
         margin: .5em 0;
       }
-      img {
-        @include breakpoint(medium only) {
-          float: left;
+    }
+    .trusted {
+      @include breakpoint(large) {
+        float: left;
+      }
+      .menu {
+        align-items: center;
+        @include breakpoint(large) {
+          justify-content: flex-start;
         }
+        .quality-since {
+          @include show-for(large);
+          @include breakpoint(retina) {
+            font-size: .9rem;
+          }
+          font-size: 1.2rem;
+          font-weight: 500;
+          letter-spacing: 1px;
+          display: block;
+          span {
+            font-weight: 300;
+            letter-spacing: .12rem;
+            @include breakpoint(retina) {
+              letter-spacing: .1rem;
+            }
+            margin-top: -8px;
+            font-size: 0.6rem;
+            display: block;
+          }
+        }
+        .ts-trusted {
+          @include show-for(large);
+          @include breakpoint(retina) {
+            font-size: .9rem;
+          }
+          font-size: 1.2rem;
+          font-weight: 500;
+          letter-spacing: 1px;
+          display: block;
+          span {
+            font-weight: 300;
+            letter-spacing: .30rem;
+            @include breakpoint(retina) {
+              letter-spacing: .1rem;
+            }
+            margin-top: -8px;
+            font-size: 0.6rem;
+            display: block;
+          }
+        }
+        a {
+          padding: 0.5rem;
+          img {
+            width: 30px;
+          }
+        }
+      }
+    }
+    .shipping {
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hotline {
+      margin: 0 auto;
+      text-align: center;
+      @include breakpoint(xlarge) {
+        text-align: right;
+      }
+    }
+  }
+  .header-bottom {
+    nav {
+      @include show-for(medium);
+      .button {
+        margin-bottom: 0;
+        color: $white;
+        border-color: $white;
+        padding: 0.3rem;
       }
     }
     .search {
@@ -33,102 +110,24 @@ header {
         }
       }
     }
-    .hotline {
+    .deal {
+      @include show-for(xlarge);
       text-align: center;
-      @media #{$small-only} {
-        margin: .5em 0;
-      }
-      p {
-        margin-bottom: .2em;
-        font-size: .7rem;
-        @include breakpoint(medium only) {
-          font-size: .6rem;
-        }
-        @include breakpoint(retina) {
-          font-size: .6rem;
-        }
-        line-height: 1;
-        letter-spacing: .17em;
-      }
+      font-size: .8rem;
       a {
         color: $white;
-        font-weight: 800;
-        font-size: 1.8rem;
-        @include breakpoint(medium only) {
-          font-size: 1.3rem;
-        }
-        @include breakpoint(retina) {
-          font-size: 1.3rem;
-        }
-        line-height: 1;
-        display: block;
-      }
-      span {
-        display: block;
-        font-size: .7rem;
-        @include breakpoint(medium only) {
-          font-size: .6rem;
-        }
-        @include breakpoint(retina) {
-          font-size: .5rem;
-        }
-        line-height: 1;
-      }
-    }
-  }
-  .header-bottom {
-    nav {
-      .button {
-        margin-bottom: 0;
-        color: $white;
-        border-color: $white;
-        padding: 0.3rem;
-      }
-    }
-    .shipping {
-      a {
-        color: $white;
-        font-size: 1.5rem;
-        font-weight: 500;
-        letter-spacing: 1px;
-        span {
-          font-weight: 300;
-          letter-spacing: 0.2px;
-          margin-top: -5px;
-          font-size: 0.6rem;
-          display: block;
+        &:hover, &:focus {
+          text-decoration: underline;
         }
       }
     }
-    .trusted {
-      text-align: center;
+    .account {
+      font-size: .8rem;
       .menu {
-        .quality-since {
-          @include show-for(large);
-          margin-left: 1.5rem;
-          font-size: 1.2rem;
-          font-weight: 500;
-          letter-spacing: 1px;
-          display: block;
-          span {
-            font-weight: 300;
-            letter-spacing: 0.2px;
-            margin-top: -8px;
-            font-size: 0.6rem;
-            display: block;
-          }
-        }
-        a {
-          padding: 0.5rem;
+        @include breakpoint(xlarge) {
+          justify-content: flex-end;
         }
       }
-    }
-    .account {
-      @include breakpoint(small only) {
-        font-size: 0.9rem
-      }
-    }
-    .account {
       .shopping-cart {
         position: relative;
       }

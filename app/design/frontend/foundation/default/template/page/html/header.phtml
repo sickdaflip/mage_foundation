@@ -31,44 +31,62 @@
 <header>
     <div class="header-top">
         <div class="brand">
-                <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo">
-                    <img src="<?php echo $this->getSkinUrl('dist/assets/img/logo.png'); ?>" alt="<?php echo $this->getLogoAlt() ?>"/>
-                </a>
+            <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo">
+                <img src="<?php echo $this->getSkinUrl('dist/assets/img/logo.png'); ?>"
+                     alt="<?php echo $this->getLogoAlt() ?>"/>
+            </a>
         </div>
-        <div class="search">
-            <?php echo $this->getChildHtml('topSearch') ?>
-        </div>
-        <div class="hotline">
-            <p>Bestell- und Beratungs-Hotline
-            <a href="tel:+498004566000">0800 456 6000</a>
-            <span>Mo.-Do. 8-18 / Fr. 8-17 / Sa. 10-14</span>
-        </div>
-    </div>
-    <div class="header-bottom">
-        <nav>
-            <button type="button" class="button" data-toggle="offCanvas">
-                <i class="fa fa-bars" aria-hidden="true"></i> <?php echo $this->__('Alle<br/>Kategorien') ?>
-            </button>
-        </nav>
         <div class="trusted">
             <ul class="menu">
                 <li class="quality-since">über 25 Jahre <span>beste Gastro-Qualität</span></li>
                 <li>
-                    <a href="https://www.google.com/shopping/seller?q=gastrodax.de&hl=de" target="_blank" rel="nofollow noopener noreferrer">
-                        <img src="<?php echo $this->getSkinUrl('dist/assets/img/gzh.png'); ?>" alt="Google zertifizierter Händler" />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.trustedshops.eu/buyerrating/info_X6B5E9287FD5871CE74DA1B1775EB2D64.html" target="_blank" rel="nofollow noopener noreferrer">
-                        <img src="<?php echo $this->getSkinUrl('dist/assets/img/trusted-shops.png'); ?>" alt="Trusted Shops" />
-                    </a>
-                </li>
-                <li>
                     <a class="tuvsudmodal">
-                        <img src="<?php echo $this->getSkinUrl('dist/assets/img/safer-shopping.png'); ?>" alt="TÜV Süd s@fer shopping" />
+                        <img src="<?php echo $this->getSkinUrl('dist/assets/img/safer-shopping.png'); ?>"
+                             alt="TÜV Süd s@fer shopping"/>
+                    </a>
+                </li>
+                <li class="ts-trusted">bis 20.000€ <span>Käuferschutz</span></li>
+                <li>
+                    <a href="https://www.trustedshops.eu/buyerrating/info_X6B5E9287FD5871CE74DA1B1775EB2D64.html"
+                       target="_blank" rel="nofollow noopener noreferrer">
+                        <img src="<?php echo $this->getSkinUrl('dist/assets/img/trusted-shops.png'); ?>"
+                             alt="Trusted Shops"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.google.com/shopping/seller?q=gastrodax.de&hl=de" target="_blank"
+                       rel="nofollow noopener noreferrer">
+                        <img src="<?php echo $this->getSkinUrl('dist/assets/img/gzh.png'); ?>"
+                             alt="Google zertifizierter Händler"/>
                     </a>
                 </li>
             </ul>
+        </div>
+        <div class="shipping">
+            <div class="content">
+                <a href="<?php echo Mage::getUrl('lieferung'); ?>">
+                    <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/versandkostenfrei.png' ?>"
+                         alt="kostenfreie Lieferung ab 99 EUR">
+                </a>
+            </div>
+        </div>
+        <div class="hotline">
+                    <a href="tel:+498004566000"><img src="<?php echo $this->getSkinUrl('dist/assets/img/hotline.png'); ?>" alt="Bestell- und Beratungshotline 0800 456 6000" width="200"/></a>
+        </div>
+
+    </div>
+    <div class="header-bottom">
+        <nav>
+            <button type="button" class="button" data-toggle="offCanvas">
+                <i class="fa fa-bars" aria-hidden="true"></i> <?php echo $this->__('Kategorien') ?>
+            </button>
+        </nav>
+        <div class="search">
+            <?php echo $this->getChildHtml('topSearch') ?>
+
+        </div>
+        <div class="deal">
+            <span><a href="<?php echo Mage::getUrl('top15'); ?>">TOP 15</a></span>
         </div>
         <div class="account">
             <?php echo $this->getChildHtml('topLinks', false) ?>
