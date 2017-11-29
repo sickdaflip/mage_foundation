@@ -69,10 +69,6 @@ header {
         }
       }
     }
-    .shipping {
-      margin: 0 auto;
-      text-align: center;
-    }
     .deal {
       @include show-for(medium);
     }
