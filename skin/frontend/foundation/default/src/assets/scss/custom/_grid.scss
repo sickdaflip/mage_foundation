@@ -79,9 +79,6 @@ header {
     .trusted {
       @include xy-cell(7, false, 0);
     }
-    .shipping {
-      @include xy-cell(5, false, 0);
-    }
     .deal {
       @include xy-cell(12, false, 0);
     }
@@ -444,9 +441,6 @@ footer {
       .trusted {
         @include xy-cell(4);
       }
-      .shipping {
-        @include xy-cell(4);
-      }
       .deal {
         @include xy-cell(2);
       }
@@ -655,13 +649,10 @@ footer {
         @include xy-cell(2);
       }
       .trusted {
-        @include xy-cell(5);
-      }
-      .shipping {
-        @include xy-cell(2);
+        @include xy-cell(6);
       }
       .deal {
-        @include xy-cell(1);
+        @include xy-cell(2);
       }
       .hotline {
         @include xy-cell(2);
