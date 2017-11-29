@@ -82,6 +82,9 @@ header {
     .shipping {
       @include xy-cell(5, false, 0);
     }
+    .deal {
+      @include xy-cell(12, false, 0);
+    }
   }
   .header-bottom {
     @include xy-cell(12);
@@ -442,12 +445,13 @@ footer {
         @include xy-cell(4);
       }
       .shipping {
-        @include xy-cell(6);
-        justify-content: flex-start;
+        @include xy-cell(4);
+      }
+      .deal {
+        @include xy-cell(2);
       }
       .hotline {
         @include xy-cell(6);
-        justify-content: flex-end;
       }
 
     }
@@ -656,8 +660,11 @@ footer {
       .shipping {
         @include xy-cell(2);
       }
+      .deal {
+        @include xy-cell(1);
+      }
       .hotline {
-        @include xy-cell(3);
+        @include xy-cell(2);
       }
     }
     .header-bottom {
@@ -665,10 +672,10 @@ footer {
         @include xy-cell(2);
       }
       .search {
-        @include xy-cell(6);
+        @include xy-cell(7);
       }
       .account {
-        @include xy-cell(4);
+        @include xy-cell(3);
       }
     }
   }
@@ -778,38 +785,6 @@ footer {
 }
 
 @media screen and #{breakpoint(xlarge)} {
-
-  header {
-    .header-top {
-      .brand {
-        @include xy-cell(2);
-      }
-      .trusted {
-        @include xy-cell(5);
-      }
-      .shipping {
-        @include xy-cell(2);
-      }
-      .hotline {
-        @include xy-cell(3);
-        justify-content: flex-end;
-      }
-    }
-    .header-bottom {
-      nav {
-        @include xy-cell(2);
-      }
-      .search {
-        @include xy-cell(5);
-      }
-      .deal {
-        @include xy-cell(2);
-      }
-      .account {
-        @include xy-cell(3);
-      }
-    }
-  }
 
   .categories-grid {
     @include xy-grid-layout(6, 'li');

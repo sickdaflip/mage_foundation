@@ -72,10 +72,16 @@ header {
       margin: 0 auto;
       text-align: center;
     }
+    .deal {
+      @include show-for(medium);
+    }
     .hotline {
       margin: 0 auto;
       text-align: center;
-      @include breakpoint(xlarge) {
+      @include breakpoint(small only) {
+        margin: .5rem 0;
+      }
+      @include breakpoint(medium) {
         text-align: right;
       }
     }
@@ -107,17 +113,6 @@ header {
         }
         .empty-message {
           color: $primary-color;
-        }
-      }
-    }
-    .deal {
-      @include show-for(xlarge);
-      text-align: center;
-      font-size: .8rem;
-      a {
-        color: $white;
-        &:hover, &:focus {
-          text-decoration: underline;
         }
       }
     }

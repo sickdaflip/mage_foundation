@@ -24,6 +24,13 @@
                     <layout_handle>manufactures_layout</layout_handle>
                 </manufactures_layout>
             </layouts>
+            <layouts>
+                <top15_layout module="page" translate="label">
+                    <label>Top15</label>
+                    <template>page/top15.phtml</template>
+                    <layout_handle>top15_layout</layout_handle>
+                </top15_layout>
+            </layouts>
         </page>
         <blocks>
             <page>

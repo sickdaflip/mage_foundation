@@ -70,6 +70,9 @@
                 </a>
             </div>
         </div>
+        <div class="deal">
+            <span><a href="<?php echo Mage::getUrl('top15'); ?>"><img src="<?php echo $this->getSkinUrl('dist/assets/img/top15.png'); ?>" alt="TOP15"/></a></span>
+        </div>
         <div class="hotline">
                     <a href="tel:+498004566000"><img src="<?php echo $this->getSkinUrl('dist/assets/img/hotline.png'); ?>" alt="Bestell- und Beratungshotline 0800 456 6000" width="200"/></a>
         </div>
@@ -84,9 +87,6 @@
         <div class="search">
             <?php echo $this->getChildHtml('topSearch') ?>
 
-        </div>
-        <div class="deal">
-            <span><a href="<?php echo Mage::getUrl('top15'); ?>">TOP 15</a></span>
         </div>
         <div class="account">
             <?php echo $this->getChildHtml('topLinks', false) ?>
