@@ -316,7 +316,6 @@
         color: $white;
         background-color: $primary-color;
         cursor: pointer;
-        font-size: rem-calc(10);
         width: 100%;
         a {
           color: $white;
@@ -325,7 +324,6 @@
     }
     input[type='radio']:checked + span label, input[type='checkbox']:checked + span label {
       background-color: $success-color;
-      font-size: rem-calc(10);
       &:after {
         font-family: FontAwesome;
         content: ' \f00c';
@@ -432,6 +430,13 @@
         border-radius: $global-radius;
       }
 
+    }
+  }
+  .tier-price {
+    table {
+      @include breakpoint(small medium) {
+        @include table-stack;
+      }
     }
   }
 }

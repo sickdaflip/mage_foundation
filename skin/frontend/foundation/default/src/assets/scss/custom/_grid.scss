@@ -73,14 +73,10 @@ header {
     justify-content: center;
     align-items: center;
     .brand,
+    .trusted,
+    .deal,
     .hotline {
-      @include xy-cell(12, false, 0);
-    }
-    .trusted {
-      @include xy-cell(7, false, 0);
-    }
-    .deal {
-      @include xy-cell(12, false, 0);
+      @include xy-cell(12);
     }
   }
   .header-bottom {
@@ -161,13 +157,12 @@ header {
   justify-content: center;
   align-items: center;
   .extra {
-    margin-top: .5rem;
     @include xy-grid;
     .product-brand {
-      @include xy-cell(3, false, 0);
+      @include xy-cell(6, false, 0);
     }
     .price-box {
-      @include xy-cell(9, false, 0);
+      @include xy-cell(6, false, 0);
     }
   }
 }
@@ -244,10 +239,10 @@ header {
             display: none;
           }
           .quantity {
-            @include xy-cell(6);
+            @include xy-cell(12, false, 0);
           }
           .button {
-            @include xy-cell(6);
+            @include xy-cell(12, false, 0);
           }
         }
         .msrp-price, .old-price, .special-price, .regular-price, .mwst-price, .skonto-price, .skontotax-price {
@@ -260,7 +255,7 @@ header {
       .product-images {
         ul {
           @include xy-grid;
-          @include xy-grid-layout(2, 'li');
+          @include xy-grid-layout(3, 'li');
           li {
             img {
               @include thumbnail;
@@ -273,7 +268,7 @@ header {
       dl.last {
         @include xy-grid;
         .option {
-          @include xy-cell(6);
+          @include xy-cell(12, false, 0);
         }
       }
       dl {
@@ -488,6 +483,15 @@ footer {
 
   .products-grid, .search-grid, .gift-grid {
     @include xy-grid-layout(3, 'li', false);
+    .extra {
+      @include xy-grid;
+      .product-brand {
+        @include xy-cell(3, false, 0);
+      }
+      .price-box {
+        @include xy-cell(9, false, 0);
+      }
+    }
   }
 
   .manufacture-grid {
@@ -529,6 +533,18 @@ footer {
             }
             .product-brand {
               @include xy-cell(3);
+            }
+          }
+          .add-to-cart {
+            @include xy-grid;
+            label {
+              display: none;
+            }
+            .quantity {
+              @include xy-cell(6);
+            }
+            .button {
+              @include xy-cell(6);
             }
           }
         }
@@ -599,7 +615,7 @@ footer {
     .footer-info {
       .content {
         margin: 0 auto !important;
-        @include xy-cell(6);
+        @include xy-cell(12);
         .footer_links,
         .footer_service,
         .footer_manufactures {
@@ -735,6 +751,13 @@ footer {
           }
         }
       }
+      .product-options {
+        dl.last {
+          .option {
+            @include xy-cell(6);
+          }
+        }
+      }
     }
   }
 
@@ -770,6 +793,20 @@ footer {
       .col-1,
       .col-2 {
         @include xy-cell(6);
+      }
+    }
+  }
+
+  footer {
+    .footer-info {
+      .content {
+        margin: 0 auto !important;
+        @include xy-cell(8);
+        .footer_links,
+        .footer_service,
+        .footer_manufactures {
+          @include xy-cell(4);
+        }
       }
     }
   }

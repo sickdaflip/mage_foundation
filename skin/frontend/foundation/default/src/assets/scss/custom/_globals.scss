@@ -124,6 +124,11 @@ a[href^="mailto:"]:before {
       color: $primary-color;
     }
   }
+  table {
+     @include breakpoint(small medium) {
+       @include table-stack;
+     }
+   }
 }
 
 .owl-carousel {

@@ -17,6 +17,7 @@ header {
       }
       .menu {
         align-items: center;
+        justify-content: center;
         @include breakpoint(large) {
           justify-content: flex-start;
         }
@@ -62,6 +63,9 @@ header {
         }
         a {
           padding: 0.5rem;
+        }
+        .shipping {
+          @include show-for(medium);
         }
       }
     }
