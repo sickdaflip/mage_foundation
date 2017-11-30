@@ -117,9 +117,15 @@ header {
   }
 }
 
-//Homeslider
-.homeslider {
+//Homeslider & Headbanner
+.homeslider, .headbanner {
   @include xy-grid;
+  .banner {
+    @include xy-cell(12, false, 0);
+    img {
+      width: 100%;
+    }
+  }
 }
 
 //Catalog
