@@ -22,7 +22,7 @@ header {
           justify-content: flex-start;
         }
         .quality-since {
-          @include show-for(large);
+          @include show-for(xlarge);
           @include breakpoint(retina) {
             font-size: .9rem;
           }
@@ -42,7 +42,7 @@ header {
           }
         }
         .ts-trusted {
-          @include show-for(large);
+          @include show-for(xlarge);
           @include breakpoint(retina) {
             font-size: .9rem;
           }
@@ -64,22 +64,34 @@ header {
         a {
           padding: 0.5rem;
         }
-        .shipping {
-          @include show-for(medium);
+        .shipping, .deal {
+          @include show-for(xlarge);
+        }
+        .deal a {
+          color: $white;
+          font-size: rem-calc(25);
+          font-weight: 700;
         }
       }
     }
-    .deal {
-      @include show-for(medium);
-    }
     .hotline {
-      margin: 0 auto;
       text-align: center;
-      @include breakpoint(small only) {
-        margin: .5rem 0;
-      }
-      @include breakpoint(medium) {
+      margin-bottom: .5rem;
+      @include breakpoint(large) {
         text-align: right;
+        margin-bottom: 0;
+      }
+      a {
+        color: $white;
+        font-size: rem-calc(35);
+        font-weight: 700;
+        span {
+          font-weight: 500;
+          letter-spacing: .20rem;
+          margin-top: -10px;
+          font-size: 0.7rem;
+          display: block;
+        }
       }
     }
   }

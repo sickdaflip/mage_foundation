@@ -434,9 +434,9 @@
   }
   .tier-price {
     table {
-      @include breakpoint(small medium) {
-        @include table-stack;
-      }
+      @include breakpoint(medium down) {
+         @include table-stack;
+       }
     }
   }
 }

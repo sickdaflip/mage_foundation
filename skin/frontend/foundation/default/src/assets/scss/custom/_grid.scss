@@ -74,7 +74,6 @@ header {
     align-items: center;
     .brand,
     .trusted,
-    .deal,
     .hotline {
       @include xy-cell(12);
     }
@@ -100,10 +99,6 @@ header {
           }
         }
       }
-    }
-    .deal {
-      @include xy-cell(12);
-      align-items: center;
     }
     .account {
       @include xy-cell(12);
@@ -232,7 +227,7 @@ header {
       @include xy-grid;
       .product-img-box,
       .product-shop {
-        @include xy-cell;
+        @include xy-cell(12, false, 0);
         .add-to-cart {
           @include xy-grid;
           label {
@@ -431,13 +426,10 @@ footer {
   header {
     .header-top {
       .brand {
-        @include xy-cell(8);
+        @include xy-cell(6);
       }
       .trusted {
-        @include xy-cell(4);
-      }
-      .deal {
-        @include xy-cell(2);
+        @include xy-cell(6);
       }
       .hotline {
         @include xy-cell(6);
@@ -453,19 +445,6 @@ footer {
       }
       .account {
         @include xy-cell(12);
-      }
-    }
-    .quick-access {
-      .brand {
-        @include xy-cell(4);
-      }
-      .top-search {
-        @include xy-cell(4);
-      }
-      .top-secure,
-      .top-shipping {
-        display: inline-block;
-        @include xy-cell(2);
       }
     }
   }
@@ -662,16 +641,13 @@ footer {
   header {
     .header-top {
       .brand {
-        @include xy-cell(2);
+        @include xy-cell(3);
       }
       .trusted {
-        @include xy-cell(6);
-      }
-      .deal {
-        @include xy-cell(2);
+        @include xy-cell(5);
       }
       .hotline {
-        @include xy-cell(2);
+        @include xy-cell(4);
       }
     }
     .header-bottom {
@@ -813,6 +789,21 @@ footer {
 }
 
 @media screen and #{breakpoint(xlarge)} {
+
+  header {
+    .header-top {
+      .brand {
+        @include xy-cell(2);
+      }
+      .trusted {
+        @include xy-cell(7);
+      }
+      .hotline {
+        @include xy-cell(3);
+      }
+    }
+
+  }
 
   .categories-grid {
     @include xy-grid-layout(6, 'li');

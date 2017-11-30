@@ -230,7 +230,7 @@ $(document).ready(function() {
     });
 
     googleFonts.add({
-        'Roboto': ['300', '400'],
+        'Roboto': ['300', '400', '700'],
     })
 
 });
