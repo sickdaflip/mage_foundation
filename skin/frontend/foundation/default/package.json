@@ -29,7 +29,6 @@
     "foundation-sites": "^6.4.4-rc1",
     "google-fonts": "^1.0.0",
     "jquery": "~3.0.0",
-    "jquery.cookiebar": "0.0.3",
     "lightgallery": "git+https://github.com/sachinchoolur/lightGallery.git",
     "motion-ui": "~1.2.2",
     "owl.carousel": "git+https://github.com/OwlCarousel2/OwlCarousel2.git",

@@ -59,17 +59,27 @@
         <?php } ?>
         <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getAddress())->setFieldIdFormat('shipping:%s')->setFieldNameFormat('shipping[%s]')->setFieldParams('onchange="shipping.setSameAsBilling(false)"')->toHtml() ?>
         <div class="fields">
-            <?php $_streetValidationClass = $this->helper('customer/address')->getAttributeValidationClass('street'); ?>
             <div class="field">
-                <label for="shipping:street1"><?php echo $this->__('Address') ?>
+                <label for="shipping:street1"><?php echo $this->__('Straße') ?>
                     <small><?php echo $this->__('required') ?></small>
                     <input type="text"
-                           title="<?php echo Mage::helper('core')->quoteEscape($this->__('Street Address')) ?>"
+                           title="<?php echo $this->__('Straße') ?>"
                            name="shipping[street][]" id="shipping:street1"
                            value="<?php echo $this->escapeHtml($this->getAddress()->getStreet(1)) ?>"
                            onchange="shipping.setSameAsBilling(false);" required/>
                 </label>
             </div>
+            <?php for ($_i = 2, $_n = $this->helper('customer/address')->getStreetLines(); $_i <= $_n; $_i++): ?>
+                <div class="field">
+                    <label for="shipping:street<?php echo $_i ?>"><?php echo $this->__('Hausnummer') ?>
+                        <input type="text"
+                               title="<?php echo $this->__('Hausnummer') ?>"
+                               name="shipping[street][]" id="shipping:street<?php echo $_i ?>"
+                               value="<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>"
+                               onchange="shipping.setSameAsBilling(false);"/>
+
+                </div>
+            <?php endfor; ?>
         </div>
 
         <div class="fields">

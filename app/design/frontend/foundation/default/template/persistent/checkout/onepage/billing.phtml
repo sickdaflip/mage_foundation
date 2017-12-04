@@ -72,16 +72,26 @@
                     </label>
                 </div>
             <?php endif; ?>
-            <?php $_streetValidationClass = $this->helper('customer/address')->getAttributeValidationClass('street'); ?>
+        </div>
+        <div class="fields">
             <div class="field">
-                <label for="billing:street1"><?php echo $this->__('Address') ?>
+                <label for="billing:street1"><?php echo $this->__('Straße') ?>
                     <small><?php echo $this->__('required') ?></small>
                     <input type="text"
-                           title="<?php echo Mage::helper('core')->quoteEscape($this->__('Street Address')) ?>"
+                           title="<?php echo Mage::helper('core')->quoteEscape($this->__('Straße')) ?>"
                            name="billing[street][]" id="billing:street1"
                            value="<?php echo $this->escapeHtml($this->getAddress()->getStreet(1)) ?>" required/>
                 </label>
             </div>
+            <?php for ($_i = 2, $_n = $this->helper('customer/address')->getStreetLines(); $_i <= $_n; $_i++): ?>
+                <div class="field">
+                    <label for="billing:street<?php echo $_i ?>"><?php echo $this->__('Hausnummer') ?>
+                        <input type="text"
+                               title="<?php echo Mage::helper('core')->quoteEscape($this->__('Hausnummer')) ?>"
+                               name="billing[street][]" id="billing:street<?php echo $_i ?>"
+                               value="<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>"/>
+                </div>
+            <?php endfor; ?>
         </div>
 
         <div class="fields">

@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import {whatInput} from 'what-input';
-import {cookieBar} from '../../../node_modules/jquery.cookiebar/jquery.cookieBar.js';
 import {owlCarousel} from '../../../node_modules/owl.carousel/dist/owl.carousel.js';
 import {lightGallery} from '../../../node_modules/lightgallery/dist/js/lightgallery-all.js';
 import {mousewheel} from '../../../node_modules/lightgallery/lib/jquery.mousewheel.min.js';
@@ -69,11 +68,6 @@ $(document).ready(function() {
         } else {
             $('.reasons').fadeOut();
         }
-    });
-
-    //CookieBar
-    $('.cookie-container').cookieBar({
-        closeButton: '.close-cookie'
     });
 
     //owl.carousel

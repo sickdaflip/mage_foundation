@@ -344,15 +344,16 @@ footer {
 }
 
 //Cookie
-.cookie-container {
-  .cookie-content {
-    @include xy-grid-container;
+.notice-cookie {
+  .notice-inner {
     @include xy-grid;
-    .message {
-      @include xy-cell(12, false, 0);
+    justify-content: center;
+    align-items: center;
+    .notice-text {
+      @include xy-cell(8);
     }
     .actions {
-      @include xy-cell(12, false, 0);
+      @include xy-cell(12);
     }
   }
 }
@@ -586,16 +587,6 @@ footer {
     }
   }
 
-  .cookie-container {
-    .cooki-content {
-      .message {
-        @include xy-cell(6);
-      }
-      .actions {
-        @include xy-cell(6);
-      }
-    }
-  }
   footer {
     .footer-info {
       .content {

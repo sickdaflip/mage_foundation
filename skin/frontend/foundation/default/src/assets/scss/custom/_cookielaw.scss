@@ -1,5 +1,4 @@
-.cookie-container {
-  display: none;
+.notice-cookie {
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -8,28 +7,15 @@
   background: rgba(255, 255, 255, 0.6) !important;
   color: $primary-color;
   border-top: 1px solid $primary-color;
-  .message {
-    margin-top: $global-margin;
+  .notice-inner {
+    margin: $global-margin;
     text-align: center;
     float: none;
     p {
       font-size: rem-calc(15);
     }
   }
-}
-
-@include breakpoint(medium) {
-  .cookie-container {
-    .notification {
-      .message {
-        text-align: left;
-        p {
-          margin: 0;
-        }
-      }
-      .button-group {
-        margin-top: 1.25rem;
-      }
-    }
+  .actions button {
+    margin: 0;
   }
 }
