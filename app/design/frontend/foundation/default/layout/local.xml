@@ -449,7 +449,7 @@
     <contacts_index_index>
         <reference name="root">
             <action method="setTemplate">
-                <template>page/1column.phtml</template>
+                <template>page/contacts.phtml</template>
             </action>
         </reference>
     </contacts_index_index>

@@ -45,12 +45,21 @@ if ($_imgUrl = $_category->getImageUrl()) {
         <a href="<?php echo $this->getRssLink() ?>"
            class="link-rss"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
     <?php endif; ?>
-    <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
+
+
+
+    <?php if ($additionalheadline = $_category->getAdditionalHeadline()): ?>
+        <h1><?php echo $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->categoryAttribute($_category, $additionalheadline, 'additional_headline')) ?></h1>
+    <?php else: ?>
+        <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
+    <?php endif; ?>
+
+
 </div>
 
-<?php if($additionaldescription=$_category->getAdditionalDescription()): ?>
-    <div class="category-description-bottom std">
-        <?php echo $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->categoryAttribute($_category, $additionaldescription, 'additional_description') )?>
+<?php if ($additionaldescription = $_category->getAdditionalDescription()): ?>
+    <div class="category-description std">
+        <?php echo $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->categoryAttribute($_category, $additionaldescription, 'additional_description')) ?>
     </div>
 <?php endif; ?>
 
@@ -75,6 +84,6 @@ if ($_imgUrl = $_category->getImageUrl()) {
 
 <?php if ($_description = $this->getCurrentCategory()->getDescription()): ?>
     <div class="category-description bottom std">
-        <?php echo $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->categoryAttribute($_category, $_description, 'description') )?>
+        <?php echo $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->categoryAttribute($_category, $_description, 'description')) ?>
     </div>
 <?php endif; ?>
