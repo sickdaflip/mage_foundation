@@ -1,0 +1,49 @@
+<?php
+$_categories = $this->getCurrentChildCategories(); ?>
+<ul class="categories-grid">
+    <?php $i=0; ?>
+    <?php foreach ($_categories as $_category): ?>
+        <?php if ($_category->getIsActive()): ?>
+            <?php $_category = Mage::getModel("catalog/category")->load($_category->getEntityId()); ?>
+            <li>
+                <div class="category-image">
+                    <a href="<?php echo $_category->getURL() ?>"
+                       title="<?php echo $this->htmlEscape($_category->getName()) ?>">
+                        <?php if ($_imageUrl = $_category->getImageUrl()) : ?>
+                            <img src="<?php echo $_imageUrl; ?>" alt="<?php echo $this->htmlEscape($_category->getName()) ?>"/>
+                        <?php endif; ?>
+                    </a>
+                    <h3>
+                        <a href="<?php echo $_category->getURL() ?>"
+                           title="<?php echo $this->htmlEscape($_category->getName()) ?>"><?php echo $this->htmlEscape($_category->getName()) ?></a>
+                    </h3>
+                </div>
+            </li>
+        <?php endif; ?>
+        <?php $i++; ?>
+    <?php endforeach; ?>
+    <li>
+        <div class="category-image">
+            <a href="<?php echo Mage::getUrl('hersteller/bartscher'); ?>"
+               title="Bartscher Shop">
+                <img src="<?php echo $this->getSkinUrl('dist/assets/img/bartscher-shop.png'); ?>" alt="Bartscher Shop"/>
+            </a>
+            <h3>
+                <a href="<?php echo Mage::getUrl('hersteller/bartscher'); ?>"
+                   title="Bartscher Shop">Bartscher Shop</a>
+            </h3>
+        </div>
+    </li>
+    <li>
+        <div class="category-image">
+            <a href="<?php echo Mage::getUrl('hersteller/aliseo'); ?>"
+               title="Aliseo Profishop">
+                <img src="<?php echo $this->getSkinUrl('dist/assets/img/aliseo-profishop.png'); ?>" alt="Aliseo Profishop"/>
+            </a>
+            <h3>
+                <a href="<?php echo Mage::getUrl('hersteller/aliseo'); ?>"
+                   title="Aliseo Profishop">Aliseo Profishop</a>
+            </h3>
+        </div>
+    </li>
+</ul>
