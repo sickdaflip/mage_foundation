@@ -43,10 +43,19 @@
 //Category
 .categories-grid {
   text-align: center;
-    h3 {
-     font-size: rem-calc(15);
-    }
+  img {
+    padding-bottom: $global-margin;
+  }
+  h3 {
+    font-size: rem-calc(18);
+    font-style: italic;
+    font-weight: 600;
+  }
+  li:hover {
+
+  }
 }
+
 //Products list
 .products-list, .products-grid, .top-products-slider, .gift-grid {
   .item, .column {
@@ -74,6 +83,7 @@
     }
   }
 }
+
 .top-products-slider {
   .item, .column {
     .content {
@@ -81,6 +91,7 @@
     }
   }
 }
+
 .products-list, .products-grid, .top-products-slider, .gift-grid {
   .products-image {
     min-height: 200px;
@@ -88,9 +99,11 @@
     position: relative;
     .special-ribbon {
       position: absolute;
-      right: -5px; top: -5px;
+      right: -5px;
+      top: -5px;
       overflow: hidden;
-      width: 150px; height: 150px;
+      width: 150px;
+      height: 150px;
       text-align: right;
     }
     .special-ribbon span {
@@ -105,11 +118,14 @@
       background: $alert-color;
       box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
       position: absolute;
-      top: 38px; right: -42px;
+      top: 38px;
+      right: -42px;
     }
     .special-ribbon span::before {
       content: "";
-      position: absolute; left: 0px; top: 100%;
+      position: absolute;
+      left: 0px;
+      top: 100%;
       z-index: -1;
       border-left: 3px solid $alert-color;
       border-right: 3px solid transparent;
@@ -118,7 +134,9 @@
     }
     .special-ribbon span::after {
       content: "";
-      position: absolute; right: 0px; top: 100%;
+      position: absolute;
+      right: 0px;
+      top: 100%;
       z-index: -1;
       border-left: 3px solid transparent;
       border-right: 3px solid $alert-color;

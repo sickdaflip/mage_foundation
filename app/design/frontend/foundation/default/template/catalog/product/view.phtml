@@ -72,7 +72,7 @@ if (!function_exists('clean')) {
                         </div>
                     </li>
                     <li class="bullet-item">
-                            <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . clean($brand) ?>">
+                            <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . 'hersteller/' . clean($brand) ?>">
                                 <?php echo $this->__('Zeige alle Artikel von %s', $brand) ?>
                             </a>
                     </li>

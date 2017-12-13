@@ -799,10 +799,6 @@ footer {
 
   }
 
-  .categories-grid {
-    @include xy-grid-layout(6, 'li');
-  }
-
   .products-grid, .search-grid, .gift-grid {
     @include xy-grid-layout(4, 'li', false);
   }
