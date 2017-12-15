@@ -1,0 +1,25 @@
+<?php
+$_manufacturers = $this->getCurrentChildCategories(); ?>
+<ul class="manufacturers-grid">
+    <?php $i=0; ?>
+    <?php foreach ($_manufacturers as $_manufacturer): ?>
+        <?php if ($_manufacturer->getIsActive()): ?>
+            <?php $_manufacturer = Mage::getModel("catalog/category")->load($_manufacturer->getEntityId()); ?>
+            <li>
+                <div class="manufacturers-image">
+                    <a href="<?php echo $_manufacturer->getURL() ?>"
+                       title="<?php echo $this->htmlEscape($_manufacturer->getName()) ?>">
+                        <?php if ($_imageUrl = $_manufacturer->getImageUrl()) : ?>
+                            <img src="<?php echo $_imageUrl; ?>" alt="<?php echo $this->htmlEscape($_manufacturer->getName()) ?>"/>
+                        <?php endif; ?>
+                    </a>
+                    <h3>
+                        <a href="<?php echo $_manufacturer->getURL() ?>"
+                           title="<?php echo $this->htmlEscape($_manufacturer->getName()) ?>"><?php echo $this->htmlEscape($_manufacturer->getName()) ?></a>
+                    </h3>
+                </div>
+            </li>
+        <?php endif; ?>
+        <?php $i++; ?>
+    <?php endforeach; ?>
+</ul>

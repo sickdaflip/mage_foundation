@@ -51,8 +51,24 @@
     font-style: italic;
     font-weight: 600;
   }
-  li:hover {
+}
 
+//Manufacturers
+.manufacturers-grid {
+  li {
+    border: 1px solid $medium-gray;
+    border-radius: $global-radius;
+    text-align: center;
+    h3 {
+      text-indent: -100000rem;
+      line-height: 0;
+      margin: 0;
+    }
+    margin-bottom: $global-margin;
+    &:hover {
+      border-style: dashed;
+      border-color: $primary-color;
+    }
   }
 }
 

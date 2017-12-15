@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <config>
     <tabs>
-        <foundation translate="label" module="foundation_sitemap">
+        <layouttab translate="label">
             <label>Foundation</label>
             <sort_order>100</sort_order>
-        </foundation>
+        </layouttab>
     </tabs>
     <sections>
-        <foundation_sitemap translate="label" module="foundation_sitemap">
+        <foundation_sitemap>
             <class>separator-top</class>
-            <label>Foundation Sitemap</label>
-            <tab>Foundation</tab>
+            <label>Sitemap</label>
+            <tab>layouttab</tab>
             <sort_order>10</sort_order>
             <show_in_default>1</show_in_default>
             <show_in_website>1</show_in_website>

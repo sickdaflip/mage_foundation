@@ -145,7 +145,7 @@ header {
   }
 }
 
-.categories-grid {
+.categories-grid, .manufacturers-grid {
   @include xy-grid;
   @include xy-grid-layout(2, 'li');
 }
@@ -460,7 +460,7 @@ footer {
     }
   }
 
-  .categories-grid {
+  .categories-grid, .manufacturers-grid {
     @include xy-grid-layout(4, 'li');
   }
 
@@ -663,7 +663,7 @@ footer {
     }
   }
 
-  .categories-grid {
+  .categories-grid, .manufacturers-grid {
     @include xy-grid-layout(5, 'li');
   }
 
