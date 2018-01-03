@@ -5,7 +5,7 @@ class Mage_Catalog_Block_Product_Bestseller extends Mage_Catalog_Block_Product_L
                 ->getCollection()
                 ->addStoreFilter()
                 ->addAttributeToSelect('*')
-                ->addAttributeToFilter('entity_id', array('in' => array(21112,20840,23543,28850,32869,28603,18084,21028,21079,20846,5045,9450,7854,32394,10150)));
+                ->addAttributeToFilter('entity_id', array('in' => array(21112,20840,23543,28850,32869,28603,18084,21028,21079,20846,5045,9450,7854,32394,10150,18068)));
 
             return $_productCollection;
     }
