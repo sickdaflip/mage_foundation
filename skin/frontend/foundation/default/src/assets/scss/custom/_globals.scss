@@ -93,7 +93,7 @@ a[href^="mailto:"]:before {
 
 .catalog-category-view, .catalog-product-view {
   .std {
-    a:not([class]):not([name]) {
+    a:not([class]), a:not([name]) {
       text-decoration: underline;
     }
   }
