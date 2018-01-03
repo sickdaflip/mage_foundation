@@ -91,14 +91,6 @@ a[href^="mailto:"]:before {
   margin-right: 0.5em;
 }
 
-.catalog-category-view, .catalog-product-view {
-  .std {
-    a:not([class]), a:not([name]) {
-      text-decoration: underline;
-    }
-  }
-}
-
 .std  {
   h1, h2, h3, h4, h5, h6 {
     color: $primary-color;
