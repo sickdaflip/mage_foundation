@@ -83,7 +83,6 @@ $(document).ready(function() {
     //Home Slider Top Products
     $('.homeslider').owlCarousel({
         items: 1,
-        lazyLoad: true,
         loop: true,
         nav: true,
         navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>','<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
@@ -100,7 +99,8 @@ $(document).ready(function() {
     });
     $('.top-products-slider').owlCarousel({
         items: 4,
-        lazyLoad: true,
+        stagePadding: 50,
+        margin: 10,
         loop: true,
         nav: true,
         navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>','<i class="fa fa-chevron-right" aria-hidden="true"></i>'],

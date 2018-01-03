@@ -153,7 +153,7 @@ header {
 .products-grid, .search-grid, .gift-grid {
   @include xy-grid-container;
   @include xy-grid;
-  @include xy-grid-layout(1, 'li', false);
+  @include xy-grid-layout(1, 'li', true, $grid-margin-gutters, margin, left bottom);
   .extra {
     @include xy-grid;
     .product-brand {
@@ -465,7 +465,7 @@ footer {
   }
 
   .products-grid, .search-grid, .gift-grid {
-    @include xy-grid-layout(3, 'li', false);
+    @include xy-grid-layout(3, 'li', true, $grid-margin-gutters, margin, left bottom);
     .extra {
       @include xy-grid;
       .product-brand {
@@ -668,7 +668,7 @@ footer {
   }
 
   .products-grid, .search-grid, .gift-grid {
-    @include xy-grid-layout(4, 'li', false);
+    @include xy-grid-layout(4, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 
   .manufacture-grid {
@@ -797,10 +797,6 @@ footer {
       }
     }
 
-  }
-
-  .products-grid, .search-grid, .gift-grid {
-    @include xy-grid-layout(4, 'li', false);
   }
 
   .manufacture-grid {
