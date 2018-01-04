@@ -79,46 +79,28 @@
     padding: .5rem;
     border: 1px solid $medium-gray;
     cursor: pointer;
-    .content {
-      text-align: center;
-      h3.product-name {
-        margin: 0;
-        font-size: rem-calc(15);
-        line-height: 1.5rem;
-        min-height: 6rem;
-        word-wrap: break-word;
-      }
-      .products-image img {
-        max-height: 200px;
-      }
-      .extra {
-        margin-top: .5rem;
-        justify-content: center;
-        align-items: center;
-      }
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h3.product-name {
+      margin: 0;
+      font-size: rem-calc(15);
+      line-height: 1rem;
+      word-wrap: break-word;
     }
     &:hover, &:focus {
       border: 1px solid $dark-gray;
-      -moz-box-shadow:1px 1px 6px #a0a0a0;
-      -webkit-box-shadow:1px 1px 6px #a0a0a0;
-      -khtml-box-shadow:1px 1px 6px #a0a0a0;
-      box-shadow:1px 1px 6px #a0a0a0;
-    }
-  }
-}
-
-.top-products-slider {
-  .item, .column {
-    .content {
-      border-top: none;
+      -moz-box-shadow: 1px 1px 6px #a0a0a0;
+      -webkit-box-shadow: 1px 1px 6px #a0a0a0;
+      -khtml-box-shadow: 1px 1px 6px #a0a0a0;
+      box-shadow: 1px 1px 6px #a0a0a0;
     }
   }
 }
 
 .products-list, .products-grid, .top-products-slider, .gift-grid {
   .products-image {
-    min-height: 200px;
-    max-width: 200px;
     position: relative;
     .special-ribbon {
       position: absolute;
@@ -167,10 +149,17 @@
       border-top: 3px solid $alert-color;
     }
   }
+  .product-brand {
+    img {
+      max-width: 8rem;
+      text-align: center;
+    }
+  }
   .price-box {
     font-size: .8rem;
+    margin-top: .5rem;
     .regular-price {
-      color: $primary-color;
+      color: $success-color;
       margin: 0;
       line-height: 0;
       .price-label {
@@ -182,7 +171,7 @@
           padding: 0 !important;
           font-size: 1rem;
           vertical-align: middle;
-          color: $primary-color;
+          color: $success-color;
         }
       }
     }
@@ -193,7 +182,7 @@
         line-height: 1rem;
       }
       .price {
-        color: $primary-color;
+        color: $success-color;
         padding: 0 !important;
         font-size: 1rem;
       }
