@@ -14,9 +14,9 @@
                 <?php echo $this->getLayout()->createBlock('page/html_topmenu')->setTemplate('page/html/topmenu.phtml')->toHtml(); ?>
             </div>
             <div class="off-canvas-content" data-off-canvas-content>
-                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('45')->toHtml(); ?>
                 <div class="main-container col1-layout">
                     <div class="col-main">
+                        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('45')->toHtml(); ?>
                         <?php echo $this->getChildHtml('global_messages') ?>
                         <?php echo $this->getChildHtml('content') ?>
                     </div>

@@ -14,13 +14,9 @@
                 <?php echo $this->getLayout()->createBlock('page/html_topmenu')->setTemplate('page/html/topmenu.phtml')->toHtml(); ?>
             </div>
             <div class="off-canvas-content" data-off-canvas-content>
-                <div class="headbanner">
-                    <div class="banner">
-                        <img src="<?php echo $this->getSkinUrl('dist/assets/img/top_fifteen.gif'); ?>" alt="TOP 15" />
-                    </div>
-                </div>
                 <div class="main-container col1-layout">
                     <div class="col-main">
+                        <img src="<?php echo $this->getSkinUrl('dist/assets/img/top_fifteen.gif'); ?>" alt="TOP 15" />
                         <?php echo $this->getChildHtml('global_messages') ?>
                         <?php echo $this->getChildHtml('content') ?>
                     </div>
