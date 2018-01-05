@@ -146,14 +146,19 @@ header {
 }
 
 .categories-grid, .manufacturers-grid {
+  @include xy-grid-container;
   @include xy-grid;
-  @include xy-grid-layout(2, 'li');
+  @include xy-grid-layout(2, 'li', true, $grid-margin-gutters, margin, left bottom);
+  justify-content: center;
+  align-items: center;
 }
 
 .products-grid, .search-grid, .gift-grid {
   @include xy-grid-container;
   @include xy-grid;
   @include xy-grid-layout(1, 'li', true, $grid-margin-gutters, margin, left bottom);
+  justify-content: center;
+  align-items: center;
 }
 
 .autocomplete-wrapper {
@@ -452,7 +457,7 @@ footer {
   }
 
   .categories-grid, .manufacturers-grid {
-    @include xy-grid-layout(4, 'li');
+    @include xy-grid-layout(4, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 
   .products-grid, .search-grid, .gift-grid {
@@ -646,7 +651,7 @@ footer {
   }
 
   .categories-grid, .manufacturers-grid {
-    @include xy-grid-layout(5, 'li');
+    @include xy-grid-layout(5, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 
   .products-grid, .search-grid, .gift-grid {

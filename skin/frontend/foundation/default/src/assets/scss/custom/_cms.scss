@@ -16,23 +16,6 @@
         overflow: hidden;
         text-align: center;
         color: $primary-color;
-        &:before, &:after {
-          background-color: $dark-gray;
-          content: "";
-          display: inline-block;
-          height: 1px;
-          position: relative;
-          vertical-align: middle;
-          width: 50%;
-        }
-        &:before {
-          right: 0.5em;
-          margin-left: -50%;
-        }
-        &:after {
-          left: 0.5em;
-          margin-right: -50%;
-        }
       }
     }
     ul.arrow {
