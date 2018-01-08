@@ -150,7 +150,6 @@ header {
   @include xy-grid;
   @include xy-grid-layout(2, 'li', true, $grid-margin-gutters, margin, left bottom);
   justify-content: center;
-  align-items: center;
 }
 
 .products-grid, .search-grid, .gift-grid {
@@ -158,7 +157,6 @@ header {
   @include xy-grid;
   @include xy-grid-layout(1, 'li', true, $grid-margin-gutters, margin, left bottom);
   justify-content: center;
-  align-items: center;
 }
 
 .autocomplete-wrapper {
@@ -658,12 +656,6 @@ footer {
     @include xy-grid-layout(4, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 
-  .manufacture-grid {
-    li {
-      @include xy-cell(3, 1rem);
-    }
-  }
-
   .search-autocomplete {
     ul {
       li {
@@ -770,7 +762,6 @@ footer {
 }
 
 @media screen and #{breakpoint(xlarge)} {
-
   header {
     .header-top {
       .brand {
@@ -784,11 +775,5 @@ footer {
       }
     }
 
-  }
-
-  .manufacture-grid {
-    li {
-      @include xy-cell(2);
-    }
   }
 }
