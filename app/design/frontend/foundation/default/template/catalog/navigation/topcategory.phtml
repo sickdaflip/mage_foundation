@@ -1,11 +1,11 @@
 <?php
 $_categories = $this->getCurrentChildCategories(); ?>
-<ul class="categories-grid">
+<ul class="categories-grid" data-equalizer data-equalize-on="medium">
     <?php $i=0; ?>
     <?php foreach ($_categories as $_category): ?>
         <?php if ($_category->getIsActive()): ?>
             <?php $_category = Mage::getModel("catalog/category")->load($_category->getEntityId()); ?>
-            <li>
+            <li data-equalizer-watch>
                 <div class="category-image">
                     <a href="<?php echo $_category->getURL() ?>"
                        title="<?php echo $this->htmlEscape($_category->getName()) ?>">
