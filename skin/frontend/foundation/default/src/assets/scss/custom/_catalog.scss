@@ -59,6 +59,7 @@
       font-size: rem-calc(15);
       line-height: 1rem;
       word-wrap: break-word;
+      font-weight: bold;
     }
     &:hover, &:focus {
       border: 1px solid $dark-gray;
@@ -73,10 +74,6 @@
       }
     }
   }
-}
-
-.categories-grid li h3 {
-      font-weight: bold;
 }
 
 .manufacturers-grid li {
