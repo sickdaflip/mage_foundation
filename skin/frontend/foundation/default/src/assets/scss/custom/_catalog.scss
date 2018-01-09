@@ -42,7 +42,7 @@
 }
 
 //Category & Manufacturers
-.categories-grid, .manufacturers-grid {
+.categories-grid, .categories-home-grid, .manufacturers-grid {
   li {
     padding: .5rem;
     border: 1px solid $medium-gray;
@@ -73,6 +73,10 @@
       }
     }
   }
+}
+
+.categories-grid li h3 {
+      font-weight: bold;
 }
 
 .manufacturers-grid li {
