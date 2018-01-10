@@ -308,7 +308,7 @@ footer {
   .footer-top {
     @include xy-cell(12, false, 0);
   }
-  .footer-shipping {
+  .footer-extras {
     @include xy-cell(12, false, 0);
   }
   .footer-info {
@@ -573,6 +573,7 @@ footer {
     .footer-info {
       .content {
         margin: 0 auto !important;
+        text-align: left;
         @include xy-cell(12);
         .footer_links,
         .footer_service,

@@ -11,19 +11,45 @@ footer {
       background: scale-color($primary-color, $lightness: -60%);
     }
   }
+  .footer-extras {
+    background: scale-color($primary-color, $lightness: -15%);
+    .content {
+      text-align: center;
+      img {
+        padding: .5rem 0;
+      }
+    }
+  }
   .footer-info {
     padding: 1rem 0;
-    background: scale-color($primary-color, $lightness: -15%);
+    background: scale-color($primary-color, $lightness: -30%);
     color: $white;
-    ul li {
-      @include breakpoint(small only) {
+    @include breakpoint(medium) {
+      ul {
+        padding: 0 0 0 1em;
+        li {
+          position: relative;
+          padding-left: 0.4em;
+          &:before {
+            position: absolute;
+            color: $white;
+            content: "\f0c8";
+            font-family: FontAwesome;
+            font-size: .1rem;
+            left: -1em;
+            top: 1.5em;
+          }
+        }
+      }
+    }
+    @include breakpoint(small only) {
+      ul li {
         text-align: center;
       }
     }
     p {
       font-size: 1.2rem;
       @include breakpoint(small only) {
-        text-align: center;
         padding: 1rem 0 0 0;
       }
     }
@@ -32,15 +58,6 @@ footer {
       color: #DDDDDD;
       &:hover, &:focus {
         text-decoration: underline;
-      }
-    }
-  }
-  .footer-shipping {
-    background: scale-color($primary-color, $lightness: -30%);
-    .content {
-      text-align: center;
-      img {
-        padding: .5rem 0;
       }
     }
   }

@@ -61,21 +61,26 @@ if (!function_exists('clean')) {
                     </li>
                     <?php echo $this->getChildHtml('product_type_data') ?>
                     <?php if (!empty($_product->getAttributeText('manufacturer'))): ?>
-                    <li class="description">
-                        <div class="product-brand">
-                            <?php $brand = $_product->getAttributeText('manufacturer') ?>
-                                    <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . 'hersteller/' . clean($brand) ?>">
-                                        <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>catalog/brands/<?php echo clean($brand) ?>.png"
-                                             alt="<?php echo $brand ?> Logo"
-                                             title="<?php echo $this->__('Zeige alle Artikel von %s', $brand) ?>">
-                                    </a>
-                        </div>
-                    </li>
-                    <li class="bullet-item">
+                        <li class="description">
+                            <div class="product-brand">
+                                <?php $brand = $_product->getAttributeText('manufacturer') ?>
+                                <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . 'hersteller/' . clean($brand) ?>">
+                                    <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>catalog/brands/<?php echo clean($brand) ?>.png"
+                                         alt="<?php echo $brand ?> Logo"
+                                         title="<?php echo $this->__('Zeige alle Artikel von %s', $brand) ?>">
+                                </a>
+                            </div>
+                        </li>
+                        <?php if (!empty($_product->getData('follower'))): ?>
+                            <li class="bullet-item">
+                                <a class="button" style="margin: 0; background-color: #ed4a00; color: #ffffff;" href="<?php echo $this->getUrl($_product->getData('follower')); ?>">Nachfolger anzeigen</a>
+                            </li>
+                        <?php endif; ?>
+                        <li class="bullet-item">
                             <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . 'hersteller/' . clean($brand) ?>">
                                 <?php echo $this->__('Zeige alle Artikel von %s', $brand) ?>
                             </a>
-                    </li>
+                        </li>
                     <?php endif; ?>
                     <?php if ($_product->getAttributeText('manufacturer') == 'Jura'): ?>
                         <li class="bullet-item">
