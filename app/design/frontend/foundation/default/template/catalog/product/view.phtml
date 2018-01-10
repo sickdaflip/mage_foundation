@@ -62,7 +62,7 @@ if (!function_exists('clean')) {
                     <?php echo $this->getChildHtml('product_type_data') ?>
                     <?php if (!empty($_product->getData('follower'))): ?>
                         <li class="bullet-item">
-                            <a class="button follower" href="<?php echo $this->getUrl($_product->getData('follower')); ?>">Nachfolger anzeigen</a>
+                            <a class="button follower" href="<?php echo $this->getUrl($_product->getData('follower')); ?>">Nachfolger zeigen</a>
                         </li>
                     <?php endif; ?>
                     <?php if (!empty($_product->getAttributeText('manufacturer'))): ?>
