@@ -45,6 +45,11 @@
       .custom-quote {
         @include callout-base;
       }
+      .follower {
+        color: $white;
+        font-weight: bold;
+        margin: 0;
+      }
     }
     .product-img-box {
       .product-image {
@@ -430,8 +435,8 @@
   .tier-price {
     table {
       @include breakpoint(medium down) {
-         @include table-stack;
-       }
+        @include table-stack;
+      }
     }
   }
 }

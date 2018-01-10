@@ -60,6 +60,11 @@ if (!function_exists('clean')) {
                         </p>
                     </li>
                     <?php echo $this->getChildHtml('product_type_data') ?>
+                    <?php if (!empty($_product->getData('follower'))): ?>
+                        <li class="bullet-item">
+                            <a class="button follower" href="<?php echo $this->getUrl($_product->getData('follower')); ?>">Nachfolger anzeigen</a>
+                        </li>
+                    <?php endif; ?>
                     <?php if (!empty($_product->getAttributeText('manufacturer'))): ?>
                         <li class="description">
                             <div class="product-brand">
@@ -71,11 +76,6 @@ if (!function_exists('clean')) {
                                 </a>
                             </div>
                         </li>
-                        <?php if (!empty($_product->getData('follower'))): ?>
-                            <li class="bullet-item">
-                                <a class="button" style="margin: 0; background-color: #ed4a00; color: #ffffff;" href="<?php echo $this->getUrl($_product->getData('follower')); ?>">Nachfolger anzeigen</a>
-                            </li>
-                        <?php endif; ?>
                         <li class="bullet-item">
                             <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . 'hersteller/' . clean($brand) ?>">
                                 <?php echo $this->__('Zeige alle Artikel von %s', $brand) ?>
