@@ -26,20 +26,7 @@ footer {
     color: $white;
     @include breakpoint(medium) {
       ul {
-        padding: 0 0 0 1em;
-        li {
-          position: relative;
-          padding-left: 0.4em;
-          &:before {
-            position: absolute;
-            color: $white;
-            content: "\f0c8";
-            font-family: FontAwesome;
-            font-size: .1rem;
-            left: -1em;
-            top: 1.5em;
-          }
-        }
+        list-style: square inside;
       }
     }
     @include breakpoint(small only) {

@@ -572,7 +572,7 @@ footer {
   footer {
     .footer-info {
       .content {
-        margin: 0 auto !important;
+        @include xy-grid-container;
         text-align: left;
         @include xy-cell(12);
         .footer_links,
