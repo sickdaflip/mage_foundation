@@ -43,6 +43,7 @@
 
 //Category & Manufacturers
 .categories-grid, .categories-home-grid, .manufacturers-grid {
+  padding-top: .5rem;
   li {
     padding: .5rem;
     border: 1px solid $medium-gray;
