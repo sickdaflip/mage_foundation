@@ -148,14 +148,14 @@ header {
 .categories-grid, .categories-home-grid, .manufacturers-grid {
   @include xy-grid-container;
   @include xy-grid;
-  @include xy-grid-layout(2, 'li', true, $grid-margin-gutters, margin, left bottom);
+  @include xy-grid-layout(2, 'li', true, $grid-margin-gutters, margin, bottom);
   justify-content: center;
 }
 
 .products-grid, .search-grid, .gift-grid {
   @include xy-grid-container;
   @include xy-grid;
-  @include xy-grid-layout(1, 'li', true, $grid-margin-gutters, margin, left bottom);
+  @include xy-grid-layout(1, 'li', true, $grid-margin-gutters, margin, bottom);
   justify-content: center;
 }
 
