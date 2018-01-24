@@ -16,6 +16,10 @@ import Foundation from 'foundation-sites';
 $(document).ready(function() {
     $(document).foundation();
 
+    //focus on search input
+    $("#search").focus();
+    $("#search").get(0).setSelectionRange(0,0);
+
     // not hide do remove!
     if (Foundation.MediaQuery.is('small only')) {
         $('.hide-for-small-only').remove();
