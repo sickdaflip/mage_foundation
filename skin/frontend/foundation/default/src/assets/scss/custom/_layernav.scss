@@ -26,6 +26,12 @@
 
 .block-layered-nav {
   font-size: rem-calc(13);
+  .block-title, dl dt {
+    font-size: rem-calc(14);
+    color: $primary-color;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
   .block-subtitle {
     display: none;
   }
@@ -60,7 +66,7 @@
   dl dt {
     position: relative;
     text-decoration: none;
-    font-weight: normal;
+    margin-top: 1rem;
   }
   dl dd {
     margin-bottom: 1rem;
@@ -158,4 +164,21 @@
 .block-layered-nav .m-more-less {
   text-align: left;
   font-size: inherit;
+}
+
+.switch-toggle-wrapper {
+  display: flex;
+  margin-bottom: .5rem;
+  justify-content: flex-start;
+  align-items: center;
+  .switch {
+    margin-bottom: 0;
+    input {
+      width: 0;
+      height: 0;
+    }
+  }
+  span {
+    margin-left: .5rem;
+  }
 }

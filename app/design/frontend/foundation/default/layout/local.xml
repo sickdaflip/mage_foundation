@@ -53,23 +53,7 @@
             </action>
             <action method="removeItem">
                 <type>skin_css</type>
-                <name>css/mirasvit_searchindex.css</name>
-            </action>
-            <action method="removeItem">
-                <type>skin_css</type>
-                <name>css/mirasvit_searchindex.css</name>
-            </action>
-            <action method="removeItem">
-                <type>skin_css</type>
-                <name>css/mirasvit_mstcore.css</name>
-            </action>
-            <action method="removeItem">
-                <type>skin_css</type>
                 <name>css/mixin.css</name>
-            </action>
-            <action method="removeItem">
-                <type>skin_css</type>
-                <name>css/mirasvit/searchautocomplete/default.css</name>
             </action>
             <action method="addItem">
                 <type>skin_css</type>

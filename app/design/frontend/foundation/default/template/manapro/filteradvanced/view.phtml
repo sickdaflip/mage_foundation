@@ -34,12 +34,12 @@ $filterHelper = Mage::helper('mana_filters');
 <?php if($this->canShowBlock()): ?>
 <div class="block block-layered-nav">
     <div class="block-title">
-        <strong><span><?php echo $this->__('Shop By') ?></span></strong>
+        <?php echo $this->__('Filtern nach') ?>
     </div>
     <div class="block-content">
-        <?php echo $this->getStateHtml() ?>
+        <?php //echo $this->getStateHtml() ?>
         <?php if ($core->isMageVersionEqualOrGreater('1.7') && $this->getLayer()->getState()->getFilters()) : ?>
-        <div class="actions"><a href="<?php echo $this->getClearUrl() ?>" class="button"><?php echo $this->__('Clear All') ?></a></div>
+        <div class="actions"><a href="<?php echo $this->getClearUrl() ?>"><?php echo $this->__('Auswahl aufheben') ?></a></div>
         <?php endif; ?>
         <?php if($this->canShowOptions()): ?>
             <?php $_filterGroups = Mage::helper('mana_filters')->renderHtml($this, 'groups'); ?>

@@ -25,25 +25,35 @@
         <li <?php echo $this->getListItemClass($_item) ?> >
             <?php // MANA BEGIN ?>
             <?php if (!$this->getFilterOptions()->getDisableNoResultOptions() || $_item->getCount() || $_item->getMSelected()): ?>
-                <input type="checkbox" id="<?php echo $_item->getUniqueId($this) ?>"
-                       value="<?php echo $_item->getValue() ?>"
-                       <?php if ($_item->getMShowSelected()): ?>checked="checked"<?php endif; ?>
-                       onClick="setLocation('<?php echo $this->urlEscape($_item->getMSelected() ? $_item->getRemoveUrl() : $_item->getUrl()) ?>');"/>
-                <label for="<?php echo $_item->getUniqueId($this) ?>"><span
-                        <?php if ($_item->getMShowSelected()): ?>class="m-selected-checkbox-item"<?php endif; ?>
-                        title="<?php echo $this->escapeHtml($_item->getLabel()) ?>"><?php echo $this->escapeHtml($_item->getLabel()) ?></span><?php if (Mage::getStoreConfigFlag('mana_filters/display/count')) : ?>
-                        (<?php echo $_item->getCount() ?>)
-                    <?php endif; ?></label>
+            <div class="switch-toggle-wrapper">
+                <div class="switch tiny">
+                    <input class="switch-input" type="checkbox" id="<?php echo $_item->getUniqueId($this) ?>"
+                           value="<?php echo $_item->getValue() ?>"
+                           <?php if ($_item->getMShowSelected()): ?>checked="checked"<?php endif; ?>
+                           onClick="setLocation('<?php echo $this->urlEscape($_item->getMSelected() ? $_item->getRemoveUrl() : $_item->getUrl()) ?>');"/>
+                    <label class="switch-paddle" for="<?php echo $_item->getUniqueId($this) ?>">
+                        <span class="show-for-sr<?php if ($_item->getMShowSelected()): ?> m-selected-checkbox-item<?php endif; ?>"
+                            title="<?php echo $this->escapeHtml($_item->getLabel()) ?>"><?php echo $this->escapeHtml($_item->getLabel()) ?></span><?php if (Mage::getStoreConfigFlag('mana_filters/display/count')) : ?>
+                            (<?php echo $_item->getCount() ?>)
+                        <?php endif; ?></label>
+                </div>
+                <span><?php echo $this->escapeHtml($_item->getLabel()) ?></span>
+            </div>
             <?php else: ?>
-                <input type="checkbox" id="<?php echo $_item->getUniqueId($this) ?>"
-                       value="<?php echo $_item->getValue() ?>"
-                       <?php if ($_item->getMShowSelected()): ?>checked="checked"<?php endif; ?>
-                       disabled="disabled"/>
-                <label for="<?php echo $_item->getUniqueId($this) ?>"><span
-                        class="<?php if ($_item->getMShowSelected()): ?>m-selected-checkbox-item<?php endif; ?>"
-                        title="<?php echo $this->escapeHtml($_item->getLabel()) ?>"><?php echo $this->escapeHtml($_item->getLabel()) ?></span><?php if (Mage::getStoreConfigFlag('mana_filters/display/count')) : ?>
-                        (<?php echo $_item->getCount() ?>)
-                    <?php endif; ?></label>
+            <div class="switch-toggle-wrapper">
+                <div class="switch tiny">
+                    <input class="switch-input" type="checkbox" id="<?php echo $_item->getUniqueId($this) ?>"
+                           value="<?php echo $_item->getValue() ?>"
+                           <?php if ($_item->getMShowSelected()): ?>checked="checked"<?php endif; ?>
+                           disabled="disabled"/>
+                    <label class="switch-paddle" for="<?php echo $_item->getUniqueId($this) ?>">
+                        <span class="show-for-sr<?php if ($_item->getMShowSelected()): ?> m-selected-checkbox-item<?php endif; ?>"
+                                title="<?php echo $this->escapeHtml($_item->getLabel()) ?>"><?php echo $this->escapeHtml($_item->getLabel()) ?></span><?php if (Mage::getStoreConfigFlag('mana_filters/display/count')) : ?>
+                            (<?php echo $_item->getCount() ?>)
+                        <?php endif; ?></label>
+                </div>
+                <span><?php echo $this->escapeHtml($_item->getLabel()) ?></span>
+            </div>
             <?php endif; ?>
             <?php // MANA END ?>
         </li>

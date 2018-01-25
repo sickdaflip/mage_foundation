@@ -19,6 +19,10 @@ nav {
   @include xy-grid-container;
 }
 
+.breadcrumbs {
+  @include xy-cell(12);
+}
+
 // Layout
 .col1-layout {
   .col-main {
