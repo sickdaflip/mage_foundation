@@ -261,7 +261,7 @@ Product.OptionsPrice.prototype = {
                 if (this.showIncludeTax) {
                     PriceTax = excl;
                 }
-                jQuery('.price_mwst .price')[0].innerHTML = this.formatPrice(PriceTax);
+                //jQuery('.price_mwst .price')[0].innerHTML = this.formatPrice(PriceTax);
 
                 if ($(pair.value).select('.price')[0]) {
                     $(pair.value).select('.price')[0].innerHTML = formattedPrice;

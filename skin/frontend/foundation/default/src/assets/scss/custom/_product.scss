@@ -31,9 +31,10 @@
                 color: $alert-color;
               }
             }
-            .regular-price .price-label {
-              cursor: pointer;
+            .regular-price, .mwst-price, .skontodiscount {
+              display: none;
             }
+
           }
         }
         li.tier-price {

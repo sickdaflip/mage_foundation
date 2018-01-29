@@ -218,15 +218,6 @@ $(document).ready(function() {
         }
     });
 
-    //Product other Payments
-    $('.regular-price .price, .mwst-price').hide();
-    $('.regular-price .price-label').text('andere Zahlarten anzeigen >>');
-    $('.regular-price .price-label').on('click', function () {
-        var parent_box = $(this).closest('.price-box');
-        parent_box.siblings().find('.regular-price .price, .mwst-price').hide();
-        parent_box.find('.regular-price .price, .mwst-price').toggle();
-    });
-
     googleFonts.add({
         'Roboto': ['300', '400', '700'],
     })
