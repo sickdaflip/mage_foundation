@@ -150,6 +150,11 @@ $(document).ready(function() {
         hash: false
     });
 
+    $('#lightgallery').lightGallery({
+        thumbnail: true,
+        hash: false
+    });
+
     $('#password').focus(function () {
         $('#toolTipPasswordStrength').css("display", "inline");
     });
