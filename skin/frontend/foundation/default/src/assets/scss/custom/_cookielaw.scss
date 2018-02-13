@@ -2,9 +2,9 @@
   width: 100%;
   position: fixed;
   bottom: 0;
-  z-index: 990;
+  z-index: 9999999999;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.6) !important;
+  background: rgba(255, 255, 255, 0.8) !important;
   color: $primary-color;
   border-top: 1px solid $primary-color;
   .notice-inner {
@@ -13,6 +13,7 @@
     float: none;
     p {
       font-size: rem-calc(15);
+      margin-bottom: 0;
     }
   }
   .actions button {

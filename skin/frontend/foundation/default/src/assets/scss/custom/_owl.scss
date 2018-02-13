@@ -44,14 +44,18 @@ $dot-background-active: $color-base !default;
   margin-right: 0 !important;
   position: relative;
   .owl-nav {
-    position: absolute;
-    width: 100%;
-    top: 40%;
     .owl-prev {
-      float: left;
+      position: absolute;
+      top: 40%;
+      left: -15px;
+      display: block !important;
     }
+
     .owl-next {
-      float: right;
+      position: absolute;
+      top: 40%;
+      right: -15px;
+      display: block !important;
     }
   }
   .owl-dots {
