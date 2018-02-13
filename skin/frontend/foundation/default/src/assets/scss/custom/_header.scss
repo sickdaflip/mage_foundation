@@ -64,8 +64,11 @@ header {
         a {
           padding: 0.5rem;
         }
-        .shipping, .deal {
+        .shipping {
           @include show-for(xlarge);
+        }
+        .deal {
+          @include show-for(large);
         }
         .deal a {
           color: $white;

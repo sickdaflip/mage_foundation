@@ -641,10 +641,10 @@ footer {
         @include xy-cell(2);
       }
       .search {
-        @include xy-cell(7);
+        @include xy-cell(6);
       }
       .account {
-        @include xy-cell(3);
+        @include xy-cell(4);
       }
     }
   }
