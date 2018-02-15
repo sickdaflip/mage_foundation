@@ -115,6 +115,7 @@
       -khtml-box-shadow: 1px 1px 6px #a0a0a0;
       box-shadow: 1px 1px 6px #a0a0a0;
       .products-image img {
+        -z-index: 1;
         -moz-transform: scale(1.05);
         -webkit-transform: scale(1.05);
         transform: scale(1.05);
@@ -124,12 +125,13 @@
 }
 
 .products-list, .products-grid, .top-products-slider, .gift-grid {
-  .products-image {
+  .item {
     position: relative;
     .special-ribbon {
+      z-index: 2;
       position: absolute;
-      right: -5px;
-      top: -5px;
+      right: -1px;
+      top: -1px;
       overflow: hidden;
       width: 150px;
       height: 150px;
@@ -144,7 +146,7 @@
       -webkit-transform: rotate(45deg);
       width: 200px;
       display: block;
-      background: $alert-color;
+      background: #FF0000;
       box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
       position: absolute;
       top: 38px;
@@ -156,10 +158,10 @@
       left: 0px;
       top: 100%;
       z-index: -1;
-      border-left: 3px solid $alert-color;
+      border-left: 3px solid #FF0000;
       border-right: 3px solid transparent;
       border-bottom: 3px solid transparent;
-      border-top: 3px solid $alert-color;
+      border-top: 3px solid #FF0000;
     }
     .special-ribbon span::after {
       content: "";
@@ -168,97 +170,97 @@
       top: 100%;
       z-index: -1;
       border-left: 3px solid transparent;
-      border-right: 3px solid $alert-color;
+      border-right: 3px solid #FF0000;
       border-bottom: 3px solid transparent;
-      border-top: 3px solid $alert-color;
+      border-top: 3px solid #FF0000;
     }
-  }
-  .product-brand {
-    img {
-      max-width: 8rem;
-      text-align: center;
-    }
-  }
-  .price-box {
-    font-size: .8rem;
-    margin-top: .5rem;
-    .regular-price {
-      color: $success-color;
-      margin: 0;
-      line-height: 0;
-      .price-label {
-        vertical-align: middle;
-        line-height: 1rem;
+    .product-brand {
+      img {
+        max-width: 8rem;
+        text-align: center;
       }
-      .price {
-        span.price {
+    }
+    .price-box {
+      font-size: .8rem;
+      margin-top: .5rem;
+      .regular-price {
+        color: $success-color;
+        margin: 0;
+        line-height: 0;
+        .price-label {
+          vertical-align: middle;
+          line-height: 1rem;
+        }
+        .price {
+          span.price {
+            padding: 0 !important;
+            font-size: 1rem;
+            vertical-align: middle;
+            color: $success-color;
+          }
+        }
+      }
+      .skonto-price {
+        margin: 0;
+        line-height: 0;
+        .price-label {
+          line-height: 1rem;
+        }
+        .price {
+          color: $success-color;
           padding: 0 !important;
           font-size: 1rem;
+        }
+      }
+      .old-price, .msrp-price, .mwst-price, .skontotax-price {
+        display: block;
+        margin: 0;
+        line-height: 1rem;
+        .price-label {
           vertical-align: middle;
-          color: $success-color;
+        }
+        .price {
+          vertical-align: middle;
+          color: $primary-color;
+        }
+      }
+      .special-price, .to-date, .minimal-price-link {
+        color: $alert-color;
+        display: block;
+        margin: 0 0 0.5rem 0;
+        line-height: 1;
+        .price-label, .label {
+          vertical-align: middle;
+        }
+        .price {
+          display: block;
+          font-size: 1rem;
+          vertical-align: middle;
+        }
+      }
+      .minimal-price-link {
+        .label {
+          background-color: transparent;
+          color: $alert-color;
+          font-size: inherit;
+          padding: 0;
+        }
+        .price {
+          color: $alert-color;
         }
       }
     }
-    .skonto-price {
+    .tax-details, .delivery-time {
       margin: 0;
-      line-height: 0;
-      .price-label {
-        line-height: 1rem;
-      }
-      .price {
-        color: $success-color;
-        padding: 0 !important;
-        font-size: 1rem;
-      }
+      font-size: 0.8rem;
     }
-    .old-price, .msrp-price, .mwst-price, .skontotax-price {
-      display: block;
-      margin: 0;
-      line-height: 1rem;
-      .price-label {
-        vertical-align: middle;
-      }
-      .price {
-        vertical-align: middle;
-        color: $primary-color;
-      }
+    .btn-cart {
+      margin: 1em 0 0 0;
     }
-    .special-price, .to-date, .minimal-price-link {
-      color: $alert-color;
-      display: block;
-      margin: 0 0 0.5rem 0;
-      line-height: 1;
-      .price-label, .label {
-        vertical-align: middle;
-      }
-      .price {
-        display: block;
-        font-size: 1rem;
-        vertical-align: middle;
-      }
-    }
-    .minimal-price-link {
-      .label {
-        background-color: transparent;
-        color: $alert-color;
-        font-size: inherit;
+    .product-shop {
+      a {
         padding: 0;
       }
-      .price {
-        color: $alert-color;
-      }
-    }
-  }
-  .tax-details, .delivery-time {
-    margin: 0;
-    font-size: 0.8rem;
-  }
-  .btn-cart {
-    margin: 1em 0 0 0;
-  }
-  .product-shop {
-    a {
-      padding: 0;
     }
   }
 }

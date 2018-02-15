@@ -299,15 +299,15 @@
       text-decoration: none;
       display: inline-block;
       padding: 0.25rem;
-      color: $white;
-      background-color: $primary-color;
+      color: $primary-color;;
+      background-color: $white;
       cursor: pointer;
       font-size: rem-calc(12);
       width: 100%;
       border-radius: $global-radius;
-      a {
-        color: $white;
-      }
+      border-color: $primary-color;
+      border-width: 1px;
+      border-style: solid;
       & + span label {
         margin-bottom: 0.4rem;
         position: relative;
@@ -315,20 +315,23 @@
         text-decoration: none;
         display: inline-block;
         padding: 1rem 2rem 1.0625rem 2rem;
-        color: $white;
-        background-color: $primary-color;
+        color: $primary-color;
         cursor: pointer;
         width: 100%;
-        a {
-          color: $white;
-        }
+      }
+      .price-notice .price {
+        color: $primary-color;
       }
     }
     input[type='radio']:checked + span label, input[type='checkbox']:checked + span label {
-      background-color: $success-color;
+      color: $success-color;
+      border-color: $success-color;
       &:after {
         font-family: FontAwesome;
         content: ' \f00c';
+      }
+      .price-notice .price {
+        color: $success-color;
       }
     }
     .show-more {

@@ -114,12 +114,12 @@ $_helper = $this->helper('catalog/output');
                 <?php $i = 0;
                 foreach ($_productCollection as $_product): ?>
                     <li class="item">
+                        <?php if ($_product->getFinalPrice() < $_product->getPrice()) { ?>
+                            <?php $_savingPercent = 100 - round(($_product->getFinalPrice() / $_product->getPrice()) * 100); ?>
+                            <div class="special-ribbon"><span><?php echo $_savingPercent; ?>% Rabatt</span>
+                            </div>
+                        <?php } ?>
                         <div class="products-image float-center">
-                            <?php if ($_product->getFinalPrice() < $_product->getPrice()) { ?>
-                                <?php $_savingPercent = 100 - round(($_product->getFinalPrice() / $_product->getPrice()) * 100); ?>
-                                <div class="special-ribbon"><span><?php echo $_savingPercent; ?>% Rabatt</span>
-                                </div>
-                            <?php } ?>
                             <a href="<?php echo $_product->getProductUrl() ?>"
                                title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
                                class="product-image small-centered">
