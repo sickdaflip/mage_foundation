@@ -146,7 +146,7 @@
       -webkit-transform: rotate(45deg);
       width: 200px;
       display: block;
-      background: #FF0000;
+      background: $alert-color;
       box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
       position: absolute;
       top: 38px;
@@ -158,10 +158,10 @@
       left: 0px;
       top: 100%;
       z-index: -1;
-      border-left: 3px solid #FF0000;
+      border-left: 3px solid $alert-color;
       border-right: 3px solid transparent;
       border-bottom: 3px solid transparent;
-      border-top: 3px solid #FF0000;
+      border-top: 3px solid $alert-color;
     }
     .special-ribbon span::after {
       content: "";
@@ -170,9 +170,9 @@
       top: 100%;
       z-index: -1;
       border-left: 3px solid transparent;
-      border-right: 3px solid #FF0000;
+      border-right: 3px solid $alert-color;
       border-bottom: 3px solid transparent;
-      border-top: 3px solid #FF0000;
+      border-top: 3px solid $alert-color;
     }
     .product-brand {
       img {
