@@ -36,6 +36,10 @@
     <div id="billing-new-address-form"<?php if ($this->customerHasAddresses()): ?> style="display:none;"<?php endif; ?>>
         <input type="hidden" name="billing[address_id]" value="<?php echo $this->getAddress()->getId() ?>"
                id="billing:address_id"/>
+        <?php if (Mage::app()->getStore()->getId() == '5') { ?>
+            <?php echo $this->getChildHtml('store_switcher', false) ?>
+        <?php } ?>
+
         <?php if (Mage::app()->getStore()->getId() == '4') { ?>
             <div class="fields">
                 <div class="field">

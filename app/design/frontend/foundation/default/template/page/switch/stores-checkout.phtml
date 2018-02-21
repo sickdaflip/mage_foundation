@@ -1,0 +1,16 @@
+<?php $stores = Mage::getModel('core/store')->getCollection()->addFieldToFilter('is_active', 1)->addFieldToFilter('store_id', array('neq' => 0)); ?>
+<?php if (count($stores) > 1): ?>
+    <?php foreach ($stores as $store): ?>
+        <?php if ($store->getId() != $this->getCurrentStoreId()): ?>
+                <?php if (Mage::app()->getStore()->getStoreId() == '4'){
+                    $cur_store = '?___from_store=b2b&___store=b2c';
+                }elseif (Mage::app()->getStore()->getStoreId() == '5') {
+                    $cur_store = '?___from_store=b2c&___store=b2b';
+                }
+                ?>
+                <a class="button hollow" href="<?php echo $cur_store; ?>" rel="nofollow noopener noreferrer">
+                    als <?php echo $store->getName(); ?> bestellen
+                </a>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>

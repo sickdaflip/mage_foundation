@@ -1,0 +1,28 @@
+<config>
+    <modules>
+        <Foundation_Islands>
+            <version>1.0.0</version>
+        </Foundation_Islands>
+    </modules>
+    <adminhtml>
+        <layout>
+            <updates>
+                <customsales>
+                    <file>foundation_islands.xml</file>
+                </customsales>
+            </updates>
+        </layout>
+    </adminhtml>
+    <global>
+        <blocks>
+            <islands>
+                <class>Foundation_Islands_Block</class>
+            </islands>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_view_info>Foundation_Islands_Block_Sales_Order_View_Info</sales_order_view_info>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+    </global>
+</config>

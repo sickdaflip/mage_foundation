@@ -1,0 +1,7 @@
+<layout version="0.1.0">
+    <adminhtml_sales_order_view>
+        <reference name="order_info">
+            <action method="setTemplate"><template>foundation/islands/sales/order/view/info.phtml</template></action>
+        </reference>
+    </adminhtml_sales_order_view>
+</layout>

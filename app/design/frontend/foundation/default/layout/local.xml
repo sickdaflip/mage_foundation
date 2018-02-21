@@ -451,6 +451,13 @@
                 <name>css/magesetup/checkout.css</name>
             </action>
         </reference>
+        <reference name="checkout.onepage.billing">
+            <block type="page/switch" name="store_switcher" template="page/switch/stores-checkout.phtml">
+                <action method="setCacheLifetime">
+                    <s>0</s>
+                </action>
+            </block>
+        </reference>
     </checkout_onepage_index>
 
     <checkout_onepage_success>
