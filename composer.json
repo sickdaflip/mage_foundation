@@ -20,6 +20,14 @@
         "app/code/local/Mage/"
       ],
       [
+        "app/design/adminhtml/default/default/layout/",
+        "app/design/adminhtml/default/default/layout/"
+      ],
+      [
+        "app/design/adminhtml/default/default/template/",
+        "app/design/adminhtml/default/default/template/"
+      ],
+      [
         "app/design/frontend/foundation/default",
         "app/design/frontend/foundation/default"
       ],
