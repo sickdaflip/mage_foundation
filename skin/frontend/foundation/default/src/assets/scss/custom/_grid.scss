@@ -347,10 +347,10 @@ footer {
     justify-content: center;
     align-items: center;
     .notice-text {
-      @include xy-cell(8);
+      @include xy-cell(9);
     }
     .actions {
-      @include xy-cell(4);
+      @include xy-cell(3);
     }
   }
 }

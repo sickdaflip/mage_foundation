@@ -8,11 +8,11 @@
   color: $primary-color;
   border-top: 1px solid $primary-color;
   .notice-inner {
-    margin: $global-margin;
+    margin: .4rem;
     text-align: center;
     float: none;
     p {
-      font-size: rem-calc(15);
+      font-size: rem-calc(10);
       margin-bottom: 0;
     }
   }
