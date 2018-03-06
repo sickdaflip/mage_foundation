@@ -98,6 +98,27 @@
       }
     }
   }
+  #opc-review {
+    ol.checkout-agreements {
+      list-style: none;
+      margin-left: 0;
+      li {
+        label {
+          margin-right: .5rem;
+        }
+        a {
+          font-size: 0.875rem;
+        }
+      }
+    }
+    #checkout-review-table-wrapper {
+      #checkout-review-table {
+        tfoot td {
+          font-weight: normal;
+        }
+      }
+    }
+  }
 }
 
 .osc-column-wrapper {

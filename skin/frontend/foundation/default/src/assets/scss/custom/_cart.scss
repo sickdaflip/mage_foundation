@@ -75,9 +75,6 @@
           margin-bottom: 2px;
           padding: 0.5rem;
           background: smart-scale($table-background, $table-color-scale);
-          &:nth-child(2n) {
-            display: none;
-          }
           button, a {
             display: inline !important;
           }

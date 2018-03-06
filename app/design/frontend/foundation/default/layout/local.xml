@@ -438,6 +438,19 @@
         </reference>
     </contacts_index_index>
 
+    <checkout_cart_index>
+        <reference name="checkout.cart.methods">
+            <remove name="checkout.cart.methods.amazonpayments_pay.bottom"/>
+            <remove name="checkout.cart.methods.paypal_express.bottom"/>
+            <block type="paypal/express_shortcut" name="checkout.cart.methods.paypal_express.bottom.new" template="paypal/express/shortcut.phtml">
+                <action method="setIsQuoteAllowed"><value>1</value></action>
+            </block>
+            <block type="amazonpayments/pay_button" name="checkout.cart.methods.amazonpayments_pay.bottom.new">
+                <action method="setEnableOr"><value>0</value></action>
+            </block>
+        </reference>
+    </checkout_cart_index>
+
     <checkout_onepage_index>
         <remove name="left"/>
         <reference name="root">

@@ -293,7 +293,7 @@ header {
   & > form {
     @include xy-grid;
     .cart-table-wrapper {
-      @include xy-cell(12);
+      @include xy-cell(12, false, 0);
     }
   }
   .cart-collaterals {
