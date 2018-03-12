@@ -208,7 +208,7 @@ header {
     @include xy-cell(12);
   }
   .mb-top-layered-navigation {
-    @include xy-cell(12);
+    @include xy-cell(12, false, 0);
   }
   .category-description.top {
     @include xy-cell(12);

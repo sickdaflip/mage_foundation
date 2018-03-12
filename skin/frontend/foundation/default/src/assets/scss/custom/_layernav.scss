@@ -133,7 +133,8 @@
 }
 
 .mb-top-layered-navigation.one-filter-column .block-subtitle {
-  background-color: $secondary-color;
+  background: $secondary-color !important;
+  padding: 1em !important;
   color: $white;
   &:focus, &:focus:hover {
     cursor: pointer;
