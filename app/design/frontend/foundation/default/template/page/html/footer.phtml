@@ -26,6 +26,8 @@
                     <li>
                         <a href="<?php echo Mage::getUrl(''); ?>"><?php echo $this->__('Startseite') ?></a>
                     </li>
+                    <li><a class="quality"><?php echo $this->__('Sicher einkaufen') ?></a></li>
+                    <li><a class="zertifikate"><?php echo $this->__('Zertifikate') ?></a></li>
                     <li>
                         <a href="<?php echo Mage::getUrl('bestellvorgang'); ?>"><?php echo $this->__('Bestellvorgang') ?></a>
                     </li>
@@ -56,31 +58,6 @@
                         <a href="<?php echo Mage::getUrl('top15'); ?>"><?php echo $this->__('Top 15') ?></a>
                     </li>
                 </ul>
-            </div>
-            <div class="footer_service">
-                <p><?php echo $this->__('Kundenservice') ?></p>
-                <ul>
-                    <li><a class="quality"><?php echo $this->__('Sicher einkaufen') ?></a></li>
-                    <li><a class="zertifikate"><?php echo $this->__('Zertifikate') ?></a></li>
-                    <li><a href="<?php echo Mage::getUrl('contacts'); ?>"><?php echo $this->__('Kontakt') ?></a></li>
-                    <li><a href="<?php echo Mage::getUrl('leistungen'); ?>"><?php echo $this->__('Leistungen') ?></a>
-                    </li>
-                    <li>
-                        <a href="<?php echo Mage::getUrl('digitale-kueche-smart-kitchen'); ?>"><?php echo $this->__('Digitale Küche') ?></a>
-                    </li>
-                    <li><a href="<?php echo Mage::getUrl('planung'); ?>"><?php echo $this->__('Planung') ?></a></li>
-                    <li>
-                        <a href="<?php echo Mage::getUrl('altgeraeteentsorgung'); ?>"><?php echo $this->__('Altger&auml;teentsorgung') ?></a>
-                    </li>
-                    <li><a href="<?php echo Mage::getUrl('montage'); ?>"><?php echo $this->__('Montage-Service') ?></a>
-                    </li>
-                    <li><a href="<?php echo Mage::getUrl('service'); ?>"><?php echo $this->__('Gastro-Service') ?></a>
-                    </li>
-                    <li>
-                        <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/fax/faxbestellung.pdf'; ?>"
-                           target="_blank" rel="nofollow noopener noreferrer">Faxbestellung</a></li>
-                    <?php echo $this->getChildHtml('store_switcher', false) ?>
-                </ul>
                 <div class="reveal large" id="zertifikate" data-reveal></div>
                 <div class="reveal large" id="quality" data-reveal></div>
                 <script>
@@ -110,6 +87,29 @@
                     });
                 </script>
             </div>
+            <div class="footer_service">
+                <p><?php echo $this->__('Kundenservice') ?></p>
+                <ul>
+                    <li><a href="<?php echo Mage::getUrl('contacts'); ?>"><?php echo $this->__('Kontakt') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('leistungen'); ?>"><?php echo $this->__('Leistungen') ?></a>
+                    </li>
+                    <li>
+                        <a href="<?php echo Mage::getUrl('digitale-kueche-smart-kitchen'); ?>"><?php echo $this->__('Digitale Küche') ?></a>
+                    </li>
+                    <li><a href="<?php echo Mage::getUrl('planung'); ?>"><?php echo $this->__('Planung') ?></a></li>
+                    <li>
+                        <a href="<?php echo Mage::getUrl('altgeraeteentsorgung'); ?>"><?php echo $this->__('Altger&auml;teentsorgung') ?></a>
+                    </li>
+                    <li><a href="<?php echo Mage::getUrl('montage'); ?>"><?php echo $this->__('Montage-Service') ?></a>
+                    </li>
+                    <li><a href="<?php echo Mage::getUrl('service'); ?>"><?php echo $this->__('Gastro-Service') ?></a>
+                    </li>
+                    <li>
+                        <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/fax/faxbestellung.pdf'; ?>"
+                           target="_blank" rel="nofollow noopener noreferrer">Faxbestellung</a></li>
+                    <?php echo $this->getChildHtml('store_switcher', false) ?>
+                </ul>
+            </div>
             <div class="footer_manufactures">
                 <p><?php echo $this->__('Unsere starken Gastro-Marken') ?></p>
                 <ul>
@@ -126,22 +126,13 @@
                         <a href="<?php echo Mage::getUrl('hersteller/panasonic'); ?>"><?php echo $this->__('Panasonic Mikrowellen') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('hersteller/hoshizaki'); ?>"><?php echo $this->__('Hoshizaki Eiswürfelbereiter') ?></a>
-                    </li>
-                    <li>
                         <a href="<?php echo Mage::getUrl('hersteller/bartscher'); ?>"><?php echo $this->__('Bartscher Gastrotechnik') ?></a>
-                    </li>
-                    <li>
-                        <a href="<?php echo Mage::getUrl('hersteller/cool-compact'); ?>"><?php echo $this->__('Cool Compact Kühltische') ?></a>
                     </li>
                     <li>
                         <a href="<?php echo Mage::getUrl('hersteller/vaihinger-sanomat'); ?>"><?php echo $this->__('Sanomat Sahnemaschinen') ?></a>
                     </li>
                     <li>
                         <a href="<?php echo Mage::getUrl('hersteller/brita-professional'); ?>"><?php echo $this->__('Brita Wasserfilter') ?></a>
-                    </li>
-                    <li>
-                        <a href="<?php echo Mage::getUrl('hersteller/eku'); ?>"><?php echo $this->__('EKU Großküchentechnik') ?></a>
                     </li>
                     <li>
                         <a href="<?php echo Mage::getUrl('hersteller'); ?>"><?php echo $this->__('weitere Gastro-Marken') ?></a>
