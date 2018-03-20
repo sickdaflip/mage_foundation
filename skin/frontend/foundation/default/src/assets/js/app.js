@@ -155,6 +155,12 @@ $(document).ready(function() {
         hash: false
     });
 
+    $('.lightgallery_cms').lightGallery({
+        selector: '.item',
+        thumbnail: true,
+        hash: false
+    });
+
     $('#password').focus(function () {
         $('#toolTipPasswordStrength').css("display", "inline");
     });
