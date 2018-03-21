@@ -98,8 +98,8 @@ $(document).ready(function() {
 
     var $slider1 = $('.top-products-slider');
     $slider1.on('initialize.owl.carousel', function (event) {
-        var selector = $('.top-products-slider');
-        random(selector);
+        var selector1 = $('.top-products-slider');
+        random(selector1);
     });
     $('.top-products-slider').owlCarousel({
         items: 4,
@@ -122,8 +122,8 @@ $(document).ready(function() {
     //Home Slider credentials
     var $slider2 = $('.credentials-slider');
     $slider2.on('initialize.owl.carousel', function (event) {
-        var selector = $('.credentials-slider');
-        random(selector);
+        var selector2 = $('.credentials-slider');
+        random(selector2);
     });
     $('.credentials-slider').owlCarousel({
         items: 16,
@@ -143,6 +143,29 @@ $(document).ready(function() {
         }
     });
 
+    //Home Slider credentials
+    var $slider3 = $('.credentials-slider-cms');
+    $slider3.on('initialize.owl.carousel', function (event) {
+        var selector3 = $('.credentials-slider-cms');
+        random(selector3);
+    });
+    $('.credentials-slider-cms').owlCarousel({
+        items: 6,
+        lazyLoad: true,
+        loop: true,
+        nav: true,
+        navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>','<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 1000,
+        autoplayHoverPause: true,
+        responsiveClass: true,
+        responsive: {
+            0: {items: 2},
+            640: {items: 6}
+        }
+    });
+
     //LightGallery
     $('.product-img-box').lightGallery({
         selector: '.item',
@@ -151,12 +174,6 @@ $(document).ready(function() {
     });
 
     $('#lightgallery').lightGallery({
-        thumbnail: true,
-        hash: false
-    });
-
-    $('.lightgallery_cms').lightGallery({
-        selector: '.item',
         thumbnail: true,
         hash: false
     });
