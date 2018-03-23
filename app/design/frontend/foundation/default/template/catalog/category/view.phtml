@@ -58,7 +58,7 @@ if ($_imgUrl = $_category->getImageUrl()) {
 </div>
 
 <?php if ($additionaldescription = $_category->getAdditionalDescription()): ?>
-    <div class="category-description std">
+    <div class="category-description top std">
         <?php echo $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->categoryAttribute($_category, $additionaldescription, 'additional_description')) ?>
     </div>
 <?php endif; ?>
