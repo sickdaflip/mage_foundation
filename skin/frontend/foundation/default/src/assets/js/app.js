@@ -102,8 +102,8 @@ $(document).ready(function() {
         random(selector1);
     });
     $('.top-products-slider').owlCarousel({
-        items: 4,
-        stagePadding: 50,
+        items: 5,
+        lazyLoad: true,
         margin: 10,
         loop: true,
         nav: true,
@@ -116,7 +116,7 @@ $(document).ready(function() {
         responsive: {
             0: {items: 1},
             640: {items: 3},
-            1024: {items: 4}
+            1024: {items: 5}
         }
     });
     //Home Slider credentials
