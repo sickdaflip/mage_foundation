@@ -114,7 +114,6 @@ footer {
 
 .reasons {
   @include show-for(large);
-  display: none;
   position: fixed;
   padding: .5em .5em .5em 1.5em;
   left: 0;

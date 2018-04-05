@@ -65,15 +65,6 @@ $(document).ready(function() {
         $(this).append('<i class="fa fa-th"></i>');
     });
 
-    //12 reasons
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-            $('.reasons').fadeIn(2500);
-        } else {
-            $('.reasons').fadeOut();
-        }
-    });
-
     //owl.carousel
     //Sort random function for owl.carousel
     function random(owlSelector) {
