@@ -279,6 +279,18 @@ header {
   }
 }
 
+.promotion-products {
+  .item {
+    .price-box{
+      .regular-price {
+        line-height: 1rem !important;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+
 //CMS
 .home-content {
   @include xy-grid;

@@ -925,3 +925,29 @@ body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-l
     }
   }
 }
+
+.please-wait {
+  width: 100%;
+  height: 100%;
+  z-index: 2200000000; /* btw Trusted Shops Widget */
+  background: rgba(255, 255, 255, 0.5) !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  line-height: 100%;
+  text-align: center;
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em; /* Adjusts for spacing */
+  }
+  .centered {
+    display: inline-block;
+    vertical-align: middle;
+    i {
+      color: $primary-color;
+    }
+  }
+}
