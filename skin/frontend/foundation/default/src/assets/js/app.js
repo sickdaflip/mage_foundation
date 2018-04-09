@@ -16,6 +16,21 @@ import Foundation from 'foundation-sites';
 $(document).ready(function() {
     $(document).foundation();
 
+    // Verwenden Sie Ihre Tracking-ID, wie oben beschrieben.
+    var gaProperty = 'UA-40811127-1';
+
+    // Deaktiviere das Tracking, wenn das Opt-out cookie vorhanden ist.
+    var disableStr = 'ga-disable-' + gaProperty;
+    if (document.cookie.indexOf(disableStr + '=true') > -1) {
+        window[disableStr] = true;
+    }
+
+    // Die eigentliche Opt-out Funktion.
+    function gaOptout(){
+        document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+        window[disableStr] = true;
+    }
+
     //focus on search input
     $("#search").focus();
     $("#search").get(0).setSelectionRange(0,0);
