@@ -104,8 +104,6 @@ a[href^="mailto:"]:before {
     color: $primary-color;
   }
   ol {
-    margin-left: 0;
-    margin-bottom: 1rem;
     counter-reset: item;
     li {
       display: block;
