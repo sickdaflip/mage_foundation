@@ -172,6 +172,16 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
                 Mage::helper('tax')->getPrice($product, (float)$tierPrice['website_price'], true) - $_priceInclTax
                     , false, false);
         }
+        $_store = $product->getStore();
+        $request = Mage::getSingleton('tax/calculation')->getRateRequest(null, null, null, $_store);
+        $taxclassid = $product->getData('tax_class_id');
+        $percent = Mage::getSingleton('tax/calculation')->getRate($request->setProductClassId($taxclassid));
+        $_store_id = Mage::app()->getStore()->getId();
+        if ($_store_id == '5'){ /* B2C */
+            $msrp = $product->getMsrp() * ($percent / 100 + 1);
+        } else {
+            $msrp = $product->getMsrp();
+        }
         
         $config = array(
             'productId'           => $product->getId(),
@@ -184,7 +194,7 @@ class Mage_Catalog_Block_Product_View extends Mage_Catalog_Block_Product_Abstrac
             'priceInclTax'        => Mage::helper('core')->currency($_priceInclTax, false, false),
             'priceExclTax'        => Mage::helper('core')->currency($_priceExclTax, false, false),
             'productSkontoRate'   => '3.0000',
-            'msrp'                => Mage::helper('core')->currency($product->getMsrp()),
+            'msrp'                => Mage::helper('core')->currency($msrp),
             /**
              * @var skipCalculate
              * @deprecated after 1.5.1.0
