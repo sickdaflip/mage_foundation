@@ -13,14 +13,6 @@
     .product-shop {
       ul.pricing-table {
         margin-bottom: $global-margin;
-        h1 {
-          overflow-wrap: break-word;
-          word-wrap: break-word;
-          -webkit-hyphens: auto;
-          -ms-hyphens: auto;
-          -moz-hyphens: auto;
-          hyphens: auto;
-        }
         li.price {
           .price-box {
             span.price {
@@ -382,6 +374,9 @@
     .button, p:last-of-type {
       margin-bottom: 0;
     }
+  }
+  ul.note {
+    list-style: disc inside;
   }
 }
 
