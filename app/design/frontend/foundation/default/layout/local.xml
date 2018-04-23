@@ -89,7 +89,8 @@
         <!-- Add/Remove Top Links -->
         <reference name="root">
             <block type="core/template" name="top.search" as="topSearch" template="algoliasearch/autocomplete.phtml"/>
-            <block type="core/template" name="algolia-beforecontent" template="algoliasearch/internals/beforecontent.phtml"/>
+            <block type="core/template" name="algolia-beforecontent"
+                   template="algoliasearch/internals/beforecontent.phtml"/>
             <reference name="top.links">
                 <remove name="checkout_cart_link_custom"/>
                 <remove name="wishlist_link"/>
@@ -439,14 +440,20 @@
     </contacts_index_index>
 
     <checkout_cart_index>
+        <remove name="checkout.cart.coupon" />
         <reference name="checkout.cart.methods">
             <remove name="checkout.cart.methods.amazonpayments_pay.bottom"/>
             <remove name="checkout.cart.methods.paypal_express.bottom"/>
-            <block type="paypal/express_shortcut" name="checkout.cart.methods.paypal_express.bottom.new" template="paypal/express/shortcut.phtml">
-                <action method="setIsQuoteAllowed"><value>1</value></action>
+            <block type="paypal/express_shortcut" name="checkout.cart.methods.paypal_express.bottom.new"
+                   template="paypal/express/shortcut.phtml">
+                <action method="setIsQuoteAllowed">
+                    <value>1</value>
+                </action>
             </block>
             <block type="amazonpayments/pay_button" name="checkout.cart.methods.amazonpayments_pay.bottom.new">
-                <action method="setEnableOr"><value>0</value></action>
+                <action method="setEnableOr">
+                    <value>0</value>
+                </action>
             </block>
         </reference>
     </checkout_cart_index>

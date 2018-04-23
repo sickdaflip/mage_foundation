@@ -554,7 +554,7 @@ footer {
           @include xy-cell(4);
         }
         .shipping {
-          @include xy-cell(4);
+          @include xy-cell(8);
         }
         #discount-coupon-form {
           @include xy-cell(4);
@@ -736,20 +736,6 @@ footer {
       }
       .product-shop {
         @include xy-cell(8);
-      }
-    }
-  }
-
-  //Cart
-  .cart {
-    .cart-collaterals {
-      .col-collaterals {
-        @include flex-grid-row(nest);
-        .shipping,
-        #discount-coupon-form,
-        .totals {
-          @include xy-cell(4);
-        }
       }
     }
   }
