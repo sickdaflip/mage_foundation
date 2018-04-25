@@ -8,11 +8,11 @@
     </div>
     <div class="footer-extras">
         <div class="content">
-            <a href="<?php echo Mage::getUrl('lieferung'); ?>">
+            <a href="<?php echo Mage::getUrl('').'lieferung'; ?>">
                 <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/versandkostenfrei.png' ?>"
                      alt="kostenfreie Lieferung ab 99 EUR">
             </a>
-            <a href="<?php echo Mage::getUrl('newsletter'); ?>">
+            <a href="<?php echo Mage::getUrl('').'newsletter'; ?>">
                 <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/newsletter.png' ?>"
                      alt="kostenfreier Newsletter">
             </a>
@@ -29,33 +29,33 @@
                     <li><a class="quality"><?php echo $this->__('Sicher einkaufen') ?></a></li>
                     <li><a class="zertifikate"><?php echo $this->__('Zertifikate') ?></a></li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('bestellvorgang'); ?>"><?php echo $this->__('Bestellvorgang') ?></a>
+                        <a href="<?php echo Mage::getUrl('').'bestellvorgang'; ?>"><?php echo $this->__('Bestellvorgang') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('lieferung'); ?>"><?php echo $this->__('Lieferung') ?></a>
+                        <a href="<?php echo Mage::getUrl('').'lieferung'; ?>"><?php echo $this->__('Lieferung') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('zahlungsarten'); ?>"><?php echo $this->__('Zahlungsarten') ?></a>
+                        <a href="<?php echo Mage::getUrl('').'zahlungsarten'; ?>"><?php echo $this->__('Zahlungsarten') ?></a>
                     </li>
                     <?php if (Mage::app()->getStore()->getId() == '5'): /* B2C */ ?>
                         <li>
-                            <a href="<?php echo Mage::getUrl('widerrufsbelehrung'); ?>"><?php echo $this->__('Widerrufsbelehrung') ?></a>
+                            <a href="<?php echo Mage::getUrl('').'widerrufsbelehrung'; ?>"><?php echo $this->__('Widerrufsbelehrung') ?></a>
                         </li>
                         <li>
-                            <a href="<?php echo Mage::getUrl('widerrufsformular'); ?>"><?php echo $this->__('Widerrufsformular') ?></a>
-                        </li>
-                        <li>
-                            <a href="<?php echo Mage::getUrl('streitschlichtung'); ?>"><?php echo $this->__('Streitschlichtung') ?></a>
+                            <a href="<?php echo Mage::getUrl('').'widerrufsformular'; ?>"><?php echo $this->__('Widerrufsformular') ?></a>
                         </li>
                     <?php endif ?>
                     <li>
-                        <a href="<?php echo Mage::getUrl('batteriegesetz'); ?>"><?php echo $this->__('Batteriegesetz') ?></a>
+                        <a href="<?php echo Mage::getUrl('').'streitschlichtung'; ?>"><?php echo $this->__('Streitschlichtung') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('referenzen'); ?>"><?php echo $this->__('Referenzen') ?></a>
+                        <a href="<?php echo Mage::getUrl('').'batteriegesetz'; ?>"><?php echo $this->__('Batteriegesetz') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('top15'); ?>"><?php echo $this->__('Top 15') ?></a>
+                        <a href="<?php echo Mage::getUrl('').'referenzen'; ?>"><?php echo $this->__('Referenzen') ?></a>
+                    </li>
+                    <li>
+                        <a href="<?php echo Mage::getUrl('').'top15'; ?>"><?php echo $this->__('Top 15') ?></a>
                     </li>
                 </ul>
                 <div class="reveal large" id="zertifikate" data-reveal></div>
@@ -90,19 +90,19 @@
             <div class="footer_service">
                 <p><?php echo $this->__('Kundenservice') ?></p>
                 <ul>
-                    <li><a href="<?php echo Mage::getUrl('contacts'); ?>"><?php echo $this->__('Kontakt') ?></a></li>
-                    <li><a href="<?php echo Mage::getUrl('wir-planen-gastro-kuechen'); ?>"><?php echo $this->__('Küchenplanung') ?></a></li>
-                    <li><a href="<?php echo Mage::getUrl('leistungen'); ?>"><?php echo $this->__('Leistungen') ?></a>
+                    <li><a href="<?php echo Mage::getUrl('').'contacts'; ?>"><?php echo $this->__('Kontakt') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('').'wir-planen-gastro-kuechen'; ?>"><?php echo $this->__('Küchenplanung') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('').'leistungen'; ?>"><?php echo $this->__('Leistungen') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('digitale-kueche-smart-kitchen'); ?>"><?php echo $this->__('Digitale Küche') ?></a>
+                        <a href="<?php echo Mage::getUrl('').'digitale-kueche-smart-kitchen'; ?>"><?php echo $this->__('Digitale Küche') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('altgeraeteentsorgung'); ?>"><?php echo $this->__('Altger&auml;teentsorgung') ?></a>
+                        <a href="<?php echo Mage::getUrl('').'altgeraeteentsorgung'; ?>"><?php echo $this->__('Altger&auml;teentsorgung') ?></a>
                     </li>
-                    <li><a href="<?php echo Mage::getUrl('montage'); ?>"><?php echo $this->__('Montage-Service') ?></a>
+                    <li><a href="<?php echo Mage::getUrl('').'montage'; ?>"><?php echo $this->__('Montage-Service') ?></a>
                     </li>
-                    <li><a href="<?php echo Mage::getUrl('service'); ?>"><?php echo $this->__('Gastro-Service') ?></a>
+                    <li><a href="<?php echo Mage::getUrl('').'service'; ?>"><?php echo $this->__('Gastro-Service') ?></a>
                     </li>
                     <li>
                         <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/fax/faxbestellung.pdf'; ?>"
@@ -114,28 +114,28 @@
                 <p><?php echo $this->__('Unsere starken Gastro-Marken') ?></p>
                 <ul>
                     <li>
-                        <a href="<?php echo Mage::getUrl('hersteller/rational'); ?>"><?php echo $this->__('Rational Kombidämpfer') ?></a>
+                        <a href="<?php echo Mage::getUrl('').'hersteller/rational'; ?>"><?php echo $this->__('Rational Kombidämpfer') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('hersteller/winterhalter'); ?>"><?php echo $this->__('Winterhalter Spülmaschinen') ?></a>
+                        <a href="<?php echo Mage::getUrl('').'hersteller/winterhalter'; ?>"><?php echo $this->__('Winterhalter Spülmaschinen') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('hersteller/jura'); ?>"><?php echo $this->__('Jura Kaffeevollautomaten') ?></a>
+                        <a href="<?php echo Mage::getUrl('').'hersteller/jura'; ?>"><?php echo $this->__('Jura Kaffeevollautomaten') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('hersteller/panasonic'); ?>"><?php echo $this->__('Panasonic Mikrowellen') ?></a>
+                        <a href="<?php echo Mage::getUrl('').'hersteller/panasonic'; ?>"><?php echo $this->__('Panasonic Mikrowellen') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('hersteller/bartscher'); ?>"><?php echo $this->__('Bartscher Gastrotechnik') ?></a>
+                        <a href="<?php echo Mage::getUrl('').'hersteller/bartscher'; ?>"><?php echo $this->__('Bartscher Gastrotechnik') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('hersteller/vaihinger-sanomat'); ?>"><?php echo $this->__('Sanomat Sahnemaschinen') ?></a>
+                        <a href="<?php echo Mage::getUrl('').'hersteller/vaihinger-sanomat'; ?>"><?php echo $this->__('Sanomat Sahnemaschinen') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('hersteller/brita-professional'); ?>"><?php echo $this->__('Brita Wasserfilter') ?></a>
+                        <a href="<?php echo Mage::getUrl('').'hersteller/brita-professional'; ?>"><?php echo $this->__('Brita Wasserfilter') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('hersteller'); ?>"><?php echo $this->__('weitere Gastro-Marken') ?></a>
+                        <a href="<?php echo Mage::getUrl('').'hersteller'; ?>"><?php echo $this->__('weitere Gastro-Marken') ?></a>
                     </li>
                 </ul>
             </div>
@@ -145,37 +145,37 @@
         <div class="payments">
             <ul>
                 <li>
-                    <a href="<?php echo Mage::getUrl('zahlungsarten'); ?>#paypal">
+                    <a href="<?php echo Mage::getUrl('').'zahlungsarten#paypal'; ?>">
                         <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/payments/paypal-white.png' ?>"
                              alt="PayPal Logo">
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo Mage::getUrl('zahlungsarten'); ?>#moneyorder">
+                    <a href="<?php echo Mage::getUrl('').'zahlungsarten#moneyorder'; ?>">
                         <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/payments/vorkasse-white.png' ?>"
                              alt="Vorkasse"/>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo Mage::getUrl('zahlungsarten'); ?>#sofort">
+                    <a href="<?php echo Mage::getUrl('').'zahlungsarten#sofort'; ?>">
                         <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/payments/sofort-white.png' ?>"
                              alt="Sofortüberweisung Logo"/>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo Mage::getUrl('zahlungsarten'); ?>#invoice">
+                    <a href="<?php echo Mage::getUrl('').'zahlungsarten#invoice'; ?>">
                         <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/payments/rechnung-white.png' ?>"
                              alt="Rechnung"/>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo Mage::getUrl('zahlungsarten'); ?>#amazon">
+                    <a href="<?php echo Mage::getUrl('').'zahlungsarten#amazon'; ?>">
                         <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/payments/amazon-payments-white.png' ?>"
                              alt="Amazon payments"/>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo Mage::getUrl('zahlungsarten'); ?>#finanz">
+                    <a href="<?php echo Mage::getUrl('').'zahlungsarten#finanz'; ?>">
                         <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/payments/finanz-white.png' ?>"
                              alt="Finanzierung"/>
                     </a>
@@ -186,9 +186,9 @@
     <div class="footer-bottom">
         <div class="org">
             <ul>
-                <li><a href="<?php echo Mage::getUrl('agb'); ?>"><?php echo $this->__('AGB') ?></a></li>
-                <li><a href="<?php echo Mage::getUrl('impressum'); ?>"><?php echo $this->__('Impressum') ?></a></li>
-                <li><a href="<?php echo Mage::getUrl('datenschutz'); ?>"><?php echo $this->__('Datenschutz') ?></a></li>
+                <li><a href="<?php echo Mage::getUrl('').'agb'; ?>"><?php echo $this->__('AGB') ?></a></li>
+                <li><a href="<?php echo Mage::getUrl('').'impressum'; ?>"><?php echo $this->__('Impressum') ?></a></li>
+                <li><a href="<?php echo Mage::getUrl('').'datenschutz'; ?>"><?php echo $this->__('Datenschutz') ?></a></li>
             </ul>
         </div>
         <div class="social">
