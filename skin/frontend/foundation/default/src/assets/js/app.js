@@ -25,7 +25,7 @@ $(document).ready(function() {
         $('.hide-for-small-only').remove();
     }
 
-    // Alert-Box auto_close
+    // Alert-Box auto close
     $('.callout.messages').slideDown({
         duration: 1500,
         complete: function () {
@@ -87,29 +87,6 @@ $(document).ready(function() {
         autoplayHoverPause: true,
     });
 
-    var $slider1 = $('.top-products-slider');
-    $slider1.on('initialize.owl.carousel', function (event) {
-        var selector1 = $('.top-products-slider');
-        random(selector1);
-    });
-    $('.top-products-slider').owlCarousel({
-        items: 5,
-        lazyLoad: true,
-        margin: 10,
-        loop: true,
-        nav: true,
-        navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>','<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
-        dots: false,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        autoplayHoverPause: true,
-        responsiveClass: true,
-        responsive: {
-            0: {items: 1},
-            640: {items: 3},
-            1024: {items: 5}
-        }
-    });
     //Home Slider credentials
     var $slider2 = $('.credentials-slider');
     $slider2.on('initialize.owl.carousel', function (event) {

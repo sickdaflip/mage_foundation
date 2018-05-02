@@ -39,15 +39,15 @@ class Foundation_Layout_Block_Topmenu extends Mage_Page_Block_Html_Topmenu
                     $child->setClass($outermostClass);
                 }
 
-                $html .= '<li ' . $this->_getRenderedMenuItemAttributes($child) . '>';
-                $html .= '<a href="' . $child->getUrl() . '">' . $this->escapeHtml($child->getName()) . '</a>';
+                $html .= '<li ' . $this->_getRenderedMenuItemAttributes($child) . '>'."\n";
+                $html .= '<a href="' . $child->getUrl() . '">' . $this->escapeHtml($child->getName()) . '</a>'."\n";
 
                 if ($child->hasChildren()) {
-                    $html .= '<ul class="menu vertical">';
+                    $html .= '<ul class="menu vertical">'."\n";
                     $html .= $this->_getHtml($child, $childrenWrapClass);
-                    $html .= '</ul>';
+                    $html .= '</ul>'."\n";
                 }
-                $html .= '</li>';
+                $html .= '</li>'."\n";
 
                 $counter++;
             }

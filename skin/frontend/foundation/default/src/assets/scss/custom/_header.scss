@@ -10,6 +10,14 @@ header {
       @media #{$small-only} {
         margin: .5em 0;
       }
+      .slogan {
+        @include show-for(medium);
+        position: relative;
+        top: -10px;
+        font-size: .7rem;
+        letter-spacing: .3rem;
+        font-weight: 500;
+      }
     }
     .trusted {
       @include breakpoint(large) {
