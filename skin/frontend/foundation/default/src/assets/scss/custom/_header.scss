@@ -1,7 +1,6 @@
 header {
   color: $white;
   background-color: $primary-color;
-  padding-top: 0.3rem;
   .header-top {
     .brand {
       margin: 0 auto;
@@ -11,10 +10,19 @@ header {
         margin: .5em 0;
       }
       .slogan {
-        @include show-for(medium);
+        @include show-for(large);
         position: relative;
         top: -10px;
         font-size: .7rem;
+        @include breakpoint(large only) {
+          letter-spacing: .18rem;
+        }
+        @include breakpoint(xlarge only) {
+          letter-spacing: .14rem;
+        }
+        @include breakpoint(xxlarge only) {
+          letter-spacing: .14rem;
+        }
         letter-spacing: .35rem;
         font-weight: 500;
       }
@@ -24,6 +32,7 @@ header {
         float: left;
       }
       .menu {
+        @include show-for(large);
         align-items: center;
         justify-content: center;
         @include breakpoint(large) {
@@ -86,6 +95,7 @@ header {
       }
     }
     .hotline {
+      @include show-for(large);
       text-align: center;
       margin-bottom: .5rem;
       @include breakpoint(large) {
