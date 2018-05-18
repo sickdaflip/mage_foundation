@@ -98,7 +98,7 @@ function sass() {
       browsers: COMPATIBILITY
     }))
 
-    .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie9' })))
+    .pipe($.if(PRODUCTION, $.cleanCss({level: 2})))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
     .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
     .pipe(gulp.dest(PATHS.dist + '/assets/css'))

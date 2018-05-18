@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon"/>
 <link rel="apple-touch-icon" href="<?php echo $this->getSkinUrl('dist/assets/img/icon152.png') ?>"/>
 <link rel="manifest" href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'manifest.json' ?>" />
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('dist/assets/js/jquery.min.js') ?>"></script>
 <script>jQuery.noConflict();</script>
 <script type="text/javascript" src="<?php echo $this->getSkinUrl('dist/assets/js/app.js') ?>"></script>
 <?php echo $this->getCssJsHtml() ?>

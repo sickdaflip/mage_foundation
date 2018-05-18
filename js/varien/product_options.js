@@ -253,7 +253,7 @@ Product.OptionsPrice.prototype = {
                     jQuery('.skontoPriceTax')[0].innerHTML = this.formatPrice(skontoPriceInclTax);
                 }
 
-                if(this.msrp){
+                if(jQuery('.msrp-price .price')[0] && this.msrp){
                     jQuery('.msrp-price .price')[0].innerHTML = this.msrp;
                 }
 

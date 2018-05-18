@@ -74,7 +74,8 @@ $foundation-palette: (
         success: #008B00,
         warning: #ffa500,
         alert: #ff0000,
-        follower: #ed4a00
+        follower: #ed4a00,
+        jura: #e2001a
 );
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
@@ -82,9 +83,10 @@ $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
 $green: #b9e700;
+$jura: #e2001a;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: Roboto, Arial, sans-serif;
+$body-font-family: Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;

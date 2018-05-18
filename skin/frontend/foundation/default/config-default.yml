@@ -61,3 +61,6 @@ PATHS:
   js:
     - "src/assets/js/accordion.js"
     - "src/assets/js/opcheckout.js"
+    - "node_modules/jquery/dist/jquery.min.js"
+    - "src/assets/js/serviceworker-cache-polyfill.js"
+

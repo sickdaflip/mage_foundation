@@ -4,7 +4,7 @@ import {owlCarousel} from '../../../node_modules/owl.carousel/dist/owl.carousel.
 import {lightGallery} from '../../../node_modules/lightgallery/dist/js/lightgallery-all.js';
 import {mousewheel} from '../../../node_modules/lightgallery/lib/jquery.mousewheel.min.js';
 import {pwstrength} from '../../../node_modules/pwstrength-foundation/dist/pwstrength-foundation.js';
-import googleFonts from '../../../node_modules/google-fonts/index.js';
+import {sticky} from '../../../node_modules/jquery-sticky/jquery.sticky.js';
 
 window.$ = $;
 
@@ -13,12 +13,12 @@ import Foundation from 'foundation-sites';
 // the line below
 //import './lib/foundation-explicit-pieces';
 
-$(document).ready(function() {
+$(document).ready(function () {
     $(document).foundation();
 
     //focus on search input
     $("#search").focus();
-    $("#search").get(0).setSelectionRange(0,0);
+    $("#search").get(0).setSelectionRange(0, 0);
 
     // not hide do remove!
     if (Foundation.MediaQuery.is('small only')) {
@@ -80,7 +80,7 @@ $(document).ready(function() {
         items: 1,
         loop: true,
         nav: true,
-        navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>','<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
+        navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
         dots: true,
         autoplay: true,
         autoplayTimeout: 5000,
@@ -98,7 +98,7 @@ $(document).ready(function() {
         lazyLoad: true,
         loop: true,
         nav: true,
-        navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>','<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
+        navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
         dots: false,
         autoplay: true,
         autoplayTimeout: 1000,
@@ -122,7 +122,7 @@ $(document).ready(function() {
         lazyLoad: true,
         loop: true,
         nav: true,
-        navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>','<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
+        navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
         dots: false,
         autoplay: true,
         autoplayTimeout: 1000,
@@ -214,8 +214,39 @@ $(document).ready(function() {
         }
     });
 
-    googleFonts.add({
-        'Roboto': ['300', '400', '700'],
-    })
+    //only for Jura
+
+    $("[class*='categorypath-hersteller-jura'] .block-layered-nav").sticky({
+        topSpacing: 10,
+        bottomSpacing: 650
+    });
+
+    $("[class*='categorypath-hersteller-jura'] .block-layered-nav .block-title").before('<img src="https://static.gastrodax.de/media/wysiwyg/manufacturer/jura-mp.png" alt="Jura Logo" width="150" class="show-for-large">');
+
+    $('.jura-slider').owlCarousel({
+        items: 1,
+        itemsScaleUp: true,
+        loop: true,
+        nav: true,
+        navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 7000,
+        autoplayHoverPause: true,
+        afterUpdate: function () {
+            updateSize();
+        },
+        afterInit:function(){
+            updateSize();
+        }
+    });
+    function updateSize(){
+        var minHeight=parseInt($('.owl-item').eq(0).css('height'));
+        $('.owl-item').each(function () {
+            var thisHeight = parseInt($(this).css('height'));
+            minHeight=(minHeight<=thisHeight?minHeight:thisHeight);
+        });
+        $('.owl-wrapper-outer').css('height',minHeight+'px');
+    }
 
 });

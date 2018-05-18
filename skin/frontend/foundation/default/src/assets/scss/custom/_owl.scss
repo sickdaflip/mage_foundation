@@ -25,10 +25,10 @@ $owl-dot-height: 10px !default;
 $owl-dot-rounded: 30px !default;
 $owl-dot-margin: 5px 7px !default;
 $owl-dot-background: $owl-color-gray !default;
-$owl-dot-background-active: $owl-color-base !default;
+$owl-dot-background-active: $primary-color !default;
 
-@import '../../../node_modules/owl.carousel/src/scss/owl.carousel';
-@import '../../../node_modules/owl.carousel/src/scss/theme.default';
+@import '../../../../node_modules/owl.carousel/src/scss/owl.carousel';
+@import '../../../../node_modules/owl.carousel/src/scss/owl.theme.default';
 
 .owl-theme .owl-nav [class*=owl-] {
   width: 40px;
@@ -38,22 +38,20 @@ $owl-dot-background-active: $owl-color-base !default;
   }
 }
 
-.homeslider {
+.homeslider, .jura-slider {
   @include hide-for-only(small);
-  margin-left: 0 !important;
-  margin-right: 0 !important;
   position: relative;
   .owl-nav {
     .owl-prev {
       position: absolute;
-      top: 40%;
+      top: 45%;
       left: -15px;
       display: block !important;
     }
 
     .owl-next {
       position: absolute;
-      top: 40%;
+      top: 45%;
       right: -15px;
       display: block !important;
     }
@@ -68,9 +66,6 @@ $owl-dot-background-active: $owl-color-base !default;
         border-radius: 0;
       }
     }
-    .owl-dot.active span {
-      background: $primary-color;
-    }
   }
 }
 
@@ -81,5 +76,31 @@ $owl-dot-background-active: $owl-color-base !default;
   .owl-item {
     display: flex;
     flex: 1 0 auto;
+  }
+}
+
+.jura-slider {
+  .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .slider-caption {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    background: $jura;
+    color: white;
+    font-weight: bold;
+    font-size: 3rem;
+    padding: 0 .3em;
+    line-height: 1;
+  }
+  .owl-nav {
+    [class*='owl-'] {
+      &:hover {
+        background: $jura;
+      }
+    }
   }
 }
