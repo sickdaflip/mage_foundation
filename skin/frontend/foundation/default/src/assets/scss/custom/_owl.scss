@@ -96,6 +96,22 @@ $owl-dot-background-active: $primary-color !default;
     padding: 0 .3em;
     line-height: 1;
   }
+  .slider-caption-product {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    background: $jura;
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 0 .3em;
+    line-height: 1;
+    span {
+      display: block;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  }
   .owl-nav {
     [class*='owl-'] {
       &:hover {
