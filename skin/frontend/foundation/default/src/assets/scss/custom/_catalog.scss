@@ -55,7 +55,7 @@
       -webkit-transition: all 0.3s;
       transition: all 0.3s;
     }
-    h3 {
+    .category-name {
       margin: 0;
       font-size: rem-calc(15);
       line-height: 1rem;
@@ -78,7 +78,7 @@
 }
 
 .manufacturers-grid li {
-  h3 {
+  .category-name {
     text-indent: -100000rem;
     line-height: 0;
   }
@@ -102,7 +102,7 @@
       -webkit-transition: all 0.3s;
       transition: all 0.3s;
     }
-    h3.product-name {
+    .product-name {
       margin: 0;
       font-size: rem-calc(15);
       line-height: 1rem;

@@ -125,9 +125,9 @@ $_helper = $this->helper('catalog/output');
                                      alt="<?php echo $brand ?> Logo">
                             </div>
                         <?php endif; ?>
-                        <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"
+                        <div class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"
                                                     title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a>
-                        </h3>
+                        </div>
                         <?php if ($_product->getRatingSummary()): ?>
                             <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                         <?php endif; ?>

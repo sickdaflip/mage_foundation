@@ -13,10 +13,10 @@ $_categories = $this->getCurrentChildCategories(); ?>
                             <img src="<?php echo $_imageUrl; ?>" alt="<?php echo $this->htmlEscape($_category->getName()) ?>"/>
                         <?php endif; ?>
                     </a>
-                    <h3>
+                    <div class="category-name">
                         <a href="<?php echo $_category->getURL() ?>"
                            title="<?php echo $this->htmlEscape($_category->getName()) ?>"><?php echo $this->htmlEscape($_category->getName()) ?></a>
-                    </h3>
+                    </div>
                 </div>
             </li>
         <?php endif; ?>

@@ -13,10 +13,10 @@ $_manufacturers = $this->getCurrentChildCategories(); ?>
                             <img src="<?php echo $_imageUrl; ?>" alt="<?php echo $this->htmlEscape($_manufacturer->getName()) ?>"/>
                         <?php endif; ?>
                     </a>
-                    <h3>
+                    <div class="category-name">
                         <a href="<?php echo $_manufacturer->getURL() ?>"
                            title="<?php echo $this->htmlEscape($_manufacturer->getName()) ?>"><?php echo $this->htmlEscape($_manufacturer->getName()) ?></a>
-                    </h3>
+                    </div>
                 </div>
             </li>
         <?php endif; ?>

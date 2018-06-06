@@ -50,9 +50,9 @@ if (!function_exists('clean_related')) {
                     <?php else: ?>
                         <span class="checkbox-container">&nbsp;</span>
                     <?php endif; ?>
-                    <h3 class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"
+                    <div class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"
                                                 title="<?php echo $this->stripTags($_item->getName(), null, true) ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a>
-                    </h3>
+                    </div>
                     <div class="products-image float-center">
                         <?php if ($_item->getFinalPrice() < $_item->getPrice()) { ?>
                             <?php $_savingPercent = 100 - round(($_item->getFinalPrice() / $_item->getPrice()) * 100); ?>
