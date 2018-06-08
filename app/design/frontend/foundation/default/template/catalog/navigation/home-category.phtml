@@ -13,10 +13,10 @@ $_categories = $this->getCurrentChildCategories(); ?>
                             <img src="<?php echo $_imageUrl; ?>" alt="<?php echo $this->htmlEscape($_category->getName()) ?>"/>
                         <?php endif; ?>
                     </a>
-                    <div class="category-name">
+                    <h2 class="category-name">
                         <a href="<?php echo $_category->getURL() ?>"
                            title="<?php echo $this->htmlEscape($_category->getName()) ?>"><?php echo $this->htmlEscape($_category->getName()) ?></a>
-                    </div>
+                    </h2>
                 </div>
             </li>
         <?php endif; ?>
@@ -28,10 +28,10 @@ $_categories = $this->getCurrentChildCategories(); ?>
                title="Bartscher Shop">
                 <img src="<?php echo $this->getSkinUrl('dist/assets/img/bartscher-shop.png'); ?>" alt="Bartscher Shop"/>
             </a>
-            <div class="category-name">
+            <h2 class="category-name">
                 <a href="<?php echo Mage::getUrl('').'hersteller/bartscher'; ?>"
                    title="Bartscher Shop">Bartscher Shop</a>
-            </div>
+            </h2>
         </div>
     </li>
     <li data-equalizer-watch>
@@ -40,10 +40,10 @@ $_categories = $this->getCurrentChildCategories(); ?>
                title="Aliseo Profishop">
                 <img src="<?php echo $this->getSkinUrl('dist/assets/img/aliseo-profishop.png'); ?>" alt="Aliseo Profishop"/>
             </a>
-            <div class="category-name">
+            <h2 class="category-name">
                 <a href="<?php echo Mage::getUrl('').'hersteller/aliseo'; ?>"
                    title="Aliseo Profishop">Aliseo Profishop</a>
-            </div>
+            </h2>
         </div>
     </li>
     <li data-equalizer-watch>
@@ -52,10 +52,10 @@ $_categories = $this->getCurrentChildCategories(); ?>
                title="Umweltprämie & Abwrackprämie">
                 <img src="<?php echo $this->getSkinUrl('dist/assets/img/umwelt_abwrackpraemie.jpg'); ?>" alt="Umweltprämie & Abwrackprämie"/>
             </a>
-            <div class="category-name">
+            <h2 class="category-name">
                 <a href="<?php echo Mage::getUrl('').'altgeraeteentsorgung'; ?>"
                    title="Umweltprämie & Abwrackprämie">Umwelt-/ Abwrackprämie</a>
-            </div>
+            </h2>
         </div>
     </li>
 </ul>
