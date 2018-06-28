@@ -46,7 +46,9 @@
                        value="1"
                        id="is_subscribed"<?php if ($this->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif; ?>/>
                 <label for="is_subscribed"><?php echo $this->__('In den kostenlosen Newsletter eintragen') ?></label>
-                <p><strong>Gastrodax-Newsletter:</strong> News, Trends und Angebote per E-Mail inkl. 10 Euro Gutschein <small>(ab 200 Euro Bestellwert)</small>. Die Abmeldung ist jederzeit möglich.
+                <p><strong>Gastrodax-Newsletter:</strong> News, Trends und Angebote per E-Mail inkl. 10 Euro Gutschein
+                    <small>(ab 200 Euro Bestellwert)</small>
+                    . Die Abmeldung ist jederzeit möglich.
                 </p>
             <?php endif ?>
             <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
@@ -172,7 +174,7 @@
             <div class="password-field">
                 <label for="password"><?php echo $this->__('Password') ?>
                     <small><?php echo $this->__('required') ?></small>
-                    <input type="password" name="password" id="password"
+                    <input type="password" name="password" id="password" pattern="password"
                            title="<?php echo Mage::helper('core')->quoteEscape($this->__('Password')) ?>"
                            required/>
                     <span class="form-error"><?php echo $this->__('Please enter your password.') ?></span>
@@ -192,7 +194,7 @@
             <div class="password-confirmation-field">
                 <label for="confirmation"><?php echo $this->__('Confirm Password') ?>
                     <small><?php echo $this->__('required') ?></small>
-                    <input type="password" name="confirmation"
+                    <input type="password" name="confirmation" pattern="password"
                            title="<?php echo Mage::helper('core')->quoteEscape($this->__('Confirm Password')) ?>"
                            id="confirmation"
                            required pattern="alpha_numeric" data-equalto="password"/>

@@ -14,6 +14,9 @@ import Foundation from 'foundation-sites';
 //import './lib/foundation-explicit-pieces';
 
 $(document).ready(function () {
+
+    Foundation.Abide.defaults.patterns['password'] = /^((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,})$/;
+
     $(document).foundation();
 
     //focus on search input
