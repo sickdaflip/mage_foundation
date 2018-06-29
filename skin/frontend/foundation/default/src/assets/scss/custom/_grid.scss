@@ -195,7 +195,15 @@ header {
 .payment-grid {
   @include xy-grid;
   .method {
-    @include xy-cell(12, 1rem);
+    @include xy-cell(12, false, 0);
+    @include xy-grid;
+    @extend .align-middle, .callout;
+    .image {
+      @include xy-cell(12);
+    }
+    .description {
+      @include xy-cell(12);
+    }
   }
 }
 
@@ -490,12 +498,6 @@ footer {
     }
   }
 
-  .payment-grid {
-    .method {
-      @include xy-cell(6, 1rem);
-    }
-  }
-
   .product-view {
     .product-essential {
       #product_addtocart_form {
@@ -579,6 +581,17 @@ footer {
       .personal,
       .login {
         @include xy-cell(6);
+      }
+    }
+  }
+
+  .payment-grid {
+    .method {
+      .image {
+        @include xy-cell(4);
+      }
+      .description {
+        @include xy-cell(8);
       }
     }
   }
@@ -683,12 +696,6 @@ footer {
     }
   }
 
-  .payment-grid {
-    .method {
-      @include xy-cell(4);
-    }
-  }
-
   .mb-category-products {
     .page-title.category-title {
       @include xy-cell(12);
@@ -747,6 +754,17 @@ footer {
       .col-1,
       .col-2 {
         @include xy-cell(6);
+      }
+    }
+  }
+
+  .payment-grid {
+    .method {
+      .image {
+        @include xy-cell(2);
+      }
+      .description {
+        @include xy-cell(10);
       }
     }
   }
