@@ -88,7 +88,7 @@
 }
 
 //Products list
-.products-list, .products-grid, .top-products-slider, .gift-grid {
+.products-list, .products-grid, .top-products-slider {
   .item, .column {
     padding: .5rem;
     border: 1px solid $medium-gray;
@@ -124,7 +124,7 @@
   }
 }
 
-.products-list, .products-grid, .top-products-slider, .gift-grid {
+.products-list, .products-grid, .top-products-slider {
   .item {
     position: relative;
     .special-ribbon {
@@ -265,65 +265,223 @@
   }
 }
 
-.add-to-links {
-  margin: 0;
-  li {
-    display: inline-block;
-    vertical-align: top;
-    .separator {
+.compare-grid {
+  .special-ribbon {
+    z-index: 2;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    text-align: right;
+  }
+  .special-ribbon span {
+    font-size: 1rem;
+    color: $white;
+    text-align: center;
+    line-height: 1.5rem;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    width: 200px;
+    display: block;
+    background: $alert-color;
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 38px;
+    right: -42px;
+  }
+  .special-ribbon span::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    z-index: -1;
+    border-left: 3px solid $alert-color;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid $alert-color;
+  }
+  .special-ribbon span::after {
+    content: "";
+    position: absolute;
+    right: 0px;
+    top: 100%;
+    z-index: -1;
+    border-left: 3px solid transparent;
+    border-right: 3px solid $alert-color;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid $alert-color;
+  }
+  .price-box {
+    font-size: .8rem;
+    margin-top: .5rem;
+    .regular-price {
+      color: $success-color;
+      margin: 0;
+      line-height: 0;
+      .price-label {
+        vertical-align: middle;
+        line-height: 1rem;
+      }
+      .price {
+        span.price {
+          padding: 0 !important;
+          font-size: 1rem;
+          vertical-align: middle;
+          color: $success-color;
+        }
+      }
+    }
+    .skonto-price {
+      margin: 0;
+      line-height: 0;
+      .price-label {
+        line-height: 1rem;
+      }
+      .price {
+        color: $success-color;
+        padding: 0 !important;
+        font-size: 1rem;
+      }
+    }
+    .old-price, .msrp-price, .mwst-price, .skontotax-price {
+      display: block;
+      margin: 0;
+      line-height: 1rem;
+      .price-label {
+        vertical-align: middle;
+      }
+      .price {
+        vertical-align: middle;
+        color: $primary-color;
+      }
+    }
+    .special-price, .to-date, .minimal-price-link {
+      color: $alert-color;
+      display: block;
+      margin: 0 0 0.5rem 0;
+      line-height: 1;
+      .price-label, .label {
+        vertical-align: middle;
+      }
+      .price {
+        display: block;
+        font-size: 1rem;
+        vertical-align: middle;
+      }
+    }
+    .minimal-price-link {
+      .label {
+        background-color: transparent;
+        color: $alert-color;
+        font-size: inherit;
+        padding: 0;
+      }
+      .price {
+        color: $alert-color;
+      }
+    }
+  }
+}
+  .add-to-links {
+    margin: 0;
+    li {
+      display: inline-block;
+      vertical-align: top;
+      .separator {
+        display: none;
+      }
+      a {
+        font-size: 0;
+        &:before {
+          font-family: FontAwesome;
+          font-size: 20px;
+        }
+      }
+      &:first-child {
+        a:before {
+          padding: 0 0.5em 0 0;
+          content: "\f004";
+        }
+      }
+      &:nth-child(2) {
+        a:before {
+          padding: 0 0 0 0.5em;
+          content: "\f0ec";
+        }
+      }
+    }
+  }
+
+  //Homepage
+  .home-hotline {
+    i {
+      font-size: 3em;
+    }
+    span {
+      font-size: 4em;
+    }
+  }
+
+  //Manufacture Page
+  .manufacture-image-list {
+    > li {
+      text-align: center;
+    }
+  }
+
+  #narrow-by-list2 {
+    @include breakpoint(medium down) {
       display: none;
     }
-    a {
-      font-size: 0;
-      &:before {
-        font-family: FontAwesome;
-        font-size: 20px;
-      }
-    }
-    &:first-child {
-      a:before {
-        padding: 0 0.5em 0 0;
-        content: "\f004";
-      }
-    }
-    &:nth-child(2) {
-      a:before {
-        padding: 0 0 0 0.5em;
-        content: "\f0ec";
-      }
+  }
+
+  #narrow-by-list {
+    @include breakpoint(medium down) {
+
     }
   }
-}
 
-//Homepage
-.home-hotline {
-  i {
-    font-size: 3em;
+  .sticky {
+    position: relative;
   }
-  span {
-    font-size: 4em;
+
+  .block-compare {
+    .block-title {
+      font-size: 0.875rem;
+      color: #000c44;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .block-content {
+      #compare-items {
+        list-style: none;
+        font-size: 0.875rem;
+        li {
+          padding: .3em;
+          &:nth-child(2n) {
+            background: $light-gray;
+          }
+          p {
+            position: relative;
+            margin: 0;
+            color: $black;
+          }
+          .btn-remove {
+            position: absolute;
+            right: 0;
+            font-size: 0;
+            font-family: FontAwesome;
+            &:before {
+              font-size: 15px;
+              content: "\f1f8";
+            }
+          }
+        }
+      }
+      .actions {
+        margin-top: .5em;
+      }
+    }
   }
-}
-
-//Manufacture Page
-.manufacture-image-list {
-  > li {
-    text-align: center;
-  }
-}
-
-#narrow-by-list2 {
-  @include breakpoint(medium down) {
-    display: none;
-  }
-}
-
-#narrow-by-list {
-  @include breakpoint(medium down) {
-
-  }
-}
-
-.sticky {
-  position: relative;
-}

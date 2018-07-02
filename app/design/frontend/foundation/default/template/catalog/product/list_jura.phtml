@@ -1,36 +1,4 @@
 <?php
-function clean($string)
-{
-
-    $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
-//$string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
-    $string = strtolower($string);
-    $utf8 = array(
-        '/[áàâãªä]/u' => 'a',
-        '/[ÁÀÂÃÄ]/u' => 'A',
-        '/[ÍÌÎÏ]/u' => 'I',
-        '/[íìîï]/u' => 'i',
-        '/[éèêë]/u' => 'e',
-        '/[ÉÈÊË]/u' => 'E',
-        '/[óòôõºö]/u' => 'o',
-        '/[ÓÒÔÕÖ]/u' => 'O',
-        '/[úùûü]/u' => 'u',
-        '/[ÚÙÛÜ]/u' => 'U',
-        '/ç/' => 'c',
-        '/Ç/' => 'C',
-        '/ñ/' => 'n',
-        '/Ñ/' => 'N',
-        '/–/' => '-', // UTF-8 hyphen to "normal" hyphen
-        '/[’‘‹›‚]/u' => ' ', // Literally a single quote
-        '/[“”«»„]/u' => ' ', // Double quote
-        '/ /' => ' ', // nonbreaking space (equiv. to 0x160)
-    );
-
-    return preg_replace(array_keys($utf8), array_values($utf8), $string); // Replaces multiple hyphens with single one.
-}
-
-?>
-<?php
 /**
  * Product list template
  *
@@ -101,38 +69,44 @@ $_helper = $this->helper('catalog/output');
         <?php $_columnCount = $this->getColumnCount(); ?>
             <ul class="products-grid">
                 <?php $i = 0;
-                foreach ($_productCollection as $_product): ?>
-                    <li class="item">
-                        <?php if ($_product->getFinalPrice() < $_product->getPrice()) { ?>
-                            <?php $_savingPercent = 100 - round(($_product->getFinalPrice() / $_product->getPrice()) * 100); ?>
-                            <div class="special-ribbon"><span><?php echo $_savingPercent; ?>% Rabatt</span>
-                            </div>
-                        <?php } ?>
-                        <div class="products-image float-center">
-                            <a href="<?php echo $_product->getProductUrl() ?>"
-                               title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
-                               class="product-image small-centered">
-                                <img
-                                        src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(200); ?>"
-                                        width="200" height="200"
-                                        alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
-                            </a>
+                foreach ($_productCollection
+
+                as $_product): ?>
+                <li class="item">
+                    <?php if ($_product->getFinalPrice() < $_product->getPrice()) { ?>
+                        <?php $_savingPercent = 100 - round(($_product->getFinalPrice() / $_product->getPrice()) * 100); ?>
+                        <div class="special-ribbon"><span><?php echo $_savingPercent; ?>% Rabatt</span>
                         </div>
-                        <div class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"
-                                                    title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a>
+                    <?php } ?>
+                    <div class="products-image float-center">
+                        <a href="<?php echo $_product->getProductUrl() ?>"
+                           title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
+                           class="product-image small-centered">
+                            <img
+                                    src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(200); ?>"
+                                    width="200" height="200"
+                                    alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
+                        </a>
+                    </div>
+                    <div class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"
+                                                 title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a>
+                    </div>
+                    <?php if ($_product->getRatingSummary()): ?>
+                        <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                    <?php endif; ?>
+                    <?php echo $this->getLayout()->createBlock('catalog/product_price')
+                        ->setTemplate('catalog/product/price_catalog.phtml')
+                        ->setProduct($_product)
+                        ->setDisplayMinimalPrice(true)
+                        ->setIdSuffix($idSuffix = 'amit')
+                        ->toHtml(); ?>
+                    <?php //echo $this->getPriceHtml($_product, true) ?>
+                    <?php if ($_compareUrl = $this->getAddToCompareUrl($_product)): ?>
+                        <div class="compare">
+                            <a href="<?php echo $_compareUrl ?>"><?php echo $this->__('Add to Compare') ?></a>
                         </div>
-                        <?php if ($_product->getRatingSummary()): ?>
-                            <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
-                        <?php endif; ?>
-                        <?php echo $this->getLayout()->createBlock('catalog/product_price')
-                            ->setTemplate('catalog/product/price_catalog.phtml')
-                            ->setProduct($_product)
-                            ->setDisplayMinimalPrice(true)
-                            ->setIdSuffix($idSuffix = 'amit')
-                            ->toHtml(); ?>
-                        <?php //echo $this->getPriceHtml($_product, true) ?>
-                    </li>
-                <?php endforeach ?>
+                    <?php endif; ?>
+                    <?php endforeach ?>
             </ul>
             <script type="text/javascript">
                 jQuery('.item').on("click", function () {

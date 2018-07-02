@@ -16,7 +16,7 @@
 .col2-right-layout,
 .col3-layout,
 nav {
-  @include xy-grid-container;
+  @include xy-grid-container($grid-container);
 }
 
 .breadcrumbs {
@@ -46,15 +46,13 @@ nav {
 }
 
 .col3-layout {
-  .col-wrapper {
-    @include xy-grid;
-    .sidebar,
-    .col-main {
-      @include xy-cell(12);
-    }
-    > span {
-      @include xy-cell(6);
-    }
+  @include xy-grid;
+  .sidebar,
+  .col-main {
+    @include xy-cell(12);
+  }
+  > span {
+    @include xy-cell(6);
   }
 }
 
@@ -147,14 +145,14 @@ header {
 }
 
 .categories-grid, .categories-home-grid, .manufacturers-grid {
-  @include xy-grid-container(100,0);
+  @include xy-grid-container($grid-container, 0);
   @include xy-grid;
   @include xy-grid-layout(2, 'li', true, $grid-margin-gutters, margin, top bottom left right);
   justify-content: center;
 }
 
 .products-grid, .search-grid, .gift-grid {
-  @include xy-grid-container;
+  @include xy-grid-container($grid-container, 0);
   @include xy-grid;
   @include xy-grid-layout(1, 'li', true, $grid-margin-gutters, margin, bottom);
   justify-content: center;
@@ -286,7 +284,7 @@ header {
 
 .promotion-products {
   .item {
-    .price-box{
+    .price-box {
       .regular-price {
         line-height: 1rem !important;
         justify-content: center;
@@ -434,13 +432,11 @@ footer {
   }
 
   .col3-layout {
-    .col-wrapper {
-      .sidebar {
-        @include xy-cell(3);
-      }
-      .col-main {
-        @include xy-cell(6);
-      }
+    .sidebar {
+      @include xy-cell(2);
+    }
+    .col-main {
+      @include xy-cell(8);
     }
   }
 
@@ -676,7 +672,7 @@ footer {
     }
   }
 
-  .categories-home-grid, .manufacturers-grid {
+  .categories-grid, .categories-home-grid, .manufacturers-grid {
     @include xy-grid-layout(5, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 
