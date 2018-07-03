@@ -207,7 +207,7 @@
                 <template>page/1column.phtml</template>
             </action>
         </reference>
-        <remove name="right.reports.product.viewed" />
+        <remove name="right.reports.product.viewed"/>
         <remove name="product.clone_prices"/>
         <reference name="product.info">
             <action method="unsetChild">
@@ -443,7 +443,7 @@
     </contacts_index_index>
 
     <checkout_cart_index>
-        <remove name="checkout.cart.coupon" />
+        <remove name="checkout.cart.coupon"/>
         <reference name="checkout.cart.methods">
             <remove name="checkout.cart.methods.amazonpayments_pay.bottom"/>
             <remove name="checkout.cart.methods.paypal_express.bottom"/>
@@ -503,9 +503,20 @@
 
     <catalog_product_compare_index translate="label">
         <reference name="root">
-            <action method="setTemplate"><template>page/compare.phtml</template></action>
+            <action method="setTemplate">
+                <template>page/compare.phtml</template>
+            </action>
         </reference>
-        <remove name="head" />
+        <remove name="head"/>
     </catalog_product_compare_index>
+
+    <algolia_search_handle>
+        <reference name="head">
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>algoliasearch/algoliasearch.css</name>
+            </action>
+        </reference>
+    </algolia_search_handle>
 
 </layout>

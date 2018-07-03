@@ -168,6 +168,8 @@ header {
   }
   .algoliasearch-autocomplete-hit {
     @include xy-grid;
+    justify-content: center;
+    align-items: center;
     .thumb {
       @include xy-cell(4);
     }
@@ -608,19 +610,19 @@ footer {
   }
   .autocomplete-wrapper {
     .col9 {
-      @include xy-cell(8);
+      @include xy-cell(6);
       padding-right: 0 !important;
     }
     .col3 {
-      @include xy-cell(4);
+      @include xy-cell(6);
       padding-left: 0 !important;
     }
     .algoliasearch-autocomplete-hit {
       .thumb {
-        @include xy-cell(2);
+        @include xy-cell(3);
       }
       .info {
-        @include xy-cell(10);
+        @include xy-cell(9);
       }
     }
     .footer_algolia {
