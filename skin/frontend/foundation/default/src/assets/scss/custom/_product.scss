@@ -319,8 +319,9 @@
       color: $success-color;
       border-color: $success-color;
       &:after {
-        font-family: 'Font Awesome 5 Free';
-        content: ' \f00c';
+        @include fa-icon;
+        @extend .fas;
+        content: ' 'fa-content($fa-var-check);
       }
       .price-notice .price {
         color: $success-color;

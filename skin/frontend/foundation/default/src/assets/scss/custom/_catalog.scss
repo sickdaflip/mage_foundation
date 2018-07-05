@@ -395,7 +395,8 @@
       a {
         font-size: 0;
         &:before {
-          font-family: 'Font Awesome 5 Free';
+          @include fa-icon;
+          @extend .fas;
           font-size: 20px;
         }
       }
@@ -472,10 +473,11 @@
             position: absolute;
             right: 0;
             font-size: 0;
-            font-family: 'Font Awesome 5 Free';
+            @include fa-icon;
+            @extend .fas;
             &:before {
               font-size: 15px;
-              content: "\f1f8";
+              content: fa-content($fa-var-times);
             }
           }
         }

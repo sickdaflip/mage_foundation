@@ -71,16 +71,18 @@ a {
 .accordion-navigation {
   > a[aria-expanded="true"]:after {
     color: $primary-color;
-    font-family: 'Font Awesome 5 Free';
-    content: "\f0ab";
+    @include fa-icon;
+    @extend .fas;
+    content: fa-content($fa-var-arrow-circle-down);
     padding-left: 5px;
     float: right;
     font-size: 1rem;
   }
   > a[aria-expanded="false"]:after {
     color: $primary-color;
-    font-family: 'Font Awesome 5 Free';
-    content: "\f0aa";
+    @include fa-icon;
+    @extend .fas;
+    content: fa-content($fa-var-arrow-circle-up);
     padding-left: 5px;
     float: right;
     font-size: 1rem;
@@ -93,8 +95,9 @@ a {
 }
 
 a[href^="mailto:"]:before {
-  font-family: 'Font Awesome 5 Free';
-  content: "\f0e0";
+  @include fa-icon;
+  @extend .fas;
+  content: fa-content($fa-var-envelope);
   margin-right: 0.5em;
 }
 
