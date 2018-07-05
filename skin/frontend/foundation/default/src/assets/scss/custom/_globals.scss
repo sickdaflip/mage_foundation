@@ -71,7 +71,7 @@ a {
 .accordion-navigation {
   > a[aria-expanded="true"]:after {
     color: $primary-color;
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 5 Free';
     content: "\f0ab";
     padding-left: 5px;
     float: right;
@@ -79,7 +79,7 @@ a {
   }
   > a[aria-expanded="false"]:after {
     color: $primary-color;
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 5 Free';
     content: "\f0aa";
     padding-left: 5px;
     float: right;
@@ -93,7 +93,7 @@ a {
 }
 
 a[href^="mailto:"]:before {
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 5 Free';
   content: "\f0e0";
   margin-right: 0.5em;
 }

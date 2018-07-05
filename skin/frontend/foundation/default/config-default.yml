@@ -56,7 +56,7 @@ PATHS:
     - "node_modules/lightgallery/src/img/**"
   # Path to fonts & icons
   fonts:
-    - "node_modules/components-font-awesome/fonts/**"
+    - "node_modules/components-font-awesome/webfonts/**"
     - "node_modules/lightgallery/src/fonts/**"
   js:
     - "src/assets/js/accordion.js"

@@ -51,7 +51,7 @@ if (!function_exists('clean_related')) {
                         <span class="checkbox-container">&nbsp;</span>
                     <?php endif; ?>
                     <div class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"
-                                                title="<?php echo $this->stripTags($_item->getName(), null, true) ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a>
+                                                 title="<?php echo $this->stripTags($_item->getName(), null, true) ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a>
                     </div>
                     <div class="products-image float-center">
                         <?php if ($_item->getFinalPrice() < $_item->getPrice()) { ?>
@@ -72,15 +72,15 @@ if (!function_exists('clean_related')) {
                         <?php echo $this->getReviewsSummaryHtml($_item, 'short') ?>
                     <?php endif; ?>
                     <div class="extra">
-
-                        <?php if ($_item->getAttributeText('manufacturer')): ?>
-                            <?php $brand = $_item->getAttributeText('manufacturer') ?>
-                            <div class="product-brand">
-                                <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>catalog/brands/<?php echo clean($brand) ?>.png"
-                                     alt="<?php echo $brand ?> Logo">
-                            </div>
+                        <?php if ($_item->getAttributeText('manufacturer') != 'Jura'): ?>
+                            <?php if ($_item->getAttributeText('manufacturer')): ?>
+                                <?php $brand = $_item->getAttributeText('manufacturer') ?>
+                                <div class="product-brand">
+                                    <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>catalog/brands/<?php echo clean($brand) ?>.png"
+                                         alt="<?php echo $brand ?> Logo">
+                                </div>
+                            <?php endif; ?>
                         <?php endif; ?>
-
                         <?php echo $this->getLayout()->createBlock('catalog/product_price')
                             ->setTemplate('catalog/product/price_catalog.phtml')
                             ->setProduct($_item)
@@ -100,6 +100,7 @@ if (!function_exists('clean_related')) {
         });
 
         var relatedProductsCheckFlag = false;
+
         function selectAllRelated(txt) {
             if (relatedProductsCheckFlag == false) {
                 $$('.related-checkbox').each(function (elem) {
@@ -127,6 +128,7 @@ if (!function_exists('clean_related')) {
                 $('related-products-field').value = values.join(',');
             }
         }
+
         //-->
     </script>
 <?php endif ?>

@@ -32,16 +32,6 @@
         }
       }
     }
-    ul.arrow {
-      margin-left: 0;
-      margin-bottom: 1rem;
-      li:before {
-        font-family: FontAwesome;
-        content: "\f101";
-        color: $primary-color;
-        padding-right: 0.5rem;
-      }
-    }
   }
 }
 

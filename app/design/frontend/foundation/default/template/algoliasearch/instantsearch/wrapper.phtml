@@ -41,7 +41,7 @@ if ($config->isInstantEnabled() && $config->replaceCategories() && Mage::app()->
 
         <?php if ($title || $imgHtml || $description || $content): ?>
             <div class="row">
-                <div class="col-md-12">
+                <div class="small-12 columns">
                     <div id="algolia-static-content">
                         <div class="page-title category-title">
                             <h1><?php echo $title; ?></h1>
@@ -59,14 +59,14 @@ if ($config->isInstantEnabled() && $config->replaceCategories() && Mage::app()->
         <?php endif; ?>
 
         <div class="row">
-            <div class="col-md-3" id="algolia-left-container">
+            <div class="small-12 medium-3 columns" id="algolia-left-container">
                 <div id="refine-toggle" class="visible-xs visible-sm">+ <?php echo $this->__('Refine'); ?></div>
                 <div class="hidden-xs hidden-sm" id="instant-search-facets-container">
                     <div id="current-refinements"></div>
                 </div>
             </div>
 
-            <div class="col-md-9" id="algolia-right-container">
+            <div class="small-12 medium-9 columns" id="algolia-right-container">
                 <div class="row">
                     <div class="col-md-12">
                         <div>

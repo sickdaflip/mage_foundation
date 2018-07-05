@@ -47,6 +47,12 @@ if (!function_exists('clean')) {
                 <input type="hidden" name="related_product" id="related-products-field" value=""/>
             </div>
             <div class="product-img-box">
+                <?php if ($_product->getAttributeText('manufacturer') == 'Jura'): ?>
+                    <?php $brand = $_product->getAttributeText('manufacturer') ?>
+                    <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>catalog/brands/<?php echo clean($brand) ?>.png"
+                         alt="<?php echo $brand ?> Logo"
+                         title="<?php echo $this->__('Zeige alle Artikel von %s', $brand) ?>">
+                <?php endif; ?>
                 <?php echo $this->getChildHtml('media') ?>
             </div>
             <div class="product-shop">
@@ -66,6 +72,7 @@ if (!function_exists('clean')) {
                         </li>
                     <?php endif; ?>
                     <?php if (!empty($_product->getAttributeText('manufacturer'))): ?>
+                        <?php if ($_product->getAttributeText('manufacturer') != 'Jura'): ?>
                         <li class="description">
                             <div class="product-brand">
                                 <?php $brand = $_product->getAttributeText('manufacturer') ?>
@@ -76,6 +83,7 @@ if (!function_exists('clean')) {
                                 </a>
                             </div>
                         </li>
+                        <?php endif; ?>
                         <li class="bullet-item">
                             <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . 'hersteller/' . clean($brand) ?>">
                                 <?php echo $this->__('Zeige alle Artikel von %s', $brand) ?>

@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import {whatInput} from 'what-input';
 import {owlCarousel} from '../../../node_modules/owl.carousel/dist/owl.carousel.js';
-import {lightGallery} from '../../../node_modules/lightgallery/dist/js/lightgallery-all.js';
+import {lightGallery} from '../../../node_modules/lightgallery/dist/js/lightgallery.js';
 import {mousewheel} from '../../../node_modules/lightgallery/lib/jquery.mousewheel.min.js';
 import {pwstrength} from '../../../node_modules/pwstrength-foundation/dist/pwstrength-foundation.js';
 import {sticky} from '../../../node_modules/jquery-sticky/jquery.sticky.js';
@@ -27,7 +27,6 @@ $(document).ready(function () {
     if (Foundation.MediaQuery.is('small only')) {
         $('.hide-for-small-only').remove();
     }
-
     // Alert-Box auto close
     $('.callout.messages').slideDown({
         duration: 1500,
@@ -35,7 +34,6 @@ $(document).ready(function () {
             $('.callout.messages').delay(7000).slideUp(1500);
         }
     });
-
     // Product page / wishlist - quantity increase/decrease
     $('.quantity .input-group').append('<span class="input-group-label plus"><i id="add1" class="fa fa-plus" /></span>').prepend('<span class="input-group-label minus"><i id="minus1" class="fa fa-minus" /></span>');
     $('.quantity .plus').click(function () {
@@ -161,7 +159,7 @@ $(document).ready(function () {
         container: "#toolTipPasswordStrength",
         viewports: {
             progress: "#passwordStrengthBar",
-            verdict: ".progress-meter",
+            verdict: ".progress-meter-text",
             errors: "#passwordStrengthHeadLine"
         },
         errorMessages: {
@@ -218,14 +216,16 @@ $(document).ready(function () {
     });
 
     //only for Jura
+    if (Foundation.MediaQuery.atLeast('medium')) {
 
-    $("[class*='categorypath-hersteller-jura'] .block-layered-nav").sticky({
-        topSpacing: 10,
-        bottomSpacing: 650
-    });
+        $("[class*='categorypath-hersteller-jura'] .block-layered-nav").sticky({
+            topSpacing: 10,
+            bottomSpacing: 650
+        });
 
-    $("[class*='categorypath-hersteller-jura'] .block-layered-nav .block-title").before('<img src="https://static.gastrodax.de/media/wysiwyg/manufacturer/jura-mp.png" alt="Jura Logo" width="150" class="show-for-large">');
+        $("[class*='categorypath-hersteller-jura'] .block-layered-nav .block-title").before('<img src="https://static.gastrodax.de/media/wysiwyg/manufacturer/jura-mp.png" alt="Jura Logo" width="150" class="show-for-large">');
 
+    }
     $('.jura-slider').owlCarousel({
         items: 1,
         itemsScaleUp: true,
