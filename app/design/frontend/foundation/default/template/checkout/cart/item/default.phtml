@@ -24,13 +24,13 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
                     alt="<?php echo $this->escapeHtml($this->getProductName()) ?>"/><?php if ($this->hasProductUrl()): ?>
         </a><?php endif; ?></td>
     <td>
-        <h2 class="product-name">
+        <span class="product-name">
             <?php if ($this->hasProductUrl()): ?>
                 <a href="<?php echo $this->getProductUrl() ?>"><?php echo $this->escapeHtml($this->getProductName()) ?></a>
             <?php else: ?>
                 <?php echo $this->escapeHtml($this->getProductName()) ?>
             <?php endif; ?>
-        </h2>
+        </span>
         <?php if ($_options = $this->getOptionList()): ?>
             <ul>
                 <?php foreach ($_options as $_option) : ?>

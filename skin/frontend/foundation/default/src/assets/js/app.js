@@ -1,10 +1,5 @@
 import $ from 'jquery';
 import {whatInput} from 'what-input';
-import {owlCarousel} from '../../../node_modules/owl.carousel/dist/owl.carousel.js';
-import {lightGallery} from '../../../node_modules/lightgallery/dist/js/lightgallery.js';
-import {mousewheel} from '../../../node_modules/lightgallery/lib/jquery.mousewheel.min.js';
-import {pwstrength} from '../../../node_modules/pwstrength-foundation/dist/pwstrength-foundation.js';
-import {sticky} from '../../../node_modules/jquery-sticky/jquery.sticky.js';
 
 window.$ = $;
 
@@ -66,139 +61,6 @@ $(document).ready(function () {
         $(this).append('<i class="fa fa-th"></i>');
     });
 
-    //owl.carousel
-    //Sort random function for owl.carousel
-    function random(owlSelector) {
-        owlSelector.children().sort(function () {
-            return Math.round(Math.random()) - 0.5;
-        }).each(function () {
-            $(this).appendTo(owlSelector);
-        });
-    }
-
-    //Home Slider Top Products
-    $('.homeslider').owlCarousel({
-        items: 1,
-        loop: true,
-        nav: true,
-        navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
-        dots: true,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        autoplayHoverPause: true,
-    });
-
-    //Home Slider credentials
-    var $slider2 = $('.credentials-slider');
-    $slider2.on('initialize.owl.carousel', function (event) {
-        var selector2 = $('.credentials-slider');
-        random(selector2);
-    });
-    $('.credentials-slider').owlCarousel({
-        items: 16,
-        lazyLoad: true,
-        loop: true,
-        nav: true,
-        navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
-        dots: false,
-        autoplay: true,
-        autoplayTimeout: 1000,
-        autoplayHoverPause: true,
-        responsiveClass: true,
-        responsive: {
-            0: {items: 2},
-            640: {items: 5},
-            1024: {items: 12}
-        }
-    });
-
-    //Home Slider credentials
-    var $slider3 = $('.credentials-slider-cms');
-    $slider3.on('initialize.owl.carousel', function (event) {
-        var selector3 = $('.credentials-slider-cms');
-        random(selector3);
-    });
-    $('.credentials-slider-cms').owlCarousel({
-        items: 6,
-        lazyLoad: true,
-        loop: true,
-        nav: true,
-        navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
-        dots: false,
-        autoplay: true,
-        autoplayTimeout: 1000,
-        autoplayHoverPause: true,
-        responsiveClass: true,
-        responsive: {
-            0: {items: 2},
-            640: {items: 6}
-        }
-    });
-
-    //LightGallery
-    $('.product-img-box').lightGallery({
-        selector: '.item',
-        thumbnail: true,
-        hash: false
-    });
-
-    $('#lightgallery').lightGallery({
-        thumbnail: true,
-        hash: false
-    });
-
-    $('#password').focus(function () {
-        $('#toolTipPasswordStrength').css("display", "inline");
-    });
-    $('#password').blur(function () {
-        $('#toolTipPasswordStrength').css("display", "none");
-    });
-
-    var options = {};
-    options.ui = {
-        container: "#toolTipPasswordStrength",
-        viewports: {
-            progress: "#passwordStrengthBar",
-            verdict: ".progress-meter-text",
-            errors: "#passwordStrengthHeadLine"
-        },
-        errorMessages: {
-            wordLength: "Ihr Passwort ist zu kurz",
-            wordNotEmail: "Keine Email",
-            wordSimilarToUsername: "Kein Benutzername",
-            wordTwoCharacterClasses: "Keine gleichen Wortgruppen",
-            wordRepetitions: "Zu viele Wiederholungen",
-            wordSequences: "Ihr Passwort enthält Sequenzen"
-        },
-        verdicts: ["zu kurz", "schwach", "gut", "stark", "sehr stark"],
-        showVerdictsInsideProgressBar: true,
-        scores: [16, 26, 38, 45],
-        showErrors: true,
-    };
-    options.rules = {
-        activated: {
-            wordNotEmail: true,
-            wordLength: true,
-            wordSimilarToUsername: true,
-            wordSequences: true,
-            wordTwoCharacterClasses: true,
-            wordRepetitions: true,
-            wordLowercase: true,
-            wordUppercase: true,
-            wordOneNumber: true,
-            wordThreeNumbers: true,
-            wordOneSpecialChar: true,
-            wordTwoSpecialChar: true,
-            wordUpperLowerCombo: true,
-            wordLetterNumberCombo: true,
-            wordLetterNumberCharCombo: true
-        }
-    };
-    options.common = {
-        minChar: 8
-    };
-    $('#password').pwstrength(options);
-
     //Product Option show more and less
     $('ul.options-list').each(function () {
         var max = 2;
@@ -217,39 +79,25 @@ $(document).ready(function () {
 
     //only for Jura
     if (Foundation.MediaQuery.atLeast('medium')) {
+      if ($("[class*='categorypath-hersteller-jura'] .mb-mana-catalog-leftnav").length) {
+          var $header = $("[class*='categorypath-hersteller-jura'] .mb-mana-catalog-leftnav").first();
 
-        $("[class*='categorypath-hersteller-jura'] .block-layered-nav").sticky({
-            topSpacing: 10,
-            bottomSpacing: 650
-        });
+          // This is the odd behaviour I was speaking about. It seems as though the sizes
+          // aren't being calculated when initialized programmatically. We're cathing the
+          // "init" event triggered by the plug-in when it's successfully initialized on the
+          // element. Then we're forcing it to run the "_calc" function manually.
+          $header.one('init.zf.sticky', function () {
+              console.log('initialized!');
+              $(this).foundation('_calc', true);
+          });
 
+          // We're ready to initialize the plug-in, just like described in the documentation.
+          $header.$sticky = new Foundation.Sticky($header, {
+              anchor: 'main'
+          });
+      }
         $("[class*='categorypath-hersteller-jura'] .block-layered-nav .block-title").before('<img src="https://static.gastrodax.de/media/wysiwyg/manufacturer/jura-mp.png" alt="Jura Logo" width="150" class="show-for-large">');
 
-    }
-    $('.jura-slider').owlCarousel({
-        items: 1,
-        itemsScaleUp: true,
-        loop: true,
-        nav: true,
-        navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
-        dots: true,
-        autoplay: true,
-        autoplayTimeout: 7000,
-        autoplayHoverPause: true,
-        afterUpdate: function () {
-            updateSize();
-        },
-        afterInit:function(){
-            updateSize();
-        }
-    });
-    function updateSize(){
-        var minHeight=parseInt($('.owl-item').eq(0).css('height'));
-        $('.owl-item').each(function () {
-            var thisHeight = parseInt($(this).css('height'));
-            minHeight=(minHeight<=thisHeight?minHeight:thisHeight);
-        });
-        $('.owl-wrapper-outer').css('height',minHeight+'px');
     }
 
 });

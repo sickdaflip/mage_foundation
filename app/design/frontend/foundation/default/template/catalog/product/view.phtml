@@ -55,6 +55,13 @@ if (!function_exists('clean')) {
                 <?php endif; ?>
                 <?php echo $this->getChildHtml('media') ?>
             </div>
+            <script>
+                jQuery('.product-img-box').lightGallery({
+                    selector: '.item',
+                    thumbnail: true,
+                    hash: false
+                });
+            </script>
             <div class="product-shop">
                 <ul class="pricing-table">
                     <li class="title">

@@ -202,6 +202,12 @@
     </customer_logged_out>
 
     <catalog_product_view>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>dist/assets/js/lightgallery.min.js</name>
+            </action>
+        </reference>
         <reference name="root">
             <action method="setTemplate">
                 <template>page/1column.phtml</template>
@@ -231,6 +237,12 @@
     </catalog_product_view>
 
     <catalog_category_default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>dist/assets/js/owl.carousel.min.js</name>
+            </action>
+        </reference>
         <reference name="root">
             <action method="setTemplate">
                 <template>page/2columns-left.phtml</template>
@@ -282,6 +294,24 @@
         </reference>
     </catalogsearch_advanced_index>
 
+    <customer_account_create>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>dist/assets/js/pwstrength-foundation.js</name>
+            </action>
+        </reference>
+    </customer_account_create>
+
+    <customer_account_changeforgotten>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>dist/assets/js/pwstrength-foundation.js</name>
+            </action>
+        </reference>
+    </customer_account_changeforgotten>
+
     <customer_account_index>
         <reference name="root">
             <action method="setTemplate">
@@ -291,6 +321,12 @@
     </customer_account_index>
 
     <customer_account_edit>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>dist/assets/js/pwstrength-foundation.js</name>
+            </action>
+        </reference>
         <reference name="root">
             <action method="setTemplate">
                 <template>page/1column.phtml</template>
@@ -494,10 +530,19 @@
     </checkout_onepage_success>
 
     <cms_page translate="label">
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>dist/assets/js/owl.carousel.min.js</name>
+            </action>
+        </reference>
         <remove name="breadcrumbs"/>
     </cms_page>
 
     <cms_index_noroute>
+        <reference name="head">
+            <action method="addJs"><script>dist/assets/js/owl.carousel.min.js</script></action>
+        </reference>
         <remove name="google_analytics"/>
     </cms_index_noroute>
 
