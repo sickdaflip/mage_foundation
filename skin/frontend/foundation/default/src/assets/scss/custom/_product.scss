@@ -134,6 +134,9 @@
   }
   .pricing-table {
     .bullet-item {
+      p {
+        margin: 0;
+      }
       .price {
         font-size: inherit;
         background: inherit;
@@ -235,7 +238,7 @@
       color: $primary-color;
     }
   }
-  .delivery-time {
+  .delivery-time, .delivery-service {
     margin: 0;
   }
   .btn-cart {

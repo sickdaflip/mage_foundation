@@ -27,5 +27,10 @@
         <p class="delivery-time">
             <?php echo $this->__('Delivery Time') ?>: <?php echo $this->getProduct()->getDeliveryTime() ?>
         </p>
+        <?php if ($this->getProduct()->getAttributeText('delivery_service')) : ?>
+            <p class="delivery-service">
+                <?php echo $this->__('Versand ') ?><?php echo $this->getProduct()->getAttributeText('delivery_service') ?>
+            </p>
+        <?php endif; ?>
     </li>
 <?php endif ?>
