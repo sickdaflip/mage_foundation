@@ -18,7 +18,8 @@ var rulesEngine = {};
 
 try {
     if (!jQuery && module && module.exports) {
-        var jQuery = require("jquery");
+        var jQuery = require("jquery"),
+            jsdom = require("jsdom").jsdom;
         jQuery = jQuery(jsdom().parentWindow);
     }
 } catch (ignore) {}
@@ -430,7 +431,8 @@ var ui = {};
         if (options.ui.showVerdicts &&
                 !options.ui.showVerdictsInsideProgressBar &&
                 verdictText.length > 0) {
-            html = "<p class='progress-meter-text'>" + verdictText + "</p>";
+            html = "<p class='progress-meter-text'>" + verdictText +
+                "</p>";
             hide = false;
         }
         if (options.ui.showErrors) {

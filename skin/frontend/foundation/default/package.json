@@ -25,21 +25,21 @@
   ],
   "dependencies": {
     "components-font-awesome": "~5.0.6",
-    "foundation-sites": "~6.5.0-rc.1",
+    "foundation-sites": "~6.5.0-rc.2",
     "google-fonts": "~1.0.0",
     "jquery": "~3.3.1",
     "lightgallery": "git+https://github.com/sachinchoolur/lightGallery.git",
     "minify": "~3.0.5",
     "motion-ui": "~2.0.3",
     "pwstrength-foundation": "git+https://github.com/edtownend/jquery.pwstrength.foundation.git",
-    "what-input": "~5.1.0"
+    "what-input": "^5.1.1"
   },
   "devDependencies": {
     "babel-core": "~6.26.3",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^7.1.5",
     "babel-preset-es2015": "~6.24.1",
     "babel-register": "~6.26.0",
-    "browser-sync": "~2.24.5",
+    "browser-sync": "^2.24.6",
     "clean-css": "github:jakubpawlowicz/clean-css#master",
     "dateformat": "~3.0.3",
     "gulp": "github:gulpjs/gulp#4.0",
@@ -68,7 +68,7 @@
     "rimraf": "~2.6.2",
     "style-sherpa": "~1.0.2",
     "vinyl-named": "~1.1.0",
-    "webpack": "^4.14.0",
+    "webpack": "^4.16.1",
     "webpack-stream": "^4.0.3",
     "yargs": "^12.0.1"
   },

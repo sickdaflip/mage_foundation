@@ -7,6 +7,7 @@
 <?php echo $this->getChildHtml('after_body_start') ?>
 <div class="wrapper">
     <?php echo $this->getChildHtml('global_notices') ?>
+    <?php echo $this->getChildHtml('global_messages') ?>
     <div class="page">
         <?php echo $this->getChildHtml('header') ?>
         <div class="off-canvas-wrapper">
@@ -18,7 +19,6 @@
                 <div class="main-container col1-layout">
                     <div class="col-top"><?php echo $this->getChildHtml('left') ?></div>
                     <div id="main" class="col-main">
-                        <?php echo $this->getChildHtml('global_messages') ?>
                         <?php echo $this->getChildHtml('content') ?>
                     </div>
                 </div>
