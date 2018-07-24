@@ -5,11 +5,11 @@ $_categories = $this->getCurrentChildCategories(); ?>
     <?php foreach ($_categories as $_category): ?>
         <?php if ($_category->getIsActive()): ?>
             <?php $_category = Mage::getModel("catalog/category")->load($_category->getEntityId()); ?>
-            <li data-equalizer-watch>
+            <li class="item" data-equalizer-watch>
                 <div class="category-image">
                     <?php if ($_category->getCategoryImage()) : ?>
                     <a href="<?php echo $_category->getURL() ?>" title="<?php echo $this->htmlEscape($_category->getName()) ?>">
-                        <img data-interchange="[<?php echo $_category->getCategoryImage(125,125) ?>, small], [<?php echo $_category->getCategoryImage(180,180) ?>, medium], [<?php echo $_category->getCategoryImage(250,250) ?>, large]" alt="<?php echo $this->htmlEscape($_category->getName()) ?>"/>
+                        <img data-interchange="[<?php echo $_category->getCategoryImage(125,125) ?>, small], [<?php echo $_category->getCategoryImage(150,150) ?>, medium], [<?php echo $_category->getCategoryImage(250,250) ?>, large]" alt="<?php echo $this->htmlEscape($_category->getName()) ?>"/>
                     </a>
                     <?php endif; ?>
                     <h2 class="category-name">
@@ -21,7 +21,7 @@ $_categories = $this->getCurrentChildCategories(); ?>
         <?php endif; ?>
         <?php $i++; ?>
     <?php endforeach; ?>
-    <li data-equalizer-watch>
+    <li class="item" data-equalizer-watch>
         <div class="category-image">
             <a href="<?php echo Mage::getUrl('').'hersteller/bartscher'; ?>"
                title="Bartscher Shop">
@@ -33,7 +33,7 @@ $_categories = $this->getCurrentChildCategories(); ?>
             </h2>
         </div>
     </li>
-    <li data-equalizer-watch>
+    <li class="item" data-equalizer-watch>
         <div class="category-image">
             <a href="<?php echo Mage::getUrl('').'hersteller/aliseo'; ?>"
                title="Aliseo Profishop">
@@ -45,7 +45,7 @@ $_categories = $this->getCurrentChildCategories(); ?>
             </h2>
         </div>
     </li>
-    <li data-equalizer-watch>
+    <li class="item" data-equalizer-watch>
         <div class="category-image">
             <a href="<?php echo Mage::getUrl('').'altgeraeteentsorgung'; ?>"
                title="Umweltprämie & Abwrackprämie">
@@ -58,3 +58,8 @@ $_categories = $this->getCurrentChildCategories(); ?>
         </div>
     </li>
 </ul>
+<script type="text/javascript">
+    jQuery('.item').on("click", function () {
+        location.href = jQuery(this).find('a').attr('href');
+    });
+</script>
