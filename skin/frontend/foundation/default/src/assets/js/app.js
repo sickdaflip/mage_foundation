@@ -100,4 +100,6 @@ $(document).ready(function () {
 
     }
 
+    Foundation.reInit($('.categories-grid'));
+    Foundation.reInit($('.categories-home-grid'));
 });

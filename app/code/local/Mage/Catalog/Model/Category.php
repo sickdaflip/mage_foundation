@@ -512,6 +512,7 @@ class Mage_Catalog_Model_Category extends Mage_Catalog_Model_Abstract
             . $this->getImage();
         if (!file_exists($rszImagePath)) {
             $image = new Varien_Image($imagePath);
+            $image->keepTransparency(true);
             $image->resize($width, $height);
             $image->save($rszImagePath);
         }
