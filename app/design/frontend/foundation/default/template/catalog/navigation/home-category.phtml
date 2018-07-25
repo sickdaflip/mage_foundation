@@ -1,16 +1,25 @@
 <?php
 $_categories = $this->getCurrentChildCategories(); ?>
 <ul class="categories-home-grid" data-equalizer data-equalize-on="medium">
-    <?php $i=0; ?>
+    <?php $i = 0; ?>
     <?php foreach ($_categories as $_category): ?>
         <?php if ($_category->getIsActive()): ?>
             <?php $_category = Mage::getModel("catalog/category")->load($_category->getEntityId()); ?>
             <li class="item" data-equalizer-watch>
                 <div class="category-image">
                     <?php if ($_category->getCategoryImage()) : ?>
-                    <a href="<?php echo $_category->getURL() ?>" title="<?php echo $this->htmlEscape($_category->getName()) ?>">
-                        <img data-interchange="[<?php echo $_category->getCategoryImage(125,125) ?>, small], [<?php echo $_category->getCategoryImage(150,150) ?>, medium], [<?php echo $_category->getCategoryImage(250,250) ?>, large]" alt="<?php echo $this->htmlEscape($_category->getName()) ?>"/>
-                    </a>
+                        <?php if ($additionalheadline = $_category->getAdditionalHeadline()): ?>
+                            <?php $title = $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->categoryAttribute($_category, $_category->getAdditionalHeadline(), 'additional_headline')) ?>
+                        <?php else: ?>
+                            <?php $title = $this->htmlEscape($_category->getName()) ?>
+                        <?php endif; ?>
+                        <a href="<?php echo $_category->getURL() ?>"
+                           title="<?php echo $this->htmlEscape($_category->getName()) ?>">
+                            <img src="<?php echo $_category->getCategoryImage(125, 125) ?>"
+                                 data-interchange="[<?php echo $_category->getCategoryImage(125, 125) ?>, small], [<?php echo $_category->getCategoryImage(150, 150) ?>, medium], [<?php echo $_category->getCategoryImage(250, 250) ?>, large]"
+                                 alt="<?php echo $this->htmlEscape($_category->getName()) ?>"
+                                 title="<?php echo $title ?>"/>
+                        </a>
                     <?php endif; ?>
                     <h2 class="category-name">
                         <a href="<?php echo $_category->getURL() ?>"
@@ -23,36 +32,38 @@ $_categories = $this->getCurrentChildCategories(); ?>
     <?php endforeach; ?>
     <li class="item" data-equalizer-watch>
         <div class="category-image">
-            <a href="<?php echo Mage::getUrl('').'hersteller/bartscher'; ?>"
+            <a href="<?php echo Mage::getUrl('') . 'hersteller/bartscher'; ?>"
                title="Bartscher Shop">
                 <img src="<?php echo $this->getSkinUrl('dist/assets/img/bartscher-shop.png'); ?>" alt="Bartscher Shop"/>
             </a>
             <h2 class="category-name">
-                <a href="<?php echo Mage::getUrl('').'hersteller/bartscher'; ?>"
+                <a href="<?php echo Mage::getUrl('') . 'hersteller/bartscher'; ?>"
                    title="Bartscher Shop">Bartscher Shop</a>
             </h2>
         </div>
     </li>
     <li class="item" data-equalizer-watch>
         <div class="category-image">
-            <a href="<?php echo Mage::getUrl('').'hersteller/aliseo'; ?>"
+            <a href="<?php echo Mage::getUrl('') . 'hersteller/aliseo'; ?>"
                title="Aliseo Profishop">
-                <img src="<?php echo $this->getSkinUrl('dist/assets/img/aliseo-profishop.png'); ?>" alt="Aliseo Profishop"/>
+                <img src="<?php echo $this->getSkinUrl('dist/assets/img/aliseo-profishop.png'); ?>"
+                     alt="Aliseo Profishop"/>
             </a>
             <h2 class="category-name">
-                <a href="<?php echo Mage::getUrl('').'hersteller/aliseo'; ?>"
+                <a href="<?php echo Mage::getUrl('') . 'hersteller/aliseo'; ?>"
                    title="Aliseo Profishop">Aliseo Profishop</a>
             </h2>
         </div>
     </li>
     <li class="item" data-equalizer-watch>
         <div class="category-image">
-            <a href="<?php echo Mage::getUrl('').'altgeraeteentsorgung'; ?>"
+            <a href="<?php echo Mage::getUrl('') . 'altgeraeteentsorgung'; ?>"
                title="Umweltprämie & Abwrackprämie">
-                <img src="<?php echo $this->getSkinUrl('dist/assets/img/umwelt_abwrackpraemie.jpg'); ?>" alt="Umweltprämie & Abwrackprämie"/>
+                <img src="<?php echo $this->getSkinUrl('dist/assets/img/umwelt_abwrackpraemie.jpg'); ?>"
+                     alt="Umweltprämie & Abwrackprämie"/>
             </a>
             <h2 class="category-name">
-                <a href="<?php echo Mage::getUrl('').'altgeraeteentsorgung'; ?>"
+                <a href="<?php echo Mage::getUrl('') . 'altgeraeteentsorgung'; ?>"
                    title="Umweltprämie & Abwrackprämie">Umwelt-/ Abwrackprämie</a>
             </h2>
         </div>

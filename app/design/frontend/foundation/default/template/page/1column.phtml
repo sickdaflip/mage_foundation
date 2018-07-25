@@ -12,7 +12,7 @@
         <?php echo $this->getChildHtml('header') ?>
         <div class="off-canvas-wrapper">
             <div class="off-canvas-absolute position-left" id="offCanvas" data-off-canvas>
-                <?php echo $this->getLayout()->createBlock('page/html_topmenu')->setTemplate('page/html/topmenu.phtml')->toHtml(); ?>
+                <?php echo $this->getLayout()->createBlock('page/html_topmenu')->setBlockId('catalog_topnav')->setTemplate('page/html/topmenu.phtml')->toHtml(); ?>
             </div>
             <div class="off-canvas-content" data-off-canvas-content>
                 <?php echo $this->getChildHtml('breadcrumbs') ?>

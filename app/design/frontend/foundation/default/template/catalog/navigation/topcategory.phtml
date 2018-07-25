@@ -1,17 +1,25 @@
 <?php
 $_categories = $this->getCurrentChildCategories(); ?>
 <ul class="categories-grid" data-equalizer data-equalize-on="medium">
-    <?php $i=0; ?>
+    <?php $i = 0; ?>
     <?php foreach ($_categories as $_category): ?>
         <?php if ($_category->getIsActive()): ?>
             <?php $_category = Mage::getModel("catalog/category")->load($_category->getEntityId()); ?>
             <li class="item" data-equalizer-watch>
                 <div class="category-image">
                     <?php if ($_category->getImageUrl()) : ?>
-                    <a href="<?php echo $_category->getURL() ?>"
-                       title="<?php echo $this->htmlEscape($_category->getName()) ?>">
-                            <img data-interchange="[<?php echo $_category->getCategoryImage(125,125) ?>, small], [<?php echo $_category->getCategoryImage(180,180) ?>, medium], [<?php echo $_category->getCategoryImage(200,200) ?>, large]" alt="<?php echo $this->htmlEscape($_category->getName()) ?>"/>
-                    </a>
+                        <?php if ($additionalheadline = $_category->getAdditionalHeadline()): ?>
+                            <?php $title = $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->categoryAttribute($_category, $_category->getAdditionalHeadline(), 'additional_headline')) ?>
+                        <?php else: ?>
+                            <?php $title = $this->htmlEscape($_category->getName()) ?>
+                        <?php endif; ?>
+                        <a href="<?php echo $_category->getURL() ?>"
+                           title="<?php echo $this->htmlEscape($_category->getName()) ?>">
+                            <img src="<?php echo $_category->getCategoryImage(125, 125) ?>"
+                                 data-interchange="[<?php echo $_category->getCategoryImage(125, 125) ?>, small], [<?php echo $_category->getCategoryImage(180, 180) ?>, medium], [<?php echo $_category->getCategoryImage(200, 200) ?>, large]"
+                                 alt="<?php echo $this->htmlEscape($_category->getName()) ?>"
+                                 title="<?php echo $title ?>"/>
+                        </a>
                     <?php endif; ?>
                     <div class="category-name">
                         <a href="<?php echo $_category->getURL() ?>"
