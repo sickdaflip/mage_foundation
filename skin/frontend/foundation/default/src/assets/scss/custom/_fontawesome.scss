@@ -1,0 +1,62 @@
+//Hack for Layers
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -.125em;
+  width: 1em;
+}
+.fa-layers-counter, .fa-layers-text, .fa-layers-icon {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+.fa-layers-counter {
+  background-color: $alert-color;
+  border-radius: 1em;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: $white;
+  height: 1.5em;
+  line-height: 1;
+  max-width: 5em;
+  min-width: 1.5em;
+  overflow: hidden;
+  padding: .25em;
+  right: 0;
+  text-overflow: ellipsis;
+  top: 0;
+  -webkit-transform: scale(.25);
+  transform: scale(.25);
+  -webkit-transform-origin: top right;
+  transform-origin: top right;
+}
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+}
+.fa-layers-icon {
+  background-color: $alert-color;
+  border-radius: 1em;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: $white;
+  height: 1.5em;
+  line-height: 1;
+  max-width: 5em;
+  min-width: 1.5em;
+  overflow: hidden;
+  padding: .25em;
+  right: 0;
+  text-overflow: ellipsis;
+  top: 0;
+  -webkit-transform: scale(.25);
+  transform: scale(.25);
+  -webkit-transform-origin: top right;
+  transform-origin: top right;
+}

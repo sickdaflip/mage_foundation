@@ -5,8 +5,8 @@
 <?php endif; ?>
 <?php echo $this->getMessagesBlock()->toHtml() ?>
 <form action="<?php echo $this->getSaveUrl() ?>" method="post" id="form-validate" data-abide novalidate>
-    <div class="row fullWidth">
-        <div class="small-12 medium-6 columns">
+    <div class="grid-x grid-margin-x">
+        <div class="small-12 medium-6 cell">
             <?php echo $this->getBlockHtml('formkey') ?>
             <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>"/>
             <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>"/>
@@ -44,7 +44,7 @@
                 </div>
             <?php } ?>
         </div>
-        <div class="small-12 medium-6 columns">
+        <div class="small-12 medium-6 cell">
             <h2><?php echo $this->__('Address') ?></h2>
             <div class="street-field">
                 <label for="street_1"><?php echo $this->__('Street Address') ?>
@@ -126,7 +126,7 @@
                 <input type="checkbox" id="primary_billing" name="default_billing" value="1"
                        title="<?php echo Mage::helper('core')->quoteEscape($this->__('Use as My Default Billing Address')) ?>"
                        class="checkbox"/><label
-                    for="primary_billing"><?php echo $this->__('Use as my default billing address') ?></label>
+                        for="primary_billing"><?php echo $this->__('Use as my default billing address') ?></label>
             <?php else: ?>
                 <input type="hidden" name="default_billing" value="1"/>
             <?php endif; ?>
@@ -137,19 +137,20 @@
                 <input type="checkbox" id="primary_shipping" name="default_shipping" value="1"
                        title="<?php echo Mage::helper('core')->quoteEscape($this->__('Use as My Default Shipping Address')) ?>"
                        class="checkbox"/><label
-                    for="primary_shipping"><?php echo $this->__('Use as my default shipping address') ?></label>
+                        for="primary_shipping"><?php echo $this->__('Use as my default shipping address') ?></label>
             <?php else: ?>
                 <input type="hidden" name="default_shipping" value="1"/>
             <?php endif; ?>
         </div>
     </div>
-
-    <a href="<?php echo $this->escapeUrl($this->getBackUrl()) ?>"
-       class="button left"><?php echo $this->__('Back') ?></a>
-    <button data-action="save-customer-address" type="submit"
-            title="<?php echo Mage::helper('core')->quoteEscape($this->__('Save Address')) ?>"
-            class="button float-right"><?php echo $this->__('Save Address') ?>
-    </button>
+    <div class="clearfix">
+        <a href="<?php echo $this->escapeUrl($this->getBackUrl()) ?>"
+           class="button float-left hollow"><?php echo $this->__('Back') ?></a>
+        <button data-action="save-customer-address" type="submit"
+                title="<?php echo Mage::helper('core')->quoteEscape($this->__('Save Address')) ?>"
+                class="button float-right"><?php echo $this->__('Save Address') ?>
+        </button>
+    </div>
 </form>
 <script type="text/javascript">
     //<![CDATA[

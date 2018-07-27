@@ -20,27 +20,22 @@ input.recaptcha_validation {
 
 .block-account {
   margin-top: 1rem;
-  text-align: center;
-  ul {
-    display: inline;
-    li {
-      display: inline-block;
-      a {
-        @extend .button;
-        width: 100%;
-        text-align: left;
-        margin-bottom: 0.3rem;
+  .block-title {
+    text-transform: uppercase;
+    color: $primary-color;
+  }
+  .block-content {
+    margin-top: .5rem;
+    ul {
+      &.fa-ul {
+        margin-left: 2em;
       }
-    }
-    > * i {
-      font-size: 1rem;
-      display: inline-block;
-      width: 1.5rem;
-      text-align: center;
-      white-space: nowrap;
-    }
-    li.current {
-      color: $primary-color;
+      li {
+        padding: .3em 0;
+        a.active {
+          color: $secondary-color;
+        }
+      }
     }
   }
 }

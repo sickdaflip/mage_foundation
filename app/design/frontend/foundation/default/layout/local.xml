@@ -312,14 +312,6 @@
         </reference>
     </customer_account_changeforgotten>
 
-    <customer_account_index>
-        <reference name="root">
-            <action method="setTemplate">
-                <template>page/1column.phtml</template>
-            </action>
-        </reference>
-    </customer_account_index>
-
     <customer_account_edit>
         <reference name="head">
             <action method="addItem">
@@ -327,68 +319,15 @@
                 <name>dist/assets/js/pwstrength-foundation.js</name>
             </action>
         </reference>
-        <reference name="root">
-            <action method="setTemplate">
-                <template>page/1column.phtml</template>
-            </action>
-        </reference>
     </customer_account_edit>
-
-    <customer_address_index>
-        <reference name="root">
-            <action method="setTemplate">
-                <template>page/1column.phtml</template>
-            </action>
-        </reference>
-    </customer_address_index>
-
-    <customer_address_form>
-        <reference name="root">
-            <action method="setTemplate">
-                <template>page/1column.phtml</template>
-            </action>
-        </reference>
-    </customer_address_form>
 
     <sales_order_history>
         <reference name="root">
-            <action method="setTemplate">
-                <template>page/1column.phtml</template>
-            </action>
             <remove name="customer.account.link.back"/>
         </reference>
     </sales_order_history>
 
-    <sales_order_view>
-        <reference name="root">
-            <action method="setTemplate">
-                <template>page/1column.phtml</template>
-            </action>
-        </reference>
-    </sales_order_view>
-
-    <sales_order_shipment>
-        <reference name="root">
-            <action method="setTemplate">
-                <template>page/1column.phtml</template>
-            </action>
-        </reference>
-    </sales_order_shipment>
-
-    <review_customer_index>
-        <reference name="root">
-            <action method="setTemplate">
-                <template>page/1column.phtml</template>
-            </action>
-        </reference>
-    </review_customer_index>
-
     <wishlist_index_index>
-        <reference name="root">
-            <action method="setTemplate">
-                <template>page/1column.phtml</template>
-            </action>
-        </reference>
         <reference name="customer.wishlist.buttons">
             <action method="unsetChild">
                 <name>customer.wishlist.button.share</name>
@@ -396,24 +335,8 @@
         </reference>
     </wishlist_index_index>
 
-    <newsletter_manage_index>
-        <reference name="root">
-            <action method="setTemplate">
-                <template>page/1column.phtml</template>
-            </action>
-        </reference>
-    </newsletter_manage_index>
-
-    <deletecustomer_index_index>
-        <reference name="root">
-            <action method="setTemplate">
-                <template>page/1column.phtml</template>
-            </action>
-        </reference>
-    </deletecustomer_index_index>
-
     <customer_account translate="label">
-        <reference name="content">
+        <reference name="left">
             <!--Unset the whole block then add back later-->
             <action method="unsetChild">
                 <name>customer_account_navigation</name>
@@ -423,47 +346,47 @@
                 <action method="addLink" translate="label" module="customer">
                     <name>account</name>
                     <path>customer/account/</path>
-                    <label><![CDATA[<i class="fa fa-user"></i>]]> Account Dashboard</label>
+                    <label><![CDATA[<span class="fa-li"><i class="fa fa-user"></i></span>]]> Übersicht</label>
                 </action>
                 <action method="addLink" translate="label" module="customer">
                     <name>account_edit</name>
                     <path>customer/account/edit/</path>
-                    <label><![CDATA[<i class="fa fa-info"></i>]]> Account Information</label>
+                    <label><![CDATA[<span class="fa-li"><i class="fa fa-info"></i></span>]]> Benutzerkonto</label>
                 </action>
                 <action method="addLink" translate="label" module="customer">
                     <name>address_book</name>
                     <path>customer/address/</path>
-                    <label><![CDATA[<i class="fa fa-book"></i>]]> Address Book</label>
+                    <label><![CDATA[<span class="fa-li"><i class="fa fa-book"></i></span>]]> Kontaktdaten</label>
                 </action>
                 <action method="addLink" translate="label" module="sales">
                     <name>orders</name>
                     <path>sales/order/history/</path>
-                    <label><![CDATA[<i class="fa fa-shopping-cart"></i>]]> My Orders</label>
+                    <label><![CDATA[<span class="fa-li"><i class="fa fa-shopping-cart"></i></span>]]> Bestellungen</label>
                 </action>
                 <action method="addLink" translate="label" module="review">
                     <name>reviews</name>
                     <path>review/customer</path>
-                    <label><![CDATA[<i class="fa fa-star"></i>]]> My Product Reviews</label>
+                    <label><![CDATA[<span class="fa-li"><i class="fa fa-star"></i></span>]]> Bewertungen</label>
                 </action>
                 <action method="addLink" translate="label" module="wishlist" ifconfig="wishlist/general/active">
                     <name>wishlist</name>
                     <path>wishlist/</path>
-                    <label><![CDATA[<i class="fa fa-heart"></i>]]> My Favorite</label>
+                    <label><![CDATA[<span class="fa-li"><i class="fa fa-heart"></i></span>]]> Merkliste</label>
                 </action>
                 <action method="addLink" translate="label" module="newsletter">
                     <name>newsletter</name>
                     <path>newsletter/manage/</path>
-                    <label><![CDATA[<i class="fa fa-envelope"></i>]]> Newsletter Subscriptions</label>
+                    <label><![CDATA[<span class="fa-li"><i class="fa fa-envelope"></i></span>]]> Newsletter</label>
                 </action>
                 <action method="addLink" translate="label" module="deletecustomer">
                     <name>Delete Account</name>
                     <path>deletecustomer/index/index</path>
-                    <label><![CDATA[<i class="fa fa-user-times"></i>]]> Konto löschen</label>
+                    <label><![CDATA[<span class="fa-li"><i class="fa fa-user-times"></i></span>]]> Konto löschen</label>
                 </action>
                 <action method="addLink" translate="label">
                     <name>Log Out</name>
                     <path>customer/account/logout/</path>
-                    <label><![CDATA[<i class="fa fa-power-off"></i>]]> Log Out</label>
+                    <label><![CDATA[<span class="fa-li"><i class="fa fa-power-off"></i></span>]]> Abmelden</label>
                 </action>
             </block>
             <!--remove name="catalog.compare.sidebar"/>-->

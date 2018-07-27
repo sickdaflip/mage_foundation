@@ -6,7 +6,7 @@
                 <a href="<?php echo $_link->getUrl() ?>"><?php echo $_link->getBeforeText() ?>
                     <?php if ($_link->getUrl() == '/checkout/cart'): ?>
                         <?php $_cartQty = Mage::getSingleton('checkout/cart')->getItemsCount(); ?>
-                            <span class="cart-qty<?php if ($_cartQty >= 10): ?>-10<?php endif; ?>">
+                        <span class="cart-qty<?php if ($_cartQty >= 10): ?>-10<?php endif; ?>">
                                 <?php echo $_cartQty; ?>
                             </span>
                     <?php endif; ?>

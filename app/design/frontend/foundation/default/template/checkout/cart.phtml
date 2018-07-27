@@ -50,7 +50,7 @@
         <?php echo $this->getBlockHtml('formkey'); ?>
         <div class="cart-table-wrapper">
             <fieldset>
-                <table id="shopping-cart-table" class="data-table cart-table">
+                <table id="shopping-cart-table" class="data-table cart-table unstriped hover">
                     <col width="1"/>
                     <col/>
                     <col width="1"/>
@@ -99,10 +99,15 @@
                         </tr>
                     <?php endif; ?>
                     </thead>
-                    <tfoot>
+                    <tbody>
+                    <?php foreach ($this->getItems() as $_item): ?>
+                        <?php echo $this->getItemHtml($_item) ?>
+                    <?php endforeach ?>
+                    </tbody>
+                    <tbody>
                     <tr>
-                        <td colspan="50" class="a-right">
-                            <div class="button-group small">
+                        <td colspan="<?php if ($this->helper('wishlist')->isAllowInCart()) : ?>8<?php else: ?>7<?php endif ?>" class="a-right">
+                            <div class="stacked-for-small button-group small">
                                 <?php if ($this->getContinueShoppingUrl()): ?>
                                     <button type="button" title="<?php echo $this->__('Continue Shopping') ?>"
                                             onclick="setLocation('<?php echo $this->getContinueShoppingUrl() ?>')"
@@ -143,14 +148,8 @@
                             <![endif]-->
                         </td>
                     </tr>
-                    </tfoot>
-                    <tbody>
-                    <?php foreach ($this->getItems() as $_item): ?>
-                        <?php echo $this->getItemHtml($_item) ?>
-                    <?php endforeach ?>
                     </tbody>
                 </table>
-                <script type="text/javascript">decorateTable('shopping-cart-table')</script>
             </fieldset>
         </div>
     </form>

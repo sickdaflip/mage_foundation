@@ -26,23 +26,19 @@
 ?>
 <div class="block block-account">
     <div class="block-title">
-        <strong><span><?php echo $this->__('My Account'); ?></span></strong>
+        <?php echo $this->__('My Account'); ?>
     </div>
     <div class="block-content">
-        <ul class="horizontal menu">
+        <ul class="fa-ul">
             <?php $_links = $this->getLinks(); ?>
             <?php $_index = 1; ?>
             <?php $_count = count($_links); ?>
             <?php foreach ($_links as $_link): ?>
                 <?php $_last = ($_index++ >= $_count); ?>
                 <?php if ($this->isActive($_link)): ?>
-                    <li><a class="active" href="<?php echo $_link->getUrl() ?>"><?php echo $_link->getLabel() ?></a>
-                    </li>
-                    <?php elseif ($_link['path'] == 'customer/account/logout/'): ?>
-                    <li><a class="hollow" href="<?php echo $_link->getUrl() ?>"><?php echo $_link->getLabel() ?></a></li>
-                    <?php else: ?>
-                    <li><a href="<?php echo $_link->getUrl() ?>"><?php echo $_link->getLabel() ?></a>
-                    </li>
+                    <li><a class="active" href="<?php echo $_link->getUrl() ?>"><?php echo $_link->getLabel() ?></a></li>
+                <?php else: ?>
+                    <li><a href="<?php echo $_link->getUrl() ?>"><?php echo $_link->getLabel() ?></a></li>
                 <?php endif; ?>
             <?php endforeach; ?>
         </ul>

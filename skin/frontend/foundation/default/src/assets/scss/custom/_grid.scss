@@ -284,18 +284,6 @@ header {
   }
 }
 
-.promotion-products {
-  .item {
-    .price-box {
-      .regular-price {
-        line-height: 1rem !important;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-  }
-}
-
 //CMS
 .home-content {
   @include xy-grid;
@@ -319,7 +307,7 @@ header {
       .shipping,
       #discount-coupon-form,
       .totals {
-        @include xy-cell(12);
+        @include xy-cell(12, false, 0);
       }
     }
   }
@@ -342,7 +330,8 @@ footer {
       @include xy-grid;
       .footer_links,
       .footer_service,
-      .footer_manufactures {
+      .footer_manufactures,
+      .footer_categories {
         @include xy-cell(12, false, 0);
       }
     }
@@ -547,7 +536,7 @@ footer {
     .cart-collaterals {
       .col-collaterals {
         .totals {
-          @include xy-cell(4);
+          @include xy-cell(4, false, 0);
         }
         .shipping {
           @include xy-cell(8);
@@ -602,8 +591,9 @@ footer {
         @include xy-cell(12);
         .footer_links,
         .footer_service,
-        .footer_manufactures {
-          @include xy-cell(4);
+        .footer_manufactures,
+        .footer_categories {
+          @include xy-cell(3);
         }
       }
     }
@@ -774,8 +764,9 @@ footer {
         @include xy-cell(8);
         .footer_links,
         .footer_service,
-        .footer_manufactures {
-          @include xy-cell(4);
+        .footer_manufactures,
+        .footer_categories {
+          @include xy-cell(3);
         }
       }
     }

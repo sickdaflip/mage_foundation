@@ -7,47 +7,17 @@
     }
   }
   form {
-    overflow-x: hidden;
     fieldset {
-      margin: 0.5em 0;
-      padding: 0;
       #shopping-cart-table {
         tbody {
           img {
             max-width: inherit;
           }
-        }
-        width: 100%;
-        tfoot {
-          td.last {
-            padding: 0.5em;
-          }
-          .button-group,
-          button {
-            margin-bottom: 0;
+          ul li {
+            font-size: .8rem;
           }
           .button-group {
-            button {
-              padding: 0.25em;
-            }
-          }
-          .btn-empty {
-            float: left;
-          }
-          .btn-update,
-          .btn-continue {
-            float: right;
-          }
-          .btn-update {
-            margin: 0 0.5em;
-          }
-          @include breakpoint(small) {
-            button {
-              clear: both;
-            }
-            .btn-empty {
-              margin: 1em 0;
-            }
+            margin-bottom: 0;
           }
         }
       }
@@ -70,6 +40,7 @@
         text-align: center;
         @include menu-base;
         @include menu-direction(vertical);
+        margin-bottom: 1em;
         li {
           min-height: 3rem;
           margin-bottom: 2px;
@@ -79,7 +50,6 @@
             display: inline !important;
           }
         }
-
         p {
           margin: 0;
         }
