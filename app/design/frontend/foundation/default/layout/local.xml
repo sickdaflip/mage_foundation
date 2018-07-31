@@ -115,7 +115,7 @@
                 </action>-->
                 <action method="addLink" translate="label title">
                     <label>Checkout</label>
-                    <url>/checkout</url>
+                    <url>/checkout/onepage</url>
                     <title>Checkout</title>
                     <prepare/>
                     <urlParams/>

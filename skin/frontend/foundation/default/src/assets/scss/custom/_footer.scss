@@ -113,7 +113,7 @@ footer {
 }
 
 .reasons {
-  @include show-for(large);
+  @include show-for(xlarge);
   position: fixed;
   padding: .5em .5em .5em 1.5em;
   left: 0;

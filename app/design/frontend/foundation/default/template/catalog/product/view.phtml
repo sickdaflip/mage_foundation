@@ -75,7 +75,7 @@ if (!function_exists('clean')) {
                     <?php echo $this->getChildHtml('product_type_data') ?>
                     <?php if (!empty($_product->getData('follower'))): ?>
                         <li class="bullet-item">
-                            <a class="button follower" href="<?php echo $this->getUrl($_product->getData('follower')); ?>">Nachfolger zeigen</a>
+                            <a class="button follower" href="<?php echo $this->getUrl('', array('_direct'=>$_product->getData('follower'))); ?>">Nachfolger zeigen</a>
                         </li>
                     <?php endif; ?>
                     <?php if (!empty($_product->getAttributeText('manufacturer'))): ?>
@@ -100,7 +100,7 @@ if (!function_exists('clean')) {
                     <?php if ($_product->getAttributeText('manufacturer') == 'Jura'): ?>
                         <li class="bullet-item">
                             <p>Unser Jura Ladengeschäft - Jura Abholmarkt</p>
-                            <a href="<?php echo $this->getUrl('jura-fachhaendler'); ?>">zu den Öffnungszeiten und zur
+                            <a href="<?php echo $this->getUrl('', array('_direct'=>'jura-fachhaendler')); ?>">zu den Öffnungszeiten und zur
                                 Anfahrtsbeschreibung</a>
                         </li>
                     <?php endif; ?>
