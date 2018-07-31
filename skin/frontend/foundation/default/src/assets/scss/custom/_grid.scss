@@ -659,6 +659,7 @@ footer {
   }
 
   .toolbar, .pager, .toolbar-3 {
+    align-items: center;
     .amount, .limiter, .pages, .sort-by {
       @include xy-cell(3);
     }
