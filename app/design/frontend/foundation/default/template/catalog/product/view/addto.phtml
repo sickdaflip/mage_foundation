@@ -35,7 +35,7 @@
                onclick="productAddToCartForm.submitLight(this, this.href); return false;"
                class="button secondary hollow"><?php echo $this->__('Add to Wishlist') ?></a>
             <?php if ($_product->getData('custom_quote') == 1): ?>
-                <a href="<?php echo Mage::getUrl('leasing-mietkauf'); ?>"
+                <a href="<?php echo Mage::getUrl('', array('_direct' =>'leasing-mietkauf')); ?>"
                    class="button success hollow"><?php echo $this->__('Leasing') ?></a>
             <?php endif; ?>
         </div>

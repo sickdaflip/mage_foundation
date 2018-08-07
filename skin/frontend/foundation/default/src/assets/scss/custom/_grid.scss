@@ -658,10 +658,16 @@ footer {
     }
   }
 
-  .toolbar, .pager, .toolbar-3 {
+  .toolbar, .pager {
     align-items: center;
     .amount, .limiter, .pages, .sort-by {
       @include xy-cell(3);
+    }
+  }
+  .toolbar-3 {
+    align-items: center;
+    .amount, .limiter, .pages, .sort-by {
+      @include xy-cell(4);
     }
   }
 
@@ -788,5 +794,29 @@ footer {
       }
     }
 
+  }
+}
+
+@media screen and #{breakpoint(xxlarge)} {
+  .demo-notice,
+  .top-bar,
+  .nav-container,
+  .copyright-container,
+  .col1-layout,
+  .col2-left-layout,
+  .col2-right-layout,
+  .col3-layout,
+  nav {
+    @include xy-grid-container(rem-calc(1920));
+  }
+
+  .categories-grid, .categories-home-grid, .manufacturers-grid {
+    @include xy-grid-container(rem-calc(1920), 0);
+    @include xy-grid-layout(8, 'li', true, $grid-margin-gutters, margin, left bottom);
+  }
+
+  .products-grid, .search-grid, .gift-grid {
+    @include xy-grid-container(rem-calc(1920), 0);
+    @include xy-grid-layout(8, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 }

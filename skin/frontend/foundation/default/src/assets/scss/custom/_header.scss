@@ -18,10 +18,10 @@ header {
           letter-spacing: .18rem;
         }
         @include breakpoint(xlarge only) {
-          letter-spacing: .14rem;
+          letter-spacing: .2rem;
         }
         @include breakpoint(xxlarge only) {
-          letter-spacing: .14rem;
+          letter-spacing: .6rem;
         }
         letter-spacing: .35rem;
         font-weight: 500;
