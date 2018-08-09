@@ -536,10 +536,10 @@ footer {
     .cart-collaterals {
       .col-collaterals {
         .totals {
-          @include xy-cell(4, false, 0);
+          @include xy-cell(4);
         }
         .shipping {
-          @include xy-cell(8);
+          @include xy-cell(4);
         }
         #discount-coupon-form {
           @include xy-cell(4);

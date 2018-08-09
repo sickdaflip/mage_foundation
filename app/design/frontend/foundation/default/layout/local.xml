@@ -403,7 +403,6 @@
     </contacts_index_index>
 
     <checkout_cart_index>
-        <remove name="checkout.cart.coupon"/>
         <reference name="checkout.cart.methods">
             <remove name="checkout.cart.methods.amazonpayments_pay.bottom"/>
             <remove name="checkout.cart.methods.paypal_express.bottom"/>
