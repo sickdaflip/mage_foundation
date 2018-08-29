@@ -30,7 +30,6 @@
     "lightgallery": "git+https://github.com/sachinchoolur/lightGallery.git",
     "minify": "~3.0.5",
     "motion-ui": "~2.0.3",
-    "pwstrength-foundation": "git+https://github.com/edtownend/jquery.pwstrength.foundation.git",
     "what-input": "^5.1.1"
   },
   "devDependencies": {
@@ -58,7 +57,7 @@
     "gulp-rev": "~8.1.1",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.0",
+    "gulp-uglify": "^3.0.1",
     "gulp-util": "~3.0.8",
     "gulp-zip": "~4.1.0",
     "jquery-sticky": "git+https://github.com/garand/sticky.git",
@@ -66,6 +65,7 @@
     "npm-update-all": "~1.0.1",
     "owl.carousel": "git+https://github.com/OwlCarousel2/OwlCarousel2.git",
     "panini": "~1.6.2",
+    "pwstrength-foundation": "git+https://github.com/sickdaflip/jquery.pwstrength.foundation",
     "rimraf": "~2.6.2",
     "style-sherpa": "~1.0.2",
     "vinyl-named": "~1.1.0",

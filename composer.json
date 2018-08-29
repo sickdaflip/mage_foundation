@@ -9,56 +9,12 @@
       "email": "philippbreitsprecher@gmail.com"
     }
   ],
-  "extra": {
-    "map": [
-      [
-        "app/code/local/Foundation/",
-        "app/code/local/Foundation/"
-      ],
-      [
-        "app/code/local/Mage/",
-        "app/code/local/Mage/"
-      ],
-      [
-        "app/design/adminhtml/default/default/layout/",
-        "app/design/adminhtml/default/default/layout/"
-      ],
-      [
-        "app/design/adminhtml/default/default/template/",
-        "app/design/adminhtml/default/default/template/"
-      ],
-      [
-        "app/design/frontend/foundation/default",
-        "app/design/frontend/foundation/default"
-      ],
-      [
-        "app/etc/modules/*.xml",
-        "app/etc/modules/"
-      ],
-      [
-        "app/locale/de_DE/",
-        "app/locale/de_DE/"
-      ],
-      [
-        "js/varien/product_options.js",
-        "js/varien/product_options.js"
-      ],
-      [
-        "media/catalog/brands/",
-        "media/catalog/brands/"
-      ],
-      [
-        "skin/frontend/foundation/default/",
-        "skin/frontend/foundation/default/"
-      ],
-      [
-        "favicon.ico",
-        "favicon.ico"
-      ],
-      [
-        "manifest.json",
-        "manifest.json"
-      ]
-    ]
+  "require": {
+    "magento-hackathon/magento-composer-installer": "*"
+  },
+  "support": {
+    "issues": "https://github.com/sickdaflip/mage_foundation/issues",
+    "wiki": "https://github.com/sickdaflip/mage_foundation/wiki",
+    "source": "https://github.com/sickdaflip/mage_foundation"
   }
 }

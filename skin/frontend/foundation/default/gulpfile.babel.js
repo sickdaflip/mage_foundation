@@ -176,6 +176,9 @@ function fonts() {
 // Copy JS
 function js() {
     return gulp.src(PATHS.js)
+        .pipe($.if(PRODUCTION, $.uglify()
+            .on('error', e => { console.log(e); })
+        ))
         .pipe(gulp.dest(PATHS.dist + '/assets/js'));
 }
 

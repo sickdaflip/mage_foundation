@@ -1,0 +1,1 @@
+../../../../../../../../.modman/Inchoo_PHP7/app/code/local/Mage/Core/Model/Resource/Session.php
