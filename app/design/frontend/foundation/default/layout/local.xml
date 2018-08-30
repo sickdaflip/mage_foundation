@@ -31,6 +31,26 @@
                 <name>varien/menu.js</name>
             </action>
             <action method="removeItem">
+                <type>js</type>
+                <name>scriptaculous/slider.js</name>
+            </action>
+            <action method="removeItem">
+                <type>js</type>
+                <name>scriptaculous/builder.js</name>
+            </action>
+            <action method="removeItem">
+                <type>js</type>
+                <name>scriptaculous/dragdrop.js</name>
+            </action>
+            <action method="removeItem">
+                <type>js</type>
+                <name>prototype/tooltip.js</name>
+            </action>
+            <action method="removeItem">
+                <type>js</type>
+                <name>lib/ccard.js</name>
+            </action>
+            <action method="removeItem">
                 <type>skin_css</type>
                 <name>css/magesetup/default.css</name>
             </action>
@@ -362,7 +382,8 @@
                 <action method="addLink" translate="label" module="sales">
                     <name>orders</name>
                     <path>sales/order/history/</path>
-                    <label><![CDATA[<span class="fa-li"><i class="fa fa-shopping-cart"></i></span>]]> Bestellungen</label>
+                    <label><![CDATA[<span class="fa-li"><i class="fa fa-shopping-cart"></i></span>]]>Bestellungen
+                    </label>
                 </action>
                 <action method="addLink" translate="label" module="review">
                     <name>reviews</name>
@@ -464,7 +485,10 @@
 
     <cms_index_noroute>
         <reference name="head">
-            <action method="addJs"><script>dist/assets/js/owl.carousel.min.js</script></action>
+            <action method="removeItem">
+                <type>skin_js</type>
+                <name>dist/assets/js/owl.carousel.min.js</name>
+            </action>
         </reference>
         <remove name="google_analytics"/>
     </cms_index_noroute>
