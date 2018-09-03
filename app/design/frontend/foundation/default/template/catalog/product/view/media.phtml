@@ -40,7 +40,7 @@ $_helper = $this->helper('catalog/output');
         <div class="special-ribbon"><span><?php echo $_savingPercent; ?>% Rabatt</span></div>
     <?php } ?>
     <a href="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" class="item">
-        <img data-interchange="[<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(250, 250) ?>, small], [<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(400, 400) ?>, medium]", [<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(700, 700) ?>, large]"
+        <img data-interchange="[<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(250, 250) ?>, small], [<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(400, 400) ?>, medium], [<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(700, 700) ?>, large]"
             alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
             title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>"/>
     </a>
