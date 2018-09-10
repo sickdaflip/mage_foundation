@@ -6,6 +6,7 @@ $catalogSearchHelper = $this->helper('catalogsearch');
         <div class="search-input">
             <input id="search"
                    type="text"
+                   aria-label="search"
                    name="<?php echo $catalogSearchHelper->getQueryParamName() ?>"
                    value="<?php echo $catalogSearchHelper->getEscapedQueryText() ?>"
                    maxlength="<?php echo $catalogSearchHelper->getMaxQueryLength(); ?>"

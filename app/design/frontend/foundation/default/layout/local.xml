@@ -269,6 +269,9 @@
                 <template>page/2columns-left.phtml</template>
             </action>
         </reference>
+        <reference name="content">
+            <action method="unsCacheLifetime"></action>
+        </reference>
     </catalog_category_default>
 
     <catalog_category_layered>

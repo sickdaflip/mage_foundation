@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Foundation_Cache>
+            <version>1.0.0</version>
+        </Foundation_Cache>
+    </modules>
+    <global>
+        <blocks>
+            <cms>
+                <rewrite>
+                    <block>Foundation_Cache_Block_Block</block>
+                    <widget_block>Foundation_Cache_Block_Widget_Block</widget_block>
+                </rewrite>
+            </cms>
+        </blocks>
+    </global>
+</config>

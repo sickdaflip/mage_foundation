@@ -5,7 +5,7 @@
   "description": "Magento starter theme based on Foundation 6 by Zurb",
   "homepage": "https://github.com/sickdaflip",
   "license": "MIT",
-  "main": "gulpfile.js",
+  "main": "gulpfile.babel.js",
   "scripts": {
     "start": "gulp",
     "dev": "gulp build --dev",

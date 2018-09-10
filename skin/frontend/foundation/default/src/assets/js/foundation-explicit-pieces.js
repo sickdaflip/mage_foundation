@@ -1,4 +1,5 @@
 import $ from 'jquery';
+
 import { Foundation } from 'foundation-sites/js/foundation.core';
 import { rtl, GetYoDigits, transitionend } from 'foundation-sites/js/foundation.util.core';
 import { Box } from 'foundation-sites/js/foundation.util.box'
@@ -31,7 +32,6 @@ import { Tabs } from 'foundation-sites/js/foundation.tabs';
 import { Toggler } from 'foundation-sites/js/foundation.toggler';
 import { Tooltip } from 'foundation-sites/js/foundation.tooltip';
 import { ResponsiveAccordionTabs } from 'foundation-sites/js/foundation.responsiveAccordionTabs';
-
 
 Foundation.addToJquery($);
 
