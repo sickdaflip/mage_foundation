@@ -1,11 +1,7 @@
 # Browsersync config
 BROWSERSYNC:
   # URL of local development server goes here (ex. http://localsite.dev)
-  url: "http://magento.gastro.lan"
-
-CERT:
-  key: "/var/customers/webs/magento/cert/private.key"
-  crt: "/var/customers/webs/magento/cert/magento.gastro.lan-cert.crt"
+  url: "https://magento.gastro.lan"
 
 # Autoprefixer will make sure your CSS works with these browsers
 COMPATIBILITY:

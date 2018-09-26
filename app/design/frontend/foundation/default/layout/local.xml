@@ -79,6 +79,10 @@
                 <type>skin_css</type>
                 <name>dist/assets/css/app.css</name>
             </action>
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/eucookielaw.css</name>
+            </action>
         </reference>
 
         <!--Magento's Default Sidebar Blocks-->

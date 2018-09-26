@@ -212,7 +212,7 @@ function server(done) {
     ui: {
       port: 8080
     },
-    open: false
+    open: false, https: true
   });
   done();
 }

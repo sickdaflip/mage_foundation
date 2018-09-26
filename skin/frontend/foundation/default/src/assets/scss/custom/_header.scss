@@ -15,13 +15,13 @@ header {
         top: -10px;
         font-size: .7rem;
         @include breakpoint(large only) {
-          letter-spacing: .18rem;
+          letter-spacing: .20rem;
         }
         @include breakpoint(xlarge only) {
-          letter-spacing: .2rem;
+          letter-spacing: .33rem;
         }
         @include breakpoint(xxlarge only) {
-          letter-spacing: .6rem;
+          letter-spacing: .8rem;
         }
         letter-spacing: .35rem;
         font-weight: 500;

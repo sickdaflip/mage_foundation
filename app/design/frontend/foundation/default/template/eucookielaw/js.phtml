@@ -1,0 +1,19 @@
+<?php if (Mage::getStoreConfig('eu_cookie_law/cookie_banner_settings/show_banner')) : ?>
+<script type="text/javascript">
+
+var dropCookie = true;
+var cookieDuration = <?php echo Mage::getStoreConfig('eu_cookie_law/cookie_banner_settings/cookie_lifetime') ?>; 
+var cookieName = 'complianceCookie';
+var cookieValue = 'on';
+var privacyUrl = '<?php echo $this->getUrl(Mage::getStoreConfig('eu_cookie_law/cookie_banner_settings/privacy_url')) ?>';
+var privacyMessage = '<?php echo Mage::getStoreConfig('eu_cookie_law/cookie_banner_settings/privacy_message') ?>';
+var privacyLinkText = '<?php echo Mage::getStoreConfig('eu_cookie_law/cookie_banner_settings/privacy_url_text') ?>';
+
+window.onload = function(){
+	if(checkCookie(window.cookieName) != window.cookieValue){
+		createDiv(); 
+	}
+}
+
+</script>
+<?php endif ?>
