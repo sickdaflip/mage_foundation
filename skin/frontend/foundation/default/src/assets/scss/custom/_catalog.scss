@@ -2,6 +2,9 @@
 .toolbar, .toolbar-3 {
   margin-bottom: 1rem;
   padding-bottom: 1rem;
+  .limiter, .sort-by {
+    padding: 0 1rem;
+  }
   .amount, .limiter, .sort-by {
     p, .input-group {
       @media screen and #{breakpoint(medium)}{
@@ -33,11 +36,9 @@
 .toolbar-bottom {
   margin-top: 1rem;
   padding-top: 1rem;
-}
-
-.toolbar, .toolbar-3 {
-  .limiter, .sort-by {
-    padding: 0 1rem;
+  .toolbar, .toolbar-3 {
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 }
 

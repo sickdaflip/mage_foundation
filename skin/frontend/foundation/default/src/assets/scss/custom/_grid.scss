@@ -270,6 +270,8 @@ header {
     .product-options {
       dl.last {
         @include xy-grid;
+        justify-content: center;
+        align-items: center;
         .option {
           @include xy-cell(12, false, 0);
         }
