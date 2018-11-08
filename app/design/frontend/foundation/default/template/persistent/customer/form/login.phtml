@@ -28,11 +28,12 @@
                 <div class="email-field">
                     <label for="email"><?php echo $this->__('Email Address') ?>
                         <small><?php echo $this->__('required') ?></small>
-                        <input type="text" name="login[username]"
+                        <input type="email" name="login[username]"
                                value="<?php echo $this->escapeHtml($this->getUsername()) ?>" id="email"
                                title="<?php echo $this->__('Email Address') ?>"
                                placeholder="example@domain.com"
-                               required pattern="email"/>
+                               required pattern="email"
+                               autocomplete="email"/>
                         <span class="form-error"><?php echo $this->__('Please enter your email.') ?></span>
                     </label>
                 </div>

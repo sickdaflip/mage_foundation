@@ -1,5 +1,5 @@
 <meta charset="UTF-8">
-<title><?php echo $this->getTitle() ?></title>
+<title><?php echo ($this->getForcedTitle()) ? Mage::getStoreConfig('design/head/title_prefix').''.$this->getForcedTitle().' '.Mage::getStoreConfig('design/head/title_suffix') : $this->getTitle() ?></title>
 <meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>"/>
 <meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>

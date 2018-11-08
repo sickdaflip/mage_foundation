@@ -32,11 +32,12 @@
             <div class="email-field">
                 <label for="email_address"><?php echo $this->__('Email Address') ?>
                     <small><?php echo $this->__('required') ?></small>
-                    <input type="text" name="email" id="email_address"
+                    <input type="email" name="email" id="email_address"
                            value="<?php echo $this->escapeHtml($this->getFormData()->getEmail()) ?>"
                            title="<?php echo Mage::helper('core')->quoteEscape($this->__('Email Address')) ?>"
                            placeholder="example@domain.com"
-                           required pattern="email"/>
+                           required pattern="email"
+                           autocomplete="email"/>
                     <span class="form-error"><?php echo $this->__('Please enter your email.') ?></span>
                 </label>
             </div>
