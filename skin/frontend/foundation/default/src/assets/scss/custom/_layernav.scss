@@ -168,18 +168,8 @@
 }
 
 .switch-toggle-wrapper {
-  display: flex;
-  margin-bottom: .5rem;
-  justify-content: flex-start;
-  align-items: center;
-  .switch {
-    margin-bottom: 0;
-    input {
-      width: 0;
-      height: 0;
-    }
-  }
-  span {
-    margin-left: .5rem;
+  .switch-input {
+    width: 0;
+    height: 0;
   }
 }

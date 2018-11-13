@@ -137,6 +137,18 @@ header {
   }
 }
 
+.switch-toggle-wrapper {
+  @include xy-grid;
+  justify-content: center;
+  align-items: center;
+  .switch {
+    @include xy-cell(3);
+  }
+  span {
+    @include xy-cell(9);
+  }
+}
+
 .toolbar, .toolbar-3, .pager {
   @include xy-grid;
   .amount, .limiter, .pages, .sort-by {
