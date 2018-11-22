@@ -437,6 +437,12 @@
     }
   }
   .tier-price {
+    .tier-price-special {
+      .first {
+        color: $alert-color;
+        font-size: 1.2em;
+      }
+    }
     table {
       @include breakpoint(medium down) {
         @include table-stack;
