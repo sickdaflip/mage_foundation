@@ -44,6 +44,18 @@
             </ul>
         <?php endif; ?>
     </div>
+    <div class="callout secondary">
+        <p class="h2">Versand zu Weihnachten und Neujahr</p>
+        <p>Nachfolgend unsere gesonderten Versand-Zeiten zu Weihnachten und Neujahr:</p>
+        <ul class="margin-bottom-1">
+            <li>Bis 21.12.2018: normaler Versand, normale telefonische Bestellannahme</li>
+            <li>22.12. – 26.12.2018 : kein Versand, keine telefonische Bestellannahme</li>
+            <li>27.12. – 28.12.2018 : kein Versand, normale telefonische Bestellannahme</li>
+            <li>29.12.2018 – 01.01.2019 : kein Versand, keine telefonische Bestellannahme</li>
+            <li>Ab 02.01.2019 : normaler Versand, normale telefonische Bestellannahme</li>
+        </ul>
+        <p>Bitte beachten Sie, dass es jetzt schon zu Lieferverzögerungen kommen kann. Grund hierfür ist das erhöhte Weihnachtsgeschäft. Besonders kurz vor und nach den Feiertagen sind Lieferverzögerungen bei allen Versanddienstleistern möglich.</p>
+    </div>
     <?php echo $this->getMessagesBlock()->toHtml() ?>
     <?php echo $this->getChildHtml('form_before') ?>
     <form action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post">
