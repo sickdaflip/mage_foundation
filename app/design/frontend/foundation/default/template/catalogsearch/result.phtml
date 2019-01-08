@@ -30,7 +30,7 @@
     <?php if ($this->helper('rss/catalog')->getTagFeedUrl()): ?>
         <a href="<?php echo $this->helper('rss/catalog')->getTagFeedUrl() ?>" class="nobr link-rss"><?php echo $this->__('Subscribe to Feed') ?></a>
     <?php endif; ?>
-    <h1><?php echo $this->stripTags(($this->getHeaderText() || $this->getHeaderText() === false) ? $this->getHeaderText() : $this->__("Search results for '%s'", $this->helper('catalogsearch')->getEscapedQueryText())) ?></h1>
+    <h1><?php echo $this->stripTags(($this->getHeaderText() || $this->getHeaderText() === false) ? $this->getHeaderText() : $this->__("Search results for '%s'", $this->htmlEscape($this->helper('catalogsearch')->getEscapedQueryText()))) ?></h1>
 </div>
     <?php echo $this->getChildHtml('catalogsearch.layerednav'); ?>
     <?php if ($messages = $this->getNoteMessages()):?>
