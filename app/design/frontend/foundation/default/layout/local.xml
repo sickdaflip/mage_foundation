@@ -19,38 +19,6 @@
                 <name>css/widgets.css</name>
             </action>
             <action method="removeItem">
-                <type>js</type>
-                <name>lib/ds-sleight.js</name>
-            </action>
-            <action method="removeItem">
-                <type>skin_js</type>
-                <name>js/ie6.js</name>
-            </action>
-            <action method="removeItem">
-                <type>js</type>
-                <name>varien/menu.js</name>
-            </action>
-            <action method="removeItem">
-                <type>js</type>
-                <name>scriptaculous/slider.js</name>
-            </action>
-            <action method="removeItem">
-                <type>js</type>
-                <name>scriptaculous/builder.js</name>
-            </action>
-            <action method="removeItem">
-                <type>js</type>
-                <name>scriptaculous/dragdrop.js</name>
-            </action>
-            <action method="removeItem">
-                <type>js</type>
-                <name>prototype/tooltip.js</name>
-            </action>
-            <action method="removeItem">
-                <type>js</type>
-                <name>lib/ccard.js</name>
-            </action>
-            <action method="removeItem">
                 <type>skin_css</type>
                 <name>css/magesetup/default.css</name>
             </action>
