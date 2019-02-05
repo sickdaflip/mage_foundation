@@ -3,12 +3,19 @@ $_helper = $this->helper('catalog/output');
 $_product = $this->getProduct()
 ?>
 <?php if ($_additional = $this->getAdditionalData()): ?>
-    <table class="fullWidth no-bottom">
+    <table class="stack hover">
         <tbody>
         <?php foreach ($_additional as $_data): ?>
+            <?php
+            $_MyValue = $_data['value'];
+            if (is_numeric($_MyValue))
+            {
+                $_MyValue = round($_MyValue, 2); //round to 0.00
+            }
+            ?>
             <tr>
-                <td width><?php echo $this->htmlEscape($this->__($_data['label'])) ?></td>
-                <td><?php echo $_helper->productAttribute($_product, $_data['value'], $_data['code']) ?></td>
+                <td><?php echo $this->htmlEscape($this->__($_data['label'])) ?></td>
+                <td><?php echo $_helper->productAttribute($_product, strip_tags($_MyValue), $_data['code']) ?></td>
             </tr>
         <?php endforeach; ?>
         </tbody>
