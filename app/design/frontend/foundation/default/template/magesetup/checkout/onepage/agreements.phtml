@@ -9,18 +9,19 @@ $agreements = $this->getAgreements();
 ?>
 
 <?php if (!$agreements) return; ?>
-<form id="checkout-agreements" onsubmit="return false;">
-    <ol class="checkout-agreements">
+<form id="checkout-agreements" onsubmit="return false;" data-abide novalidate>
+    <div class="checkout-agreements">
         <?php foreach ($agreements as $agreement): ?>
-            <li>
+            <div class="item">
                 <?php if ($agreement->getIsRequired()): ?>
                     <input type="checkbox" id="agreement-<?php echo $agreement->getId() ?>"
                            name="agreement[<?php echo $agreement->getId() ?>]" value="1"
-                           title="<?php echo $this->escapeHtml($agreement->getCheckboxText()) ?>"/>
+                           title="<?php echo $this->escapeHtml($agreement->getCheckboxText()) ?>"
+                           required/>
                 <?php endif; ?>
 
                 <label
-                    <?php if ($agreement->getIsRequired()): ?>for="agreement-<?php echo $agreement->getId() ?>"<?php endif; ?>><?php echo $agreement->getIsHtml() ? $agreement->getCheckboxText() : $this->escapeHtml($agreement->getCheckboxText()) ?></label>
+                    <?php if ($agreement->getIsRequired()): ?>for="agreement-<?php echo $agreement->getId() ?>"<?php endif; ?>><?php echo $agreement->getIsHtml() ? $agreement->getCheckboxText() : $this->escapeHtml($agreement->getCheckboxText()) ?>
                 <?php if (trim($agreement->getContent())): ?>
                     <div class="reveal large" id="agreement<?php echo $agreement->getId() ?>" data-reveal>
                         <?php
@@ -32,8 +33,8 @@ $agreements = $this->getAgreements();
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <a data-open="agreement<?php echo $agreement->getId() ?>"
-                       class="agreement<?php echo $agreement->getId() ?>"><?php echo $this->__('[Show]') ?></a>
+                    <a data-open="agreement<?php echo $agreement->getId() ?>" class="agreement<?php echo $agreement->getId() ?>"><?php echo $this->__('[Show]') ?></a>
+
                     <script type="text/javascript">
                         //<![CDATA[
                         var popup = new Foundation.Reveal(jQuery('#agreement<?php echo $agreement->getId() ?>'));
@@ -43,7 +44,8 @@ $agreements = $this->getAgreements();
                         //]]>
                     </script>
                 <?php endif ?>
-            </li>
+                </label>
+            </div>
         <?php endforeach ?>
-    </ol>
+    </div>
 </form>

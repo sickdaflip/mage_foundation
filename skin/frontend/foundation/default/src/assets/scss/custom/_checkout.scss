@@ -111,10 +111,22 @@
         }
       }
     }
+    .checkout-agreements {
+      .item {
+        input {
+          margin-bottom: 0;
+        }
+      }
+    }
     #checkout-review-table-wrapper {
       #checkout-review-table {
-        tfoot td {
-          font-weight: normal;
+        @extend .unstriped;
+        @extend .stack;
+        .a-right {
+          @extend .text-right;
+        }
+        .a-center {
+          @extend .text-center;
         }
       }
     }
@@ -226,16 +238,6 @@
       @extend .callout;
     }
   }
-  #checkout-review-table-wrapper {
-    overflow-x: hidden;
-    #checkout-review-table {
-      width: 100%;
-      ul.item-options li {
-        font-size: 0.9rem;
-        display: inline;
-      }
-    }
-  }
   .step-please-wait {
     width: 100%;
     height: 100%;
@@ -268,6 +270,7 @@
       border-style: solid;
       padding: 0.6rem 0;
     }
+
   }
   .is-invalid-label {
     span.form-error {
@@ -590,13 +593,6 @@ body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-l
 }
 
 /* review step */
-#checkout-review-table .btn-remove img {
-  display: none;
-}
-
-#checkout-review-table-wrapper {
-  clear: both;
-}
 
 #review-buttons-container {
   width: 100%;
@@ -658,19 +654,6 @@ body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-l
 
 #checkout-step-review .opc-block-progress .block-content .changelink {
   display: none;
-}
-
-@media only screen and (max-width: 479px) {
-  #checkout-review-table thead > tr > th {
-    display: none;
-  }
-  #checkout-review-table thead > tr > th:first-child {
-    display: block;
-  }
-
-  #checkout-review-table thead > tr > th:first-child {
-    display: block;
-  }
 }
 
 #checkout-step-review .centinel > p {

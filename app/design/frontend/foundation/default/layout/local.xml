@@ -445,6 +445,18 @@
         </reference>
     </checkout_onepage_index>
 
+    <checkout_onepage_review>
+        <reference name="checkout.onepage.review.info.items.before">
+            <action method="unsetChild">
+                <alias>agreements</alias>
+            </action>
+        </reference>
+        <reference name="checkout.onepage.review.info.items.after">
+            <block type="magesetup/checkout_agreements" name="magesetup.checkout.agreements" as="agreements"
+                   template="magesetup/checkout/onepage/agreements.phtml"/>
+        </reference>
+    </checkout_onepage_review>
+
     <checkout_onepage_success>
         <remove name="left"/>
         <remove name="right"/>

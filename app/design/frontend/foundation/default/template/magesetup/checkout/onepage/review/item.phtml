@@ -1,14 +1,12 @@
 <?php $_item = $this->getItem()?>
 <tr>
-    <td>
-        <img src="<?php echo $this->getProductThumbnail()->resize(75); ?>" width="75" height="75" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" />
+    <td class="a-center">
+        <img src="<?php echo $this->getProductThumbnail()->resize(100); ?>" width="100" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" />
     </td>
     <td>
-        <h3 class="product-name">
-            <?php if ($this->getProductUrl()): ?><a href="<?php echo $this->getProductUrl() ?>"><?php endif ?>
+        <p class="h5">
             <?php echo $this->escapeHtml($this->getProductName()) ?>
-            <?php if ($this->getProductUrl()): ?></a><?php endif ?>
-        </h3>
+        </p>
         <?php if ($_options = $this->getOptionList()): ?>
             <ul>
                 <?php foreach ($_options as $_option) : ?>

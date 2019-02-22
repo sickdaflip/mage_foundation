@@ -412,6 +412,20 @@ footer {
     }
   }
 }
+#checkout-agreements {
+  .checkout-agreements {
+    .item {
+      @include xy-grid;
+      align-items: center;
+      input {
+        @include xy-cell(2);
+      }
+      label {
+        @include xy-cell(10);
+      }
+    }
+  }
+}
 
 @media screen and #{breakpoint(medium)} {
 
