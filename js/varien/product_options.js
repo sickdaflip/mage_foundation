@@ -19,7 +19,7 @@
  *
  * @category    Varien
  * @package     js
- * @copyright   Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @copyright   Copyright (c) 2006-2018 Magento, Inc. (http://www.magento.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
@@ -37,8 +37,6 @@ Product.OptionsPrice.prototype = {
         this.productPrice       = config.productPrice;
         this.showIncludeTax     = config.showIncludeTax;
         this.showBothPrices     = config.showBothPrices;
-        this.productSkontoRate  = config.productSkontoRate;
-        this.msrp               = config.msrp;
         this.productOldPrice    = config.productOldPrice;
         this.priceInclTax       = config.priceInclTax;
         this.priceExclTax       = config.priceExclTax;
@@ -89,14 +87,12 @@ Product.OptionsPrice.prototype = {
         var price = 0;
         var nonTaxable = 0;
         var oldPrice = 0;
-        var skontoRate = 0;
         var priceInclTax = 0;
         var currentTax = this.currentTax;
         $H(this.optionPrices).each(function(pair) {
             if ('undefined' != typeof(pair.value.price) && 'undefined' != typeof(pair.value.oldPrice)) {
                 price += parseFloat(pair.value.price);
                 oldPrice += parseFloat(pair.value.oldPrice);
-                skontoRate += parseFloat(pair.value.skontoRate);
             } else if (pair.key == 'nontaxable') {
                 nonTaxable = pair.value;
             } else if (pair.key == 'priceInclTax') {
@@ -122,7 +118,6 @@ Product.OptionsPrice.prototype = {
 
         $H(this.containers).each(function(pair) {
             var _productPrice;
-            var _productSpecialPrice;
             var _plusDisposition;
             var _minusDisposition;
             var _priceInclTax;
@@ -132,7 +127,6 @@ Product.OptionsPrice.prototype = {
             if ($(pair.value)) {
                 if (pair.value == 'old-price-'+this.productId && this.productOldPrice != this.productPrice) {
                     _productPrice = this.productOldPrice;
-                    _productSpecialPrice = parseFloat(this.productPrice);
                     _plusDisposition = this.oldPlusDisposition;
                     _minusDisposition = this.oldMinusDisposition;
                 } else {
@@ -180,11 +174,6 @@ Product.OptionsPrice.prototype = {
                 excl += subPrice;
                 incl += subPriceincludeTax;
 
-                // add option price to the special price
-                if (_productSpecialPrice !== undefined && _productSpecialPrice > 0) {
-                    _productSpecialPrice += subPrice;
-                }
-
                 if (typeof this.exclDisposition == 'undefined') {
                     excl += parseFloat(_plusDisposition);
                 }
@@ -222,46 +211,6 @@ Product.OptionsPrice.prototype = {
                 } else {
                     formattedPrice = '';
                 }
-
-                if (jQuery('.skontoPrice')[0] && this.productSkontoRate) {
-                    var skontoRate = this.productSkontoRate;
-                    var skonto = skontoRate * price * 0.01;
-                    var skontoPrice = price - skonto;
-                    var skontoPriceInclTax = incl * (1 - (skontoRate * 0.01));
-
-                    if (this.showIncludeTax) {
-                        skontoPriceInclTax = excl * (1 - (skontoRate * 0.01));
-                    }
-
-                    // we have a special price, so recalculate all values
-                    if (_productSpecialPrice !== undefined && _productSpecialPrice > 0) {
-                        var specialPriceInclTax = _productSpecialPrice * (1 + (this.currentTax / 100));
-                        skonto = skontoRate * _productSpecialPrice * 0.01;
-                        skontoPrice = _productSpecialPrice - skonto;
-                        skontoPriceInclTax = specialPriceInclTax * (1 - (skontoRate * 0.01));
-
-                        if (this.showIncludeTax) {
-                            skonto = skontoRate * specialPriceInclTax * 0.01;
-                            skontoPrice = specialPriceInclTax - skonto;
-                            skontoPriceInclTax = _productSpecialPrice * (1 - (skontoRate * 0.01));
-                        }
-                    }
-
-                    jQuery('.skonto .price')[0].innerHTML = this.formatPrice(skonto);
-                    jQuery('.skontoRate')[0].innerHTML = (parseFloat(skontoRate)).toString();
-                    jQuery('.skontoPrice .price')[0].innerHTML = this.formatPrice(skontoPrice);
-                    jQuery('.skontoPriceTax')[0].innerHTML = this.formatPrice(skontoPriceInclTax);
-                }
-
-                if(jQuery('.msrp-price .price')[0] && this.msrp){
-                    jQuery('.msrp-price .price')[0].innerHTML = this.msrp;
-                }
-
-                var PriceTax = incl;
-                if (this.showIncludeTax) {
-                    PriceTax = excl;
-                }
-                //jQuery('.price_mwst .price')[0].innerHTML = this.formatPrice(PriceTax);
 
                 if ($(pair.value).select('.price')[0]) {
                     $(pair.value).select('.price')[0].innerHTML = formattedPrice;
