@@ -796,7 +796,7 @@ footer {
     .footer-info {
       .content {
         margin: 0 auto !important;
-        @include xy-cell(8);
+        @include xy-cell(10);
         .footer_links,
         .footer_service,
         .footer_manufactures,
