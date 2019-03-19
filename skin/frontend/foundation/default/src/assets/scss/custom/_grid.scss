@@ -163,6 +163,13 @@ header {
   justify-content: center;
 }
 
+.categories-jura-grid {
+  @include xy-grid-container($grid-container, 0);
+  @include xy-grid;
+  @include xy-grid-layout(2, 'li', true, $grid-margin-gutters, margin, left bottom);
+  justify-content: center;
+}
+
 .products-grid, .search-grid, .gift-grid {
   @include xy-grid-container($grid-container, 0);
   @include xy-grid;
@@ -491,7 +498,7 @@ footer {
     @include xy-grid-layout(4, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 
-  .categorypath-hersteller-jura .categories-grid {
+  .categories-jura-grid {
     @include xy-grid-layout(2, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 
@@ -703,7 +710,7 @@ footer {
     @include xy-grid-layout(5, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 
-  .categorypath-hersteller-jura .categories-grid {
+  .categories-jura-grid {
     @include xy-grid-layout(2, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 

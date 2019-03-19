@@ -1,0 +1,37 @@
+<?php
+$_categories = $this->getCurrentChildCategories(); ?>
+<ul class="categories-jura-grid" data-equalizer data-equalize-on="medium">
+    <?php $i = 0; ?>
+    <?php foreach ($_categories as $_category): ?>
+        <?php if ($_category->getIsActive()): ?>
+            <?php $_category = Mage::getModel("catalog/category")->load($_category->getEntityId()); ?>
+            <li class="item" data-equalizer-watch>
+                <div class="category-image">
+                    <?php if ($_category->getImageUrl()) : ?>
+                        <?php if ($additionalheadline = $_category->getAdditionalHeadline()): ?>
+                            <?php $title = $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->categoryAttribute($_category, $_category->getAdditionalHeadline(), 'additional_headline')) ?>
+                        <?php else: ?>
+                            <?php $title = $this->htmlEscape($_category->getName()) ?>
+                        <?php endif; ?>
+                        <a href="<?php echo $_category->getURL() ?>"
+                           title="<?php echo $this->htmlEscape($_category->getName()) ?>">
+                            <img src="<?php echo $_category->getCategoryImage(500, 225) ?>"
+                                 alt="<?php echo $this->htmlEscape($_category->getName()) ?>"
+                                 title="<?php echo $title ?>"/>
+                        </a>
+                    <?php endif; ?>
+                    <div class="category-name">
+                        <a href="<?php echo $_category->getURL() ?>"
+                           title="<?php echo $this->htmlEscape($_category->getName()) ?>"><?php echo $this->htmlEscape($_category->getName()) ?></a>
+                    </div>
+                </div>
+            </li>
+        <?php endif; ?>
+        <?php $i++; ?>
+    <?php endforeach; ?>
+</ul>
+<script type="text/javascript">
+    jQuery('.item').on("click", function () {
+        location.href = jQuery(this).find('a').attr('href');
+    });
+</script>

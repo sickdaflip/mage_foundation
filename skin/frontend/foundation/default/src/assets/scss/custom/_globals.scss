@@ -146,3 +146,10 @@ iframe[name='google_conversion_frame'] {
 #tsbadge4_db8d3657bdbe440c985ae127463eaad4 {
   bottom: 60px !important;
 }
+
+.sticky  {
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
