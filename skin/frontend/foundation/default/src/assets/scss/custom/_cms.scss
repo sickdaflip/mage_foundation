@@ -4,12 +4,12 @@
       .row {
         max-width: 100%
       }
-      h1.center-line,
-      h2.center-line,
-      h3.center-line,
-      h4.center-line,
-      h5.center-line,
-      h6.center-line {
+      h1.center-line, p.h1.center-line,
+      h2.center-line, p.h2.center-line,
+      h3.center-line, p.h3.center-line,
+      h4.center-line, p.h4.center-line,
+      h5.center-line, p.h5.center-line,
+      h6.center-line, p.h6.center-line {
         overflow: hidden;
         text-align: center;
         color: $primary-color;

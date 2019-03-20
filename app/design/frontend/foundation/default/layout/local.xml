@@ -56,6 +56,7 @@
         <!--Magento's Default Sidebar Blocks-->
         <remove name="cart_sidebar"/>                   <!--Cart Sidebar-->
         <remove name="catalog.product.related"/>        <!--Related products sidebar-->
+        <remove name="catalog.compare.sidebar"/>
         <remove name="wishlist_sidebar"/>               <!--Wishlist Sidebar-->
         <remove name="right.permanent.callout"/>        <!--Right Callout Sample Data-->
         <remove name="left.permanent.callout"/>         <!--Left Callout Sample Data-->
@@ -78,6 +79,10 @@
 
         <reference name="right">
             <remove name="right.reports.product.viewed"/>
+            <block type="catalog/product_compare_sidebar" name="catalog.compare.jura" template="catalog/product/compare/sidebar.phtml">
+                <action method="unsetData"><key>cache_lifetime</key></action>
+                <action method="unsetData"><key>cache_tags</key></action>
+            </block>
         </reference>
 
         <!-- Add/Remove Top Links -->
@@ -393,7 +398,6 @@
                     <label><![CDATA[<span class="fa-li"><i class="fa fa-power-off"></i></span>]]> Abmelden</label>
                 </action>
             </block>
-            <!--remove name="catalog.compare.sidebar"/>-->
         </reference>
     </customer_account>
 

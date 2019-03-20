@@ -2,6 +2,16 @@
   display: none;
 }
 
+//Paragraphs
+p.h1,
+p.h2,
+p.h3,
+p.h4,
+p.h5,
+p.h6 {
+  color: $primary-color;
+}
+
 //Lists
 ul {
   list-style-type: none;
