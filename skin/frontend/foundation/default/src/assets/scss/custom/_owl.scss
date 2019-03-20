@@ -76,6 +76,10 @@ $owl-dot-background-active: $primary-color !default;
   .owl-item {
     display: flex;
     flex: 1 0 auto;
+    .item img {
+      border-radius: $global-radius;
+      background: inherit;
+    }
   }
 }
 
