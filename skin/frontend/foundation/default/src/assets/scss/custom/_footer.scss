@@ -113,18 +113,18 @@ footer {
 }
 
 .reasons {
+  transition: all .2s ease-in-out;
   @include show-for(xlarge);
   position: fixed;
   padding: .5em .5em .5em 1.5em;
   left: 0;
   top: 15em;
-  background-color: #00bbff;
+  background-color: $secondary-color;
   margin-left: -1em;
-  border-radius: 3px;
+  border-radius: $global-radius;
   span:first-child {
     padding: 0;
-    font-family: 'Open Sans';
-    color: #ffffff;
+    color: $white;
     font-size: 3em;
     font-weight: bold;
     display: block;
@@ -135,8 +135,8 @@ footer {
   span:nth-child(2n) {
     display: block;
     text-transform: uppercase;
-    font-family: 'Open Sans';
-    color: #ffffff;
+    color: $white;
     font-size: .7em;
   }
+  &:hover { transform: scale(1.1); }
 }
