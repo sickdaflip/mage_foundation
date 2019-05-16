@@ -10,8 +10,6 @@ import Foundation from 'foundation-sites';
 
 $(document).ready(function () {
 
-    //Foundation.Abide.defaults.patterns['password'] = /^((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,})$/;
-
     $(document).foundation();
 
     // not hide do remove!

@@ -1,15 +1,5 @@
 app/code/local/Foundation   app/code/local/Foundation
-app/code/local/Mage/Catalog  app/code/local/Mage/Catalog
-app/code/local/Mage/CatalogRule app/code/local/Mage/CatalogRule
-app/code/local/Mage/Checkout/Block/Onepage/Progress.php app/code/local/Mage/Checkout/Block/Onepage/Progress.php
-app/code/local/Mage/Core/Block/Messages.php app/code/local/Mage/Core/Block/Messages.php
-app/code/local/Mage/Core/Model/File/Validator/Image.php app/code/local/Mage/Core/Model/File/Validator/Image.php
-app/code/local/Mage/Core/Model/Session/Abstract/Varien.php  app/code/local/Mage/Core/Model/Session/Abstract/Varien.php
-app/code/local/Mage/Core/Model/Cookie.php   app/code/local/Mage/Core/Model/Cookie.php
-app/code/local/Mage/Eav app/code/local/Mage/Eav
-app/code/local/Mage/Newsletter/Model/Subscriber.php app/code/local/Mage/Newsletter/Model/Subscriber.php
-app/code/local/Mage/Rule/Model/Resource/Rule/Condition/SqlBuilder.php   app/code/local/Mage/Rule/Model/Resource/Rule/Condition/SqlBuilder.php
-app/code/local/Mage/Sitemap/Model/Sitemap.php   app/code/local/Mage/Sitemap/Model/Sitemap.php
+app/code/local/Mage/  app/code/local/Mage/
 app/design/adminhtml/default/default/layout/foundation_islands.xml  app/design/adminhtml/default/default/layout/foundation_islands.xml
 app/design/adminhtml/default/default/template/foundation/islands/sales/order/view/info.phtml    app/design/adminhtml/default/default/template/foundation/islands/sales/order/view/info.phtml
 app/design/frontend/foundation/default app/design/frontend/foundation/default
