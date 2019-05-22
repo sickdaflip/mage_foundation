@@ -886,15 +886,6 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
             $errors[] = Mage::helper('customer')
                 ->__('Please enter a password with at most %s characters.', self::MAXIMUM_PASSWORD_LENGTH);
         }
-        if (strtolower($password) == $password || strtoupper($password) == $password) {
-            $errors[] = Mage::helper('customer')->__('The password must contain both uppercase and lowercase characters');
-        }
-        if (!preg_match('/[^0-9]+/', $password)) {
-            $errors[] = Mage::helper('customer')->__('The password must contain at least one number');
-        }
-        if (!preg_match('/[^a-zA-Z\d]/', $password)) {
-            $errors[] = Mage::helper('customer')->__('The password must contain at least one special character');
-        }
         if ($password == $this->getEmail()) {
             $errors[] = Mage::helper('customer')
                 ->__('Bitte benutzen Sie nicht Ihre Email %s als Passwort.', $this->getEmail());
@@ -943,15 +934,6 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
         if (!Zend_Validate::is($password, 'StringLength', array('max' => self::MAXIMUM_PASSWORD_LENGTH))) {
             $errors[] = Mage::helper('customer')
                 ->__('Please enter a password with at most %s characters.', self::MAXIMUM_PASSWORD_LENGTH);
-        }
-        if (strtolower($password) == $password || strtoupper($password) == $password) {
-            $errors[] = Mage::helper('customer')->__('The password must contain both uppercase and lowercase characters');
-        }
-        if (!preg_match('/[^0-9]+/', $password)) {
-            $errors[] = Mage::helper('customer')->__('The password must contain at least one number');
-        }
-        if (!preg_match('/[^a-zA-Z\d]/', $password)) {
-            $errors[] = Mage::helper('customer')->__('The password must contain at least one special character');
         }
         if ($password == $this->getEmail()) {
             $errors[] = Mage::helper('customer')->__('Bitte benutzen Sie nicht Ihre Email als Passwort.');
