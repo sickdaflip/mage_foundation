@@ -372,21 +372,6 @@
                     <label><![CDATA[<span class="fa-li"><i class="fa fa-shopping-cart"></i></span>]]>Bestellungen
                     </label>
                 </action>
-                <action method="addLink" translate="label" module="review">
-                    <name>reviews</name>
-                    <path>review/customer</path>
-                    <label><![CDATA[<span class="fa-li"><i class="fa fa-star"></i></span>]]> Bewertungen</label>
-                </action>
-                <action method="addLink" translate="label" module="wishlist" ifconfig="wishlist/general/active">
-                    <name>wishlist</name>
-                    <path>wishlist/</path>
-                    <label><![CDATA[<span class="fa-li"><i class="fa fa-heart"></i></span>]]> Merkliste</label>
-                </action>
-                <action method="addLink" translate="label" module="newsletter">
-                    <name>newsletter</name>
-                    <path>newsletter/manage/</path>
-                    <label><![CDATA[<span class="fa-li"><i class="fa fa-envelope"></i></span>]]> Newsletter</label>
-                </action>
                 <action method="addLink" translate="label" module="deletecustomer">
                     <name>Delete Account</name>
                     <path>deletecustomer/index/index</path>
