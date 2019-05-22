@@ -891,16 +891,6 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
                 ->__('Bitte benutzen Sie nicht Ihre Email %s als Passwort.', $this->getEmail());
         }
 
-        // Validate password strength
-        $uppercase = preg_match('@[A-Z]@', $password);
-        $lowercase = preg_match('@[a-z]@', $password);
-        $number    = preg_match('@[0-9]@', $password);
-        $specialChars = preg_match('@[^\w]@', $password);
-
-        if(!$uppercase || !$lowercase || !$number || !$specialChars) {
-            $errors[] = Mage::helper('customer')->__('Bitte benutzen Sie ein sicheres Passwort.');
-        }
-
         $confirmation = $this->getPasswordConfirmation();
         if ($password != $confirmation) {
             $errors[] = Mage::helper('customer')->__('Please make sure your passwords match.');
@@ -948,17 +938,6 @@ class Mage_Customer_Model_Customer extends Mage_Core_Model_Abstract
         if ($password == $this->getEmail()) {
             $errors[] = Mage::helper('customer')->__('Bitte benutzen Sie nicht Ihre Email als Passwort.');
         }
-
-        // Validate password strength
-        $uppercase = preg_match('@[A-Z]@', $password);
-        $lowercase = preg_match('@[a-z]@', $password);
-        $number    = preg_match('@[0-9]@', $password);
-        $specialChars = preg_match('@[^\w]@', $password);
-
-        if(!$uppercase || !$lowercase || !$number || !$specialChars) {
-            $errors[] = Mage::helper('customer')->__('Bitte benutzen Sie ein sicheres Passwort.');
-        }
-
 
         $confirmation = $this->getPasswordConfirmation();
         if ($password != $confirmation) {
