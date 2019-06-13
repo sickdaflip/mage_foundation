@@ -261,7 +261,25 @@
                 <li>
                     <a href="<?php echo Mage::getUrl('', array('_direct' =>'sitemap')); ?>"><?php echo $this->__('Sitemap') ?></a>
                 </li>
+                <li>
+                    <a class="hints"><?php echo $this->__('Hinweise') ?></a>
+                </li>
             </ul>
+            <div class="reveal large" id="hints" data-reveal></div>
+            <script>
+                jQuery('.hints').click(function () {
+                    jQuery.ajax({
+                        url: '<?php echo $this->getUrl('ajax/cms/block/id/60');?>',
+                        beforeSend: function () {
+                            jQuery('#reveal-wait').show();
+                        }
+                    })
+                        .done(function (data) {
+                            jQuery('#reveal-wait').hide();
+                            jQuery('#hints').html(data).foundation('open');
+                        });
+                });
+            </script>
         </div>
         <div class="social">
             <ul>

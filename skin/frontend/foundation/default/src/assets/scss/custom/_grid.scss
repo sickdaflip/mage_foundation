@@ -166,7 +166,7 @@ header {
 .categories-jura-grid {
   @include xy-grid-container($grid-container, 0);
   @include xy-grid;
-  @include xy-grid-layout(2, 'li', true, $grid-margin-gutters, margin, left bottom);
+  @include xy-grid-layout(1, 'li', true, $grid-margin-gutters, margin, left bottom);
   justify-content: center;
 }
 
@@ -252,7 +252,7 @@ header {
       @include xy-grid;
       .product-img-box,
       .product-shop {
-        @include xy-cell(12, false, 0);
+        @include xy-cell(12);
         .add-to-cart {
           @include xy-grid;
           label {
@@ -302,6 +302,19 @@ header {
         }
       }
     }
+  }
+}
+
+.product-collateral {
+  @include xy-cell(12);
+}
+
+
+.product-note {
+  @include xy-grid;
+  @extend .align-middle;
+  .product-security, .product-hint {
+    @include xy-cell(12);
   }
 }
 
@@ -499,7 +512,7 @@ footer {
   }
 
   .categories-jura-grid {
-    @include xy-grid-layout(2, 'li', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(1, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 
   .products-grid, .search-grid, .gift-grid {
@@ -563,6 +576,12 @@ footer {
       .form-add {
         @include xy-cell(12);
       }
+    }
+  }
+
+  .product-note {
+    .product-security, .product-hint {
+      @include xy-cell(6);
     }
   }
 
@@ -711,7 +730,7 @@ footer {
   }
 
   .categories-jura-grid {
-    @include xy-grid-layout(2, 'li', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(1, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 
   .products-grid, .search-grid, .gift-grid {

@@ -1,5 +1,5 @@
 # Dependency directories
 *node_modules
 *bower_components
-*package-lock.json
-*npm-debug.log
+package-lock.json
+npm-debug.log

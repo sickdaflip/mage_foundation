@@ -11,8 +11,8 @@
 .product-view {
   .product-essential {
     .product-shop {
+      margin-bottom: $global-margin;
       ul.pricing-table {
-        margin-bottom: $global-margin;
         li.price {
           .price-box {
             span.price {
@@ -47,11 +47,31 @@
     }
     .product-img-box {
       .product-image {
+        margin-bottom: $global-margin;
+        padding: $global-padding;
+        border-radius: $global-radius;
+        border: solid 1px $light-gray;
         text-align: center;
+        img {
+          transition: $global-transform;
+          &:hover {
+            transform: $global-scale;
+          }
+        }
       }
       .product-images {
+        margin-bottom: $global-margin;
+        padding: $global-padding;
+        border-radius: $global-radius;
+        border: solid 1px $light-gray;
         ul li {
           text-align: center;
+          img {
+            transition: $global-transform;
+            &:hover {
+              transform: $global-scale;
+            }
+          }
         }
       }
     }
@@ -171,6 +191,12 @@
   }
   .product-brand {
     text-align: center;
+    img {
+      transition: $global-transform;
+      &:hover {
+        transform: $global-scale;
+      }
+    }
   }
   .sku, .availability, .delivery-time {
     margin-bottom: 0;
@@ -324,7 +350,7 @@
       &:after {
         @include fa-icon;
         @extend .fas;
-        content: ' 'fa-content($fa-var-check);
+        content: ' ' fa-content($fa-var-check);
       }
       .price-notice .price {
         color: $success-color;
@@ -371,6 +397,7 @@
 }
 
 .product-collateral {
+  margin-bottom: $global-margin;
   table.product-attachments {
     .name {
       font-size: rem-calc(13);

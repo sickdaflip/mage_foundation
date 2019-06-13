@@ -44,7 +44,7 @@
             color: $medium-gray;
           }
           .algoliasearch-autocomplete-price {
-            color: scale-color($green, $lightness: -20%);
+            color: scale-color(#B9E700, $lightness: -20%);
           }
 
           .before_special {
@@ -96,7 +96,7 @@
     }
     .category {
       padding: .5rem 0;
-      color: scale-color($green, $lightness: -20%);
+      color: scale-color(#B9E700, $lightness: -20%);
       text-align: left;
       text-transform: uppercase;
       font-weight: bold;
