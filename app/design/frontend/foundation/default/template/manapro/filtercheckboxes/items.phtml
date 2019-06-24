@@ -30,7 +30,7 @@
                     <input class="switch-input" type="checkbox" id="<?php echo $_item->getUniqueId($this) ?>"
                            value="<?php echo $_item->getValue() ?>"
                            <?php if ($_item->getMShowSelected()): ?>checked="checked"<?php endif; ?>
-                           onClick="setLocation('<?php echo rawurldecode($this->urlEscape($_item->getMSelected() ? $_item->getRemoveUrl() : $_item->getUrl())) ?>');"/>
+                           onClick="setLocation('<?php echo $this->urlEscape($_item->getMSelected() ? $_item->getRemoveUrl() : $_item->getUrl()) ?>');"/>
                     <label class="switch-paddle" for="<?php echo $_item->getUniqueId($this) ?>">
                         <span class="show-for-sr<?php if ($_item->getMShowSelected()): ?> m-selected-checkbox-item<?php endif; ?>"
                             title="<?php echo $this->escapeHtml($_item->getLabel()) ?>"><?php echo $this->escapeHtml($_item->getLabel()) ?></span><?php if (Mage::getStoreConfigFlag('mana_filters/display/count')) : ?>
