@@ -26,29 +26,23 @@
 ?>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
 <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('contacts_head')->toHtml(); ?>
-<div class="row">
-    <div class="small-12 medium-6 columns">
+<div class="grid-x grid-margin-x grid-pagging-x align-middle">
+    <div class="small-12 medium-6 cell">
         <p>Bitte nehmen Sie &uuml;ber nachfolgendes Formular Kontakt mit uns auf. Gern unterbreiten wir Ihnen ein ganz
             pers&ouml;nliches Angebot, auch mit Mengenrabatt ab einem&nbsp;<strong>gr&ouml;&szlig;eren
                 Bestellwert</strong>.</p>
-        <p><strong>Nutzen Sie auch unsere Bestell- und Beratungshotline:<br/>0800-456-6000 (kostenfrei aus deutschem
-                Festnetz)<br/>oder per Fax an 038231-3261.</strong></p>
-        <p>Sie k&ouml;nnen uns auch eine Nachricht per&nbsp;<strong>eMail</strong>&nbsp;zukommen lassen - nutzen Sie
+        <p><strong>Nutzen Sie auch unsere Bestell- und Beratungshotline:</strong></p>
+        <p class="h3">0800-456-6000 <small>(kostenfrei aus deutschem Festnetz)</small></p>
+        <p>oder per Fax an 038231-3261.</p>
+        <p>Sie k&ouml;nnen uns auch eine Nachricht per&nbsp;<strong>E-Mail</strong>&nbsp;zukommen lassen - nutzen Sie
             bitte das <strong>Kontaktformular</strong>&nbsp;oder senden uns eine eMail an&nbsp;<a
-                href="mailto:shop@gastrodax.de">shop@gastrodax.de</a>.</p>
-        <p><em>Ihre Ansprechpartner:</em></p>
-        <ul class="arrow">
-            <li>Frau Anja Jentsch</li>
-            <li>Frau Cornelia Reichstein</li>
-            <li>Herr Sebastian Pust</li>
-            <li>Herr Stefan Frank</li>
-            <li>Herr Rene Reichel</li>
-            <li>Herr Eric Zegel</li>
-        </ul>
-        <p>Unsere Mitarbeiter sind gern f&uuml;r Sie da.<br/>Ihr Gastrodax Team</p>
+                    href="mailto:shop@gastrodax.de">shop@gastrodax.de</a>.</p>
+        <p>Unsere Mitarbeiter sind gern f&uuml;r Sie da.</p>
+        <p>Ihr Gastrodax Team</p>
     </div>
-    <div class="small-12 medium-6 columns">
-        <form action="<?php echo Mage::getUrl('contacts/index/post'); ?>" id="contactForm" method="post" data-abide novalidate>
+    <div class="small-12 medium-6 cell">
+        <form action="<?php echo Mage::getUrl('contacts/index/post'); ?>" id="contactForm" method="post" data-abide
+              novalidate>
             <div class="fieldset">
                 <h2 class="legend"><?php echo Mage::helper('contacts')->__('Contact Information') ?></h2>
                 <div class="name-field">
@@ -83,16 +77,16 @@
                 <div class="comment-field">
                     <label for="comment"><?php echo Mage::helper('contacts')->__('Comment') ?>
                         <small><?php echo $this->__('required') ?></small>
-                <textarea name="comment" id="comment"
-                          title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Comment')) ?>"
-                          cols="5" rows="3"
-                          required></textarea>
+                        <textarea name="comment" id="comment"
+                                  title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Comment')) ?>"
+                                  cols="5" rows="3"
+                                  required></textarea>
                         <small class="form-error"><?php echo $this->__('Please enter your comment.') ?></small>
                     </label>
                 </div>
                 <div class="bdsg-checkbox">
                     <input id="bdsg-checkbox" type="checkbox" required><label
-                        for="bdsg-checkbox"><?php echo $this->__('Ich stimme zu, dass meine Angaben aus dem Kontaktformular zur Beantwortung meiner Anfrage erhoben und verarbeitet werden. Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z.B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Hinweis: Sie können Ihre Einwilligung jederzeit für die Zukunft per E-Mail an datenschutz@newgastroline.de widerrufen. Detaillierte Informationen zum Umgang mit Nutzerdaten finden Sie in unserer <a href="%s">Datenschutzerklärung</a>.', Mage::getUrl('datenschutz')) ?></label>
+                            for="bdsg-checkbox"><?php echo $this->__('Ich stimme zu, dass meine Angaben aus dem Kontaktformular zur Beantwortung meiner Anfrage erhoben und verarbeitet werden. Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z.B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Hinweis: Sie können Ihre Einwilligung jederzeit für die Zukunft per E-Mail an datenschutz@newgastroline.de widerrufen. Detaillierte Informationen zum Umgang mit Nutzerdaten finden Sie in unserer <a href="%s">Datenschutzerklärung</a>.', Mage::getUrl('datenschutz')) ?></label>
                 </div>
             </div>
             <div class="buttons-set">
