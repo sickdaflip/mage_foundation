@@ -28,7 +28,7 @@
 <?php $_wishlistSubmitUrl = $this->helper('wishlist')->getAddUrl($_product); ?>
 <?php if ($this->helper('wishlist')->isAllow()) : ?>
     <li class="bullet-item">
-        <div class="stacked-for-small button-group">
+        <div class="stacked-for-small button-group float-center">
             <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/fax/faxbestellung.pdf' ?>"
                class="button hollow" target="_blank" rel="nofollow noopener noreferrer"><?php echo $this->__('per Fax bestellen') ?></a>
             <a href="<?php echo $_wishlistSubmitUrl ?>"
@@ -51,8 +51,8 @@
 <?php endif; ?>
 <?php if ($_product->getData('custom_quote') == 1): ?>
     <li class="description">
-        <div class="custom-quote"><p>Fragen Sie uns nach Ihrem günstigen Hauspreis!</p>
-            <div class="stacked-for-small button-group">
+        <div class="custom-quote text-center"><p>Erfragen Sie unseren <strong>aktuellen Tagespreis!</strong></p>
+            <div class="stacked-for-small button-group float-center">
                 <a class="button hollow" href="tel:+498004566000" rel="nofollow noopener noreferrer"><i class="fa fa-phone"></i> <strong>0800 456 6000</strong></a>
                 <a class="button hollow" href="mailto:shop@gastrodax.de" rel="nofollow noopener noreferrer">shop@gastrodax.de</a>
             </div>
