@@ -532,15 +532,17 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                     </p>
                 <?php else: ?>
                     <p class="special-price">
-                        <span class="price-label"><?php echo $_specialPriceStoreLabel ?><br/>
+                        <span class="price-label"><?php echo $_specialPriceStoreLabel ?>
                             <?php
                             $todate = Mage::getResourceModel('catalogrule/rule')->getRulesFromProduct(Mage::getModel('core/date')->date('Y-m-d'), 1, Mage::getSingleton('customer/session')->getCustomerGroupId(), $_product->getId());
                             $todate = array_shift($todate);
                             $todate = gmdate("d.m.Y", $todate['to_time']);
                             if (!empty($_product->getSpecialToDate())) {
-                                echo $this->__('bei Bestellung bis') . ' ' . $this->formatDate($_product->getSpecialToDate());
+                                echo '<br/>' . $this->__('bei Bestellung bis') . ' ' . $this->formatDate($_product->getSpecialToDate());
+                            } elseif (isset($todate) && empty($_product->getSpecialToDate()) && $todate != '01.01.1970') {
+                                echo '<br/>' . $this->__('bei Bestellung bis') . ' ' . $todate;
                             } else {
-                                echo $this->__('bei Bestellung bis') . ' ' . $todate;
+                                echo ' ';
                             }
                             if($_product->getFinalPrice() < $_product->getPrice()){ ?>
                                 <?php $_savingPercent = 100 - round(($_product->getFinalPrice() / $_product->getPrice())*100); ?>
