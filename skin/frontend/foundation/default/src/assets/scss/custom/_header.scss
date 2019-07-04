@@ -45,11 +45,12 @@ header {
           }
           font-size: 1.2rem;
           font-weight: 500;
-          letter-spacing: 1px;
+          letter-spacing: .02rem;
           display: block;
+          text-transform: uppercase;
           span {
             font-weight: 500;
-            letter-spacing: .08rem;
+            letter-spacing: .15rem;
             @include breakpoint(retina) {
               letter-spacing: .1rem;
             }
