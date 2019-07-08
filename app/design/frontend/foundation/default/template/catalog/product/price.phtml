@@ -215,7 +215,7 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                             <?php echo $_coreHelper->formatPrice($_msrpPrice, true); ?>
                         </p>
                     <?php } ?>
-                    <?php if (!empty($_product->getAttributeText('manufacturer')) && $_product->getAttributeText('manufacturer') == 'Unox'): ?>
+                    <?php if (!empty($_product->getAttributeText('manufacturer')) && $_product->getAttributeText('manufacturer') == 'undefine'): ?>
                         <?php if ($_finalPrice == $_price): ?>
                             <?php $_skprice = $_price; ?>
                             <?php $discount = $_price - $_skprice; ?>
