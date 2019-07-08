@@ -142,10 +142,10 @@ header {
   justify-content: center;
   align-items: center;
   .switch {
-    @include xy-cell(3);
+    @include xy-cell(4);
   }
   span {
-    @include xy-cell(9);
+    @include xy-cell(8);
   }
 }
 

@@ -39,21 +39,23 @@
     top: 0 !important;
     right: 0 !important;
   }
-  .m-filter-checkboxes li {
-    input {
-      bottom: 0;
-      margin: 0;
-    }
-    label {
-      line-height: 1;
-      font-size: rem-calc(12);
-      span {
-        display: inline-block; /* in seltenen Faellen in Kombination mit "(max-)width" auch "inline-block" */
-        overflow: hidden;
-        -moz-text-overflow: ellipsis;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        max-width: 12rem;
+  .m-filter-checkboxes {
+    li {
+      input {
+        bottom: 0;
+        margin: 0;
+      }
+      label {
+        line-height: 1;
+        font-size: rem-calc(12);
+        span {
+          display: inline-block; /* in seltenen Faellen in Kombination mit "(max-)width" auch "inline-block" */
+          overflow: hidden;
+          -moz-text-overflow: ellipsis;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          max-width: 12rem;
+        }
       }
     }
   }

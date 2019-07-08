@@ -35,9 +35,6 @@
           }
         }
       }
-      .custom-quote {
-        @include callout-base;
-      }
       .follower {
         color: $white;
         font-weight: 700;
@@ -182,11 +179,9 @@
       color: #333333;
     }
     .custom-quote {
-      @include callout-base;
       margin-bottom: 0 !important;
-      p {
-        font-size: rem-calc(16);
-      }
+      font-size: rem-calc(16);
+      color: red;
     }
   }
   .product-brand {
