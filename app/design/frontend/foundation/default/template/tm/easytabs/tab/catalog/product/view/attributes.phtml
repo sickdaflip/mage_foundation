@@ -12,11 +12,16 @@ $_product = $this->getProduct()
             {
                 $_MyValue = round($_MyValue, 2); //round to 0.00
             }
+            if ($_data['value'] != '0.0000')
+            {
+                ?>
+                <tr>
+                    <td><?php echo $this->htmlEscape($this->__($_data['label'])) ?></td>
+                    <td><?php echo $_helper->productAttribute($_product, strip_tags($_MyValue), $_data['code']) ?></td>
+                </tr>
+               <?php
+            }
             ?>
-            <tr>
-                <td><?php echo $this->htmlEscape($this->__($_data['label'])) ?></td>
-                <td><?php echo $_helper->productAttribute($_product, strip_tags($_MyValue), $_data['code']) ?></td>
-            </tr>
         <?php endforeach; ?>
         </tbody>
     </table>

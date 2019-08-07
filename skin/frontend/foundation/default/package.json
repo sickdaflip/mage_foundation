@@ -28,12 +28,12 @@
     "google-fonts": "~1.0.0",
     "jquery": "~3.4.1",
     "lightgallery": "^1.6.12",
-    "minify": "^4.1.1",
+    "minify": "^4.1.3",
     "motion-ui": "~2.0.3",
     "what-input": "^5.2.3"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.9.0",
+    "@fortawesome/fontawesome-free": "^5.10.1",
     "babel-core": "~6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-es2015": "~6.24.1",
@@ -68,7 +68,7 @@
     "rimraf": "~2.6.3",
     "style-sherpa": "~1.0.2",
     "vinyl-named": "~1.1.0",
-    "webpack": "^4.34.0",
+    "webpack": "^4.39.1",
     "webpack-stream": "^4.0.3",
     "yargs": "~12.0.5"
   },

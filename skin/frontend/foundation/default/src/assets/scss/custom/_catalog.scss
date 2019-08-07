@@ -1,3 +1,10 @@
+//Page-Title
+.page-title, .category-title {
+  h1 {
+    @extend .text-center;
+  }
+}
+
 //Toolbar
 .toolbar, .toolbar-3 {
   margin-bottom: 1rem;
@@ -182,6 +189,10 @@
         max-width: 8rem;
         text-align: center;
       }
+    }
+    .commissioning {
+      color: $white;
+      background: $alert-color;
     }
     .price-box {
       font-size: .8rem;

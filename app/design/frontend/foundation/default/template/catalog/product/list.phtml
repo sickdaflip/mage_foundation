@@ -138,6 +138,11 @@ $_helper = $this->helper('catalog/output');
                             ->setIdSuffix($idSuffix = 'amit')
                             ->toHtml(); ?>
                         <?php //echo $this->getPriceHtml($_product, true) ?>
+                        <?php if ($_product->getData('commissioning') == 1): ?>
+                            <?php $productAttribute = $_product->getResource()->getAttribute('commissioning'); ?>
+                            <?php $_label = $productAttribute->getStoreLabel(Mage::app()->getStore()->getId()); ?>
+                            <span class="commissioning"><?php echo $_label; ?></span>
+                        <?php endif; ?>
                     </li>
                 <?php endforeach ?>
             </ul>

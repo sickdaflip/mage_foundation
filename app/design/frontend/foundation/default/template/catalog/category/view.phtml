@@ -46,9 +46,9 @@ if ($_imgUrl = $_category->getImageUrl()) {
            class="link-rss"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
     <?php endif; ?>
     <?php if ($additionalheadline = $_category->getAdditionalHeadline()): ?>
-        <h1 class="separator-center"><?php echo $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->categoryAttribute($_category, $_category->getAdditionalHeadline(), 'additional_headline')) ?></h1>
+        <h1><?php echo $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->categoryAttribute($_category, $_category->getAdditionalHeadline(), 'additional_headline')) ?></h1>
     <?php else: ?>
-        <h1 class="separator-center"><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
+        <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
     <?php endif; ?>
 </div>
 
