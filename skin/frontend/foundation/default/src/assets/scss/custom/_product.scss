@@ -354,8 +354,11 @@
         color: $success-color;
       }
     }
-    .show-more {
+    .more {
       cursor: pointer;
+      &:hover {
+        color: $success-color;
+      }
     }
   }
   .input-box {

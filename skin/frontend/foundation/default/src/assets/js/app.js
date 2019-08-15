@@ -56,19 +56,25 @@ $(document).ready(function () {
     });
 
     //Product Option show more and less
-    $('ul.options-list').each(function () {
-        var max = 2;
-        if ($(this).find("li").length > max) {
-            $(this)
-                .find('li:gt(' + max + ')')
-                .hide()
-                .end()
-                .append(
-                    $('<li class="show-more">weitere Optionen anzeigen</li>').click(function () {
-                        $(this).siblings(':hidden').show().end().remove();
-                    })
-                );
+    $('ul.options-list').each(function(){
+
+        var LiN = $(this).find('li').length;
+
+        if( LiN > 3){
+            $('li', this).eq(2).nextAll().hide().addClass('toggleable');
+            $(this).append('<li class="more">weitere Optionen anzeigen</li>');
         }
+
+    });
+
+
+    $('ul.options-list').on('click','.more', function(){
+        if( $(this).hasClass('less') ){
+            $(this).text('weitere Optionen anzeigen').removeClass('less');
+        }else{
+            $(this).text('weitere Optionen ausblenden').addClass('less');
+        }
+        $(this).siblings('li.toggleable').slideToggle();
     });
 
     //only for Jura
