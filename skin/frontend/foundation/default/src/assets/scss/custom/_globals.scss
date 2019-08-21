@@ -2,7 +2,6 @@
 $global-scale: scale(1.03);
 $global-transform: transform .2s;
 
-
 .no-display {
   display: none;
 }
@@ -17,22 +16,8 @@ p.h6 {
   color: $primary-color;
 }
 
-//Lists
-ul {
-  list-style-type: none;
-}
-
 ul.links li {
   display: inline;
-}
-
-ul, ol, dd {
-  margin: 0;
-}
-
-ol.decimal, ol.decimal > li ol {
-  list-style-type: decimal;
-  list-style-position: inside;
 }
 
 //Selects
@@ -120,29 +105,11 @@ a[href^="mailto:"]:before {
   h1, h2, h3, h4, h5, h6 {
     color: $primary-color;
   }
-  ul:not([class]) {
-    display: block;
-    list-style-type: disc;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding-left: 1rem;
-    color: $primary-color;
-  }
-  ol {
-    counter-reset: item;
-    li {
-      display: block;
-    }
-    li:before {
-      content: counter(item) ". ";
-      counter-increment: item;
-      color: $primary-color;
-    }
-  }
 }
 
 .owl-carousel {
   z-index: 0 !important;
+  list-style-type: none;
 }
 
 iframe[name='google_conversion_frame'] {

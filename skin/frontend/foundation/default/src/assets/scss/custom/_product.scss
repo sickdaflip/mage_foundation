@@ -61,12 +61,15 @@
         padding: $global-padding;
         border-radius: $global-radius;
         border: solid 1px $light-gray;
-        ul li {
-          text-align: center;
-          img {
-            transition: $global-transform;
-            &:hover {
-              transform: $global-scale;
+        ul {
+          list-style-type: none;
+          li {
+            text-align: center;
+            img {
+              transition: $global-transform;
+              &:hover {
+                transform: $global-scale;
+              }
             }
           }
         }
@@ -293,6 +296,7 @@
     }
   }
   ul.options-list {
+    list-style-type: none;
     margin-left: 0;
     li {
       border-bottom: none !important;
@@ -413,6 +417,7 @@
 }
 
 .pricing-table {
+  list-style-type: none;
   text-align: center;
   border-radius: $global-radius;
   border: solid 1px $light-gray;
