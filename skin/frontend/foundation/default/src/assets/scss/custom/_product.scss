@@ -301,11 +301,30 @@
     li {
       border-bottom: none !important;
       padding: 0 !important;
+      a {
+        background: $primary-color;
+        color: $white;
+        margin: 0 0 5px 0;
+        height: 50%;
+        border-top-right-radius: $global-radius;
+        border-bottom-right-radius: $global-radius;
+        i {
+          padding: 30% 0;
+        }
+      }
+    }
+    label {
+      position: relative;
+      z-index: 100;
+      .description {
+        z-index: 101;
+      }
     }
     .label {
       width: 100%;
       white-space: normal;
       padding: 0 0 5px 0;
+
     }
     input[type='radio'], input[type='checkbox'] {
       display: none;

@@ -1,4 +1,7 @@
 .cart {
+  ul {
+    list-style-type: none;
+  }
   .page-title {
     h1 {
       & + ul {

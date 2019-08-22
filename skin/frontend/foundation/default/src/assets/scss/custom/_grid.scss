@@ -291,14 +291,46 @@ header {
         @include xy-grid;
         .option {
           @include xy-cell(12, false, 0);
-          li.with-image label {
+          li.with-image {
+            label {
+              @include xy-grid;
+              align-items: center;
+              img {
+                @include xy-cell(4, false, 0);
+              }
+              span.text {
+                @include xy-cell(8);
+              }
+            }
+          }
+          li.with-image-desc {
             @include xy-grid;
             align-items: center;
-            img {
-              @include xy-cell(4, false, 0);
+            .label {
+              @include xy-cell(11, false, 0);
             }
-            span.text {
-              @include xy-cell(8);
+            a {
+              @include xy-cell(1, false, 0);
+            }
+            label {
+              @include xy-grid;
+              align-items: center;
+              img {
+                @include xy-cell(4, false, 0);
+              }
+              span.text {
+                @include xy-cell(8);
+              }
+            }
+          }
+          li.with-desc {
+            @include xy-grid;
+            align-items: center;
+            .label {
+              @include xy-cell(11, false, 0);
+            }
+            a {
+              @include xy-cell(1, false, 0);
             }
           }
         }
@@ -316,7 +348,6 @@ header {
 .product-collateral {
   @include xy-cell(12);
 }
-
 
 .product-note {
   @include xy-grid;
@@ -440,6 +471,7 @@ footer {
     }
   }
 }
+
 #checkout-agreements {
   .checkout-agreements {
     .item {
