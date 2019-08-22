@@ -30,8 +30,11 @@ footer {
       }
     }
     @include breakpoint(small only) {
-      ul li {
-        text-align: center;
+      ul {
+        list-style-type: none;
+        li {
+          text-align: center;
+        }
       }
     }
     p {
