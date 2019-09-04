@@ -1,5 +1,5 @@
 # Dependency directories
 *node_modules
 *bower_components
-skin/frontend/foundation/default/package-lock.json
+package-lock.json
 npm-debug.log
