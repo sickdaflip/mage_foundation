@@ -7,8 +7,7 @@
 
 //Toolbar
 .toolbar, .toolbar-3 {
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
+  margin: .5rem 0;
   .limiter, .sort-by {
     padding: 0 1rem;
   }
@@ -41,8 +40,7 @@
 }
 
 .toolbar-bottom {
-  margin-top: 1rem;
-  padding-top: 1rem;
+  margin: .5rem 0;
   .toolbar, .toolbar-3 {
     margin-bottom: 0;
     padding-bottom: 0;
