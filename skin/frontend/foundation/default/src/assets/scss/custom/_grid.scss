@@ -258,7 +258,7 @@ header {
           label {
             display: none;
           }
-          .quantity {
+          .quantity, .quantity-step {
             @include xy-cell(12, false, 0);
           }
           .button {
@@ -599,7 +599,7 @@ footer {
             label {
               display: none;
             }
-            .quantity {
+            .quantity, .quantity-step {
               @include xy-cell(6);
             }
             .button {

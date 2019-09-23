@@ -23,21 +23,6 @@ $(document).ready(function () {
             $('.callout.messages').delay(7000).slideUp(1500);
         }
     });
-    // Product page / wishlist - quantity increase/decrease
-    $('.quantity .input-group').append('<span class="input-group-label plus"><i id="add1" class="fa fa-plus" /></span>').prepend('<span class="input-group-label minus"><i id="minus1" class="fa fa-minus" /></span>');
-    $('.quantity .plus').click(function () {
-        var currentVal = parseInt($(".qty").val());
-        if (!currentVal || currentVal == "" || currentVal == "NaN") currentVal = 0;
-        $(".qty").val(currentVal + 1);
-    });
-
-    $('.quantity .minus').click(function () {
-        var currentVal = parseInt($(".qty").val());
-        if (currentVal == "NaN") currentVal = 0;
-        if (currentVal > 1) {
-            $(".qty").val(currentVal - 1);
-        }
-    });
 
     //Grid / List view
     $('.view-mode strong.grid').after('<i class="fa fa-th"></i>');
