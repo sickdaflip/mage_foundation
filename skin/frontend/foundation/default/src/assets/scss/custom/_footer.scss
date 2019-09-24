@@ -15,6 +15,9 @@ footer {
     background: scale-color($primary-color, $lightness: -15%);
     .content {
       text-align: center;
+      .footer-logo {
+        width: 15rem;
+      }
       img {
         padding: .5rem 0;
       }
@@ -26,11 +29,13 @@ footer {
     color: $white;
     @include breakpoint(medium) {
       ul {
+        margin: 0;
         list-style: square inside;
       }
     }
     @include breakpoint(small only) {
       ul {
+        margin: 0;
         list-style-type: none;
         li {
           text-align: center;
@@ -56,6 +61,7 @@ footer {
     text-align: center;
     .payments {
       ul {
+        margin: 0;
         li {
           display: inline;
           margin: .5rem;
@@ -78,6 +84,7 @@ footer {
       text-align: center;
       margin: 0 0 .5rem 0;
       ul {
+        margin: 0;
         li {
           display: inline;
           margin: .5rem;
@@ -141,5 +148,7 @@ footer {
     color: $white;
     font-size: .7em;
   }
-  &:hover { transform: scale(1.1); }
+  &:hover {
+    transform: scale(1.1);
+  }
 }
