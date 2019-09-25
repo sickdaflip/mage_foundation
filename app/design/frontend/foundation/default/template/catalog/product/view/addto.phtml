@@ -28,17 +28,9 @@
 <?php $_wishlistSubmitUrl = $this->helper('wishlist')->getAddUrl($_product); ?>
 <?php if ($this->helper('wishlist')->isAllow()) : ?>
     <li class="bullet-item">
-        <div class="stacked-for-small button-group float-center">
-            <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/fax/faxbestellung.pdf' ?>"
-               class="button hollow" target="_blank" rel="nofollow noopener noreferrer"><?php echo $this->__('per Fax bestellen') ?></a>
             <a href="<?php echo $_wishlistSubmitUrl ?>"
                onclick="productAddToCartForm.submitLight(this, this.href); return false;"
-               class="button secondary hollow"><?php echo $this->__('Add to Wishlist') ?></a>
-            <?php if ($_product->getData('custom_quote') == 1): ?>
-                <a href="<?php echo Mage::getUrl('', array('_direct' =>'leasing-mietkauf')); ?>"
-                   class="button success hollow"><?php echo $this->__('Leasing') ?></a>
-            <?php endif; ?>
-        </div>
+               class="button success hollow tiny"><?php echo $this->__('Add to Wishlist') ?></a>
     </li>
 <?php endif; ?>
 <?php
