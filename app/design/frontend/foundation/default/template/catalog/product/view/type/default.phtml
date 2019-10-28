@@ -43,21 +43,11 @@
         <li class="bullet-item">
             <p class="availability in-stock"><?php echo $this->__('Availability:') ?>
                 <span><?php echo $this->__('In stock') ?></span></p>
-        <?php if ($_product->getData('tradinginhouse') == 1): ?>
-                <p class="tradinginhouse">
-                    In unserem <a data-open="jura-routenplaner">JURA-Fachgesch&auml;ft</a> sofort abholbereit!
-                </p>
-        <?php endif; ?>
         </li>
     <?php else: ?>
         <li class="bullet-item">
             <p class="availability out-of-stock"><?php echo $this->__('Availability:') ?>
                 <span><?php echo $this->__('Out of stock') ?></span></p>
-            <?php if ($_product->getData('tradinginhouse') == 1): ?>
-                <p class="tradinginhouse">
-                    In unserem <a data-open="jura-routenplaner">JURA-Fachgesch&auml;ft</a> sofort abholbereit!
-                </p>
-            <?php endif; ?>
         </li>
     <?php endif; ?>
 <?php endif; ?>
