@@ -552,7 +552,7 @@ footer {
   }
 
   .categories-jura-grid {
-    @include xy-grid-layout(1, 'li', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(3, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 
   .products-grid, .search-grid, .gift-grid {
@@ -770,7 +770,7 @@ footer {
   }
 
   .categories-jura-grid {
-    @include xy-grid-layout(1, 'li', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(3, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 
   .products-grid, .search-grid, .gift-grid {
