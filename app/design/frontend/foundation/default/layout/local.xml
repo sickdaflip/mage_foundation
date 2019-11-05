@@ -79,9 +79,14 @@
 
         <reference name="right">
             <remove name="right.reports.product.viewed"/>
-            <block type="catalog/product_compare_sidebar" name="catalog.compare.jura" template="catalog/product/compare/sidebar.phtml">
-                <action method="unsetData"><key>cache_lifetime</key></action>
-                <action method="unsetData"><key>cache_tags</key></action>
+            <block type="catalog/product_compare_sidebar" name="catalog.compare.jura"
+                   template="catalog/product/compare/sidebar.phtml">
+                <action method="unsetData">
+                    <key>cache_lifetime</key>
+                </action>
+                <action method="unsetData">
+                    <key>cache_tags</key>
+                </action>
             </block>
         </reference>
 
@@ -205,6 +210,10 @@
                 <type>skin_js</type>
                 <name>dist/assets/js/lightgallery.min.js</name>
             </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>dist/assets/js/owl.carousel.min.js</name>
+            </action>
         </reference>
         <reference name="root">
             <action method="setTemplate">
@@ -289,7 +298,9 @@
 
     <catalogsearch_advanced_index>
         <reference name="head">
-            <action method="setForcedTitle"><title>Die Gastronomiebedarf-Suche</title></action>
+            <action method="setForcedTitle">
+                <title>Die Gastronomiebedarf-Suche</title>
+            </action>
             <action method="setRobots">
                 <value>noindex, follow</value>
                 <name>robots</name>

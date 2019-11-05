@@ -278,11 +278,6 @@ header {
         ul {
           @include xy-grid;
           @include xy-grid-layout(3, 'li');
-          li {
-            img {
-              @include thumbnail;
-            }
-          }
         }
       }
     }

@@ -40,38 +40,55 @@ $_helper = $this->helper('catalog/output');
         <div class="special-ribbon"><span><?php echo $_savingPercent; ?>% Rabatt</span></div>
     <?php } ?>
     <a href="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" class="item">
-        <img data-interchange="[<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(250, 250) ?>, small], [<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(400, 400) ?>, medium], [<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(700, 700) ?>, large]"
+        <img data-interchange="[<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(250, 250) ?>, small], [<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(400, 400) ?>, medium], [<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(550, 550) ?>, large]"
             alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
             title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>"/>
     </a>
-</div>
-<?php
-$attributeCodevideo = 'video';
-$attributevideo = $_product->getResource()->getAttribute($attributeCodevideo);
-$contentvideo = $attributevideo->getFrontend()->getValue($_product);
-$attributeCodethreesixty = 'threesixty';
-$attributethreesixty = $_product->getResource()->getAttribute($attributeCodethreesixty);
-$contentthreesixty = $attributethreesixty->getFrontend()->getValue($_product);
-$_helper = $this->helper('catalog/output');
+    <?php
+    $attributeCodevideo = 'video';
+    $attributevideo = $_product->getResource()->getAttribute($attributeCodevideo);
+    $contentvideo = $attributevideo->getFrontend()->getValue($_product);
+    $attributeCodethreesixty = 'threesixty';
+    $attributethreesixty = $_product->getResource()->getAttribute($attributeCodethreesixty);
+    $contentthreesixty = $attributethreesixty->getFrontend()->getValue($_product);
+    $_helper = $this->helper('catalog/output');
 
-?>
-<?php if (count($this->getGalleryImages()) > 0 || !empty($contentthreesixty)): ?>
-    <div class="product-images">
-        <p><?php echo $this->__('More Views') ?></p>
-        <ul>
-            <?php if (!empty($contentthreesixty)) { ?>
-                <li><a class="item" data-iframe="true" data-src="<?php echo $_helper->productAttribute($this->getProduct(), $contentthreesixty, $attributeCodethreesixty) ?>"><img src="<?php echo $this->getSkinUrl('dist/assets/img/360-degree.jpg') ?>" alt="360° Ansicht"/></a></li>
-            <?php } ?>
-            <?php foreach ($this->getGalleryImages() as $_image): ?>
-                <li>
-                    <a href="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile()); ?>"
-                       title="<?php echo $this->htmlEscape($_image->getLabel()) ?>" class="item">
-                        <img data-interchange="[<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(80, 80); ?>, small], [<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(120, 120); ?>, large]"
-                            alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>"
-                            title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"/>
-                    </a>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-<?php endif; ?>
+    ?>
+    <?php if (count($this->getGalleryImages()) > 0 || !empty($contentthreesixty)): ?>
+        <div class="product-images">
+            <ul class="pimages owl-carousel owl-theme">
+                <?php if (!empty($contentthreesixty)) { ?>
+                    <li><a class="item" data-iframe="true" data-src="<?php echo $_helper->productAttribute($this->getProduct(), $contentthreesixty, $attributeCodethreesixty) ?>"><img src="<?php echo $this->getSkinUrl('dist/assets/img/360-degree.jpg') ?>" alt="360° Ansicht"/></a></li>
+                <?php } ?>
+                <?php foreach ($this->getGalleryImages() as $_image): ?>
+                    <li>
+                        <a href="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile()); ?>"
+                           title="<?php echo $this->htmlEscape($_image->getLabel()) ?>" class="item">
+                            <img data-interchange="[<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(80, 80); ?>, small], [<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(120, 120); ?>, large]"
+                                 alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>"
+                                 title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"/>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <script>
+                jQuery('.pimages').owlCarousel({
+                    margin:10,
+                    items: 5,
+                    lazyLoad: true,
+                    loop: true,
+                    nav: true,
+                    navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
+                    dots: false,
+                    autoplay: false,
+                    responsiveClass: true,
+                    responsive: {
+                        0: {items: 3},
+                        640: {items: 4},
+                        1024: {items: 5}
+                    }
+                });
+            </script>
+        </div>
+    <?php endif; ?>
+</div>

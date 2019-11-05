@@ -57,15 +57,12 @@
         }
       }
       .product-images {
-        margin-bottom: $global-margin;
-        padding: $global-padding;
-        border-radius: $global-radius;
-        border: solid 1px $light-gray;
-        ul {
+        padding: 0;
+        ul.pimages {
           list-style-type: none;
           margin: 0;
           li {
-            text-align: center;
+            @extend .align-middle;
             img {
               transition: $global-transform;
               &:hover {

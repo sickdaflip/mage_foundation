@@ -38,6 +38,39 @@ $owl-dot-background-active: $primary-color !default;
   }
 }
 
+.pimages {
+  position: relative;
+  .owl-nav {
+    .owl-prev {
+      background: rgba(0, 0, 0, 0.2) !important;
+      width: 20px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: -15px;
+      display: block !important;
+      border-top-left-radius: $global-radius;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: $global-radius;
+    }
+
+    .owl-next {
+      background: rgba(0, 0, 0, 0.2) !important;
+      width: 20px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: -15px;
+      display: block !important;
+      border-top-left-radius: 0;
+      border-top-right-radius: $global-radius;
+      border-bottom-right-radius: $global-radius;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
+
 .homeslider, .jura-slider {
   @include hide-for-only(small);
   position: relative;
@@ -88,33 +121,6 @@ $owl-dot-background-active: $primary-color !default;
     display: block;
     width: 100%;
     height: auto;
-  }
-  .slider-caption {
-    position: absolute;
-    top: 10%;
-    right: 10%;
-    background: #E2001A;
-    color: white;
-    font-weight: bold;
-    font-size: 3rem;
-    padding: 0 .3em;
-    line-height: 1;
-  }
-  .slider-caption-product {
-    position: absolute;
-    top: 10%;
-    right: 10%;
-    background: #E2001A;
-    color: white;
-    font-weight: bold;
-    font-size: 2rem;
-    padding: 0 .3em;
-    line-height: 1;
-    span {
-      display: block;
-      font-size: 1.5rem;
-      text-align: center;
-    }
   }
   .owl-nav {
     [class*='owl-'] {
