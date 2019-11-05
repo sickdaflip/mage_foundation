@@ -159,7 +159,6 @@
 
         <reference name="before_body_end">
             <block type="core/template" name="safershopping" template="page/html/safershopping.phtml"/>
-            <block type="core/template" name="reasons" template="foundation/reasons.phtml"/>
             <block type="core/template" name="spinner" template="page/html/ajax-spinner.phtml"/>
         </reference>
 
