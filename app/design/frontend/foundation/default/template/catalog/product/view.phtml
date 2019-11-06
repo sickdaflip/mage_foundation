@@ -91,14 +91,6 @@ if (!function_exists('clean')) {
                             </a>
                         </li>
                     <?php endif; ?>
-                    <?php if ($_product->getAttributeText('manufacturer') == 'Jura'): ?>
-                        <li class="bullet-item">
-                            <p>Unser Jura Ladengeschäft - Jura Abholmarkt</p>
-                            <a href="<?php echo $this->getUrl('', array('_direct' => 'jura-fachhaendler')); ?>">zu den
-                                Öffnungszeiten und zur
-                                Anfahrtsbeschreibung</a>
-                        </li>
-                    <?php endif; ?>
                     <?php if (!$this->hasOptions()): ?>
                         <?php if ($_product->isSaleable()): ?>
                             <?php echo $this->getChildHtml('addtocart') ?>
