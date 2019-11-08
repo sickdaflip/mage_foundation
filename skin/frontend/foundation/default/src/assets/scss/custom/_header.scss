@@ -108,6 +108,9 @@ header {
         color: $white;
         font-size: rem-calc(35);
         font-weight: 700;
+        i {
+          font-size: rem-calc(30);
+        }
         span {
           font-weight: 500;
           letter-spacing: .20rem;
