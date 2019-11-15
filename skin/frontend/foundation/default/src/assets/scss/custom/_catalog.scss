@@ -196,15 +196,13 @@
     .price-box {
       font-size: .8rem;
       margin-top: .5rem;
-      .regular-price {
-        color: $success-color;
+      .regular-price, .special-price {
         margin: 0;
-        line-height: 0;
         .price-label {
-          vertical-align: middle;
           line-height: 1rem;
         }
         .price {
+          margin: 0;
           span.price {
             padding: 0 !important;
             font-size: 1rem;
@@ -225,7 +223,7 @@
           font-size: 1rem;
         }
       }
-      .old-price, .msrp-price, .mwst-price, .skontotax-price {
+      .old-price, .msrp-price, .mwst-price, .skontotax-price, .regular-price {
         display: block;
         margin: 0;
         line-height: 1rem;
@@ -235,13 +233,13 @@
         .price {
           vertical-align: middle;
           color: $primary-color;
+          font-weight: 600;
         }
       }
       .special-price, .to-date, .minimal-price-link {
         color: $alert-color;
         display: block;
-        margin: 0 0 0.5rem 0;
-        line-height: 1;
+        line-height: 1rem;
         .price-label, .label {
           vertical-align: middle;
         }
@@ -249,6 +247,7 @@
           display: block;
           font-size: 1rem;
           vertical-align: middle;
+          font-weight: 600;
         }
       }
       .minimal-price-link {

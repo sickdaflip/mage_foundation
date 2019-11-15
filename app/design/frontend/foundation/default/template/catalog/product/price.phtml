@@ -211,11 +211,11 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                     ?>
                     <?php if (!empty($_msrpPrice) and ($_msrpPrice != $_finalPrice)) { ?>
                         <p class="msrp-price">
-                            <span class="price-label"><?php echo $this->__('suggested retail price:') ?></span>
+                            <span class="price-label"><?php echo $this->__('empfohlener Verkaufspreis') ?></span>
                             <?php echo $_coreHelper->formatPrice($_msrpPrice, true); ?>
                         </p>
                     <?php } ?>
-                    <?php if (!empty($_product->getAttributeText('manufacturer')) && $_product->getAttributeText('manufacturer') == 'undefine'): ?>
+                    <?php if (!empty($_product->getAttributeText('manufacturer')) && $_product->getAttributeText('manufacturer') == 'Unox'): ?>
                         <?php if ($_finalPrice == $_price): ?>
                             <?php $_skprice = $_price; ?>
                             <?php $discount = $_price - $_skprice; ?>
@@ -267,61 +267,8 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                     </span>
                         </p>
                     <?php else: ?>
-                        <?php if ($_finalPrice == $_price): ?>
-                            <?php $_skprice = ($_price * 97) / 100; ?>
-                            <?php $discount = $_price - $_skprice; ?>
-                        <?php else: ?>
-                            <?php $_skfinalPrice = ($_finalPrice * 97) / 100; ?>
-                            <?php $discount = $_finalPrice - $_skfinalPrice; ?>
-                        <?php endif; ?>
-                        <p class="skonto-price">
-                        <span class="price-label">
-                            <span class="skontoRate">3</span><?php echo $this->__('% Skonto bei Vorkassenzahlung') ?>
-                            <span class="skontodiscount"><?php echo $this->__('Sie sparen') ?>
-                                <span class="skonto"><?php echo $_coreHelper->formatPrice($discount, true) ?></span>
-                            </span>
-                        </span>
-                            <span class="skontoPrice">
-                             <?php if ($_finalPrice == $_price): ?>
-                                 <?php $_skprice = ($_price * 97) / 100; ?>
-                                 <span class="price">
-                                 <?php echo $_coreHelper->formatPrice($_skprice, false) ?>
-                                 </span>
-                             <?php else: ?>
-                                 <?php $_skfinalPrice = ($_finalPrice * 97) / 100; ?>
-                                 <span class="price">
-                                 <?php echo $_coreHelper->formatPrice($_skfinalPrice, false) ?>
-                                 </span>
-                             <?php endif; ?>
-                        </span>
-                        </p>
-                        <p class="skontotax-price">
-                            <span class="price-label"></span>
-                            <?php $_store_id = Mage::app()->getStore()->getId(); ?>
-                            <span class="skontoTax">
-                    <?php if ($_store_id == '5'): /* B2C */ ?>
-                        <?php if ($_finalPrice == $_price): ?>
-                            <span
-                                    class="skontoPriceTax"><?php echo $_coreHelper->formatPrice($_skprice / ($percent / 100 + 1), true) ?></span>
-                        <?php else: ?>
-                            <span
-                                    class="skontoPriceTax"><?php echo $_coreHelper->formatPrice($_skfinalPrice / ($percent / 100 + 1), true) ?></span>
-                        <?php endif; ?>
-                        <?php echo 'Zzgl. ' . $percent . '% USt.' ?>
-                    <?php elseif ($_store_id == '4'): /* B2B */ ?>
-                        <?php if ($_finalPrice == $_price): ?>
-                            <span
-                                    class="skontoPriceTax"><?php echo $_coreHelper->formatPrice($_skprice * ($percent / 100 + 1), true) ?></span>
-                        <?php else: ?>
-                            <span
-                                    class="skontoPriceTax"><?php echo $_coreHelper->formatPrice($_skfinalPrice * ($percent / 100 + 1), true) ?></span>
-                        <?php endif; ?>
-                        <?php echo 'Inkl. ' . $percent . '% USt.' ?>
-                    <?php endif; ?>
-                    </span>
-                        </p>
                         <p class="regular-price">
-                            <span class="price-label"><?php echo $this->__('andere Zahlarten') ?></span>
+                            <span class="price-label"><?php echo $this->__('Ihr Preis') ?></span>
                             <span class="price" id="product-price-<?php echo $_id ?><?php echo $this->getIdSuffix() ?>">
                     <?php if ($_finalPrice == $_price): ?>
                         <?php echo $_coreHelper->formatPrice($_price, true) ?>
@@ -334,20 +281,20 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                             <span class="price-label"></span>
                             <span class="price_mwst">
                             <?php $_store_id = Mage::app()->getStore()->getId(); ?>
-                            <?php if ($_store_id == '5'): /* B2C */ ?>
+                            <?php if ($_store_id == '4'): /* B2C */ ?>
                                 <?php if ($_finalPrice == $_price): ?>
-                                    <?php echo $_coreHelper->formatPrice($_price / ($percent / 100 + 1), true) ?>
+                                    <?php //echo $_coreHelper->formatPrice($_price / ($percent / 100 + 1), true) ?>
                                 <?php else: ?>
-                                    <?php echo $_coreHelper->formatPrice($_finalPrice / ($percent / 100 + 1), true) ?>
+                                    <?php //echo $_coreHelper->formatPrice($_finalPrice / ($percent / 100 + 1), true) ?>
                                 <?php endif; ?>
-                                <?php echo 'Zzgl. ' . $percent . '% USt.' ?>
-                            <?php elseif ($_store_id == '4'): /* B2B */ ?>
+                                <?php echo 'zzgl. ' . $percent . '% MwSt.' ?>
+                            <?php elseif ($_store_id == '5'): /* B2B */ ?>
                                 <?php if ($_finalPrice == $_price): ?>
-                                    <?php echo $_coreHelper->formatPrice($_price * ($percent / 100 + 1), true) ?>
+                                    <?php //echo $_coreHelper->formatPrice($_price * ($percent / 100 + 1), true) ?>
                                 <?php else: ?>
-                                    <?php echo $_coreHelper->formatPrice($_finalPrice * ($percent / 100 + 1), true) ?>
+                                    <?php //echo $_coreHelper->formatPrice($_finalPrice * ($percent / 100 + 1), true) ?>
                                 <?php endif; ?>
-                                <?php echo 'Inkl. ' . $percent . '% USt.' ?>
+                                <?php echo 'inkl. ' . $percent . '% MwSt.' ?>
                             <?php endif; ?>
                         </span>
                         </p>
@@ -360,7 +307,7 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
 
             <?php if ($_weeeTaxAmount && $_weeeHelper->typeOfDisplay($_product, 0)): // including ?>
                 <p class="old-price">
-                    <span class="price-label"><?php echo $this->__('Regular Price:') ?></span>
+                    <span class="price-label"><?php echo $this->__('Regulärer Preis') ?></span>
                     <span class="price" id="old-price-<?php echo $_id ?><?php echo $this->getIdSuffix() ?>">
                     <?php echo $_coreHelper->formatPrice($_regularPrice + $_originalWeeeTaxAmount, false) ?>
                 </span>
@@ -394,7 +341,7 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
 
             <?php elseif ($_weeeTaxAmount && $_weeeHelper->typeOfDisplay($_product, 1)): // incl. + weee ?>
                 <p class="old-price">
-                    <span class="price-label"><?php echo $this->__('Regular Price:') ?></span>
+                    <span class="price-label"><?php echo $this->__('Regulärer Preis') ?></span>
                     <span class="price" id="old-price-<?php echo $_id ?><?php echo $this->getIdSuffix() ?>">
                     <?php echo $_coreHelper->formatPrice($_regularPrice + $_originalWeeeTaxAmount, false) ?>
                 </span>
@@ -442,7 +389,7 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                 </p>
             <?php elseif ($_weeeTaxAmount && $_weeeHelper->typeOfDisplay($_product, 4)): // incl. + weee ?>
                 <p class="old-price">
-                    <span class="price-label"><?php echo $this->__('Regular Price:') ?></span>
+                    <span class="price-label"><?php echo $this->__('Regulärer Preis') ?></span>
                     <span class="price" id="old-price-<?php echo $_id ?><?php echo $this->getIdSuffix() ?>">
                     <?php echo $_coreHelper->formatPrice($_regularPrice + $_originalWeeeTaxAmount, false) ?>
                 </span>
@@ -472,7 +419,7 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                 </p>
             <?php elseif ($_weeeTaxAmount && $_weeeHelper->typeOfDisplay($_product, 2)): // excl. + weee + final ?>
                 <p class="old-price">
-                    <span class="price-label"><?php echo $this->__('Regular Price:') ?></span>
+                    <span class="price-label"><?php echo $this->__('Regulärer Preis') ?></span>
                     <span class="price" id="old-price-<?php echo $_id ?><?php echo $this->getIdSuffix() ?>">
                     <?php echo $_coreHelper->formatPrice($_regularPrice, false) ?>
                 </span>
@@ -502,12 +449,12 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
             <?php else: // excl. ?>
                 <?php if (!empty($_msrpPrice) and ($_msrpPrice != $_regularPrice)) { ?>
                     <p class="msrp-price">
-                        <span class="price-label"><?php echo $this->__('suggested retail price:') ?></span>
+                        <span class="price-label"><?php echo $this->__('empfohlener Verkaufspreis') ?></span>
                         <?php echo $_coreHelper->formatPrice($_msrpPrice, true); ?>
                     </p>
                 <?php } ?>
                 <p class="old-price">
-                    <span class="price-label"><?php echo $this->__('Regular Price:') ?></span>
+                    <span class="price-label"><?php echo $this->__('Regulärer Preis') ?></span>
                     <span class="price" id="old-price-<?php echo $_id ?><?php echo $this->getIdSuffix() ?>">
                     <?php echo $_coreHelper->formatPrice($_regularPrice, false) ?>
                 </span>
@@ -532,17 +479,15 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                     </p>
                 <?php else: ?>
                     <p class="special-price">
-                        <span class="price-label"><?php echo $_specialPriceStoreLabel ?>
+                        <span class="price-label"><?php echo $_specialPriceStoreLabel ?><br/>
                             <?php
                             $todate = Mage::getResourceModel('catalogrule/rule')->getRulesFromProduct(Mage::getModel('core/date')->date('Y-m-d'), 1, Mage::getSingleton('customer/session')->getCustomerGroupId(), $_product->getId());
                             $todate = array_shift($todate);
                             $todate = gmdate("d.m.Y", $todate['to_time']);
                             if (!empty($_product->getSpecialToDate())) {
-                                echo '<br/>' . $this->__('bei Bestellung bis') . ' ' . $this->formatDate($_product->getSpecialToDate());
-                            } elseif (isset($todate) && empty($_product->getSpecialToDate()) && $todate != '01.01.1970') {
-                                echo '<br/>' . $this->__('bei Bestellung bis') . ' ' . $todate;
+                                echo $this->__('bei Bestellung bis') . ' ' . $this->formatDate($_product->getSpecialToDate());
                             } else {
-                                echo ' ';
+                                echo $this->__('bei Bestellung bis') . ' ' . $todate;
                             }
                             if($_product->getFinalPrice() < $_product->getPrice()){ ?>
                                 <?php $_savingPercent = 100 - round(($_product->getFinalPrice() / $_product->getPrice())*100); ?>
@@ -565,68 +510,20 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                             <?php $_store_id = Mage::app()->getStore()->getId(); ?>
                             <?php if ($_store_id == '5'): /* B2C */ ?>
                                 <?php if ($_finalPrice == $_price): ?>
-                                    <?php echo $_coreHelper->formatPrice($_price / ($percent / 100 + 1), true) ?>
+                                    <?php //echo $_coreHelper->formatPrice($_price / ($percent / 100 + 1), true) ?>
                                 <?php else: ?>
-                                    <?php echo $_coreHelper->formatPrice($_finalPrice / ($percent / 100 + 1), true) ?>
+                                    <?php //echo $_coreHelper->formatPrice($_finalPrice / ($percent / 100 + 1), true) ?>
                                 <?php endif; ?>
-                                <?php echo 'Zzgl. ' . $percent . '% USt.' ?>
+                                <?php echo 'zzgl. ' . $percent . '% MwSt.' ?>
                             <?php elseif ($_store_id == '4'): /* B2B */ ?>
                                 <?php if ($_finalPrice == $_price): ?>
-                                    <?php echo $_coreHelper->formatPrice($_price * ($percent / 100 + 1), true) ?>
+                                    <?php //echo $_coreHelper->formatPrice($_price * ($percent / 100 + 1), true) ?>
                                 <?php else: ?>
-                                    <?php echo $_coreHelper->formatPrice($_finalPrice * ($percent / 100 + 1), true) ?>
+                                    <?php //echo $_coreHelper->formatPrice($_finalPrice * ($percent / 100 + 1), true) ?>
                                 <?php endif; ?>
-                                <?php echo 'Inkl. ' . $percent . '% USt.' ?>
+                                <?php echo 'inkl. ' . $percent . '% MwSt.' ?>
                             <?php endif; ?>
                         </span>
-                    </p>
-                    <?php $_skprice_sp = ($_finalPrice * 97) / 100; ?>
-                    <?php $discount_sp = $_finalPrice - $_skprice_sp; ?>
-
-                    <p class="skonto-price">
-                        <span class="price-label">
-                            <span class="skontoRate">3</span><?php echo $this->__('% Skonto bei Vorkassenzahlung') ?><br/>
-                            <?php echo $this->__('Sie sparen') ?>
-                            <span class="skonto"><?php echo $_coreHelper->formatPrice($discount_sp, true) ?></span>
-                        </span>
-                        <span class="skontoPrice">
-                             <?php if ($_finalPrice == $_price): ?>
-                                 <?php $_skprice = ($_price * 97) / 100; ?>
-                                 <span class="price">
-                                 <?php echo $_coreHelper->formatPrice($_skprice, false) ?>
-                                 </span>
-                             <?php else: ?>
-                                 <?php $_skfinalPrice = ($_finalPrice * 97) / 100; ?>
-                                 <span class="price">
-                                 <?php echo $_coreHelper->formatPrice($_skfinalPrice, false) ?>
-                                 </span>
-                             <?php endif; ?>
-                        </span>
-                    </p>
-                    <p class="skontotax-price">
-                        <span class="price-label"></span>
-                        <?php $_store_id = Mage::app()->getStore()->getId(); ?>
-                        <span class="skontoTax">
-                    <?php if ($_store_id == '5'): /* B2C */ ?>
-                        <?php if ($_finalPrice == $_price): ?>
-                            <span
-                                    class="skontoPriceTax"><?php echo $_coreHelper->formatPrice($_skprice / ($percent / 100 + 1), true) ?></span>
-                        <?php else: ?>
-                            <span
-                                    class="skontoPriceTax"><?php echo $_coreHelper->formatPrice($_skfinalPrice / ($percent / 100 + 1), true) ?></span>
-                        <?php endif; ?>
-                        <?php echo 'Zzgl. ' . $percent . '% USt.' ?>
-                    <?php elseif ($_store_id == '4'): /* B2B */ ?>
-                        <?php if ($_finalPrice == $_price): ?>
-                            <span
-                                    class="skontoPriceTax"><?php echo $_coreHelper->formatPrice($_skprice * ($percent / 100 + 1), true) ?></span>
-                        <?php else: ?>
-                            <span
-                                    class="skontoPriceTax"><?php echo $_coreHelper->formatPrice($_skfinalPrice * ($percent / 100 + 1), true) ?></span>
-                        <?php endif; ?>
-                        <?php echo 'Inkl. ' . $percent . '% USt.' ?>
-                    <?php endif; ?>
-                    </span>
                     </p>
                 <?php endif; ?>
             <?php endif; ?>

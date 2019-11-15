@@ -34,13 +34,13 @@ $_finalPrice = $_taxHelper->getPrice($_product, $_convertedFinalPrice);
     <?php if( $this->getPriceDisplayType() == Mage_Tax_Model_Config::DISPLAY_TYPE_EXCLUDING_TAX ): ?>
         <?php if( $this->getIsIncludingShippingCosts() ): ?>
             <?php if( $_finalPrice >= '99' ): ?>
-            <span class="shipping-cost-details"><?php echo $this->__( '<a href="%s">Free Shipping</a>', $shippingCostUrl ) ?></span>
+            <span class="shipping-cost-details"><?php echo $this->__( '<a href="%s">versandkostenfrei (in DE)</a>', $shippingCostUrl ) ?></span>
                 <?php else: ?>
                 <span class="shipping-cost-details"><?php echo $this->__( 'incl. <a href="%s">Shipping Cost</a>', $shippingCostUrl ) ?></span>
             <?php endif ?>
         <?php else: ?>
             <?php if( $_finalPrice >= '99' ): ?>
-               <span class="shipping-cost-details"><?php echo $this->__( '<a href="%s">Free Shipping</a>', $shippingCostUrl ) ?></span>
+               <span class="shipping-cost-details"><?php echo $this->__( '<a href="%s">versandkostenfrei (in DE)</a>', $shippingCostUrl ) ?></span>
             <?php else: ?>
             <span class="shipping-cost-details"><?php echo $this->__( 'excl. <a href="%s">Shipping Cost</a>', $shippingCostUrl ) ?></span>
             <?php endif ?>
@@ -50,7 +50,7 @@ $_finalPrice = $_taxHelper->getPrice($_product, $_convertedFinalPrice);
             <span class="tax-details"><?php echo $this->__( 'Incl. %s Tax', $this->getFormattedTaxRate() ) ?><span class="tax-separator">, </span><span class="shipping-cost-details"><?php echo $this->__( 'incl. <a href="%s">Shipping Cost</a>', $shippingCostUrl ) ?></span></span>
         <?php else: ?>
             <?php if( $_finalPrice >= '117.81' ): ?>
-            <span class="shipping-cost-details"><?php echo $this->__( '<a href="%s">Free Shipping</a>', $shippingCostUrl ) ?></span>
+            <span class="shipping-cost-details"><?php echo $this->__( '<a href="%s">versandkostenfrei (in DE)</a>', $shippingCostUrl ) ?></span>
                 <?php else: ?>
                 <span class="shipping-cost-details"><?php echo $this->__( 'excl. <a href="%s">Shipping Cost</a>', $shippingCostUrl ) ?></span>
             <?php endif ?>

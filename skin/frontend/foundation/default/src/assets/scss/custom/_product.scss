@@ -18,15 +18,21 @@
             span.price {
               background-color: transparent;
             }
-            .special-price {
+            .special-price .price {
+              color: $alert-color;
+              font-size: rem-calc(20);
+              font-weight: 600;
+            }
+            .regular-price {
+              .price-label {
+                font-size: rem-calc(20);
+              }
               .price {
-                color: $alert-color;
+                color: $success-color;
+                font-weight: 600;
+                font-size: rem-calc(20);
               }
             }
-            .regular-price, .mwst-price, .skontodiscount {
-              display: none;
-            }
-
           }
         }
         li.tier-price {
@@ -242,8 +248,8 @@
       }
     }
     .old-price, .msrp-price {
-      .price {
-        font-size: rem-calc(10);
+      .price, .price-label {
+        font-size: rem-calc(15);
       }
     }
     .special-price, .to-date {
@@ -459,9 +465,6 @@
     h1 {
       margin-bottom: 0;
     }
-  }
-  .price, .skontoPriceTax {
-    color: $primary-color;
   }
   .price-notice .price {
     color: $white;

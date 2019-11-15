@@ -175,6 +175,9 @@ header {
   @include xy-grid;
   @include xy-grid-layout(1, 'li', true, $grid-margin-gutters, margin, bottom);
   justify-content: center;
+  .item {
+    .regular-price {}
+  }
 }
 
 .autocomplete-wrapper {
@@ -265,7 +268,7 @@ header {
             @include xy-cell(12, false, 0);
           }
         }
-        .msrp-price, .old-price, .special-price, .skonto-price, .skontotax-price {
+        .msrp-price, .old-price, .special-price, .regular-price, .mwst-price {
           @include xy-grid;
           @include xy-grid-layout(2, 'span');
           justify-content: center;
