@@ -1,0 +1,55 @@
+<p class="h4 center-line">Kunden vertrauen Gastrodax</p>
+<ul class="trust-grid">
+    <li>
+        <a href="https://www.trustedshops.de/bewertung/info_X6B5E9287FD5871CE74DA1B1775EB2D64.html">
+            <img src="<? echo $this->getSkinUrl('dist/assets/img/trust/trusted-shop.png'); ?>" alt="Trusted Shops" />
+            <p>Trusted Shops K&auml;uferschutz</p>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.safer-shopping.de/zertifikat/gastrodax-de.html">
+            <img src="<? echo $this->getSkinUrl('dist/assets/img/trust/tuev-sicherheit.png'); ?>" alt="T&Uuml;V zertifizierte Sicherheit" />
+            <p>T&Uuml;V zertifizierte Sicherheit</p>
+        </a>
+    </li>
+    <li>
+        <a href="<?php echo Mage::getBaseUrl(); ?>hersteller">
+        <img src="<? echo $this->getSkinUrl('dist/assets/img/trust/zertifizierter-haendler.png'); ?>" alt="Zertifizierter H&auml;ndler"/>
+        <p>Zertifizierter H&auml;ndler und Vertragspartner</p>
+        </a>
+    </li>
+    <li>
+        <a href="<?php echo Mage::getBaseUrl(); ?>leasing-mietkauf">
+            <img src="<? echo $this->getSkinUrl('dist/assets/img/trust/leasing-mietkauf.png'); ?>" alt="Leasing und Mietkauf"/>
+            <p>Leasing- und Mietkauf</p>
+        </a>
+    </li>
+    <li>
+        <a href="<?php echo Mage::getBaseUrl(); ?>hersteller">
+        <img src="<? echo $this->getSkinUrl('dist/assets/img/trust/verschiedene-produkte.png'); ?>" alt="25.000 verschiedene Produkte"/>
+        <p>&Uuml;ber 25.000 verschiedene Produkte</p>
+        </a>
+    </li>
+    <li>
+        <a href="<?php echo Mage::getBaseUrl(); ?>referenzen">
+        <img src="<? echo $this->getSkinUrl('dist/assets/img/trust/zufriedene-kunden.png'); ?>" alt="Zufriedene Kunden"/>
+        <p>&Uuml;ber 50.000 zufriedene Kunden</p>
+        </a>
+    </li>
+    <li>
+        <a href="<?php echo Mage::getBaseUrl(); ?>lieferung">
+            <img src="<? echo $this->getSkinUrl('dist/assets/img/trust/versandkostenfrei.png'); ?>" alt="Versandkostenfrei ab 99 EUR" />
+            <p>ab 99 EUR Netto versandkostenfrei</p>
+        </a>
+    </li>
+    <li><a href="<?php echo Mage::getBaseUrl(); ?>contacts">
+        <img src="<? echo $this->getSkinUrl('dist/assets/img/trust/bestell-beratungshotline.png'); ?>" alt="Bestell und Beratungshotline" />
+        <p>Kostenfreie Bestell- und Beratungshotline</p>
+        </a>
+    </li>
+</ul>
+<script type="text/javascript">
+    jQuery('.trust-grid li').on("click", function () {
+        location.href = jQuery(this).find('a').attr('href');
+    });
+</script>

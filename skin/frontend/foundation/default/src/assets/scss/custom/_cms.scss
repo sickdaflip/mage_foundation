@@ -40,3 +40,30 @@
     padding: 1rem;
   }
 }
+
+.trust-grid {
+  list-style: none;
+  margin-top: 0.5rem;
+  li {
+    padding: 1rem;
+    @extend .thumbnail, .text-center;
+    background-color: $medium-gray;
+    border: solid 4px $medium-gray;
+    cursor: pointer;
+    filter: gray; /* IE6-9 */
+    filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+    &:hover {
+      filter: none;
+      -webkit-filter: grayscale(0);
+    }
+    img {
+      padding: 0 1rem 1rem 1rem;
+      width: 90px;
+    }
+    p {
+      font-size: rem-calc(12);
+      margin-bottom: 0;
+    }
+  }
+}

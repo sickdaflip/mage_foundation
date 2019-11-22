@@ -180,6 +180,13 @@ header {
   }
 }
 
+.trust-grid {
+  @include xy-grid-container($grid-container, 0);
+  @include xy-grid;
+  @include xy-grid-layout(2, 'li', true, $grid-margin-gutters, margin, left bottom);
+  justify-content: center;
+}
+
 .autocomplete-wrapper {
   @include xy-grid;
   .col9 {
@@ -563,6 +570,10 @@ footer {
     }
   }
 
+  .trust-grid {
+    @include xy-grid-layout(4, 'li');
+  }
+
   .search-autocomplete {
     ul {
       li {
@@ -773,6 +784,10 @@ footer {
 
   .products-grid, .search-grid, .gift-grid {
     @include xy-grid-layout(4, 'li', true, $grid-margin-gutters, margin, left bottom);
+  }
+
+  .trust-grid {
+    @include xy-grid-layout(8, 'li');
   }
 
   .search-autocomplete {
