@@ -17,8 +17,9 @@ if (!function_exists('clean_list_without_toolbar')) {
 //$string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
         $string = strtolower($string);
         $utf8 = array(
-            '/[áàâãªä]/u' => 'a',
-            '/[ÁÀÂÃÄ]/u' => 'A',
+            '/[áàâãª]/u' => 'a',
+            '/[ÁÀÂÃ]/u' => 'A',
+            '/[äÄ]/u' => 'ae',
             '/[ÍÌÎÏ]/u' => 'I',
             '/[íìîï]/u' => 'i',
             '/[éèêë]/u' => 'e',
