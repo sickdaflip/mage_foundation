@@ -514,7 +514,7 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                                 <?php else: ?>
                                     <?php //echo $_coreHelper->formatPrice($_finalPrice / ($percent / 100 + 1), true) ?>
                                 <?php endif; ?>
-                                <?php echo 'zzgl. ' . $percent . '% MwSt.' ?>
+                                <?php echo 'inkl. ' . $percent . '% MwSt.' ?>
                             <?php elseif ($_store_id == '4'): /* B2B */ ?>
                                 <?php if ($_finalPrice == $_price): ?>
                                     <?php echo $_coreHelper->formatPrice($_price * ($percent / 100 + 1), true) ?>
