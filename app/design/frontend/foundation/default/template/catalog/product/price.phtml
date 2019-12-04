@@ -279,20 +279,20 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                         </p>
                         <p class="mwst-price">
                             <span class="price-label"></span>
-                            <span class="price_mwst">
+                            <span class="price_mwst" >
                             <?php $_store_id = Mage::app()->getStore()->getId(); ?>
-                            <?php if ($_store_id == '4'): /* B2C */ ?>
+                            <?php if ($_store_id == '5'): /* B2C */ ?>
                                 <?php if ($_finalPrice == $_price): ?>
                                     <?php //echo $_coreHelper->formatPrice($_price / ($percent / 100 + 1), true) ?>
                                 <?php else: ?>
                                     <?php //echo $_coreHelper->formatPrice($_finalPrice / ($percent / 100 + 1), true) ?>
                                 <?php endif; ?>
-                                <?php echo 'zzgl. ' . $percent . '% MwSt.' ?>
-                            <?php elseif ($_store_id == '5'): /* B2B */ ?>
+                                <?php echo 'inkl. ' . $percent . '% MwSt.' ?>
+                            <?php elseif ($_store_id == '4'): /* B2B */ ?>
                                 <?php if ($_finalPrice == $_price): ?>
-                                    <?php //echo $_coreHelper->formatPrice($_price * ($percent / 100 + 1), true) ?>
+                                    <?php echo $_coreHelper->formatPrice($_price * ($percent / 100 + 1), true) ?>
                                 <?php else: ?>
-                                    <?php //echo $_coreHelper->formatPrice($_finalPrice * ($percent / 100 + 1), true) ?>
+                                    <?php echo $_coreHelper->formatPrice($_finalPrice * ($percent / 100 + 1), true) ?>
                                 <?php endif; ?>
                                 <?php echo 'inkl. ' . $percent . '% MwSt.' ?>
                             <?php endif; ?>
@@ -508,18 +508,18 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                         <span class="price-label"></span>
                         <span class="price_mwst">
                             <?php $_store_id = Mage::app()->getStore()->getId(); ?>
-                            <?php if ($_store_id == '4'): /* B2C */ ?>
+                            <?php if ($_store_id == '5'): /* B2C */ ?>
                                 <?php if ($_finalPrice == $_price): ?>
                                     <?php //echo $_coreHelper->formatPrice($_price / ($percent / 100 + 1), true) ?>
                                 <?php else: ?>
                                     <?php //echo $_coreHelper->formatPrice($_finalPrice / ($percent / 100 + 1), true) ?>
                                 <?php endif; ?>
                                 <?php echo 'zzgl. ' . $percent . '% MwSt.' ?>
-                            <?php elseif ($_store_id == '5'): /* B2B */ ?>
+                            <?php elseif ($_store_id == '4'): /* B2B */ ?>
                                 <?php if ($_finalPrice == $_price): ?>
-                                    <?php //echo $_coreHelper->formatPrice($_price * ($percent / 100 + 1), true) ?>
+                                    <?php echo $_coreHelper->formatPrice($_price * ($percent / 100 + 1), true) ?>
                                 <?php else: ?>
-                                    <?php //echo $_coreHelper->formatPrice($_finalPrice * ($percent / 100 + 1), true) ?>
+                                    <?php echo $_coreHelper->formatPrice($_finalPrice * ($percent / 100 + 1), true) ?>
                                 <?php endif; ?>
                                 <?php echo 'inkl. ' . $percent . '% MwSt.' ?>
                             <?php endif; ?>
