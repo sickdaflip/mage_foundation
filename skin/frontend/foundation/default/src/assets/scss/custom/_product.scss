@@ -213,6 +213,11 @@
         }
       }
     }
+    .mwst-price {
+      .price {
+        font-size: rem-calc(19);
+      }
+    }
     .skonto-price {
       .price {
         color: $success-color;
