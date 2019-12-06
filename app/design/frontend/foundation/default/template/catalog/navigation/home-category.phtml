@@ -70,7 +70,7 @@ $_categories = $this->getCurrentChildCategories(); ?>
     </li>
 </ul>
 <script type="text/javascript">
-    jQuery('.item').on("click", function () {
+    jQuery('.categories-home-grid .item').on("click", function () {
         location.href = jQuery(this).find('a').attr('href');
     });
 </script>
