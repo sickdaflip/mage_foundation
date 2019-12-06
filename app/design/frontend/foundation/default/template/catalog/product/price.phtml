@@ -294,7 +294,7 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                                 <?php else: ?>
                                     <?php echo $_coreHelper->formatPrice($_finalPrice * ($percent / 100 + 1), true) ?>
                                 <?php endif; ?>
-                                <?php echo 'inkl. ' . $percent . '% MwSt.' ?>
+                                <?php echo '<br>inkl. ' . $percent . '% MwSt.' ?>
                             <?php endif; ?>
                         </span>
                         </p>
@@ -521,7 +521,7 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                                 <?php else: ?>
                                     <?php echo $_coreHelper->formatPrice($_finalPrice * ($percent / 100 + 1), true) ?>
                                 <?php endif; ?>
-                                <?php echo 'inkl. ' . $percent . '% MwSt.' ?>
+                                <?php echo '<br>inkl. ' . $percent . '% MwSt.' ?>
                             <?php endif; ?>
                         </span>
                     </p>
