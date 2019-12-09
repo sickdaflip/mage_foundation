@@ -290,11 +290,11 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                                 <?php echo 'inkl. ' . $percent . '% MwSt.' ?>
                             <?php elseif ($_store_id == '4'): /* B2B */ ?>
                                 <?php if ($_finalPrice == $_price): ?>
-                                    <?php echo $_coreHelper->formatPrice($_price * ($percent / 100 + 1), true) ?>
+                                    <?php echo '(' . $_coreHelper->formatPrice($_price * ($percent / 100 + 1), true) ?>
                                 <?php else: ?>
-                                    <?php echo $_coreHelper->formatPrice($_finalPrice * ($percent / 100 + 1), true) ?>
+                                    <?php echo '(' . $_coreHelper->formatPrice($_finalPrice * ($percent / 100 + 1), true) ?>
                                 <?php endif; ?>
-                                <?php echo '<br>inkl. ' . $percent . '% MwSt.' ?>
+                                <?php echo '<br>inkl. ' . $percent . '% MwSt.)' ?>
                             <?php endif; ?>
                         </span>
                         </p>
@@ -517,11 +517,11 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                                 <?php echo 'inkl. ' . $percent . '% MwSt.' ?>
                             <?php elseif ($_store_id == '4'): /* B2B */ ?>
                                 <?php if ($_finalPrice == $_price): ?>
-                                    <?php echo $_coreHelper->formatPrice($_price * ($percent / 100 + 1), true) ?>
+                                    <?php echo '(' . $_coreHelper->formatPrice($_price * ($percent / 100 + 1), true) ?>
                                 <?php else: ?>
-                                    <?php echo $_coreHelper->formatPrice($_finalPrice * ($percent / 100 + 1), true) ?>
+                                    <?php echo '(' . $_coreHelper->formatPrice($_finalPrice * ($percent / 100 + 1), true) ?>
                                 <?php endif; ?>
-                                <?php echo '<br>inkl. ' . $percent . '% MwSt.' ?>
+                                <?php echo '<br>inkl. ' . $percent . '% MwSt.)' ?>
                             <?php endif; ?>
                         </span>
                     </p>
