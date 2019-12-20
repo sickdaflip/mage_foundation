@@ -74,20 +74,27 @@
       @extend .h4;
     }
     .invert h2, .invert p {
-      color: $white;
+      @include breakpoint(medium) {
+        color: $white;
+      }
     }
     .invert {
-      background: $primary-color;
+      @include breakpoint(medium) {
+        background: $primary-color;
+      }
       @extend .margin-bottom-3;
+
     }
     $zh-round: 110px;
-    .round-left {
-      border-top-left-radius: $zh-round;
-      border-bottom-left-radius: $zh-round;
-    }
-    .round-right {
-      border-top-right-radius: $zh-round;
-      border-bottom-right-radius: $zh-round;
+    @include breakpoint(medium) {
+      .round-left {
+        border-top-left-radius: $zh-round;
+        border-bottom-left-radius: $zh-round;
+      }
+      .round-right {
+        border-top-right-radius: $zh-round;
+        border-bottom-right-radius: $zh-round;
+      }
     }
   }
 }
