@@ -29,7 +29,7 @@
                         <a href="<?php echo Mage::getUrl(''); ?>"><?php echo $this->__('Startseite') ?></a>
                     </li>
                     <li><a class="quality"><?php echo $this->__('Sicher einkaufen') ?></a></li>
-                    <li><a class="zertifikate"><?php echo $this->__('Zertifikate') ?></a></li>
+                    <li><a href="<?php echo Mage::getUrl('', array('_direct' =>'zertifizierter-haendler')); ?>"><?php echo $this->__('Zertifikate') ?></a></li>
                     <li>
                         <a href="<?php echo Mage::getUrl('', array('_direct' =>'bestellvorgang')); ?>"><?php echo $this->__('Bestellvorgang') ?></a>
                     </li>
@@ -60,21 +60,8 @@
                         <a href="<?php echo Mage::getUrl('', array('_direct' =>'referenzen')); ?>"><?php echo $this->__('Referenzen') ?></a>
                     </li>
                 </ul>
-                <div class="reveal large" id="zertifikate" data-reveal></div>
                 <div class="reveal large" id="quality" data-reveal></div>
                 <script>
-                    jQuery('.zertifikate').click(function () {
-                        jQuery.ajax({
-                            url: '<?php echo $this->getUrl('ajax/cms/block/id/37');?>',
-                            beforeSend: function () {
-                                jQuery('#reveal-wait').show();
-                            }
-                        })
-                            .done(function (data) {
-                                jQuery('#reveal-wait').hide();
-                                jQuery('#zertifikate').html(data).foundation('open');
-                            });
-                    });
                     jQuery('.quality').click(function () {
                         jQuery.ajax({
                             url: '<?php echo $this->getUrl('ajax/cms/block/id/14');?>',

@@ -46,6 +46,7 @@
     </div>
     <?php echo $this->getMessagesBlock()->toHtml() ?>
     <?php echo $this->getChildHtml('form_before') ?>
+    <p class="callout">HINWEIS: In der Vorweihnachtszeit kann es zu verlängerten Lieferzeiten kommen. Bestellungen die bis zum 20.12.2019 bei uns eingehen, werden nach Möglichkeit noch in diesem Jahr verschickt. Ab dem 02.01.2020 gelten wieder die gewohnten Lieferzeiten.</p>
     <form action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post">
         <?php echo $this->getBlockHtml('formkey'); ?>
         <div class="cart-table-wrapper">
