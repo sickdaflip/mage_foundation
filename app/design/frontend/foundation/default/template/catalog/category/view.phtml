@@ -40,23 +40,24 @@ if ($_imgUrl = $_category->getImageUrl()) {
     $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
 }
 ?>
-<div class="page-title category-title">
-    <?php if ($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
-        <a href="<?php echo $this->getRssLink() ?>"
-           class="link-rss"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
-    <?php endif; ?>
-    <?php if ($additionalheadline = $_category->getAdditionalHeadline()): ?>
-        <h1><?php echo $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->categoryAttribute($_category, $_category->getAdditionalHeadline(), 'additional_headline')) ?></h1>
-    <?php else: ?>
-        <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
-    <?php endif; ?>
-</div>
 
 <?php if ($additionaldescription = $_category->getAdditionalDescription()): ?>
     <div class="category-description top std">
         <?php echo $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->categoryAttribute($_category, $additionaldescription, 'additional_description')) ?>
     </div>
 <?php endif; ?>
+
+<div class="page-title category-title std">
+    <?php if ($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
+        <a href="<?php echo $this->getRssLink() ?>"
+           class="link-rss"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
+    <?php endif; ?>
+    <?php if ($additionalheadline = $_category->getAdditionalHeadline()): ?>
+        <h1 class="h3 center-line"><?php echo $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->categoryAttribute($_category, $_category->getAdditionalHeadline(), 'additional_headline')) ?></h1>
+    <?php else: ?>
+        <h1 class="h3 center-line"><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
+    <?php endif; ?>
+</div>
 
 <?php echo $this->getMessagesBlock()->toHtml() ?>
 
