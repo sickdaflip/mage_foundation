@@ -29,7 +29,7 @@ class Foundation_Cache_Block_Block extends Mage_Cms_Block_Block
     public function getCacheKeyInfo()
     {
         $blockId = $this->getBlockId();
-        if ($blockId) {
+        if ($blockId) { //1. solltest du nicht zuerst prüfen, ob der Block existiert? 2. es ist einfach ganze cache zu stopfen
             $result = array(
                 'CMS_BLOCK',
                 $blockId,
