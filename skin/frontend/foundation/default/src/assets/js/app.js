@@ -81,7 +81,7 @@ $(document).ready(function () {
               anchor: 'main'
           });
       }
-        $("[class*='categorypath-hersteller-jura'] .block-layered-nav .block-title").before('<img src="https://static.gastrodax.de/media/wysiwyg/manufacturer/jura-mp.png" alt="Jura Logo" width="150" class="show-for-large">');
+        $("[class*='categorypath-hersteller-jura'] .block-layered-nav .block-title").before('<img src="https://www.gastrodax.de/media/wysiwyg/manufacturer/jura-mp.png" alt="Jura Logo" width="150" class="show-for-large">');
 
     }
 
