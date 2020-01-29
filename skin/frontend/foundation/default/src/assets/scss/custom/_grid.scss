@@ -175,9 +175,6 @@ header {
   @include xy-grid;
   @include xy-grid-layout(1, 'li', true, $grid-margin-gutters, margin, bottom);
   justify-content: center;
-  .item {
-    .regular-price {}
-  }
 }
 
 .trust-grid {
@@ -562,6 +559,10 @@ footer {
 
   .products-grid, .search-grid, .gift-grid {
     @include xy-grid-layout(3, 'li', true, $grid-margin-gutters, margin, left bottom);
+    .karneval {
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .manufacture-grid {
@@ -784,6 +785,10 @@ footer {
 
   .products-grid, .search-grid, .gift-grid {
     @include xy-grid-layout(4, 'li', true, $grid-margin-gutters, margin, left bottom);
+    .karneval {
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .trust-grid {

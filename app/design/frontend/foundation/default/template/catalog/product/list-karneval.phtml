@@ -31,7 +31,6 @@ if (!function_exists('clean')) {
         return preg_replace(array_keys($utf8), array_values($utf8), $string); // Replaces multiple hyphens with single one.
     }
 }
-
 ?>
 <?php
 /**
@@ -142,7 +141,7 @@ $_helper = $this->helper('catalog/output');
                             </div>
                         <?php endif; ?>
                         <div class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"
-                                                    title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a>
+                                                     title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a>
                         </div>
                         <?php if ($_product->getRatingSummary()): ?>
                             <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
