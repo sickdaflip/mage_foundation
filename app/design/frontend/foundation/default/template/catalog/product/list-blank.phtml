@@ -102,21 +102,7 @@ $_helper = $this->helper('catalog/output');
         <?php $_collectionSize = $_productCollection->count() ?>
         <?php $_columnCount = $this->getColumnCount(); ?>
             <ul class="products-grid">
-                <?php
-                $i = 0;
-                $min = 1;
-                $max = 7;
-                $random = rand($min, $max);
-                ?>
                 <?php foreach ($_productCollection as $_product): ?>
-                    <?php if ($i == $random) { ?>
-                        <li class="item karneval">
-                            <a href="<?php echo Mage::getUrl('', array('_direct' => 'karneval')); ?>">
-                                <img src="<?php echo $this->getSkinUrl('dist/assets/img/karneval-grid.jpg') ?>"
-                                     alt="Karneval 3 Prozent Rabatt auf alles!!!"/>
-                            </a>
-                        </li>
-                    <?php } ?>
                     <li class="item">
                         <?php if ($_product->getFinalPrice() < $_product->getPrice()) { ?>
                             <?php $_savingPercent = 100 - round(($_product->getFinalPrice() / $_product->getPrice()) * 100); ?>
@@ -159,7 +145,6 @@ $_helper = $this->helper('catalog/output');
                             <span class="commissioning"><?php echo $_label; ?></span>
                         <?php endif; ?>
                     </li>
-                    <?php $i++; ?>
                 <?php endforeach ?>
             </ul>
             <script type="text/javascript">
