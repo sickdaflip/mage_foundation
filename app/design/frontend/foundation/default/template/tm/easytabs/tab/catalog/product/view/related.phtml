@@ -1,4 +1,6 @@
 <?php
+$product = Mage::registry('current_product');
+if ($product->getAttributeText('manufacturer') != 'Jura'):
 if (!function_exists('clean_related')) {
     function clean_related($string)
     {
@@ -131,4 +133,5 @@ if (!function_exists('clean_related')) {
 
         //-->
     </script>
-<?php endif ?>
+<?php endif; ?>
+<?php endif; ?>
