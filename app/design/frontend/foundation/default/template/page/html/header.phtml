@@ -65,15 +65,18 @@
             </ul>
         </div>
         <div class="hotline">
-            <a href="tel:+498004566000"><i class="fas fa-phone"></i> 0800 456 6000 <span>Bestell- und Beratungshotline</span></a>
+            <a href="tel:+498004566000"><i class="fas fa-phone"></i> 0800 456 6000
+                <span>Bestell- und Beratungshotline</span></a>
         </div>
     </div>
     <div class="header-bottom">
-        <nav>
-            <button type="button" class="button" data-toggle="offCanvas">
-                <i class="fa fa-bars" aria-hidden="true"></i> <?php echo $this->__('Kategorien') ?>
+        <div class="nav">
+            <button class="hamburger hamburger--arrow-d" type="button" data-toggle="offCanvas">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
             </button>
-        </nav>
+        </div>
         <div class="search">
             <?php echo $this->getChildHtml('topSearch') ?>
         </div>

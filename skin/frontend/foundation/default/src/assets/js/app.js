@@ -12,6 +12,14 @@ $(document).ready(function () {
 
     $(document).foundation();
 
+    // Hamburgers is-active on OffCanvas
+    $('#offCanvas').on('opened.zf.offcanvas', function() {
+        $('.hamburger').addClass('is-active');
+    });
+    $('#offCanvas').on('closed.zf.offcanvas', function() {
+        $('.hamburger').removeClass('is-active');
+    });
+
     // not hide do remove!
     if (Foundation.MediaQuery.is('small only')) {
         $('.hide-for-small-only').remove();
@@ -72,7 +80,6 @@ $(document).ready(function () {
           // "init" event triggered by the plug-in when it's successfully initialized on the
           // element. Then we're forcing it to run the "_calc" function manually.
           $header.one('init.zf.sticky', function () {
-              console.log('initialized!');
               $(this).foundation('_calc', true);
           });
 

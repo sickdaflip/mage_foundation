@@ -85,8 +85,13 @@ header {
     @include xy-grid;
     justify-content: center;
     align-items: center;
+    .nav {
+      @include xy-cell(3);
+      order: 2;
+    }
     .search {
       @include xy-cell(12);
+      order: 1;
       #search_mini_form {
         .search-row {
           @include xy-grid;
@@ -100,9 +105,10 @@ header {
       }
     }
     .account {
-      @include xy-cell(12);
+      @include xy-cell(9);
+      order: 3;
       .menu {
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
       }
     }
@@ -530,14 +536,17 @@ footer {
       }
     }
     .header-bottom {
-      nav {
+      .nav {
         @include xy-cell(2);
+        order: 2;
       }
       .search {
-        @include xy-cell(10);
+        @include xy-cell(12);
+        order: 1;
       }
       .account {
-        @include xy-cell(12);
+        @include xy-cell(10);
+        order: 3;
       }
     }
   }
@@ -750,14 +759,17 @@ footer {
       }
     }
     .header-bottom {
-      nav {
+      .nav {
         @include xy-cell(2);
+        order: 1;
       }
       .search {
         @include xy-cell(6);
+        order: 2;
       }
       .account {
         @include xy-cell(4);
+        order: 3;
       }
     }
   }

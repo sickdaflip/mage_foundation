@@ -1,10 +1,10 @@
 .off-canvas-wrapper {
-  .nav {
-    li.first.level-top{
-      border-top: 1px solid $white;
-    }
-    button {
-      border-radius: 0;
+  #offCanvas {
+    border-right: solid 1px $primary-color;
+    ul.nav {
+      button.submenu-toggle {
+        border-radius: 0;
+      }
     }
   }
 }

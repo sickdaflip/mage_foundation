@@ -193,7 +193,7 @@
     }
     &::after {
       @include breakpoint(small only) {
-        left: 15px;
+        left: 18px;
       }
     }
   }
@@ -217,7 +217,7 @@
       border-color: transparent $primary-color transparent transparent;
     }
     &::after {
-      left: 15px;
+      left: 18px;
       @include breakpoint(medium up) {
         left: -12.5px;
       }
