@@ -123,6 +123,9 @@ header {
   }
   .header-bottom {
     .search {
+      @include breakpoint(small only) {
+        display: none;
+      }
       #search_mini_form {
         input {
           border-top-right-radius: 0 !important;
@@ -199,6 +202,11 @@ header {
             display: none;
           }
         }
+      }
+    }
+    .search-mobile {
+      i {
+        font-size: 1.2rem;
       }
     }
   }

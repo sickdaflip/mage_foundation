@@ -86,7 +86,7 @@ header {
     justify-content: center;
     align-items: center;
     .nav {
-      @include xy-cell(3);
+      @include xy-cell(2);
       order: 2;
     }
     .search {
@@ -105,12 +105,16 @@ header {
       }
     }
     .account {
-      @include xy-cell(9);
+      @include xy-cell(8);
       order: 3;
       .menu {
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
       }
+    }
+    .search-mobile {
+      @include xy-cell(2);
+      order: 4;
     }
   }
 }
