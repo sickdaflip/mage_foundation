@@ -572,7 +572,7 @@ footer {
 
   .products-grid, .search-grid, .gift-grid {
     @include xy-grid-layout(3, 'li', true, $grid-margin-gutters, margin, left bottom);
-    .karneval {
+    .action {
       align-items: center;
       justify-content: center;
     }
