@@ -84,7 +84,7 @@
                 <p><?php echo $this->__('Kundenservice') ?></p>
                 <ul>
                     <li>
-                        <a href="<?php echo Mage::getUrl('', array('_direct' => 'contacts')); ?>"><?php echo $this->__('Kontakt') ?></a>
+                        <a class="contacts"><?php echo $this->__('Kontakt') ?></a>
                     </li>
                     <li>
                         <a href="<?php echo Mage::getUrl('', array('_direct' => 'grosskuechenplanung')); ?>"><?php echo $this->__('Gro&szlig;k&uuml;chenplanung') ?></a>
@@ -112,6 +112,21 @@
                            target="_blank" rel="nofollow noopener noreferrer">Faxbestellung</a></li>
                     <?php echo $this->getChildHtml('store_switcher', false) ?>
                 </ul>
+                <div class="reveal large" id="contacts" data-reveal></div>
+                <script>
+                    jQuery('.contacts').click(function () {
+                        jQuery.ajax({
+                            url: '<?php echo $this->getUrl('ajax-contacts');?>',
+                            beforeSend: function () {
+                                jQuery('#reveal-wait').show();
+                            }
+                        })
+                            .done(function (data) {
+                                jQuery('#reveal-wait').hide();
+                                jQuery('#contacts').html(data).foundation('open');
+                            });
+                    });
+                </script>
             </div>
             <div class="footer_manufactures">
                 <p><?php echo $this->__('Unsere starken Gastro-Marken') ?></p>

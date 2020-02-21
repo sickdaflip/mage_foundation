@@ -113,6 +113,12 @@
       -webkit-transition: all 0.3s;
       transition: all 0.3s;
     }
+    &.action .product-name {
+      margin: 5px;
+      font-size: rem-calc(15);
+      line-height: 1rem;
+      word-wrap: break-word;
+    }
     .product-name {
       margin: 0;
       font-size: rem-calc(15);
