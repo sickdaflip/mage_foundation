@@ -123,9 +123,6 @@ header {
   }
   .header-bottom {
     .search {
-      @include breakpoint(small only) {
-        display: none;
-      }
       #search_mini_form {
         input {
           border-top-right-radius: 0 !important;
