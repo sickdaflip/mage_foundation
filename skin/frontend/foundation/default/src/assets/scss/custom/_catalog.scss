@@ -168,10 +168,13 @@
         }
       }
       .product-name {
-        margin: 5px;
+        margin: 5px 5px 0 5px;
         font-size: rem-calc(15);
         line-height: 1rem;
         word-wrap: break-word;
+        a.button {
+          margin: 0;
+        }
       }
     }
     .product-name {
