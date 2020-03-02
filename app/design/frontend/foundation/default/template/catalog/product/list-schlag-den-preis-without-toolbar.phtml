@@ -48,7 +48,6 @@ $_helper = $this->helper('catalog/output');
     <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
 <?php else: ?>
     <div class="category-products">
-        <?php echo $this->getToolbarHtml() ?>
         <?php // List mode ?>
         <?php if ($this->getMode() != 'grid'): ?>
             <?php $_iterator = 0; ?>
@@ -188,8 +187,5 @@ $_helper = $this->helper('catalog/output');
                 });
             </script>
         <?php endif; ?>
-        <div class="toolbar-bottom">
-            <?php echo $this->getToolbarHtml() ?>
-        </div>
     </div>
 <?php endif; ?>

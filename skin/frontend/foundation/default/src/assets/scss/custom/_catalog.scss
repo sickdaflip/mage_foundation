@@ -130,7 +130,7 @@
       transition: all 0.3s;
     }
     &.come-in {
-      transform: translateY(400px);
+      transform: translateY(150px);
       animation: come-in 1s ease forwards;
     }
     &.come-in:nth-child(odd) {
@@ -143,8 +143,8 @@
     @keyframes come-in {
       to { transform: translateY(0); }
     }
-    &.action {
-      &:hover {
+    &.sdp {
+      &:hover, &:active {
         animation: shake .8s cubic-bezier(.36,.07,.19,.97) both;
         transform: translate3d(0, 0, 0);
         backface-visibility: hidden;
