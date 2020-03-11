@@ -563,7 +563,7 @@ footer {
   }
 
   .categories-grid, .categories-home-grid, .manufacturers-grid {
-    @include xy-grid-layout(4, 'li', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(3, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 
   .categories-jura-grid {
@@ -571,7 +571,8 @@ footer {
   }
 
   .products-grid, .search-grid, .gift-grid {
-    @include xy-grid-layout(3, 'li', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(3, 'li.item', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(1, 'li.itemwide', true, $grid-margin-gutters, margin, left bottom);
     .action {
       align-items: center;
       justify-content: center;
@@ -792,15 +793,15 @@ footer {
   }
 
   .categories-grid, .categories-home-grid, .manufacturers-grid {
-    @include xy-grid-layout(5, 'li', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(5, 'li.item', true, $grid-margin-gutters, margin, left bottom);
   }
 
   .categories-jura-grid {
-    @include xy-grid-layout(3, 'li', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(3, 'li.item', true, $grid-margin-gutters, margin, left bottom);
   }
 
   .products-grid, .search-grid, .gift-grid {
-    @include xy-grid-layout(4, 'li', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(4, 'li.item', true, $grid-margin-gutters, margin, left bottom);
     .karneval {
       align-items: center;
       justify-content: center;
@@ -940,11 +941,11 @@ footer {
 
   .categories-grid, .categories-home-grid, .manufacturers-grid {
     @include xy-grid-container(rem-calc(1920), 0);
-    @include xy-grid-layout(8, 'li', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(8, 'li.item', true, $grid-margin-gutters, margin, left bottom);
   }
 
   .products-grid, .search-grid, .gift-grid {
     @include xy-grid-container(rem-calc(1920), 0);
-    @include xy-grid-layout(8, 'li', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(8, 'li.item', true, $grid-margin-gutters, margin, left bottom);
   }
 }

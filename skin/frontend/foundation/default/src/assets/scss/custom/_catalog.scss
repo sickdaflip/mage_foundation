@@ -197,6 +197,15 @@
       }
     }
   }
+  .itemwide {
+    padding: .5rem;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
 }
 
 .products-list, .products-grid, .top-products-slider {
