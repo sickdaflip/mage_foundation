@@ -205,6 +205,9 @@
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+    img {
+      border-radius: $global-radius;
+    }
   }
 }
 
