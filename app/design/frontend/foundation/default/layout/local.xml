@@ -47,6 +47,11 @@
                 <type>skin_css</type>
                 <name>dist/assets/css/app.css</name>
             </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>dist/assets/js/app.js</name>
+                <params>default</params>
+            </action>
             <action method="removeItem">
                 <type>skin_css</type>
                 <name>css/eucookielaw.css</name>
