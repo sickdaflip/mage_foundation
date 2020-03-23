@@ -166,7 +166,14 @@ header {
   }
 }
 
-.categories-grid, .categories-home-grid, .manufacturers-grid {
+.categories-grid, .categories-home-grid {
+  @include xy-grid-container($grid-container, 0);
+  @include xy-grid;
+  @include xy-grid-layout(2, 'li', true, $grid-margin-gutters, margin, top bottom left right);
+  justify-content: center;
+}
+
+.manufacturers-grid {
   @include xy-grid-container($grid-container, 0);
   @include xy-grid;
   @include xy-grid-layout(2, 'li', true, $grid-margin-gutters, margin, top bottom left right);
@@ -562,7 +569,11 @@ footer {
     }
   }
 
-  .categories-grid, .categories-home-grid, .manufacturers-grid {
+  .categories-grid, .categories-home-grid {
+    @include xy-grid-layout(3, 'li', true, $grid-margin-gutters, margin, left bottom);
+  }
+
+  .manufacturers-grid {
     @include xy-grid-layout(3, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 
@@ -576,12 +587,6 @@ footer {
     .action {
       align-items: center;
       justify-content: center;
-    }
-  }
-
-  .manufacture-grid {
-    li {
-      @include xy-cell(4);
     }
   }
 
@@ -792,8 +797,12 @@ footer {
     }
   }
 
-  .categories-grid, .categories-home-grid, .manufacturers-grid {
+  .categories-grid, .categories-home-grid {
     @include xy-grid-layout(5, 'li.item', true, $grid-margin-gutters, margin, left bottom);
+  }
+
+  .manufacturers-grid {
+    @include xy-grid-layout(5, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 
   .categories-jura-grid {
@@ -939,9 +948,14 @@ footer {
     @include xy-grid-container(rem-calc(1920));
   }
 
-  .categories-grid, .categories-home-grid, .manufacturers-grid {
+  .categories-grid, .categories-home-grid {
     @include xy-grid-container(rem-calc(1920), 0);
     @include xy-grid-layout(8, 'li.item', true, $grid-margin-gutters, margin, left bottom);
+  }
+
+  .manufacturers-grid {
+    @include xy-grid-container(rem-calc(1920), 0);
+    @include xy-grid-layout(8, 'li', true, $grid-margin-gutters, margin, left bottom);
   }
 
   .products-grid, .search-grid, .gift-grid {
