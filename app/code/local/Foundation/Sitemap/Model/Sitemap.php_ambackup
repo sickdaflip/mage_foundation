@@ -1,6 +1,6 @@
 <?php
 
-class Foundation_Sitemap_Model_Sitemap extends Foundation_Sitemap_Model_Sitemap_Amasty_Pure
+class Foundation_Sitemap_Model_Sitemap extends Mage_Sitemap_Model_Sitemap
 {
     const     ITEM_LIMIT = 50000;
     protected $_io;

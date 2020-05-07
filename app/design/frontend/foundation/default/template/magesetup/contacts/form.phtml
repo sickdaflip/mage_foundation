@@ -69,9 +69,12 @@
                 </div>
                 <div class="telephone-field">
                     <label for="telephone"><?php echo Mage::helper('contacts')->__('Telephone') ?>
+                        <small><?php echo $this->__('required') ?></small>
                         <input name="telephone" id="telephone"
                                title="<?php echo Mage::helper('core')->quoteEscape(Mage::helper('contacts')->__('Telephone')) ?>"
-                               value="" type="text"/>
+                               value="" type="text"
+                               required/>
+                        <small class="form-error"><?php echo $this->__('Please enter your telephone.') ?></small>
                     </label>
                 </div>
                 <div class="comment-field">
