@@ -103,7 +103,25 @@ $_helper = $this->helper('catalog/output');
         <?php $_collectionSize = $_productCollection->count() ?>
         <?php $_columnCount = $this->getColumnCount(); ?>
             <ul class="products-grid">
+                <?php
+                $i = 0;
+                $random1 = rand(0, 7);
+                do {
+                    $random2 = rand(8, 14);
+                } while ($random1 == $random2);
+                ?>
                 <?php foreach ($_productCollection as $_product): ?>
+                    <?php if ($i == $random1 || $i == $random2) { ?>
+                        <li class="item action">
+                            <a class="invest">
+                                <img src="<?php echo $this->getSkinUrl('dist/assets/img/investrabatt400x400.jpg') ?>"
+                                     alt="Invest-Rabatt 3 Prozent"/>
+                            </a>
+                            <div class="product-name">
+                                <a class="button hollow margin-top-1"><?php echo $this->__('Hier klicken') ?></a>
+                            </div>
+                        </li>
+                    <?php } ?>
                     <li class="item">
                         <?php if ($_product->getFinalPrice() < $_product->getPrice()) { ?>
                             <?php $_savingPercent = 100 - round(($_product->getFinalPrice() / $_product->getPrice()) * 100); ?>
@@ -128,7 +146,7 @@ $_helper = $this->helper('catalog/output');
                             </div>
                         <?php endif; ?>
                         <div class="product-name"><a href="<?php echo $_product->getProductUrl() ?>"
-                                                    title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a>
+                                                     title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a>
                         </div>
                         <?php if ($_product->getRatingSummary()): ?>
                             <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
@@ -146,20 +164,21 @@ $_helper = $this->helper('catalog/output');
                             <span class="commissioning"><?php echo $_label; ?></span>
                         <?php endif; ?>
                     </li>
+                    <?php $i++; ?>
                 <?php endforeach ?>
             </ul>
             <div class="reveal small" id="osterangebot" data-reveal></div>
             <script>
-                jQuery('.osterangebot').click(function () {
+                jQuery('.invest').click(function () {
                     jQuery.ajax({
-                        url: '<?php echo $this->getUrl('ajax/cms/block/id/63');?>',
+                        url: '<?php echo $this->getUrl('ajax/cms/block/id/66');?>',
                         beforeSend: function () {
                             jQuery('#reveal-wait').show();
                         }
                     })
                         .done(function (data) {
                             jQuery('#reveal-wait').hide();
-                            jQuery('#osterangebot').html(data).foundation('open');
+                            jQuery('#invest').html(data).foundation('open');
                         });
                 });
             </script>
