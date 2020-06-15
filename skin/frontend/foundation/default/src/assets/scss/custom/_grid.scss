@@ -96,10 +96,10 @@ header {
         .search-row {
           @include xy-grid;
           .search-input {
-            @include xy-cell(11, false, 0);
+            @include xy-cell(11,null,0,none);
           }
           .search-button {
-            @include xy-cell(1, false, 0);
+            @include xy-cell(1,null,0,none);
           }
         }
       }
@@ -130,7 +130,7 @@ header {
 .homeslider, .headbanner {
   @include xy-grid;
   .banner {
-    @include xy-cell(12, false, 0);
+    @include xy-cell(12);
     img {
       width: 100%;
     }
@@ -169,35 +169,35 @@ header {
 .categories-grid, .categories-home-grid {
   @include xy-grid-container($grid-container, 0);
   @include xy-grid;
-  @include xy-grid-layout(2, 'li', true, $grid-margin-gutters, margin, top bottom left right);
+  @include xy-grid-layout(2, 'li', null, $grid-margin-gutters, margin, top bottom left right);
   justify-content: center;
 }
 
 .manufacturers-grid {
   @include xy-grid-container($grid-container, 0);
   @include xy-grid;
-  @include xy-grid-layout(2, 'li', true, $grid-margin-gutters, margin, top bottom left right);
+  @include xy-grid-layout(2, 'li', null, $grid-margin-gutters, margin, top bottom left right);
   justify-content: center;
 }
 
 .categories-jura-grid {
   @include xy-grid-container($grid-container, 0);
   @include xy-grid;
-  @include xy-grid-layout(1, 'li', true, $grid-margin-gutters, margin, left bottom);
+  @include xy-grid-layout(1, 'li', null, $grid-margin-gutters, margin, top bottom left right);
   justify-content: center;
 }
 
 .products-grid, .search-grid, .gift-grid {
   @include xy-grid-container($grid-container, 0);
   @include xy-grid;
-  @include xy-grid-layout(1, 'li', true, $grid-margin-gutters, margin, bottom);
+  @include xy-grid-layout(1, 'li', null, $grid-margin-gutters, margin, top bottom left right);
   justify-content: center;
 }
 
 .trust-grid {
   @include xy-grid-container($grid-container, 0);
   @include xy-grid;
-  @include xy-grid-layout(2, 'li', true, $grid-margin-gutters, margin, left bottom);
+  @include xy-grid-layout(2, 'li', null, $grid-margin-gutters, margin, top bottom left right);
   justify-content: center;
 }
 
@@ -238,7 +238,7 @@ header {
 .payment-grid {
   @include xy-grid;
   .method {
-    @include xy-cell(12, false, 0);
+    @include xy-cell(12);
     @include xy-grid;
     @extend .align-middle, .callout;
     .image {
@@ -256,7 +256,7 @@ header {
     @include xy-cell(12);
   }
   .mb-top-layered-navigation {
-    @include xy-cell(12, false, 0);
+    @include xy-cell(12);
   }
   .category-description.top {
     @include xy-cell(12);
@@ -283,10 +283,10 @@ header {
             display: none;
           }
           .quantity, .quantity-step {
-            @include xy-cell(12, false, 0);
+            @include xy-cell(12);
           }
           .button {
-            @include xy-cell(12, false, 0);
+            @include xy-cell(12);
           }
         }
         .msrp-price, .old-price, .special-price, .regular-price, .mwst-price {
@@ -309,16 +309,16 @@ header {
       dl.last {
         @include xy-grid;
         .option {
-          @include xy-cell(12, false, 0);
+          @include xy-cell(12);
           li.with-image {
             label {
               @include xy-grid;
               align-items: center;
               img {
-                @include xy-cell(4, false, 0);
+                @include xy-cell(4,null,0,none);
               }
               span.text {
-                @include xy-cell(8);
+                @include xy-cell(8,null,0,none);
               }
             }
           }
@@ -326,19 +326,19 @@ header {
             @include xy-grid;
             align-items: center;
             .label {
-              @include xy-cell(11, false, 0);
+              @include xy-cell(11,null,0,none);
             }
             a {
-              @include xy-cell(1, false, 0);
+              @include xy-cell(1,null,0,none);
             }
             label {
               @include xy-grid;
               align-items: center;
               img {
-                @include xy-cell(4, false, 0);
+                @include xy-cell(4,null,0,none);
               }
               span.text {
-                @include xy-cell(8);
+                @include xy-cell(8,null,0,none);
               }
             }
           }
@@ -346,10 +346,10 @@ header {
             @include xy-grid;
             align-items: center;
             .label {
-              @include xy-cell(11, false, 0);
+              @include xy-cell(11,null,0,none);
             }
             a {
-              @include xy-cell(1, false, 0);
+              @include xy-cell(1,null,0,none);
             }
           }
         }
@@ -390,7 +390,7 @@ header {
   & > form {
     @include xy-grid;
     .cart-table-wrapper {
-      @include xy-cell(12, false, 0);
+      @include xy-cell(12);
     }
   }
   .cart-collaterals {
@@ -399,7 +399,7 @@ header {
       .shipping,
       #discount-coupon-form,
       .totals {
-        @include xy-cell(12, false, 0);
+        @include xy-cell(12);
       }
     }
   }
@@ -409,13 +409,13 @@ header {
 footer {
   @include xy-grid;
   .footer-top {
-    @include xy-cell(12, false, 0);
+    @include xy-cell(12,null,0,none);
   }
   .footer-extras {
-    @include xy-cell(12, false, 0);
+    @include xy-cell(12,null,0,none);
   }
   .footer-info {
-    @include xy-cell(12, false, 0);
+    @include xy-cell(12,null,0,none);
     justify-content: center;
     .content {
       text-align: center;
@@ -424,16 +424,16 @@ footer {
       .footer_service,
       .footer_manufactures,
       .footer_categories {
-        @include xy-cell(12, false, 0);
+        @include xy-cell(12,null,0,none);
       }
     }
   }
   .footer-payments, .footer-bottom {
-    @include xy-cell(12, false, 0);
+    @include xy-cell(12,null,0,none);
     @include xy-grid;
     justify-content: center;
     .org, .social, .payments {
-      @include xy-cell(12, false, 0);
+      @include xy-cell(12);
     }
   }
 }
@@ -445,10 +445,10 @@ footer {
     justify-content: center;
     align-items: center;
     .notice-text {
-      @include xy-cell(9);
+      @include xy-cell(9,null,0,none);
     }
     .actions {
-      @include xy-cell(3);
+      @include xy-cell(3,null,0,none);
     }
   }
 }
@@ -570,20 +570,19 @@ footer {
   }
 
   .categories-grid, .categories-home-grid {
-    @include xy-grid-layout(3, 'li', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(3, 'li');
   }
 
   .manufacturers-grid {
-    @include xy-grid-layout(3, 'li', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(3, 'li');
   }
 
   .categories-jura-grid {
-    @include xy-grid-layout(3, 'li', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(3, 'li');
   }
 
   .products-grid, .search-grid, .gift-grid {
-    @include xy-grid-layout(3, 'li.item', true, $grid-margin-gutters, margin, left bottom);
-    @include xy-grid-layout(1, 'li.itemwide', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(3, 'li');
     .action {
       align-items: center;
       justify-content: center;
@@ -597,7 +596,7 @@ footer {
   .search-autocomplete {
     ul {
       li {
-        @include xy-cell(4, 1rem);
+        @include xy-cell(4);
       }
     }
   }
@@ -798,19 +797,19 @@ footer {
   }
 
   .categories-grid, .categories-home-grid {
-    @include xy-grid-layout(5, 'li.item', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(5, 'li');
   }
 
   .manufacturers-grid {
-    @include xy-grid-layout(5, 'li', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(5, 'li');
   }
 
   .categories-jura-grid {
-    @include xy-grid-layout(3, 'li.item', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(3, 'li');
   }
 
   .products-grid, .search-grid, .gift-grid {
-    @include xy-grid-layout(4, 'li.item', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(4, 'li');
     .karneval {
       align-items: center;
       justify-content: center;
@@ -950,16 +949,16 @@ footer {
 
   .categories-grid, .categories-home-grid {
     @include xy-grid-container(rem-calc(1920), 0);
-    @include xy-grid-layout(8, 'li.item', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(8, 'li');
   }
 
   .manufacturers-grid {
     @include xy-grid-container(rem-calc(1920), 0);
-    @include xy-grid-layout(8, 'li', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(8, 'li');
   }
 
   .products-grid, .search-grid, .gift-grid {
     @include xy-grid-container(rem-calc(1920), 0);
-    @include xy-grid-layout(8, 'li.item', true, $grid-margin-gutters, margin, left bottom);
+    @include xy-grid-layout(8, 'li');
   }
 }
