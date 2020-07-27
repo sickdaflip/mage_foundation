@@ -289,7 +289,7 @@ header {
             @include xy-cell(12);
           }
         }
-        .msrp-price, .old-price, .special-price, .regular-price, .mwst-price {
+        .msrp-price, .old-price, .special-price, .regular-price, .mwst-price, .price-as-configured {
           @include xy-grid;
           @include xy-grid-layout(2, 'span');
           justify-content: center;
@@ -353,11 +353,11 @@ header {
             }
           }
         }
-      }
-      dl {
-        > dt, > dd {
-          @include xy-cell(6);
-          padding: .3rem 0;
+        ul.product-bundle-radio {
+          @include xy-grid;
+          li {
+            @include xy-cell(6);
+          }
         }
       }
     }
@@ -636,6 +636,15 @@ footer {
           }
         }
       }
+      .product-options {
+        dl.last {
+          ul.product-bundle-radio {
+            li {
+              @include xy-cell(3);
+            }
+          }
+        }
+      }
     }
   }
   .product-collateral {
@@ -862,6 +871,11 @@ footer {
         dl.last {
           .option {
             @include xy-cell(6);
+          }
+          ul.product-bundle-radio {
+            li {
+              @include xy-cell(3);
+            }
           }
         }
       }

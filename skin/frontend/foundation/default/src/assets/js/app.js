@@ -49,7 +49,7 @@ $(document).ready(function () {
     });
 
     //Product Option show more and less
-    $('ul.options-list').each(function(){
+    $('ul.options-list').not('ul.product-bundle-radio').each(function(){
 
         var LiN = $(this).find('li').length;
 

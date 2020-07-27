@@ -8,17 +8,17 @@
     </div>
     <div class="footer-extras">
         <div class="content">
-            <a href="<?php echo Mage::getUrl('', array('_direct' =>'lieferung')); ?>">
+            <a href="<?php echo Mage::getUrl('', array('_direct' => 'lieferung')); ?>">
                 <img src="<?php echo $this->getSkinUrl('dist/assets/img/versandkostenfrei.png') ?>"
                      alt="kostenfreie Lieferung ab 99 EUR">
             </a>
             <img src="<?php echo $this->getSkinUrl('dist/assets/img/gastrodax-logo.png'); ?>"
-                     alt="Logo" class="footer-logo"/>
+                 alt="Logo" class="footer-logo"/>
             <a href="https://www.newgastroline.de" target="_blank">
                 <img src="<?php echo $this->getSkinUrl('dist/assets/img/30jahre.png') ?>"
                      alt="30 Jahre New Gastroline GmbH">
             </a>
-            <a href="<?php echo Mage::getUrl('', array('_direct' =>'jobs')); ?>">
+            <a href="<?php echo Mage::getUrl('', array('_direct' => 'jobs')); ?>">
                 <img src="<?php echo $this->getSkinUrl('dist/assets/img/jobs.png') ?>"
                      alt="Jobs &amp; Careers">
             </a>
@@ -32,36 +32,40 @@
                     <li>
                         <a href="<?php echo Mage::getUrl(''); ?>"><?php echo $this->__('Startseite') ?></a>
                     </li>
-                    <li><a class="quality"><?php echo $this->__('Sicher einkaufen') ?></a></li>
-                    <li><a href="<?php echo Mage::getUrl('', array('_direct' =>'zertifizierter-haendler')); ?>"><?php echo $this->__('Zertifikate') ?></a></li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('', array('_direct' =>'bestellvorgang')); ?>"><?php echo $this->__('Bestellvorgang') ?></a>
+                        <a class="quality"><?php echo $this->__('Sicher einkaufen') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('', array('_direct' =>'leasing-mietkauf')); ?>"><?php echo $this->__('Finanzierung %') ?></a>
+                        <a href="<?php echo Mage::getUrl('', array('_direct' => 'zertifizierter-haendler')); ?>"><?php echo $this->__('Zertifikate') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('', array('_direct' =>'lieferung')); ?>"><?php echo $this->__('Lieferung') ?></a>
+                        <a href="<?php echo Mage::getUrl('', array('_direct' => 'bestellvorgang')); ?>"><?php echo $this->__('Bestellvorgang') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('', array('_direct' =>'zahlungsarten')); ?>"><?php echo $this->__('Zahlungsarten') ?></a>
+                        <a href="<?php echo Mage::getUrl('', array('_direct' => 'leasing-mietkauf')); ?>"><?php echo $this->__('Finanzierung %') ?></a>
+                    </li>
+                    <li>
+                        <a href="<?php echo Mage::getUrl('', array('_direct' => 'lieferung')); ?>"><?php echo $this->__('Lieferung') ?></a>
+                    </li>
+                    <li>
+                        <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten')); ?>"><?php echo $this->__('Zahlungsarten') ?></a>
                     </li>
                     <?php if (Mage::app()->getStore()->getId() == '5'): /* B2C */ ?>
                         <li>
-                            <a href="<?php echo Mage::getUrl('', array('_direct' =>'widerrufsbelehrung')); ?>"><?php echo $this->__('Widerrufsbelehrung') ?></a>
+                            <a href="<?php echo Mage::getUrl('', array('_direct' => 'widerrufsbelehrung')); ?>"><?php echo $this->__('Widerrufsbelehrung') ?></a>
                         </li>
                         <li>
-                            <a href="<?php echo Mage::getUrl('', array('_direct' =>'widerrufsformular')); ?>"><?php echo $this->__('Widerrufsformular') ?></a>
+                            <a href="<?php echo Mage::getUrl('', array('_direct' => 'widerrufsformular')); ?>"><?php echo $this->__('Widerrufsformular') ?></a>
                         </li>
                     <?php endif ?>
                     <li>
-                        <a href="<?php echo Mage::getUrl('', array('_direct' =>'streitschlichtung')); ?>"><?php echo $this->__('Streitschlichtung') ?></a>
+                        <a href="<?php echo Mage::getUrl('', array('_direct' => 'streitschlichtung')); ?>"><?php echo $this->__('Streitschlichtung') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('', array('_direct' =>'batteriegesetz')); ?>"><?php echo $this->__('Batteriegesetz') ?></a>
+                        <a href="<?php echo Mage::getUrl('', array('_direct' => 'batteriegesetz')); ?>"><?php echo $this->__('Batteriegesetz') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getUrl('', array('_direct' =>'referenzen')); ?>"><?php echo $this->__('Referenzen') ?></a>
+                        <a href="<?php echo Mage::getUrl('', array('_direct' => 'referenzen')); ?>"><?php echo $this->__('Referenzen') ?></a>
                     </li>
                 </ul>
                 <div class="reveal large" id="quality" data-reveal></div>
@@ -189,49 +193,49 @@
         <div class="payments">
             <ul>
                 <li>
-                    <a href="<?php echo Mage::getUrl('', array('_direct' =>'zahlungsarten#paypal')); ?>">
+                    <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten#paypal')); ?>">
                         <img src="<?php echo $this->getSkinUrl('dist/assets/img/paypal-white.png') ?>"
                              alt="PayPal Logo"/>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo Mage::getUrl('', array('_direct' =>'zahlungsarten#amazon')); ?>">
+                    <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten#amazon')); ?>">
                         <img src="<?php echo $this->getSkinUrl('dist/assets/img/amazon-payments-white.png') ?>"
                              alt="Amazon payments"/>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo Mage::getUrl('', array('_direct' =>'zahlungsarten#sofort')); ?>">
+                    <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten#sofort')); ?>">
                         <img src="<?php echo $this->getSkinUrl('dist/assets/img/sofort-white.png') ?>"
                              alt="Sofortüberweisung Logo"/>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo Mage::getUrl('', array('_direct' =>'zahlungsarten#moneyorder')); ?>">
+                    <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten#moneyorder')); ?>">
                         <img src="<?php echo $this->getSkinUrl('dist/assets/img/vorkasse-white.png') ?>"
                              alt="Vorkasse"/>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo Mage::getUrl('', array('_direct' =>'zahlungsarten#creditcard')); ?>">
+                    <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten#creditcard')); ?>">
                         <img src="<?php echo $this->getSkinUrl('dist/assets/img/creditcard-white.png') ?>"
                              alt="Kreditkarte"/>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo Mage::getUrl('', array('_direct' =>'zahlungsarten#invoice')); ?>">
+                    <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten#invoice')); ?>">
                         <img src="<?php echo $this->getSkinUrl('dist/assets/img/invoice-white.png') ?>"
                              alt="Rechnung"/>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo Mage::getUrl('', array('_direct' =>'zahlungsarten#finanz')); ?>">
+                    <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten#finanz')); ?>">
                         <img src="<?php echo $this->getSkinUrl('dist/assets/img/finanz-white.png') ?>"
                              alt="Finanzierung"/>
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo Mage::getUrl('', array('_direct' =>'zahlungsarten#sepa')); ?>">
+                    <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten#sepa')); ?>">
                         <img src="<?php echo $this->getSkinUrl('dist/assets/img/sepa-white.png') ?>"
                              alt="Sepa Lastschrift"/>
                     </a>
@@ -243,16 +247,16 @@
         <div class="org">
             <ul>
                 <li>
-                    <a href="<?php echo Mage::getUrl('', array('_direct' =>'agb')); ?>"><?php echo $this->__('AGB') ?></a>
+                    <a href="<?php echo Mage::getUrl('', array('_direct' => 'agb')); ?>"><?php echo $this->__('AGB') ?></a>
                 </li>
                 <li>
-                    <a href="<?php echo Mage::getUrl('', array('_direct' =>'impressum')); ?>"><?php echo $this->__('Impressum') ?></a>
+                    <a href="<?php echo Mage::getUrl('', array('_direct' => 'impressum')); ?>"><?php echo $this->__('Impressum') ?></a>
                 </li>
                 <li>
-                    <a href="<?php echo Mage::getUrl('', array('_direct' =>'datenschutz')); ?>"><?php echo $this->__('Datenschutz') ?></a>
+                    <a href="<?php echo Mage::getUrl('', array('_direct' => 'datenschutz')); ?>"><?php echo $this->__('Datenschutz') ?></a>
                 </li>
                 <li>
-                    <a href="<?php echo Mage::getUrl('', array('_direct' =>'sitemap')); ?>"><?php echo $this->__('Sitemap') ?></a>
+                    <a href="<?php echo Mage::getUrl('', array('_direct' => 'sitemap')); ?>"><?php echo $this->__('Sitemap') ?></a>
                 </li>
                 <li>
                     <a class="hints"><?php echo $this->__('Hinweise') ?></a>
@@ -276,9 +280,12 @@
         </div>
         <div class="social">
             <ul>
-                <li><a href="https://facebook.com/gastrodax/" target="_blank" rel="nofollow noopener noreferrer"><i class="fab fa-facebook-square"></i></a></li>
-                <li><a href="https://www.youtube.com/channel/UCTr6z7_W4adeggGR1Sa717g" target="_blank" rel="nofollow noopener noreferrer"><i class="fab fa-youtube-square"></i></a></li>
-                <li><a href="https://twitter.com/gastrodax" target="_blank" rel="nofollow noopener noreferrer"><i class="fab fa-twitter-square"></i></a></li>
+                <li><a href="https://facebook.com/gastrodax/" target="_blank" rel="nofollow noopener noreferrer"><i
+                                class="fab fa-facebook-square"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCTr6z7_W4adeggGR1Sa717g" target="_blank"
+                       rel="nofollow noopener noreferrer"><i class="fab fa-youtube-square"></i></a></li>
+                <li><a href="https://twitter.com/gastrodax" target="_blank" rel="nofollow noopener noreferrer"><i
+                                class="fab fa-twitter-square"></i></a></li>
             </ul>
         </div>
         <div class="copyright">
