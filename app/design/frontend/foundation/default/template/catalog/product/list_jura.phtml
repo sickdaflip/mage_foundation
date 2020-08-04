@@ -87,6 +87,9 @@ $_helper = $this->helper('catalog/output');
                     </li>
                 <?php } ?>
                 <li class="item">
+                    <?php if (date("Y-m-d") >= substr($_product->getNewsFromDate(), 0, 10) && date("Y-m-d") <= substr($_product->getNewsToDate(), 0, 10)) { ?>
+                        <div class="new-ribbon"><span><?php echo $this->__('Neu') ?></div>
+                    <?php } ?>
                     <?php if ($_product->getFinalPrice() < $_product->getPrice()) { ?>
                         <?php $_savingPercent = 100 - round(($_product->getFinalPrice() / $_product->getPrice()) * 100); ?>
                         <div class="special-ribbon"><span><?php echo $_savingPercent; ?>% Rabatt</span>
