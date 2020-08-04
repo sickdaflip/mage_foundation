@@ -261,6 +261,54 @@
       border-bottom: 3px solid transparent;
       border-top: 3px solid $alert-color;
     }
+    .new-ribbon {
+      z-index: 2;
+      position: absolute;
+      right: -1px;
+      top: -1px;
+      overflow: hidden;
+      width: 150px;
+      height: 150px;
+      text-align: right;
+    }
+    .new-ribbon span {
+      font-size: 1rem;
+      color: $white;
+      text-align: center;
+      line-height: 1.5rem;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      width: 135px;
+      display: block;
+      background: $success-color;
+      box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+      position: absolute;
+      top: 20px;
+      right: -34px;
+    }
+    .new-ribbon span::before {
+      content: "";
+      position: absolute;
+      left: 0px;
+      top: 100%;
+      z-index: -1;
+      border-left: 3px solid $success-color;
+      border-right: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      border-top: 3px solid $success-color;
+    }
+    .new-ribbon span::after {
+      content: "";
+      position: absolute;
+      right: 0px;
+      top: 100%;
+      z-index: -1;
+      border-left: 3px solid transparent;
+      border-right: 3px solid $success-color;
+      border-bottom: 3px solid transparent;
+      border-top: 3px solid $success-color;
+    }
+
     .product-brand {
       img {
         max-width: 8rem;

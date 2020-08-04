@@ -91,56 +91,63 @@
         img {
           margin: 0 auto !important;
           width: 50% !important;
+          z-index: 7;
         }
       }
       .special-ribbon {
+        z-index: 9;
         position: absolute;
-        right: -5px;
-        top: -5px;
+        right: 0;
+        top: 0;
         overflow: hidden;
-        width: 150px;
-        height: 150px;
+        width: 200px;
+        height: 200px;
         text-align: right;
       }
       .special-ribbon span {
         font-size: rem-calc(20);
         font-weight: bold;
         color: $white;
-        text-transform: uppercase;
+        text-align: center;
+        line-height: 40px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        width: 300px;
+        display: block;
+        background: $alert-color;
+        box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+        position: absolute;
+        top: 60px;
+        right: -60px;
+      }
+
+      .new-ribbon {
+        z-index: 9;
+        position: absolute;
+        right: 0;
+        top: 0;
+        overflow: hidden;
+        width: 150px;
+        height: 150px;
+        text-align: right;
+      }
+      .new-ribbon span {
+        font-size: rem-calc(20);
+        font-weight: bold;
+        color: $white;
         text-align: center;
         line-height: 40px;
         transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
         width: 200px;
         display: block;
-        background: $alert-color;
+        background: $success-color;
         box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
         position: absolute;
-        top: 38px;
-        right: -42px;
+        top: 30px;
+        right: -50px;
       }
-      .special-ribbon span::before {
-        content: "";
-        position: absolute;
-        left: 0px;
-        top: 100%;
-        z-index: -1;
-        border-left: 3px solid $alert-color;
-        border-right: 3px solid transparent;
-        border-bottom: 3px solid transparent;
-        border-top: 3px solid $alert-color;
-      }
-      .special-ribbon span::after {
-        content: "";
-        position: absolute;
-        right: 0px;
-        top: 100%;
-        z-index: -1;
-        border-left: 3px solid transparent;
-        border-right: 3px solid $alert-color;
-        border-bottom: 3px solid transparent;
-        border-top: 3px solid $alert-color;
-      }
+
     }
     .product-images {
       p {

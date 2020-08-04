@@ -105,10 +105,12 @@ $_helper = $this->helper('catalog/output');
             <ul class="products-grid">
                 <?php foreach ($_productCollection as $_product): ?>
                     <li class="item">
+                        <?php if (date("Y-m-d") >= substr($_product->getNewsFromDate(), 0, 10) && date("Y-m-d") <= substr($_product->getNewsToDate(), 0, 10)) { ?>
+                            <div class="new-ribbon"><span><?php echo $this->__('Neu') ?></div>
+                        <?php } ?>
                         <?php if ($_product->getFinalPrice() < $_product->getPrice()) { ?>
                             <?php $_savingPercent = 100 - round(($_product->getFinalPrice() / $_product->getPrice()) * 100); ?>
-                            <div class="special-ribbon"><span><?php echo $_savingPercent; ?>% Rabatt</span>
-                            </div>
+                            <div class="special-ribbon"><span><?php echo $_savingPercent; ?><?php echo $this->__('% Rabatt') ?></span></div>
                         <?php } ?>
                         <div class="products-image float-center">
                             <a href="<?php echo $_product->getProductUrl() ?>"

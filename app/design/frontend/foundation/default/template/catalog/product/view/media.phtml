@@ -35,9 +35,12 @@ $_product = $this->getProduct();
 $_helper = $this->helper('catalog/output');
 ?>
 <div class="product-image">
+    <?php if (date("Y-m-d") >= substr($_product->getNewsFromDate(), 0, 10) && date("Y-m-d") <= substr($_product->getNewsToDate(), 0, 10)) { ?>
+        <div class="new-ribbon"><span><?php echo $this->__('Neu') ?></div>
+    <?php } ?>
     <?php if($_product->getFinalPrice() < $_product->getPrice()){ ?>
         <?php $_savingPercent = 100 - round(($_product->getFinalPrice() / $_product->getPrice())*100); ?>
-        <div class="special-ribbon"><span><?php echo $_savingPercent; ?>% Rabatt</span></div>
+        <div class="special-ribbon"><span><?php echo $_savingPercent; ?><?php echo $this->__('% Rabatt') ?></span></div>
     <?php } ?>
     <a href="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" class="item">
         <img data-interchange="[<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(250, 250) ?>, small], [<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(400, 400) ?>, medium], [<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(550, 550) ?>, large]"
