@@ -33,10 +33,10 @@
 <?php list($_defaultQty, $_canChangeQty) = $this->_getDefaultValues(); ?>
 <?php $tierPriceHtml = ''; ?>
 
-<dt>
+<dt class="product-bundle-radio">
     <label<?php if ($_option->getRequired()) echo ' class="required"' ?>><?php echo $this->escapeHtml($_option->getTitle()) ?><?php if ($_option->getRequired()) echo '<em>*</em>' ?></label>
 </dt>
-<dd<?php if ($_option->decoratedIsLast) { ?> class="last"<?php } ?>>
+<dd class="product-bundle-radio<?php if ($_option->decoratedIsLast) { ?> last<?php } ?>">
     <div class="input-box">
         <?php /** @var $_selection Mage_Catalog_Model_Product */ ?>
         <?php if ($this->_showSingle()): ?>

@@ -96,22 +96,8 @@
     <div class="col-2">
         <h3><?php echo $this->__('Returning Customers') ?></h3>
         <?php echo $this->getMessagesBlock()->toHtml() ?>
-        <script type="text/javascript">
-            //<![CDATA[
-            function captcha() {
-                var v = grecaptcha.getResponse();
-                if (v.length == 0) {
-                    document.getElementById('recaptcha_validation').value = "";
-                    return false;
-                }
-                if (v.length != 0) {
-                    document.getElementById('recaptcha_validation').value = "1";
-                    return true;
-                }
-            };
-            //]]>
-        </script>
-        <form id="login-form" action="<?php echo $this->getPostAction() ?>" method="post" data-abide novalidate onsubmit="return jQuery(this) && captcha()">
+
+        <form id="login-form" action="<?php echo $this->getPostAction() ?>" method="post" data-abide novalidate>
             <?php echo $this->getBlockHtml('formkey'); ?>
             <p class="description"><?php echo $this->__('Sign in to speed up your checkout process') ?></p>
             <div class="field">
@@ -144,55 +130,33 @@
         </form>
     </div>
 </div>
-
-<script type="text/javascript">
-    //<![CDATA[
-    var loginForm = new VarienForm('login-form', true);
-    $('login-email').observe('keypress', bindLoginPost);
-    $('login-password').observe('keypress', bindLoginPost);
-    function bindLoginPost(evt) {
-        if (evt.keyCode == Event.KEY_RETURN) {
-            loginForm.submit();
+    <script type="text/javascript">
+        //<![CDATA[
+        var loginForm = new VarienForm('login-form', true);
+        $('login-email').observe('keypress', bindLoginPost);
+        $('login-password').observe('keypress', bindLoginPost);
+        function bindLoginPost(evt){
+            if (evt.keyCode == Event.KEY_RETURN) {
+                loginForm.submit();
+            }
         }
-    }
-    function onepageLogin(button) {
-
-        formvalid = 1;
-        jQuery('#login-form')
-            .foundation('validateForm', function () {
-            })
-            .on('invalid.zf.abide', function (ev, elem) {
-                console.log("Field id " + ev.target.id + " is invalid");
-                var invalid_fields = jQuery(this).find('[data-invalid]');
-                jQuery('html, body').animate({
-                    scrollTop: jQuery(invalid_fields[0]).offset().top - 100
-                }, 1000);
-
-            })
-            .on('formvalid.zf.abide', function (ev, frm) {
-                console.log("Form id " + frm.attr('id') + " is valid");
-                formvalid = 0;
-            })
-            .on("submit", function (ev) {
-                ev.preventDefault();
-                console.log("Submit for form id " + ev.target.id + " intercepted");
-            });
-
-        if (formvalid == 0) {
-            button.disabled = true;
-            loginForm.submit();
+        function onepageLogin(button)
+        {
+            if(loginForm.validator && loginForm.validator.validate()){
+                button.disabled = true;
+                loginForm.submit();
+            }
         }
-    }
-    //]]>
-</script>
+        //]]>
+    </script>
 <?php
 $registerParam = $this->getRequest()->getParam('register');
 if ($registerParam || $registerParam === ''):
     ?>
     <script type="text/javascript">
         //<![CDATA[
-        document.observe("dom:loaded", function () {
-            if ($('login:register')) {
+        document.observe("dom:loaded", function() {
+            if($('login:register')) {
                 $('login:register').checked = true;
                 checkout.setMethod();
             }

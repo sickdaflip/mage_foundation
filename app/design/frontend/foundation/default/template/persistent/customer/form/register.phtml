@@ -4,30 +4,14 @@
     </div>
     <?php echo $this->getChildHtml('form_fields_before') ?>
     <?php echo $this->getMessagesBlock()->toHtml() ?>
-    <script type="text/javascript">
-        //<![CDATA[
-        function captcha() {
-            var v = grecaptcha.getResponse();
-            if (v.length == 0) {
-                document.getElementById('recaptcha_validation').value = "";
-                return false;
-            }
-            if (v.length != 0) {
-                document.getElementById('recaptcha_validation').value = "1";
-                return true;
-            }
-        }
-        ;
-        //]]>
-    </script>
-    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate" data-abide novalidate
-          onsubmit="return jQuery(this) && captcha()">
+
+    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate" data-abide novalidate>
         <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>"/>
         <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>"/>
         <input type="hidden" name="form_key"
                value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>"/>
         <div class="personal">
-            <h2 class="legend"><?php echo $this->__('Personal Information') ?></h2>
+            <h2 class="h3"><?php echo $this->__('Personal Information') ?></h2>
             <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getFormData())->setForceUseCustomerAttributes(true)->toHtml() ?>
             <div class="email-field">
                 <label for="email_address"><?php echo $this->__('Email Address') ?>
@@ -171,7 +155,7 @@
             <?php endif; ?>
         </div>
         <div class="login">
-            <h2 class="legend"><?php echo $this->__('Login Information') ?></h2>
+            <h2 class="h3"><?php echo $this->__('Login Information') ?></h2>
             <div class="password-field">
                 <label for="password"><?php echo $this->__('Password') ?>
                     <small><?php echo $this->__('required') ?></small>

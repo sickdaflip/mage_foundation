@@ -24,6 +24,7 @@
     "responsive"
   ],
   "dependencies": {
+    "formvalidation": "^0.6.2-dev",
     "foundation-sites": "^6.6.3",
     "google-fonts": "^1.0.0",
     "hamburgers": "^1.1.3",

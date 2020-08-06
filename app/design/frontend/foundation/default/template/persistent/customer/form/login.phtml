@@ -3,23 +3,8 @@
         <h1><?php echo $this->__('Login or Create an Account') ?></h1>
     </div>
     <?php echo $this->getMessagesBlock()->toHtml() ?>
-    <script type="text/javascript">
-        //<![CDATA[
-        function captcha() {
-            var v = grecaptcha.getResponse();
-            if (v.length == 0) {
-                document.getElementById('recaptcha_validation').value = "";
-                return false;
-            }
-            if (v.length != 0) {
-                document.getElementById('recaptcha_validation').value = "1";
-                return true;
-            }
-        };
-        //]]>
-    </script>
-    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form" data-abide novalidate
-          onsubmit="return jQuery(this) && captcha()">
+
+    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form" data-abide novalidate>
         <?php echo $this->getBlockHtml('formkey'); ?>
         <div class="registered-users">
             <div class="content">

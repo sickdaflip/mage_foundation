@@ -359,6 +359,10 @@ header {
             @include xy-cell(6);
           }
         }
+        > dt:not(.product-bundle-radio), > dd:not(.product-bundle-radio) {
+          @include xy-cell(6);
+          padding: .3rem 0;
+        }
       }
     }
   }

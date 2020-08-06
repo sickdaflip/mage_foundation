@@ -1,21 +1,6 @@
 <div id="mini_login" data-dropdown-content class="f-dropdown content row" aria-hidden="true" aria-autoclose="false">
     <div class="columns small-12">
-        <script type="text/javascript">
-            //<![CDATA[
-            function captcha() {
-                var v = grecaptcha.getResponse();
-                if (v.length == 0) {
-                    document.getElementById('recaptcha_validation').value = "";
-                    return false;
-                }
-                if (v.length != 0) {
-                    document.getElementById('recaptcha_validation').value = "1";
-                    return true;
-                }
-            };
-            //]]>
-        </script>
-        <form action="<?php echo $this->getUrl('customer/account/loginPost') ?>" method="post" data-abide onsubmit="return jQuery(this) && captcha()">
+        <form action="<?php echo $this->getUrl('customer/account/loginPost') ?>" method="post" data-abide>
             <?php echo $this->getBlockHtml('formkey'); ?>
             <div class="row fullWidth">
                 <div class="large-12 columns email-field">
