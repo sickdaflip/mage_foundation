@@ -1,0 +1,10 @@
+.off-canvas-wrapper {
+  #offCanvas {
+    border-right: solid 1px $primary-color;
+    ul.nav {
+      button.submenu-toggle {
+        border-radius: 0;
+      }
+    }
+  }
+}

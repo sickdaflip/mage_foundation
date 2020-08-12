@@ -1,0 +1,20 @@
+#cookie-law {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 9999999999;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.8) !important;
+  color: $primary-color;
+  border-top: 1px solid $primary-color;
+  p {
+    text-align: center;
+    float: none;
+    font-size: rem-calc(10);
+    margin-bottom: 0;
+    a {
+      @extend .button, .tiny, .hollow;
+      margin: .2rem 0;
+    }
+  }
+}

@@ -1,0 +1,154 @@
+footer {
+  .footer-top {
+    background: $primary-color;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid $white;
+    text-align: center;
+    a {
+      color: $white;
+    }
+    &:hover, &:focus {
+      background: scale-color($primary-color, $lightness: -60%);
+    }
+  }
+  .footer-extras {
+    background: scale-color($primary-color, $lightness: -15%);
+    .content {
+      text-align: center;
+      .footer-logo {
+        width: 15rem;
+      }
+      img {
+        padding: .5rem 0;
+      }
+    }
+  }
+  .footer-info {
+    padding: 1rem 0;
+    background: scale-color($primary-color, $lightness: -30%);
+    color: $white;
+    @include breakpoint(medium) {
+      ul {
+        margin: 0;
+        list-style: square inside;
+      }
+    }
+    @include breakpoint(small only) {
+      ul {
+        margin: 0;
+        list-style-type: none;
+        li {
+          text-align: center;
+        }
+      }
+    }
+    p {
+      font-size: 1.2rem;
+      @include breakpoint(small only) {
+        padding: 1rem 0 0 0;
+      }
+    }
+    a {
+      font-size: .9rem;
+      color: #DDDDDD;
+      &:hover, &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+  .footer-payments {
+    background: scale-color($primary-color, $lightness: -45%);
+    text-align: center;
+    .payments {
+      ul {
+        margin: 0;
+        li {
+          display: inline;
+          margin: .5rem;
+          a {
+            i {
+              font-size: 2rem;
+              color: $white;
+            }
+            &:hover i, &:focus i {
+              color: $secondary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer-bottom {
+    background: scale-color($primary-color, $lightness: -60%);
+    .social {
+      text-align: center;
+      margin: 0 0 .5rem 0;
+      ul {
+        margin: 0;
+        li {
+          display: inline;
+          margin: .5rem;
+          a {
+            i {
+              font-size: 2rem;
+              color: $white;
+            }
+            &:hover i, &:focus i {
+              color: $secondary-color;
+            }
+          }
+        }
+      }
+    }
+    .org, .copyright {
+      text-align: center;
+      color: #DDDDDD;
+      font-size: .9rem;
+      ul {
+        @include menu-base;
+        display: block;
+        li {
+          display: inline-block;
+          a {
+            font-size: .9rem;
+            color: #DDDDDD;
+            &:hover, &:focus {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.reasons {
+  transition: all .2s ease-in-out;
+  @include show-for(xlarge);
+  position: fixed;
+  padding: .5em .5em .5em 1.5em;
+  left: 0;
+  top: 15em;
+  background-color: $secondary-color;
+  margin-left: -1em;
+  border-radius: $global-radius;
+  span:first-child {
+    padding: 0;
+    color: $white;
+    font-size: 3em;
+    font-weight: bold;
+    display: block;
+    sup {
+      font-size: .5em;
+    }
+  }
+  span:nth-child(2n) {
+    display: block;
+    text-transform: uppercase;
+    color: $white;
+    font-size: .7em;
+  }
+  &:hover {
+    transform: scale(1.1);
+  }
+}

@@ -1,0 +1,7 @@
+.orbit-previous, .orbit-next {
+  color: $primary-color;  
+  top: 45%;
+  &:hover {
+    color: $white;
+  }
+}

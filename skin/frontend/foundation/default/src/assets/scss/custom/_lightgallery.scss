@@ -1,0 +1,30 @@
+$backdrop-opacity: 0.6;
+$lg-toolbar-bg: rgba(255,255,255,1);
+$lg-theme-highlight: $primary-color;
+$lg-icon-bg: $white;
+$lg-icon-color: $primary-color;
+$lg-sub-html-bg: $white;
+$lg-sub-html-color: $primary-color;
+$lg-thumb-bg: $white;
+$lg-thumb-toggle-bg: $primary-color;
+$lg-thumb-toggle-color: $white;
+$lg-progress-bar-bg: $white;
+$lg-progress-bar-active-bg: $secondary-color;
+$lg-next-prev-hover-color: $secondary-color;
+$lg-thumb-toggle-hover-color: $secondary-color;
+
+.lg-outer {
+  background: rgba(255,255,255,0.6);
+}
+
+.lg-toolbar .lg-icon:hover {
+  color: $secondary-color !important;
+}
+
+.lg-backdrop {
+  -webkit-filter: blur(50px);
+  -moz-filter: blur(50px);
+  -o-filter: blur(50px);
+  -ms-filter: blur(50px);
+  filter: blur(50px);
+}

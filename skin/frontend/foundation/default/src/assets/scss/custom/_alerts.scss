@@ -1,0 +1,54 @@
+.demo-notice {
+  .notice-inner {
+    text-align: center;
+    color: $warning-color;
+  }
+}
+
+.callout.nojs {
+  margin-bottom: 0 !important;
+}
+
+.callout.messages {
+  display: none; //for SlideDown
+  margin-bottom: 0 !important;
+  &.error {
+    @include callout-style($alert-color);
+  }
+  &.notice {
+    @include callout-style($success-color);
+  }
+}
+
+.validation-advice,
+.required {
+  color: $warning-color;
+}
+
+.success-msg {
+  ul {
+    li {
+      span {
+        color: $success-color;
+      }
+    }
+  }
+}
+
+.error-msg {
+  ul {
+    li {
+      span {
+        color: $warning-color;
+      }
+    }
+  }
+}
+
+#recaptcha-field {
+  .is-invalid-label {
+    .form-error {
+      display: block;
+    }
+  }
+}

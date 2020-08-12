@@ -1,0 +1,148 @@
+//Global Vars
+$global-scale: scale(1.03);
+$global-transform: transform .2s;
+
+.no-display {
+  display: none;
+}
+
+//Paragraphs
+p.h1,
+p.h2,
+p.h3,
+p.h4,
+p.h5,
+p.h6 {
+  color: $primary-color;
+}
+
+ul.links li {
+  display: inline;
+}
+
+//Selects
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+//Links
+a {
+  text-decoration: none;
+}
+
+//Inputs
+.input-group > :last-child {
+  border-radius: 0 $global-radius $global-radius 0;
+}
+
+// Vertical Align
+.valign-middle {
+  display: table;
+  > .columns {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  > .columns,
+  > [class*="column"] + [class*="column"]:last-child {
+    float: none;
+  }
+}
+
+//row fullwidth
+.fullWidth {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: initial;
+}
+
+.no-bottom {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.accordion-navigation {
+  > a[aria-expanded="true"]:after {
+    color: $primary-color;
+    @include fa-icon;
+    @extend .fas;
+    content: fa-content($fa-var-arrow-circle-down);
+    padding-left: 5px;
+    float: right;
+    font-size: 1rem;
+  }
+  > a[aria-expanded="false"]:after {
+    color: $primary-color;
+    @include fa-icon;
+    @extend .fas;
+    content: fa-content($fa-var-arrow-circle-up);
+    padding-left: 5px;
+    float: right;
+    font-size: 1rem;
+  }
+}
+
+//BorderRadius
+.input-group > :not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+a[href^="mailto:"]:before {
+  @include fa-icon;
+  @extend .fas;
+  content: fa-content($fa-var-envelope);
+  margin-right: 0.5em;
+}
+
+.std, .page-title, .category-title {
+  h1, h2, h3, h4, h5, h6 {
+    color: $primary-color;
+  }
+}
+
+.owl-carousel {
+  z-index: 0 !important;
+  list-style-type: none;
+}
+
+iframe[name='google_conversion_frame'] {
+  height: 0 !important;
+  width: 0 !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+  margin-top: -13px;
+  float: left;
+}
+
+.col-main {
+  margin: $global-margin 0;
+}
+
+.sticky  {
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.categorypath-hersteller-jura {
+  h1, h2, h3, h4, h5, h6, p.h1, p.h2, p.h3, p.h4, p.h5, p.h6 {
+    text-align: left;
+  }
+}
+
+#GdTrustbadge {
+  position: fixed;
+  bottom: 65px;
+}
+
+#trustbadge-container-98e3dadd90eb493088abdc5597a70810 {
+  z-index: 999999998 !important; /*equal to tawk*/
+}

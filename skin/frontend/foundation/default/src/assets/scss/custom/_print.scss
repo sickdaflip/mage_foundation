@@ -1,0 +1,21 @@
+@media print {
+  a[href]:after, #tsbadge4_db8d3657bdbe440c985ae127463eaad4, #___ratingbadge_0, .search, .nav, .account, footer, .reasons, .product-images, .breadcrumbs, .tabs, .add-to-cart, .sidebar, .toolbar, .revslider, .deal, nav, .notice-cookie, .quality-since, .ts-trusted, .shipping, .deal {
+    display: none !important;
+  }
+  .tabs-content {
+    border: 1px solid $light-gray !important;
+    border-radius: $global-radius !important;
+  }
+  .categories-grid {
+    @include flex-grid-layout(6, 'li');
+  }
+  header {
+    .header-top {
+      .trusted ul.menu,
+      .hotline {
+        text-align: center;
+        justify-content: center;
+      }
+    }
+  }
+}

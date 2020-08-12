@@ -1,0 +1,45 @@
+.my-account {
+  ol {
+    list-style-type: none;
+  }
+}
+
+#wishlist-table {
+  img {
+    max-width: inherit;
+  }
+}
+
+input.recaptcha_validation {
+  color: #ffffff;
+  font-size: 12px;
+  border: none;
+  height: 0px;
+  padding: 0px;
+}
+
+.block-account {
+  margin-top: 1rem;
+  .block-title {
+    text-transform: uppercase;
+    color: $primary-color;
+  }
+  .block-content {
+    margin-top: .5rem;
+    ul {
+      &.fa-ul {
+        margin-left: 2em;
+      }
+      li {
+        padding: .3em 0;
+        a.active {
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+}
+
+.remember-me {
+  margin-bottom: 0;
+}
