@@ -24,9 +24,13 @@
     "responsive"
   ],
   "dependencies": {
+    "autoprefixer": "^9.8.6",
     "formvalidation": "^0.6.2-dev",
     "foundation-sites": "^6.6.3",
     "google-fonts": "^1.0.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass-glob": "^1.1.0",
     "hamburgers": "^1.1.3",
     "jquery": "^3.5.1",
     "lightgallery": "^1.7.2",
@@ -58,7 +62,7 @@
     "gulp-phpcbf": "^0.1.2",
     "gulp-phpcs": "^2.2.0",
     "gulp-rev": "^8.1.1",
-    "gulp-sass": "^4.0.1",
+    "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "gulp-zip": "^4.2.0",

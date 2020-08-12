@@ -42,11 +42,6 @@ PATHS:
     - "!**/package.json"
     - "!**/package-lock.json"
     - "!**/webpack.config.js"
-  # Paths for PHP CodeSniffer
-  phpcs:
-    - "**/*.php"
-    - "!wpcs"
-    - "!wpcs/**"
   # Path to images
   img:
     - "node_modules/lightgallery/src/img/**"

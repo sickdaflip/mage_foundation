@@ -69,27 +69,6 @@ $(document).ready(function () {
         $(this).siblings('li.toggleable').slideToggle();
     });
 
-    //only for Jura
-    if (Foundation.MediaQuery.atLeast('medium')) {
-      if ($("[class*='categorypath-hersteller-jura'] .mb-mana-catalog-leftnav").length) {
-          var $header = $("[class*='categorypath-hersteller-jura'] .mb-mana-catalog-leftnav").first();
-
-          // This is the odd behaviour I was speaking about. It seems as though the sizes
-          // aren't being calculated when initialized programmatically. We're cathing the
-          // "init" event triggered by the plug-in when it's successfully initialized on the
-          // element. Then we're forcing it to run the "_calc" function manually.
-          $header.one('init.zf.sticky', function () {
-              $(this).foundation('_calc', true);
-          });
-
-          // We're ready to initialize the plug-in, just like described in the documentation.
-          $header.$sticky = new Foundation.Sticky($header, {
-              anchor: 'main'
-          });
-      }
-        $("[class*='categorypath-hersteller-jura'] .block-layered-nav .block-title").before('<img src="https://www.gastrodax.de/media/wysiwyg/manufacturer/jura-mp.png" alt="Jura Logo" width="150" class="show-for-large">');
-    }
-
     Foundation.reInit($('.categories-grid'));
     Foundation.reInit($('.categories-home-grid'));
 
