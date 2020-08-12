@@ -13,10 +13,10 @@ $(document).ready(function () {
     $(document).foundation();
 
     // Hamburgers is-active on OffCanvas
-    $('#offCanvas').on('opened.zf.offcanvas', function() {
+    $('#offCanvas').on('opened.zf.offCanvas', function() {
         $('.hamburger').addClass('is-active');
     });
-    $('#offCanvas').on('closed.zf.offcanvas', function() {
+    $('#offCanvas').on('closed.zf.offCanvas', function() {
         $('.hamburger').removeClass('is-active');
     });
 
@@ -60,7 +60,6 @@ $(document).ready(function () {
 
     });
 
-
     $('ul.options-list').on('click','.more', function(){
         if( $(this).hasClass('less') ){
             $(this).text('weitere Optionen anzeigen').removeClass('less');
@@ -89,7 +88,6 @@ $(document).ready(function () {
           });
       }
         $("[class*='categorypath-hersteller-jura'] .block-layered-nav .block-title").before('<img src="https://www.gastrodax.de/media/wysiwyg/manufacturer/jura-mp.png" alt="Jura Logo" width="150" class="show-for-large">');
-
     }
 
     Foundation.reInit($('.categories-grid'));
