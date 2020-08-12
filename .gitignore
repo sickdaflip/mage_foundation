@@ -55,7 +55,7 @@ src/
 
 /app/etc/local.xml
 
-/media/*
+#/media/*
 !/media/.htaccess
 
 !/media/customer
