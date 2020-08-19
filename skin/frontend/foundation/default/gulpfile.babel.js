@@ -215,4 +215,5 @@ function watch() {
     gulp.watch('src/assets/scss/**/*.scss').on('all', css);
     gulp.watch('src/assets/js/**/*.js').on('all', gulp.series(scripts, browser.reload));
     gulp.watch('src/assets/img/**/*').on('all', gulp.series(images, browser.reload));
+    gulp.watch('../../../../app/design/**/*').on('all', browser.reload);
 }

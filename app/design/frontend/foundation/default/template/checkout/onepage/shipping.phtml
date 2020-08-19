@@ -171,14 +171,12 @@
         </div>
     </div>
     <div class="buttons-set" id="shipping-buttons-container">
-        <p class="back-link"><a href="#" onclick="checkout.back(); return false;">
-                <small>&laquo;</small><?php echo $this->__('Back') ?></a></p>
         <button type="button" class="button shipping_save"
                 title="<?php echo Mage::helper('core')->quoteEscape($this->__('Continue')) ?>"><?php echo $this->__('Continue') ?></button>
-        <div id="shipping-please-wait" class="please-wait" style="display:none;">
-            <div class="centered">
-                <i class="fas fa-circle-notch fa-spin fa-3x fa-fw"></i>
-            </div>
+    </div>
+    <div id="shipping-please-wait" class="please-wait" style="display:none;">
+        <div class="centered">
+            <i class="fas fa-circle-notch fa-spin fa-3x fa-fw"></i>
         </div>
     </div>
     <?php echo $this->getBlockHtml('formkey') ?>

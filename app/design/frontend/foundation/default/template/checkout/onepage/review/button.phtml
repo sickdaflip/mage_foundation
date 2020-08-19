@@ -1,1 +1,1 @@
-<button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Place Order')) ?>" class="button" onclick="review.save();"><?php echo $this->__('Place Order') ?></button>
+<button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Place Order')) ?>" class="button" onclick="review.save();"><?php echo $this->__('Place Order %s', Mage::helper('core')->currency(Mage::getSingleton('checkout/session')->getQuote()->getGrandTotal(), true, false)); ?></button>

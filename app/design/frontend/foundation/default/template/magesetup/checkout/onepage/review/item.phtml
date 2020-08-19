@@ -4,15 +4,20 @@
         <img src="<?php echo $this->getProductThumbnail()->resize(100); ?>" width="100" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" />
     </td>
     <td>
-        <p class="h5">
+        <p>
             <?php echo $this->escapeHtml($this->getProductName()) ?>
         </p>
         <?php if ($_options = $this->getOptionList()): ?>
             <ul>
                 <?php foreach ($_options as $_option) : ?>
+                    <?php $_formatedOptionValue = $this->getFormatedOptionValue($_option) ?>
                     <li>
-                        <strong><?php echo $this->escapeHtml($_option['label']) ?> :</strong>
-                        <?php echo Mage::helper('core/string')->truncate(strip_tags($_option['value']), 150) ?>
+                        <?php echo $this->escapeHtml($_option['label']) ?> :
+                        <?php if (isset($_formatedOptionValue['full_view'])): ?>
+                            <?php echo Mage::helper('core/string')->truncate(strip_tags($_option['value']), 150); ?>
+                        <?php else: ?>
+                            <?php echo $_formatedOptionValue['value']; ?>
+                        <?php endif; ?>
                     </li>
                 <?php endforeach; ?>
             </ul>

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <Foundation_AjaxContent>
+        <Foundation_Ajax>
             <active>true</active>
             <codePool>local</codePool>
-    	</Foundation_AjaxContent>
+    	</Foundation_Ajax>
     </modules>
 </config>

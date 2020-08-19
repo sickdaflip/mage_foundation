@@ -1,0 +1,15 @@
+<form action="" id="co-comment-form">
+    <div class="form-list">
+            <label for="comment"><?php echo $this->__('Additional Comment') ?>
+                <textarea id="comment" name="comment"><?php echo $this->htmlEscape($this->getComment()) ?></textarea>
+            </label>
+    </div>
+</form>
+<div class="buttons-set" id="comment-buttons-container">
+    <button type="button" class="button" title="<?php echo $this->__('Continue') ?>" onclick="comment.save()"><?php echo $this->__('Continue') ?></button>
+</div>
+<div id="comment-please-wait" class="please-wait" style="display:none;">
+    <div class="centered">
+        <i class="fas fa-circle-notch fa-spin fa-3x fa-fw"></i>
+    </div>
+</div>

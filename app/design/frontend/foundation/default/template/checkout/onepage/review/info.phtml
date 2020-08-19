@@ -26,6 +26,10 @@
 ?>
 <?php echo $this->getChildHtml('items_before'); ?>
 <div id="checkout-review-table-wrapper">
+    <dt class="complete">
+        <?php echo $this->__('Shopping Cart') ?><span class="changelink"> <span class="separator">|</span> <a
+                    href="<?php echo $this->getUrl('checkout/cart') ?>"><?php echo $this->__('Change') ?></a></span>
+    </dt>
     <table class="data-table" id="checkout-review-table">
         <thead>
             <tr>
@@ -53,13 +57,9 @@
 </script>
 <div id="checkout-review-submit">
     <?php echo $this->getChildHtml('agreements') ?>
-    <div class="stacked-for-small button-group" id="review-buttons-container">
-        <a class="button hollow" href="<?php echo $this->getUrl('checkout/cart') ?>">
-            <?php echo $this->__('Forgot an Item?') ?> <?php echo $this->__('Edit Your Cart') ?>
-        </a>
+    <div class="button-set" id="review-buttons-container">
         <?php echo $this->getChildHtml('button') ?>
     </div>
-    <p class="callout"><?php echo $this->__('Bitte kontrollieren Sie Ihre Eingaben noch einmal sorgfältig. Korrigieren Sie ggf. Ihre Angaben über "Ändern" (rechte Spalte).') ?></p>
     <div class="please-wait" id="review-please-wait" style="display:none;">
         <div class="centered">
             <i class="fas fa-circle-notch fa-spin fa-3x fa-fw"></i>

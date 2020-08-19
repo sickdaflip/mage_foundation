@@ -89,15 +89,6 @@
 
         <reference name="right">
             <remove name="right.reports.product.viewed"/>
-            <block type="catalog/product_compare_sidebar" name="catalog.compare.jura"
-                   template="catalog/product/compare/sidebar.phtml">
-                <action method="unsetData">
-                    <key>cache_lifetime</key>
-                </action>
-                <action method="unsetData">
-                    <key>cache_tags</key>
-                </action>
-            </block>
         </reference>
 
         <!-- Add/Remove Top Links -->
@@ -250,6 +241,7 @@
             <block type="catalog/product_list_related" name="product.info.related" as="related_products" before="-"
                    template="catalog/product/list/related.phtml"/>
         </reference>
+
     </catalog_product_view>
 
     <catalog_category_default>
@@ -434,9 +426,10 @@
 
     <checkout_onepage_index>
         <remove name="left"/>
+        <remove name="right"/>
         <reference name="root">
             <action method="setTemplate">
-                <template>page/2columns-right.phtml</template>
+                <template>page/1column.phtml</template>
             </action>
         </reference>
         <reference name="head">
@@ -459,6 +452,17 @@
             <action method="unsetChild">
                 <alias>agreements</alias>
             </action>
+            <block type="page/html_wrapper" name="checkout.progress.wrapper" translate="label">
+                <label>Checkout Progress Wrapper</label>
+                <action method="setElementId"><value>checkout-progress-wrapper</value></action>
+                <block type="checkout/onepage_progress" name="checkout.progress" before="-" template="checkout/onepage/progress.phtml">
+                    <block type="checkout/onepage_progress" name="billing.progress" template="checkout/onepage/progress/billing.phtml"></block>
+                    <block type="checkout/onepage_progress" name="shipping.progress" template="checkout/onepage/progress/shipping.phtml"></block>
+                    <block type="checkout/onepage_progress" name="shippingmethod.progress" template="checkout/onepage/progress/shipping_method.phtml"></block>
+                    <block type="checkout/onepage_progress" name="comment.progress" template="mageware/checkoutcomment/checkout/onepage/progress/comment.phtml"></block>
+                    <block type="checkout/onepage_progress" name="payment.progress" template="checkout/onepage/progress/payment.phtml"></block>
+                </block>
+            </block>
         </reference>
         <reference name="checkout.onepage.review.info.items.after">
             <block type="magesetup/checkout_agreements" name="magesetup.checkout.agreements" as="agreements"

@@ -444,6 +444,7 @@ footer {
 
 //Cookie
 .notice-cookie {
+  @include xy-grid-container;
   .notice-inner {
     @include xy-grid;
     justify-content: center;
@@ -457,28 +458,16 @@ footer {
   }
 }
 
-//Login
-.account-login {
+//Account
+.account-create, .account-login, .account-forgotpassword {
+  @include xy-grid-container;
   form {
     @include xy-grid;
-    .page-title {
-      @include xy-cell(12);
-    }
     .registered-users,
-    .new-users {
-      @include xy-cell(12);
-    }
-  }
-}
-
-.account-create {
-  form {
-    @include xy-grid;
-    .page-title {
-      @include xy-cell(12);
-    }
+    .new-users,
     .personal,
-    .login {
+    .login,
+    .lost-password {
       @include xy-cell(12);
     }
   }
@@ -486,6 +475,7 @@ footer {
 
 //Checkout
 #checkout-step-login {
+  @include xy-grid-container;
   .col2-set {
     @include xy-grid;
     .col-1,
@@ -497,6 +487,7 @@ footer {
 
 #checkout-agreements {
   .checkout-agreements {
+    @include xy-grid-container;
     .item {
       @include xy-grid;
       align-items: center;
@@ -507,6 +498,17 @@ footer {
         @include xy-cell(10);
       }
     }
+  }
+}
+
+#checkout-progress-wrapper {
+  @include xy-grid;
+  #billing-progress-opcheckout,
+  #shipping-progress-opcheckout,
+  #shipping_method-progress-opcheckout,
+  #comment-progress-opcheckout,
+  #payment-progress-opcheckout {
+    @include xy-cell(12);
   }
 }
 
@@ -683,25 +685,24 @@ footer {
     }
   }
 
-  .account-login {
-    form {
-      .page-title {
-        @include xy-cell(12);
-      }
-      .registered-users,
-      .new-users {
-        @include xy-cell(6);
-      }
+  #checkout-progress-wrapper {
+    @include xy-grid;
+    #billing-progress-opcheckout,
+    #shipping-progress-opcheckout,
+    #shipping_method-progress-opcheckout,
+    #comment-progress-opcheckout,
+    #payment-progress-opcheckout {
+      @include xy-cell(6);
     }
   }
 
-  .account-create {
+  .account-create, .account-login, .account-forgotpassword {
     form {
-      .page-title {
-        @include xy-cell(12);
-      }
+      .registered-users,
+      .new-users,
       .personal,
-      .login {
+      .login,
+      .lost-password {
         @include xy-cell(6);
       }
     }

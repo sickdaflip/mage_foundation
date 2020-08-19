@@ -9,6 +9,7 @@
         <input type="hidden" name="billing[address_id]" value="<?php echo $this->getAddress()->getId() ?>"
                id="billing:address_id"/>
         <?php echo $this->getChildHtml('store_switcher', false) ?>
+
         <?php if (Mage::app()->getStore()->getId() == '4') { ?>
             <div class="fields">
                 <div class="field">
@@ -16,17 +17,18 @@
                         <small><?php echo $this->__('required') ?></small>
                         <input type="text" id="billing:company" name="billing[company]"
                                value="<?php echo $this->escapeHtml($this->getAddress()->getCompany()) ?>"
-                               title="<?php echo Mage::helper('core')->quoteEscape($this->__('Company')) ?>" required/>
+                               title="<?php echo Mage::helper('core')->quoteEscape($this->__('Company')) ?>"
+                               required/>
                     </label>
                 </div>
                 <?php if ($this->helper('customer/address')->isVatAttributeVisible()) : ?>
-                    <div class="field">
-                        <label for="billing:vat_id"><?php echo $this->__('VAT Number') ?>
-                            <input type="text" id="billing:vat_id" name="billing[vat_id]"
-                                   value="<?php echo $this->escapeHtml($this->getAddress()->getVatId()) ?>"
-                                   title="<?php echo Mage::helper('core')->quoteEscape($this->__('VAT Number')) ?>"/>
-                        </label>
-                    </div>
+                <div class="field">
+                    <label for="billing:vat_id"><?php echo $this->__('VAT Number') ?>
+                        <input type="text" id="billing:vat_id" name="billing[vat_id]"
+                               value="<?php echo $this->escapeHtml($this->getAddress()->getVatId()) ?>"
+                               title="<?php echo Mage::helper('core')->quoteEscape($this->__('VAT Number')) ?>"/>
+                    </label>
+                </div>
                 <?php endif; ?>
             </div>
         <?php } ?>
@@ -34,36 +36,43 @@
         <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getAddress()->getFirstname() ? $this->getAddress() : $this->getQuote()->getCustomer())->setForceUseCustomerRequiredAttributes(!$this->isCustomerLoggedIn())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
 
         <?php if (!$this->isCustomerLoggedIn()): ?>
-        <div class="fields">
+            <div class="fields">
                 <div class="field">
                     <label for="billing:email"><?php echo $this->__('Email Address') ?>
                         <small><?php echo $this->__('required') ?></small>
-                        <input type="email" name="billing[email]" id="billing:email"
+                        <input type="text" name="billing[email]" id="billing:email"
                                value="<?php echo $this->escapeHtml($this->getAddress()->getEmail()) ?>"
                                title="<?php echo Mage::helper('core')->quoteEscape($this->__('Email Address')) ?>"
-                               required/>
+                               class="input-text validate-email required-entry"/>
                     </label>
                 </div>
-        </div>
+            </div>
         <?php endif; ?>
 
         <div class="fields">
             <div class="field">
+                <?php //$_streetValidationClass = $this->helper('customer/address')->getAttributeValidationClass('street'); ?>
                 <label for="billing:street1"><?php echo $this->__('Street') ?>
                     <small><?php echo $this->__('required') ?></small>
                     <input type="text"
-                           title="<?php echo Mage::helper('core')->quoteEscape($this->__('Straße')) ?>"
+                           title="<?php echo Mage::helper('core')->quoteEscape($this->__('Street Address')) ?>"
                            name="billing[street][]" id="billing:street1"
-                           value="<?php echo $this->escapeHtml($this->getAddress()->getStreet(1)) ?>" required/>
+                           value="<?php echo $this->escapeHtml($this->getAddress()->getStreet(1)) ?>"
+                           required/>
                 </label>
             </div>
+
+            <?php //$_streetValidationClass = trim(str_replace('required-entry', '', $_streetValidationClass)); ?>
             <?php for ($_i = 2, $_n = $this->helper('customer/address')->getStreetLines(); $_i <= $_n; $_i++): ?>
                 <div class="field">
                     <label for="billing:street<?php echo $_i ?>"><?php echo $this->__('Hausnummer') ?>
+                        <small><?php echo $this->__('required') ?></small>
                         <input type="text"
                                title="<?php echo Mage::helper('core')->quoteEscape($this->__('Hausnummer')) ?>"
                                name="billing[street][]" id="billing:street<?php echo $_i ?>"
-                               value="<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>"/>
+                               value="<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>"
+                               required/>
+                    </label>
                 </div>
             <?php endfor; ?>
         </div>
@@ -75,15 +84,18 @@
                     <input type="text"
                            title="<?php echo Mage::helper('core')->quoteEscape($this->__('Zip/Postal Code')) ?>"
                            name="billing[postcode]" id="billing:postcode"
-                           value="<?php echo $this->escapeHtml($this->getAddress()->getPostcode()) ?>" required/>
+                           value="<?php echo $this->escapeHtml($this->getAddress()->getPostcode()) ?>"
+                           required/>
                 </label>
             </div>
             <div class="field">
                 <label for="billing:city"><?php echo $this->__('City') ?>
                     <small><?php echo $this->__('required') ?></small>
                     <input type="text" title="<?php echo Mage::helper('core')->quoteEscape($this->__('City')) ?>"
-                           name="billing[city]" value="<?php echo $this->escapeHtml($this->getAddress()->getCity()) ?>"
-                           id="billing:city" required/>
+                           name="billing[city]"
+                           value="<?php echo $this->escapeHtml($this->getAddress()->getCity()) ?>"
+                           id="billing:city"
+                           required/>
                 </label>
             </div>
         </div>
@@ -93,8 +105,8 @@
                 <label for="billing:region_id"><?php echo $this->__('State/Province') ?>
                     <select id="billing:region_id" name="billing[region_id]"
                             title="<?php echo Mage::helper('core')->quoteEscape($this->__('State/Province')) ?>"
-                            style="display:none;"><option value=""><?php echo $this->__('Please select region, state or province') ?></option
-                        >
+                            style="display:none;">
+                        <option value=""><?php echo $this->__('Please select region, state or province') ?></option>
                     </select>
                     <script type="text/javascript">
                         //<![CDATA[
@@ -122,14 +134,16 @@
                     <input type="text" name="billing[telephone]"
                            value="<?php echo $this->escapeHtml($this->getAddress()->getTelephone()) ?>"
                            title="<?php echo Mage::helper('core')->quoteEscape($this->__('Telephone')) ?>"
-                           id="billing:telephone" required/>
+                           id="billing:telephone"
+                           required/>
                 </label>
             </div>
             <div class="field">
                 <label for="billing:fax"><?php echo $this->__('Fax') ?>
                     <input type="text" name="billing[fax]"
                            value="<?php echo $this->escapeHtml($this->getAddress()->getFax()) ?>"
-                           title="<?php echo Mage::helper('core')->quoteEscape($this->__('Fax')) ?>" id="billing:fax"/>
+                           title="<?php echo Mage::helper('core')->quoteEscape($this->__('Fax')) ?>"
+                           id="billing:fax"/>
                 </label>
             </div>
         </div>
@@ -139,35 +153,39 @@
             <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
             <?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
             <?php if ($_dob->isEnabled() || $_gender->isEnabled()): ?>
-
-                <?php if ($_dob->isEnabled()): ?>
-                    <div class="field">
-                        <?php echo $_dob->setDate($this->getQuote()->getCustomerDob())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
-                    </div>
-                <?php endif; ?>
-                <?php if ($_gender->isEnabled()): ?>
-                    <div class="field">
-                        <?php echo $_gender->setGender($this->getQuote()->getCustomerGender())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
-                    </div>
-                <?php endif ?>
+                <div class="fields">
+                    <?php if ($_dob->isEnabled()): ?>
+                        <div class="field">
+                            <?php echo $_dob->setDate($this->getQuote()->getCustomerDob())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if ($_gender->isEnabled()): ?>
+                        <div class="field">
+                            <?php echo $_gender->setGender($this->getQuote()->getCustomerGender())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
+                        </div>
+                    <?php endif ?>
+                </div>
             <?php endif ?>
 
-            <?php if ($this->isTaxvatEnabled()): ?>
-                <?php echo $this->getTaxvatHtml() ?>
-            <?php endif; ?>
+            <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
+            <?php if ($_taxvat->isEnabled()): ?>
+                <?php echo $_taxvat->setTaxvat($this->getQuote()->getCustomerTaxvat())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
+            <?php endif ?>
 
             <div class="fields" id="register-customer-password">
                 <div class="field">
                     <label for="billing:customer_password"><?php echo $this->__('Password') ?>
                         <small><?php echo $this->__('required') ?></small>
-                        <input type="password" name="billing[customer_password]" id="billing:customer_password"
+                        <?php //$minPasswordLength = $this->getQuote()->getCustomer()->getMinPasswordLength(); ?>
+                        <input type="password"
+                               name="billing[customer_password]"
+                               id="billing:customer_password"
                                title="<?php echo Mage::helper('core')->quoteEscape($this->__('Password')) ?>"
                                class="password" required/>
                     </label>
                 </div>
                 <div class="field">
                     <label for="billing:confirm_password"><?php echo $this->__('Confirm Password') ?>
-                        <small><?php echo $this->__('required') ?></small>
                         <input type="password" name="billing[confirm_password]"
                                title="<?php echo Mage::helper('core')->quoteEscape($this->__('Confirm Password')) ?>"
                                id="billing:confirm_password" class="password" required
@@ -175,11 +193,8 @@
                     </label>
                 </div>
             </div>
-
-            <div class="field" id="remember-me-box">
-                <?php echo $this->getChildHtml('persistent.remember.me'); ?>
-            </div>
         <?php endif; ?>
+
         <?php if ($this->isCustomerLoggedIn() && $this->customerHasAddresses()): ?>
             <div class="control">
                 <input type="checkbox" name="billing[save_in_address_book]" value="1"
@@ -193,9 +208,9 @@
             <div class="no-display"><input type="hidden" name="billing[save_in_address_book]" value="1"/></div>
         <?php endif; ?>
         <?php echo $this->getChildHtml('form.additional.info'); ?>
-
-        <?php echo $this->getChildHtml('persistent.remember.me.tooltip'); ?>
     </div>
+    <?php /* Extensions placeholder */ ?>
+    <?php echo $this->getChildHtml('checkout.onepage.billing.extra') ?>
     <?php if ($this->canShip()): ?>
         <div class="control">
             <input type="radio" name="billing[use_for_shipping]" id="billing:use_for_shipping_yes"
@@ -216,8 +231,7 @@
         <input type="hidden" name="billing[use_for_shipping]" value="1"/>
     <?php endif; ?>
     <div class="buttons-set" id="billing-buttons-container">
-        <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Continue')) ?>"
-                class="button billing_save"><?php echo $this->__('Continue') ?></button>
+        <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Continue')) ?>" class="button billing_save"><?php echo $this->__('Continue') ?></button>
         <div id="billing-please-wait" class="please-wait" style="display:none;">
             <div class="centered">
                 <i class="fas fa-circle-notch fa-spin fa-3x fa-fw"></i>

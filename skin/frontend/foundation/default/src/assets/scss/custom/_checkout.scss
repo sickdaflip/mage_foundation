@@ -1,3 +1,8 @@
+ol.opc {
+  margin: 0;
+}
+
+
 #checkout-step-billing,
 #checkout-step-shipping,
 #checkout-step-login,
@@ -370,7 +375,7 @@
 }
 
 .opc .section .step {
-  padding: 20px;
+  padding: $global-padding;
 }
 
 .opc .section .step:after {

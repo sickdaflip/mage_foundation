@@ -1,17 +1,13 @@
 <div class="account-create">
-    <div class="page-title">
-        <h1><?php echo $this->__('Create an Account') ?></h1>
-    </div>
+    <h1><?php echo $this->__('Create an Account') ?></h1>
     <?php echo $this->getChildHtml('form_fields_before') ?>
     <?php echo $this->getMessagesBlock()->toHtml() ?>
-
     <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate" data-abide novalidate>
         <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>"/>
         <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>"/>
-        <input type="hidden" name="form_key"
-               value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>"/>
+        <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>"/>
         <div class="personal">
-            <h2 class="h3"><?php echo $this->__('Personal Information') ?></h2>
+            <h2><?php echo $this->__('Personal Information') ?></h2>
             <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getFormData())->setForceUseCustomerAttributes(true)->toHtml() ?>
             <div class="email-field">
                 <label for="email_address"><?php echo $this->__('Email Address') ?>
@@ -30,29 +26,23 @@
                        title="<?php echo Mage::helper('core')->quoteEscape($this->__('Sign Up for Newsletter')) ?>"
                        value="1"
                        id="is_subscribed"<?php if ($this->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif; ?>/>
-                <label for="is_subscribed"><?php echo $this->__('In den kostenlosen Newsletter eintragen') ?></label>
-                <p><strong>Gastrodax-Newsletter:</strong> News, Trends und Angebote per E-Mail inkl. 10 Euro Gutschein
-                    <small>(ab 200 Euro Bestellwert)</small>
-                    . Die Abmeldung ist jederzeit möglich.
-                </p>
+                <label for="is_subscribed"><?php echo $this->__('Sign Up for Newsletter') ?></label>
             <?php endif ?>
             <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
             <?php if ($_dob->isEnabled()): ?>
-                <li><?php echo $_dob->setDate($this->getFormData()->getDob())->toHtml() ?></li>
+                <?php echo $_dob->setDate($this->getFormData()->getDob())->toHtml() ?>
             <?php endif ?>
             <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
             <?php if ($_taxvat->isEnabled()): ?>
-                <li><?php echo $_taxvat->setTaxvat($this->getFormData()->getTaxvat())->toHtml() ?></li>
+                <?php echo $_taxvat->setTaxvat($this->getFormData()->getTaxvat())->toHtml() ?>
             <?php endif ?>
             <?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
             <?php if ($_gender->isEnabled()): ?>
-                <li><?php echo $_gender->setGender($this->getFormData()->getGender())->toHtml() ?></li>
+                <?php echo $_gender->setGender($this->getFormData()->getGender())->toHtml() ?>
             <?php endif ?>
-
             <?php if ($this->getShowAddressFields()): ?>
                 <input type="hidden" name="create_address" value="1"/>
-                <h2 class="legend"><?php echo $this->__('Address Information') ?></h2>
-                <li class="fields">
+                <h2><?php echo $this->__('Address Information') ?></h2>
                     <div class="field">
                         <label for="company"><?php echo $this->__('Company') ?></label>
                         <div class="input-box">
@@ -72,9 +62,7 @@
                                    class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('telephone') ?>"/>
                         </div>
                     </div>
-                </li>
                 <?php $_streetValidationClass = $this->helper('customer/address')->getAttributeValidationClass('street'); ?>
-                <li class="wide">
                     <label for="street_1" class="required"><em>*</em><?php echo $this->__('Street Address') ?>
                     </label>
                     <div class="input-box">
@@ -83,10 +71,8 @@
                                title="<?php echo Mage::helper('core')->quoteEscape($this->__('Street Address')) ?>"
                                id="street_1" class="input-text <?php echo $_streetValidationClass ?>"/>
                     </div>
-                </li>
                 <?php $_streetValidationClass = trim(str_replace('required-entry', '', $_streetValidationClass)); ?>
                 <?php for ($_i = 2, $_n = $this->helper('customer/address')->getStreetLines(); $_i <= $_n; $_i++): ?>
-                    <li class="wide">
                         <div class="input-box">
                             <input type="text" name="street[]"
                                    value="<?php echo $this->escapeHtml($this->getFormData()->getStreet($_i)) ?>"
@@ -94,9 +80,7 @@
                                    id="street_<?php echo $_i ?>"
                                    class="input-text <?php echo $_streetValidationClass ?>"/>
                         </div>
-                    </li>
                 <?php endfor; ?>
-                <li class="fields">
                     <div class="field">
                         <label for="city" class="required"><em>*</em><?php echo $this->__('City') ?></label>
                         <div class="input-box">
@@ -129,8 +113,6 @@
                                    style="display:none;"/>
                         </div>
                     </div>
-                </li>
-                <li class="fields">
                     <div class="field">
                         <label for="zip" class="required"><em>*</em><?php echo $this->__('Zip/Postal Code') ?>
                         </label>
@@ -148,14 +130,12 @@
                             <?php echo $this->getCountryHtmlSelect() ?>
                         </div>
                     </div>
-                </li>
                 <input type="hidden" name="default_billing" value="1"/>
                 <input type="hidden" name="default_shipping" value="1"/>
-
             <?php endif; ?>
         </div>
         <div class="login">
-            <h2 class="h3"><?php echo $this->__('Login Information') ?></h2>
+            <h2><?php echo $this->__('Login Information') ?></h2>
             <div class="password-field">
                 <label for="password"><?php echo $this->__('Password') ?>
                     <small><?php echo $this->__('required') ?></small>
@@ -256,5 +236,4 @@
         <?php endif; ?>
         //]]>
     </script>
-</div>
 </div>
