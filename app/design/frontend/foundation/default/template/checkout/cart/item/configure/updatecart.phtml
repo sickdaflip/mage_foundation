@@ -31,38 +31,64 @@
     <li class="bullet-item">
         <div class="add-to-cart">
             <?php if (!$_product->isGrouped()): ?>
-                <label for="qty"><?php echo $this->__('Qty:') ?></label>
+            <label for="qty"><?php echo $this->__('Qty:') ?></label>
+            <?php if ($_product->getStockItem()->getData('qty_increments') >= 1): ?>
+            <div class="quantity-step">
+                <?php else: ?>
                 <div class="quantity">
+                    <?php endif; ?>
                     <div class="input-group">
+                        <?php if ($_product->getStockItem()->getData('qty_increments') >= 1): ?>
                         <input type="text" name="qty" id="qty" maxlength="12"
                                value="<?php echo $this->getProductDefaultQty() * 1 ?>"
-                               title="<?php echo Mage::helper('core')->quoteEscape($this->__('Qty')) ?>"
-                               class="input-text qty"/>
+                               title="<?php echo $this->__('Qty') ?>" class="input-text qty-step"
+                               step="<?php echo (int)$_product->getStockItem()->getData('qty_increments'); ?>"/>
+                            <script>
+                                jQuery('.quantity-step .input-group').append('<span class="input-group-label plus"><i id="add1" class="fa fa-plus" /></span>').prepend('<span class="input-group-label minus"><i id="minus1" class="fa fa-minus" /></span>');
+                                jQuery('.quantity-step .plus').click(function () {
+                                    var currentVal = parseInt(jQuery(".qty-step").val());
+                                    if (!currentVal || currentVal == "" || currentVal == "NaN") currentVal = 0;
+                                    jQuery(".qty-step").val(currentVal + parseInt(jQuery(".qty-step").attr('step')));
+                                });
+
+                                jQuery('.quantity-step .minus').click(function () {
+                                    var currentVal = parseInt(jQuery(".qty-step").val());
+                                    if (currentVal == "NaN") currentVal = 0;
+                                    if (currentVal > 1) {
+                                        jQuery(".qty-step").val(currentVal - parseInt(jQuery(".qty-step").attr('step')));
+                                    }
+                                });
+                            </script>
+                        <?php else: ?>
+                        <input type="text" name="qty" id="qty" maxlength="12"
+                               value="<?php echo $this->getProductDefaultQty() * 1 ?>"
+                               title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+                            <script>
+                                jQuery('.quantity .input-group').append('<span class="input-group-label plus"><i id="add1" class="fa fa-plus" /></span>').prepend('<span class="input-group-label minus"><i id="minus1" class="fa fa-minus" /></span>');
+                                jQuery('.quantity .plus').click(function () {
+                                    var currentVal = parseInt(jQuery(".qty").val());
+                                    if (!currentVal || currentVal == "" || currentVal == "NaN") currentVal = 0;
+                                    jQuery(".qty").val(currentVal + 1);
+                                });
+
+                                jQuery('.quantity .minus').click(function () {
+                                    var currentVal = parseInt(jQuery(".qty").val());
+                                    if (currentVal == "NaN") currentVal = 0;
+                                    if (currentVal > 1) {
+                                        jQuery(".qty").val(currentVal - 1);
+                                    }
+                                });
+                            </script>
+                        <?php endif; ?>
                     </div>
                 </div>
-                <script>
-                    jQuery('.add-to-cart .input-group').append('<span class="input-group-label plus"><i id="add1" class="fa fa-plus" /></span>').prepend('<span class="input-group-label minus"><i id="minus1" class="fa fa-minus" /></span>');
-                    jQuery('.quantity .plus').click(function () {
-                        var currentVal = parseInt(jQuery(".qty").val());
-                        if (!currentVal || currentVal == "" || currentVal == "NaN") currentVal = 0;
-                        jQuery(".qty").val(currentVal + 1);
-                    });
-
-                    jQuery('.quantity .minus').click(function () {
-                        var currentVal = parseInt(jQuery(".qty").val());
-                        if (currentVal == "NaN") currentVal = 0;
-                        if (currentVal > 1) {
-                            jQuery(".qty").val(currentVal - 1);
-                        }
-                    });
-                </script>
-            <?php endif; ?>
-            <button type="button" title="<?php echo $buttonTitle ?>" id="product-updatetocart-button"
-                    class="button btn-cart"
-                    onclick="productUpdateToCartForm.submit(this)"><?php echo $buttonTitle ?><span> <i
-                            class="fa fa-shopping-cart"></i></span>
-            </button>
-            <?php echo $this->getChildHtml('', true, true) ?>
-        </div>
+                <?php endif; ?>
+                <button type="button" title="<?php echo $buttonTitle ?>" id="product-updatetocart-button"
+                        class="button btn-cart"
+                        onclick="productUpdateToCartForm.submit(this)"><?php echo $buttonTitle ?><span> <i
+                                class="fa fa-shopping-cart"></i></span>
+                </button>
+                <?php echo $this->getChildHtml('', true, true) ?>
+            </div>
     </li>
 <?php endif; ?>

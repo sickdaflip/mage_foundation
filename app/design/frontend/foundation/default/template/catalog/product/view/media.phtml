@@ -83,11 +83,9 @@ $_helper = $this->helper('catalog/output');
                     thumbnail: true,
                     hash: false
                 });
-                jQuery('.product-image').on('click', function (e) {
-                    var Elem = e.target;
-                    if (Elem.nodeName=='.product-image .item:first-of-type') {
-                        jQuery(e).trigger('click');
-                    }
+
+                jQuery('.new-ribbon, .special-ribbon').click(function(){
+                    jQuery('.product-image a.item:first-of-type > img').trigger('click');
                 });
 
                 jQuery('.pimages').owlCarousel({
