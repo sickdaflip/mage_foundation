@@ -55,6 +55,7 @@
         border-radius: $global-radius;
         border: solid 1px $light-gray;
         text-align: center;
+        cursor: pointer;
         img {
           transition: $global-transform;
           &:hover {
@@ -518,5 +519,17 @@
   }
   .tabs-content, .tabs-panel {
     border-radius: 0 0 $global-radius $global-radius;
+  }
+}
+
+#productAddToCartModal, #productUpdateToCartModal {
+  .color-success {
+    color: $success-color;
+    &:before {
+      @include fa-icon;
+      @extend .fas;
+      content: fa-content($fa-var-check);
+      padding-right: 1em;
+    }
   }
 }

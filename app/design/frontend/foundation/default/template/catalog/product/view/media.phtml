@@ -38,14 +38,14 @@ $_helper = $this->helper('catalog/output');
     <?php if (date("Y-m-d") >= substr($_product->getNewsFromDate(), 0, 10) && date("Y-m-d") <= substr($_product->getNewsToDate(), 0, 10)) { ?>
         <div class="new-ribbon"><span><?php echo $this->__('Neu') ?></div>
     <?php } ?>
-    <?php if($_product->getFinalPrice() < $_product->getPrice()){ ?>
-        <?php $_savingPercent = 100 - round(($_product->getFinalPrice() / $_product->getPrice())*100); ?>
+    <?php if ($_product->getFinalPrice() < $_product->getPrice()) { ?>
+        <?php $_savingPercent = 100 - round(($_product->getFinalPrice() / $_product->getPrice()) * 100); ?>
         <div class="special-ribbon"><span><?php echo $_savingPercent; ?><?php echo $this->__('% Rabatt') ?></span></div>
     <?php } ?>
     <a href="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" class="item">
         <img data-interchange="[<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(250, 250) ?>, small], [<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(400, 400) ?>, medium], [<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(550, 550) ?>, large]"
-            alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
-            title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>"/>
+             alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
+             title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>"/>
     </a>
     <?php
     $attributeCodevideo = 'video';
@@ -61,7 +61,10 @@ $_helper = $this->helper('catalog/output');
         <div class="product-images">
             <ul class="pimages owl-carousel owl-theme">
                 <?php if (!empty($contentthreesixty)) { ?>
-                    <li><a class="item" data-iframe="true" data-src="<?php echo $_helper->productAttribute($this->getProduct(), $contentthreesixty, $attributeCodethreesixty) ?>"><img src="<?php echo $this->getSkinUrl('dist/assets/img/360-degree.jpg') ?>" alt="360° Ansicht"/></a></li>
+                    <li><a class="item" data-iframe="true"
+                           data-src="<?php echo $_helper->productAttribute($this->getProduct(), $contentthreesixty, $attributeCodethreesixty) ?>"><img
+                                    src="<?php echo $this->getSkinUrl('dist/assets/img/360-degree.jpg') ?>"
+                                    alt="360° Ansicht"/></a></li>
                 <?php } ?>
                 <?php foreach ($this->getGalleryImages() as $_image): ?>
                     <li>
@@ -75,8 +78,20 @@ $_helper = $this->helper('catalog/output');
                 <?php endforeach; ?>
             </ul>
             <script>
+                jQuery('.product-img-box').lightGallery({
+                    selector: '.item',
+                    thumbnail: true,
+                    hash: false
+                });
+                jQuery('.product-image').on('click', function (e) {
+                    var Elem = e.target;
+                    if (Elem.nodeName=='.product-image .item:first-of-type') {
+                        jQuery(e).trigger('click');
+                    }
+                });
+
                 jQuery('.pimages').owlCarousel({
-                    margin:10,
+                    margin: 10,
                     items: 5,
                     lazyLoad: true,
                     loop: false,

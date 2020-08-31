@@ -150,7 +150,7 @@ $_helper = $this->helper('catalog/output');
                     </li>
                 <?php endforeach ?>
             </ul>
-            <script type="text/javascript">
+            <script>
                 jQuery('.item').not('.action').on("click", function () {
                     location.href = jQuery(this).find('a').attr('href');
                 });

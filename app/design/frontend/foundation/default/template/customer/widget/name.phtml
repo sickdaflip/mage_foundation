@@ -33,7 +33,6 @@
                    title="<?php echo Mage::helper('core')->quoteEscape($this->getStoreLabel('firstname')) ?>"
                    maxlength="255" <?php echo $this->getFieldParams() ?>
                    required pattern="text"/>
-        <span class="form-error"><?php echo $this->__('Please enter the first name.') ?></span>
         </label>
     </div>
     <?php if ($this->showMiddlename()): ?>
@@ -60,7 +59,6 @@
                    maxlength="255"
                 <?php echo $this->getFieldParams() ?>
                    required pattern="text"/>
-        <span class="form-error"><?php echo $this->__('Please enter the last name.') ?></span>
         </label>
     </div>
     <?php if ($this->showSuffix()): ?>
