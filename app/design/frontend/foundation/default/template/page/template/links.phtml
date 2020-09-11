@@ -3,7 +3,7 @@
     <ul class="menu">
         <?php foreach ($_links as $_link): ?>
             <li  <?php if ($_link->getUrl() == '/checkout/cart'): ?>class="shopping-cart"<?php endif; ?>>
-                <a href="<?php echo $_link->getUrl() ?>"><?php echo $_link->getBeforeText() ?>
+                <a href="<?php echo $_link->getUrl() ?>" <?php echo $_link->getAParams() ?>><?php echo $_link->getBeforeText() ?>
                     <?php if ($_link->getUrl() == '/checkout/cart'): ?>
                         <?php $_cartQty = Mage::getSingleton('checkout/cart')->getItemsCount(); ?>
                         <span class="cart-qty<?php if ($_cartQty >= 10): ?>-10<?php endif; ?>">

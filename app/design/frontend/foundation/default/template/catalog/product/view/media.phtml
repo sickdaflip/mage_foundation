@@ -77,34 +77,36 @@ $_helper = $this->helper('catalog/output');
                     </li>
                 <?php endforeach; ?>
             </ul>
-            <script>
-                jQuery('.product-img-box').lightGallery({
-                    selector: '.item',
-                    thumbnail: true,
-                    hash: false
-                });
-
-                jQuery('.new-ribbon, .special-ribbon').click(function(){
-                    jQuery('.product-image a.item:first-of-type > img').trigger('click');
-                });
-
-                jQuery('.pimages').owlCarousel({
-                    margin: 10,
-                    items: 5,
-                    lazyLoad: true,
-                    loop: false,
-                    nav: true,
-                    navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
-                    dots: false,
-                    autoplay: false,
-                    responsiveClass: true,
-                    responsive: {
-                        0: {items: 3},
-                        640: {items: 4},
-                        1024: {items: 5}
-                    }
-                });
-            </script>
         </div>
     <?php endif; ?>
 </div>
+<script>
+    jQuery('.product-image').lightGallery({
+        selector: '.item',
+        thumbnail: true,
+        hash: false
+    });
+
+    if (jQuery('.new-ribbon, .special-ribbon').length) {
+        jQuery('.new-ribbon, .special-ribbon').click(function () {
+            jQuery('.product-image a.item:first-of-type > img').trigger('click');
+        });
+    };
+
+    jQuery('.pimages').owlCarousel({
+        margin: 10,
+        items: 5,
+        lazyLoad: true,
+        loop: false,
+        nav: true,
+        navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
+        dots: false,
+        autoplay: false,
+        responsiveClass: true,
+        responsive: {
+            0: {items: 3},
+            640: {items: 4},
+            1024: {items: 5}
+        }
+    });
+</script>

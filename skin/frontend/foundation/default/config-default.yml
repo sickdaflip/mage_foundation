@@ -58,4 +58,3 @@ PATHS:
     - "node_modules/lightgallery/lib/jquery.mousewheel.min.js"
     - "node_modules/owl.carousel/dist/owl.carousel.min.js"
     - "node_modules/pwstrength-foundation/dist/pwstrength-foundation.js"
-

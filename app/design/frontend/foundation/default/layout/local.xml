@@ -56,10 +56,18 @@
                 <type>skin_css</type>
                 <name>css/eucookielaw.css</name>
             </action>
-
-            <action method="removeItem"><type>skin_css</type><name>css/styles-ie.css</name></action>
-            <action method="removeItem"><type>js</type><name>lib/ds-sleight.js</name></action>
-            <action method="removeItem"><type>skin_js</type><name>js/ie6.js</name></action>
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/styles-ie.css</name>
+            </action>
+            <action method="removeItem">
+                <type>js</type>
+                <name>lib/ds-sleight.js</name>
+            </action>
+            <action method="removeItem">
+                <type>skin_js</type>
+                <name>js/ie6.js</name>
+            </action>
 
         </reference>
 
@@ -161,6 +169,7 @@
         <reference name="before_body_end">
             <block type="core/template" name="safershopping" template="page/html/safershopping.phtml"/>
             <block type="core/template" name="spinner" template="page/html/ajax-spinner.phtml"/>
+            <block type="core/template" name="ajax" template="customer/ajax.phtml"/>
         </reference>
 
     </default>
@@ -184,6 +193,7 @@
             </action>
         </reference>
     </customer_logged_in>
+
     <customer_logged_out>
         <reference name="top.links">
             <action method="removeLinkByUrl">
@@ -197,7 +207,7 @@
                 <urlParams helper="customer/getLoginUrl"/>
                 <position>10</position>
                 <liParams/>
-                <aParams/>
+                <aParams><class>ajax-login</class></aParams>
                 <beforeText/>
                 <afterText/>
             </action>
@@ -454,13 +464,21 @@
             </action>
             <block type="page/html_wrapper" name="checkout.progress.wrapper" translate="label">
                 <label>Checkout Progress Wrapper</label>
-                <action method="setElementId"><value>checkout-progress-wrapper</value></action>
-                <block type="checkout/onepage_progress" name="checkout.progress" before="-" template="checkout/onepage/progress.phtml">
-                    <block type="checkout/onepage_progress" name="billing.progress" template="checkout/onepage/progress/billing.phtml"></block>
-                    <block type="checkout/onepage_progress" name="shipping.progress" template="checkout/onepage/progress/shipping.phtml"></block>
-                    <block type="checkout/onepage_progress" name="shippingmethod.progress" template="checkout/onepage/progress/shipping_method.phtml"></block>
-                    <block type="checkout/onepage_progress" name="comment.progress" template="mageware/checkoutcomment/checkout/onepage/progress/comment.phtml"></block>
-                    <block type="checkout/onepage_progress" name="payment.progress" template="checkout/onepage/progress/payment.phtml"></block>
+                <action method="setElementId">
+                    <value>checkout-progress-wrapper</value>
+                </action>
+                <block type="checkout/onepage_progress" name="checkout.progress" before="-"
+                       template="checkout/onepage/progress.phtml">
+                    <block type="checkout/onepage_progress" name="billing.progress"
+                           template="checkout/onepage/progress/billing.phtml"></block>
+                    <block type="checkout/onepage_progress" name="shipping.progress"
+                           template="checkout/onepage/progress/shipping.phtml"></block>
+                    <block type="checkout/onepage_progress" name="shippingmethod.progress"
+                           template="checkout/onepage/progress/shipping_method.phtml"></block>
+                    <block type="checkout/onepage_progress" name="comment.progress"
+                           template="mageware/checkoutcomment/checkout/onepage/progress/comment.phtml"></block>
+                    <block type="checkout/onepage_progress" name="payment.progress"
+                           template="checkout/onepage/progress/payment.phtml"></block>
                 </block>
             </block>
         </reference>
