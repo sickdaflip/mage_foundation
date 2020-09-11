@@ -169,7 +169,6 @@
         <reference name="before_body_end">
             <block type="core/template" name="safershopping" template="page/html/safershopping.phtml"/>
             <block type="core/template" name="spinner" template="page/html/ajax-spinner.phtml"/>
-            <block type="core/template" name="ajax" template="customer/ajax.phtml"/>
         </reference>
 
     </default>
@@ -207,7 +206,7 @@
                 <urlParams helper="customer/getLoginUrl"/>
                 <position>10</position>
                 <liParams/>
-                <aParams><class>ajax-login</class></aParams>
+                <aParams/>
                 <beforeText/>
                 <afterText/>
             </action>
