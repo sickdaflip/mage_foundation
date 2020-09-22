@@ -29,13 +29,16 @@
 <li class="price">
     <?php echo $this->getPriceHtml($_product) ?>
 </li>
-<?php if ($_product->getData('custom_quote') == 1): ?>
-    <li class="bullet-item">
-        <div class="custom-quote text-center">
-            <p>Erfragen Sie unseren <strong>aktuellen Tagespreis!</strong></p>
-            <i class="fa fa-phone"></i> 0800 456 6000
-        </div>
-    </li>
+<?php if ($_product->getData('custom_quote') == '1'): ?>
+    <?php if ($_product->getFinalPrice() >= $_product->getPrice()): ?>
+        <li class="bullet-item">
+            <div class="custom-quote text-center">
+                <p><?php echo $this->__('Erfragen Sie unseren'); ?>
+                    <strong><?php echo $this->__('aktuellen Tagespreis!'); ?></strong></p>
+                <i class="fa fa-phone"></i> 0800 456 6000
+            </div>
+        </li>
+    <?php endif; ?>
 <?php endif; ?>
 <?php echo $this->getTierPriceHtml() ?>
 <?php if ($this->displayProductStockStatus()): ?>
