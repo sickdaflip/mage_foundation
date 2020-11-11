@@ -70,8 +70,7 @@
                         <input type="text"
                                title="<?php echo Mage::helper('core')->quoteEscape($this->__('Hausnummer')) ?>"
                                name="billing[street][]" id="billing:street<?php echo $_i ?>"
-                               value="<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>"
-                               required/>
+                               value="<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>" />
                     </label>
                 </div>
             <?php endfor; ?>

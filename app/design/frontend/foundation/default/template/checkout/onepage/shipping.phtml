@@ -72,6 +72,7 @@
             <?php for ($_i = 2, $_n = $this->helper('customer/address')->getStreetLines(); $_i <= $_n; $_i++): ?>
                 <div class="field">
                     <label for="shipping:street<?php echo $_i ?>"><?php echo $this->__('Hausnummer') ?>
+                        <small><?php echo $this->__('required') ?></small>
                         <input type="text"
                                title="<?php echo $this->__('Hausnummer') ?>"
                                name="shipping[street][]" id="shipping:street<?php echo $_i ?>"
