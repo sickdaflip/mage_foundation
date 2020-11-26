@@ -16,6 +16,7 @@
                         <gif>1</gif>
                         <pdf>1</pdf>
                         <map>1</map>
+                        <webp>1</webp>
                     </allowed>
                 </extensions>
             </browser>
