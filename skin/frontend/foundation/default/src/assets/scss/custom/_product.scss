@@ -50,7 +50,7 @@
     }
     .product-img-box {
       .product-image {
-        margin-bottom: $global-margin;
+        margin-bottom: 0.7rem;
         padding: $global-padding;
         border-radius: $global-radius;
         border: solid 1px $light-gray;
@@ -78,6 +78,12 @@
             }
           }
         }
+      }
+      .product-environmental-bonus {
+        margin-bottom: 0.7rem;
+        padding: $global-padding;
+        border-radius: $global-radius;
+        border: solid 1px $light-gray;
       }
     }
   }

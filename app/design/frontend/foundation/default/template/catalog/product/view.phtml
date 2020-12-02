@@ -49,6 +49,15 @@ if (!function_exists('clean')) {
             </div>
             <div class="product-img-box">
                 <?php echo $this->getChildHtml('media') ?>
+                <?php if ($_product->getData('umweltpraemie') == '1'): ?>
+                    <div class="product-environmental-bonus">
+                        <picture>
+                            <source srcset="<?php echo $this->getSkinUrl('dist/assets/img/Umweltpraemie-700x425.webp', array('_secure'=>true)) ?>" type="image/webp">
+                            <source srcset="<?php echo $this->getSkinUrl('dist/assets/img/umweltpraemie-700x425px.jpg', array('_secure'=>true)) ?>" type="image/jpeg">
+                            <img class="float-center" src="<?php echo $this->getSkinUrl('dist/assets/img/umweltpraemie-700x425px.jpg', array('_secure'=>true)) ?>" alt="Umweltprämie Banner">
+                        </picture>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="product-shop">
                 <ul class="pricing-table">
