@@ -33,8 +33,15 @@ $owl-dot-background-active: $primary-color !default;
 .owl-theme .owl-nav [class*=owl-] {
   width: 40px;
   height: 40px;
+
   i {
     line-height: 40px;
+  }
+}
+
+.owl-carousel {
+  .owl-video-play-icon {
+    background: url("../../../dist/assets/img/owl.video.play.png") no-repeat;
   }
 }
 
@@ -74,6 +81,7 @@ $owl-dot-background-active: $primary-color !default;
 .homeslider, .jura-slider {
   @include hide-for-only(small);
   position: relative;
+
   .owl-nav {
     .owl-prev {
       position: absolute;
@@ -89,10 +97,12 @@ $owl-dot-background-active: $primary-color !default;
       display: block !important;
     }
   }
+
   .owl-dots {
     position: absolute;
     width: 100%;
     bottom: 3%;
+
     .owl-dot {
       span {
         margin: 5px 5px;
@@ -106,9 +116,11 @@ $owl-dot-background-active: $primary-color !default;
   .owl-stage {
     display: flex;
   }
+
   .owl-item {
     display: flex;
     flex: 1 0 auto;
+
     .item img {
       border-radius: $global-radius;
       background: inherit;
@@ -122,6 +134,7 @@ $owl-dot-background-active: $primary-color !default;
     width: 100%;
     height: auto;
   }
+
   .owl-nav {
     [class*='owl-'] {
       &:hover {

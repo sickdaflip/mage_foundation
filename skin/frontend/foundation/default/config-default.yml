@@ -45,6 +45,8 @@ PATHS:
   # Path to images
   img:
     - "node_modules/lightgallery/src/img/**"
+    - "node_modules/owl.carousel/dist/assets/owl.video.play.png"
+    - "node_modules/owl.carousel/dist/assets/ajax-loader.gif"
   # Path to fonts & icons
   fonts:
     - "node_modules/components-font-awesome/webfonts/**"
