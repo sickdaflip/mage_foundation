@@ -103,7 +103,25 @@ $_helper = $this->helper('catalog/output');
         <?php $_collectionSize = $_productCollection->count() ?>
         <?php $_columnCount = $this->getColumnCount(); ?>
             <ul class="products-grid">
+                <?php
+                $i = 0;
+                $random1 = rand(0, 7);
+                do {
+                    $random2 = rand(8, 14);
+                } while ($random1 == $random2);
+                ?>
                 <?php foreach ($_productCollection as $_product): ?>
+                    <?php if ($i == $random1 || $i == $random2) { ?>
+                        <li class="item action sdp">
+                            <a class="invest" title="Invest 2021">
+                                <img src="<?php echo $this->getSkinUrl('dist/assets/img/invest2021-banner-400x400.jpg') ?>"
+                                     alt="Invest 2021"/>
+                            </a>
+                            <div class="product-name">
+                                <a class="button hollow invest"><?php echo $this->__('Hier klicken') ?></a>
+                            </div>
+                        </li>
+                    <?php } ?>
                     <li class="item">
                         <?php if (date("Y-m-d") >= substr($_product->getNewsFromDate(), 0, 10) && date("Y-m-d") <= substr($_product->getNewsToDate(), 0, 10)) { ?>
                             <div class="new-ribbon"><span><?php echo $this->__('Neu') ?></div>
@@ -149,7 +167,23 @@ $_helper = $this->helper('catalog/output');
                             <span class="commissioning"><?php echo $_label; ?></span>
                         <?php endif; ?>
                     </li>
+                    <?php $i++; ?>
                 <?php endforeach ?>
+                <div class="reveal small" id="invest" data-reveal></div>
+                <script>
+                    jQuery('.invest').click(function () {
+                        jQuery.ajax({
+                            url: '<?php echo $this->getUrl('ajax/cms/block/id/66');?>',
+                            beforeSend: function () {
+                                jQuery('#reveal-wait').show();
+                            }
+                        })
+                            .done(function (data) {
+                                jQuery('#reveal-wait').hide();
+                                jQuery('#invest').html(data).foundation('open');
+                            });
+                    });
+                </script>
             </ul>
             <script>
                 jQuery('.item').not('.action').on("click", function () {
