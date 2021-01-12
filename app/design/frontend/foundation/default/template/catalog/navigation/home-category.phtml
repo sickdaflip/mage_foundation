@@ -1,6 +1,18 @@
 <?php
 $_categories = $this->getCurrentChildCategories(); ?>
 <ul class="categories-home-grid" data-equalizer data-equalize-on="medium">
+    <li class="item" data-equalizer-watch>
+        <div class="category-image">
+            <a href="<?php echo Mage::getUrl('') . 'hersteller/jura'; ?>"
+               title="JURA Shop">
+                <img src="<?php echo $this->getSkinUrl('dist/assets/img/jura-shop.jpg'); ?>" alt="JURA Shop"/>
+            </a>
+            <h2 class="category-name">
+                <a href="<?php echo Mage::getUrl('') . 'hersteller/jura'; ?>"
+                   title="JURA Shop">JURA Shop</a>
+            </h2>
+        </div>
+    </li>
     <?php $i = 0; ?>
     <?php foreach ($_categories as $_category): ?>
         <?php if ($_category->getIsActive()): ?>
@@ -30,18 +42,6 @@ $_categories = $this->getCurrentChildCategories(); ?>
         <?php endif; ?>
         <?php $i++; ?>
     <?php endforeach; ?>
-    <li class="item" data-equalizer-watch>
-        <div class="category-image">
-            <a href="<?php echo Mage::getUrl('') . 'hersteller/jura'; ?>"
-               title="JURA Shop">
-                <img src="<?php echo $this->getSkinUrl('dist/assets/img/jura-shop.jpg'); ?>" alt="JURA Shop"/>
-            </a>
-            <h2 class="category-name">
-                <a href="<?php echo Mage::getUrl('') . 'hersteller/jura'; ?>"
-                   title="JURA Shop">JURA Shop</a>
-            </h2>
-        </div>
-    </li>
     <li class="item" data-equalizer-watch>
         <div class="category-image">
             <a href="<?php echo Mage::getUrl('') . 'hersteller/bartscher'; ?>"
