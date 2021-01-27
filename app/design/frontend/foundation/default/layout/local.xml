@@ -266,7 +266,7 @@
             </action>
         </reference>
         <reference name="content">
-            <action method="unsCacheLifetime"></action>
+            <action method="unsCacheLifetime">0</action>
         </reference>
     </catalog_category_default>
 
@@ -469,15 +469,15 @@
                 <block type="checkout/onepage_progress" name="checkout.progress" before="-"
                        template="checkout/onepage/progress.phtml">
                     <block type="checkout/onepage_progress" name="billing.progress"
-                           template="checkout/onepage/progress/billing.phtml"></block>
+                           template="checkout/onepage/progress/billing.phtml"/>
                     <block type="checkout/onepage_progress" name="shipping.progress"
-                           template="checkout/onepage/progress/shipping.phtml"></block>
+                           template="checkout/onepage/progress/shipping.phtml"/>
                     <block type="checkout/onepage_progress" name="shippingmethod.progress"
-                           template="checkout/onepage/progress/shipping_method.phtml"></block>
+                           template="checkout/onepage/progress/shipping_method.phtml"/>
                     <block type="checkout/onepage_progress" name="comment.progress"
-                           template="mageware/checkoutcomment/checkout/onepage/progress/comment.phtml"></block>
+                           template="mageware/checkoutcomment/checkout/onepage/progress/comment.phtml"/>
                     <block type="checkout/onepage_progress" name="payment.progress"
-                           template="checkout/onepage/progress/payment.phtml"></block>
+                           template="checkout/onepage/progress/payment.phtml"/>
                 </block>
             </block>
         </reference>

@@ -1,6 +1,7 @@
 header {
   color: $white;
   background-color: $primary-color;
+
   .header-top {
     .brand {
       margin: 0 auto;
@@ -9,6 +10,7 @@ header {
       @media #{$small-only} {
         margin: .5em 0;
       }
+
       .slogan {
         @include show-for(large);
         position: relative;
@@ -27,10 +29,12 @@ header {
         font-weight: 500;
       }
     }
+
     .trusted {
       @include breakpoint(large) {
         float: left;
       }
+
       .menu {
         @include show-for(large);
         align-items: center;
@@ -38,6 +42,7 @@ header {
         @include breakpoint(large) {
           justify-content: flex-start;
         }
+
         .quality-since {
           @include show-for(xlarge);
           @include breakpoint(retina) {
@@ -49,6 +54,7 @@ header {
           letter-spacing: .02rem;
           display: block;
           text-transform: uppercase;
+
           span {
             font-weight: 500;
             letter-spacing: .15rem;
@@ -60,6 +66,7 @@ header {
             display: block;
           }
         }
+
         .ts-trusted {
           @include show-for(xlarge);
           @include breakpoint(retina) {
@@ -69,6 +76,7 @@ header {
           font-weight: 500;
           letter-spacing: 1px;
           display: block;
+
           span {
             font-weight: 500;
             letter-spacing: .23rem;
@@ -80,22 +88,41 @@ header {
             display: block;
           }
         }
+
         a {
           padding: 0.5rem;
         }
+
         .shipping {
           @include show-for(xlarge);
         }
-        .deal {
-          @include show-for(large);
+      }
+    }
+
+    .search {
+      #search_mini_form {
+        input {
+          border-top-right-radius: 0 !important;
+          border-bottom-right-radius: 0 !important;
         }
-        .deal a {
-          color: $white;
-          font-size: rem-calc(25);
-          font-weight: 700;
+
+        input, button, select {
+          margin: 0;
+          height: 2rem;
+        }
+
+        button {
+          padding: 0;
+          border-top-left-radius: 0 !important;
+          border-bottom-left-radius: 0 !important;
+        }
+
+        .empty-message {
+          color: $primary-color;
         }
       }
     }
+
     .hotline {
       @include show-for(large);
       text-align: center;
@@ -104,13 +131,16 @@ header {
         text-align: right;
         margin-bottom: 0;
       }
+
       a {
         color: $white;
         font-size: rem-calc(30);
         font-weight: 600;
+
         i {
           font-size: rem-calc(20);
         }
+
         span {
           font-weight: 500;
           letter-spacing: .20rem;
@@ -121,65 +151,79 @@ header {
       }
     }
   }
+
   .header-bottom {
-    .search {
-      #search_mini_form {
-        input {
-          border-top-right-radius: 0 !important;
-          border-bottom-right-radius: 0 !important;
-        }
-        input, button, select {
-          margin: 0;
-          height: 2rem;
-        }
-        button {
-          padding: 0;
-          border-top-left-radius: 0 !important;
-          border-bottom-left-radius: 0 !important;
-        }
-        .empty-message {
-          color: $primary-color;
+    @include breakpoint(large) {
+      background: scale-color($primary-color, $lightness: -30%);
+    }
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    .nav {
+      padding-left: 1rem;
+      .hamburger {
+        padding: 1px;
+      }
+    }
+    .top-nav {
+      @include show-for(large);
+      ul {
+        margin: 0;
+        li {
+          display: inline-block;
+          a {
+            font-size: .8rem;
+            color: white;
+            margin: 1px;
+            padding: 5px;
+            border: 1px solid transparent;
+            &:hover {
+              border: 1px solid white;
+            }
+          }
         }
       }
     }
     .account {
       font-size: .8rem;
-      .menu {
-        @include breakpoint(xlarge) {
-          justify-content: flex-end;
-        }
-      }
       .shopping-cart {
         position: relative;
       }
+
       a {
         color: $white;
         display: inline-block;
+
         &:hover, &:focus {
           color: scale-color($white, $lightness: -15%);
         }
       }
+
       .top-cart {
         background-image: url(../../../dist/assets/img/top-cart.svg);
         width: 32px;
         height: 30px;
         display: inline-block;
       }
+
       .cart-qty {
         position: absolute;
         left: 32px;
         color: $secondary-color;
         font-weight: 700;
       }
+
       .cart-qty-10 {
         position: absolute;
         left: 26px;
         color: $secondary-color;
         font-weight: 700;
       }
+
       .shopping-cart a {
-        padding-right: 0 !important;
+        padding: 0 0 0 1rem;
       }
+
       @include breakpoint(small only) {
         .shopping-cart {
           .title {
@@ -187,6 +231,7 @@ header {
           }
         }
       }
+
       ul.menu {
         li {
           span {
@@ -194,6 +239,7 @@ header {
             display: inline-block;
           }
         }
+
         @include breakpoint(small only) {
           li:nth-child(2) {
             display: none;
@@ -201,6 +247,7 @@ header {
         }
       }
     }
+
     .search-mobile {
       i {
         font-size: 1.2rem;

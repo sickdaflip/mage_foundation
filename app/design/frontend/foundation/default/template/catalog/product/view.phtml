@@ -39,7 +39,6 @@ if (!function_exists('clean')) {
 </script>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
 <div class="product-view">
-    <div class="product-essential">
         <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post"
               id="product_addtocart_form"<?php if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
             <?php echo $this->getBlockHtml('formkey') ?>
@@ -251,7 +250,6 @@ if (!function_exists('clean')) {
                 }
             }.bind(productUpdateToCartForm);
         </script>
-    </div>
     <div class="reveal" id="productAddToCartModal" data-reveal>
         <p class="color-success"><?php echo $this->__('Sie haben dieses Produkt in Ihren Warenkorb gelegt'); ?></p>
         <div class="grid-x grid-margin-x grid-padding-x align-middle">

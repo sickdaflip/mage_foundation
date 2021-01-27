@@ -221,7 +221,7 @@ ol.opc {
     input[type='radio']:checked + label, input[type='checkbox']:checked + label {
       @include button(false, $success-color, $button-background-hover, $button-color);
       &:after {
-        font-family: 'Font Awesome 5 Free';
+        font-family: 'Font Awesome 5 Free', serif;
         content: '\f00c';
       }
     }
@@ -298,7 +298,6 @@ ol.opc {
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
-  -o-user-select: none;
   user-select: none;
 }
 
@@ -328,7 +327,7 @@ ol.opc {
   float: right;
   line-height: 40px;
   height: 40px;
-  padding: 0px 10px;
+  padding: 0 10px;
 }
 
 .no-touch .opc .section .step-title a:hover {
@@ -371,7 +370,7 @@ ol.opc {
   line-height: 40px;
   height: 40px;
   float: left;
-  margin: 0px 4px 0px 45px;
+  margin: 0 4px 0 45px;
 }
 
 .opc .section .step {
@@ -394,7 +393,7 @@ ol.opc {
 }
 
 .opc #opc-login .step {
-  padding: 0px;
+  padding: 0;
 }
 
 .opc #opc-login .buttons-set {
@@ -409,26 +408,23 @@ ol.opc {
 .opc.opc-firststep-login .section:not(#opc-login) .step-title,
 .opc-block-progress-step-login {
   -webkit-transition: opacity 300ms linear;
-  -webkit-transition-delay: 0;
-  -moz-transition: opacity 300ms linear 0;
-  -o-transition: opacity 300ms linear 0;
-  transition: opacity 300ms linear 0;
+  -moz-transition: opacity 300ms linear;
+  -o-transition: opacity 300ms linear;
+  transition: opacity 300ms linear;
 }
 
 .opc.opc-firststep-login .section#opc-login .step-title .number {
   -webkit-transition: width 80ms linear;
-  -webkit-transition-delay: 0;
-  -moz-transition: width 80ms linear 0;
-  -o-transition: width 80ms linear 0;
-  transition: width 80ms linear 0;
+  -moz-transition: width 80ms linear;
+  -o-transition: width 80ms linear;
+  transition: width 80ms linear;
 }
 
 .opc.opc-firststep-login .section#opc-login .step-title h2 {
   -webkit-transition: margin-left 80ms linear;
-  -webkit-transition-delay: 0;
-  -moz-transition: margin-left 80ms linear 0;
-  -o-transition: margin-left 80ms linear 0;
-  transition: margin-left 80ms linear 0;
+  -moz-transition: margin-left 80ms linear;
+  -o-transition: margin-left 80ms linear;
+  transition: margin-left 80ms linear;
 }
 
 /* When a user progresses from the "Checkout Method" to "Billing Information" for the first time, the              */
@@ -440,12 +436,12 @@ body:not(.opc-has-progressed-from-login) .opc-block-progress-step-login {
 }
 
 body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-login .step-title .number {
-  width: 0px;
+  width: 0;
   overflow: hidden;
 }
 
 body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-login .step-title h2 {
-  margin-left: 0px;
+  margin-left: 0;
 }
 
 /* -------------------------------------------- *
@@ -542,12 +538,10 @@ body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-l
 
 .block-progress dt {
   padding-top: 6px;
-  margin: 0;
-  margin-bottom: 10px;
+  margin: 0 0 10px 0;
   color: $primary-color;
   font-size: 16px;
   text-rendering: optimizeSpeed;
-  margin-bottom: 6px;
   font-weight: normal;
 }
 
@@ -695,7 +689,6 @@ body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-l
 
 .gift-message-form .inner-box > div {
   content: '';
-  display: table;
   clear: both;
   width: 100%;
   margin-top: 15px;
@@ -767,7 +760,7 @@ body:not(.opc-has-progressed-from-login) .opc.opc-firststep-login .section#opc-l
     float: none;
   }
   .gift-message-form .gift-item .fieldset {
-    margin-left: 0px;
+    margin-left: 0;
   }
   .gift-message-form .gift-item .fieldset textarea {
     width: 100%;

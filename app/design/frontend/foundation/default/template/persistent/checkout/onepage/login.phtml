@@ -11,7 +11,7 @@
             <?php endif; ?>
         </h3>
         <?php if (!$this->getQuote()->isAllowedGuestCheckout() && $this->helper('customer')->isRegistrationAllowed()): ?>
-            <p class="description"><?php echo $this->__('Register and save time!') ?></strong><br/>
+            <p class="description"><?php echo $this->__('Register and save time!') ?><br/>
                 <?php echo $this->__('Register with us for future convenience:') ?></p>
             <ul>
                 <li><?php echo $this->__('Fast and easy check out') ?></li>

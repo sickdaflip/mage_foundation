@@ -43,7 +43,7 @@
                                title="<?php echo $this->__('Qty') ?>" class="input-text qty-step"
                                step="<?php echo (int)$_product->getStockItem()->getData('qty_increments'); ?>"/>
                             <script>
-                                jQuery('.quantity-step .input-group').append('<span class="input-group-label plus"><i id="add1" class="fa fa-plus" /></span>').prepend('<span class="input-group-label minus"><i id="minus1" class="fa fa-minus" /></span>');
+                                jQuery('.quantity-step .input-group').append('<span class="input-group-label plus"><i id="add1" class="fa fa-plus"></i></span>').prepend('<span class="input-group-label minus"><i id="minus1" class="fa fa-minus"></i></span>');
                                 jQuery('.quantity-step .plus').click(function () {
                                     var currentVal = parseInt(jQuery(".qty-step").val());
                                     if (!currentVal || currentVal == "" || currentVal == "NaN") currentVal = 0;
@@ -63,7 +63,7 @@
                                value="<?php echo $this->getProductDefaultQty() * 1 ?>"
                                title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
                             <script>
-                                jQuery('.quantity .input-group').append('<span class="input-group-label plus"><i id="add1" class="fa fa-plus" /></span>').prepend('<span class="input-group-label minus"><i id="minus1" class="fa fa-minus" /></span>');
+                                jQuery('.quantity .input-group').append('<span class="input-group-label plus"><i id="add1" class="fa fa-plus"></i></span>').prepend('<span class="input-group-label minus"><i id="minus1" class="fa fa-minus"></i></span>');
                                 jQuery('.quantity .plus').click(function () {
                                     var currentVal = parseInt(jQuery(".qty").val());
                                     if (!currentVal || currentVal == "" || currentVal == "NaN") currentVal = 0;

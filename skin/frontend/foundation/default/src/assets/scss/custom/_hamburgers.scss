@@ -9,11 +9,11 @@
 
 // Settings
 // ==================================================
-$hamburger-padding-x           : 15px !default;
-$hamburger-padding-y           : 15px !default;
-$hamburger-layer-width         : 36px !default;
-$hamburger-layer-height        : 3px !default;
-$hamburger-layer-spacing       : 6px !default;
+$hamburger-padding-x           : 10px !default;
+$hamburger-padding-y           : 10px !default;
+$hamburger-layer-width         : 20px !default;
+$hamburger-layer-height        : 2px !default;
+$hamburger-layer-spacing       : 4px !default;
 $hamburger-layer-color         : $white !default;
 $hamburger-layer-border-radius : 4px !default;
 $hamburger-hover-opacity       : 1 !default;
@@ -142,9 +142,7 @@ $hamburger-types: (
     vertical-align: middle;
   }
   .hamburger-label {
-    font-weight: 500;
     display: inline-block;
     vertical-align: middle;
-    text-transform: uppercase;
   }
 }

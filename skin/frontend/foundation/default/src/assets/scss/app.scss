@@ -1,8 +1,6 @@
-@charset 'utf-8';
-
-@import 'foundation';
+@import "../../../node_modules/foundation-sites/scss/foundation";
 @import 'settings';
-@import 'motion-ui';
+@import '../../../node_modules/motion-ui/src/motion-ui';
 
 @include foundation-global-styles;
 @include foundation-grid;

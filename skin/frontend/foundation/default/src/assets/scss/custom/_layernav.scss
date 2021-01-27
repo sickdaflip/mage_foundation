@@ -51,7 +51,6 @@
         span {
           display: inline-block; /* in seltenen Faellen in Kombination mit "(max-)width" auch "inline-block" */
           overflow: hidden;
-          -moz-text-overflow: ellipsis;
           text-overflow: ellipsis;
           white-space: nowrap;
           max-width: 12rem;

@@ -1,0 +1,246 @@
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+<?php echo $this->getChildHtml('revslider-header') ?>
+    <div class="product-view-revslider">
+            <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post"
+                  id="product_addtocart_form"<?php if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+                <?php echo $this->getBlockHtml('formkey') ?>
+                <div class="no-display">
+                    <input type="hidden" name="product" value="<?php echo $_product->getId() ?>"/>
+                    <input type="hidden" name="related_product" id="related-products-field" value=""/>
+                </div>
+                <div class="product-img-box">
+                    <?php echo $this->getChildHtml('media') ?>
+                    <?php if ($_product->getData('umweltpraemie') == '1'): ?>
+                        <div class="product-environmental-bonus">
+                            <picture>
+                                <source srcset="<?php echo $this->getSkinUrl('dist/assets/img/umweltpraemie-700x425px.webp', array('_secure'=>true)) ?>" type="image/webp">
+                                <source srcset="<?php echo $this->getSkinUrl('dist/assets/img/umweltpraemie-700x425px.jpg', array('_secure'=>true)) ?>" type="image/jpeg">
+                                <img class="float-center" src="<?php echo $this->getSkinUrl('dist/assets/img/umweltpraemie-700x425px.jpg', array('_secure'=>true)) ?>" alt="Umweltprämie Banner">
+                            </picture>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="product-shop">
+                    <ul class="pricing-table">
+                        <li class="title">
+                            <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+                        </li>
+                        <li class="bullet-item">
+                            <p class="sku"><?php echo $this->__('Artikelnummer: ') ?>
+                                <span><?php echo $_product->getSku() ?></span>
+                            </p>
+                        </li>
+                        <?php echo $this->getChildHtml('product_type_data') ?>
+                        <?php if (!$this->hasOptions()): ?>
+                            <?php if ($_product->isSaleable()): ?>
+                                <?php echo $this->getChildHtml('addtocart') ?>
+                                <?php if ($this->helper('wishlist')->isAllow() || $_compareUrl = $this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                            <?php echo $this->getChildHtml('addto') ?>
+                            <?php echo $this->getChildHtml('extra_buttons') ?>
+                        <?php elseif (!$_product->isSaleable()): ?>
+                            <li class="cta-button">
+                                <?php echo $this->getChildHtml('addto') ?>
+                            </li>
+                        <?php endif; ?>
+                        <?php echo $this->getChildHtml('alert_urls') ?>
+                        <?php echo $this->getChildHtml('extrahint') ?>
+                        <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
+                            <li class="bullet-item">
+                                <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+                                <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+                            </li>
+                        <?php endif; ?>
+                        <?php echo $this->getChildHtml('other'); ?>
+                    </ul>
+                </div>
+            </form>
+            <script>
+                var productAddToCartForm = new VarienForm('product_addtocart_form');
+                productAddToCartForm.submit = function (button, url) {
+                    if (this.validator.validate()) {
+                        var form = this.form;
+                        var oldUrl = form.action;
+
+                        if (url) {
+                            form.action = url;
+                        }
+                        var e = null;
+                        if (!url) {
+                            url = jQuery('#product_addtocart_form').attr('action');
+                        }
+                        url = url.replace("checkout/cart", "ajax/cart");
+                        var data = jQuery('#product_addtocart_form').serialize();
+                        data += '&isAjax=1';
+                        jQuery('.please-wait').show();
+                        try {
+                            jQuery.ajax({
+                                url: url,
+                                dataType: 'json',
+                                type: 'post',
+                                data: data,
+                                success: function (data) {
+                                    jQuery('.please-wait').hide();
+                                    //alert(data.status + ": " + data.message);
+                                    if (jQuery('.header-bottom .account .menu')) {
+                                        jQuery('.header-bottom .account .menu').replaceWith(data.toplink);
+                                    }
+                                    if (jQuery('#productAddToCartModal .qty span')) {
+                                        jQuery('#productAddToCartModal .qty span').html(data.qty);
+                                    }
+                                    jQuery('#productAddToCartModal').foundation('open');
+                                }
+                            });
+                        } catch (e) {
+                        }
+                        this.form.action = oldUrl;
+                        if (e) {
+                            throw e;
+                        }
+                    }
+                }.bind(productAddToCartForm);
+
+                productAddToCartForm.submitLight = function (button, url) {
+                    if (this.validator) {
+                        var nv = Validation.methods;
+                        delete Validation.methods['required-entry'];
+                        delete Validation.methods['validate-one-required'];
+                        delete Validation.methods['validate-one-required-by-name'];
+                        // Remove custom datetime validators
+                        for (var methodName in Validation.methods) {
+                            if (methodName.match(/^validate-datetime-.*/i)) {
+                                delete Validation.methods[methodName];
+                            }
+                        }
+
+                        if (this.validator.validate()) {
+                            if (url) {
+                                this.form.action = url;
+                            }
+                            this.form.submit();
+                        }
+                        Object.extend(Validation.methods, nv);
+                    }
+                }.bind(productAddToCartForm);
+
+                var productUpdateToCartForm = new VarienForm('product_addtocart_form');
+                productUpdateToCartForm.submit = function (button, url) {
+                    if (this.validator.validate()) {
+                        var form = this.form;
+                        var oldUrl = form.action;
+
+                        if (url) {
+                            form.action = url;
+                        }
+                        var e = null;
+                        if (!url) {
+                            url = jQuery('#product_addtocart_form').attr('action');
+                        }
+                        url = url.replace("checkout/cart", "ajax/cart");
+                        var data = jQuery('#product_addtocart_form').serialize();
+                        data += '&isAjax=1';
+                        jQuery('.please-wait').show();
+                        try {
+                            jQuery.ajax({
+                                url: url,
+                                dataType: 'json',
+                                type: 'post',
+                                data: data,
+                                success: function (data) {
+                                    jQuery('.please-wait').hide();
+                                    //alert(data.status + ": " + data.message);
+                                    if (jQuery('.header-bottom .account .menu')) {
+                                        jQuery('.header-bottom .account .menu').replaceWith(data.toplink);
+                                    }
+                                    jQuery('#productUpdateToCartModal').foundation('open');
+                                }
+                            });
+                        } catch (e) {
+                        }
+                        this.form.action = oldUrl;
+                        if (e) {
+                            throw e;
+                        }
+                    }
+                }.bind(productUpdateToCartForm);
+
+                productUpdateToCartForm.submitLight = function (button, url) {
+                    if (this.validator) {
+                        var nv = Validation.methods;
+                        delete Validation.methods['required-entry'];
+                        delete Validation.methods['validate-one-required'];
+                        delete Validation.methods['validate-one-required-by-name'];
+                        // Remove custom datetime validators
+                        for (var methodName in Validation.methods) {
+                            if (methodName.match(/^validate-datetime-.*/i)) {
+                                delete Validation.methods[methodName];
+                            }
+                        }
+
+                        if (this.validator.validate()) {
+                            if (url) {
+                                this.form.action = url;
+                            }
+                            this.form.submit();
+                        }
+                        Object.extend(Validation.methods, nv);
+                    }
+                }.bind(productUpdateToCartForm);
+            </script>
+        <div class="reveal" id="productAddToCartModal" data-reveal>
+            <p class="color-success"><?php echo $this->__('Sie haben dieses Produkt in Ihren Warenkorb gelegt'); ?></p>
+            <div class="grid-x grid-margin-x grid-padding-x align-middle">
+                <div class="cell small-12 medium-6">
+                    <p>
+                        <img src="<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(250, 250) ?>"
+                             alt="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>"
+                             title="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>"
+                             class="float-center"/></p>
+                </div>
+                <div class="cell small-12 medium-6">
+                    <p class="h3"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></p>
+                    <p class="qty"><?php echo $this->__('Qty:'); ?> <span>0</span></p>
+                </div>
+            </div>
+            <div class="button-set text-center">
+                <a data-close aria-label="Close modal" class="hollow button">Weitershoppen</a>
+                <a href="<?php echo Mage::getUrl('', array('_direct' => 'checkout/cart')); ?>" class="button">Zum
+                    Warenkorb</a>
+            </div>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="reveal" id="productUpdateToCartModal" data-reveal>
+            <p class="color-success"><?php echo $this->__('Sie haben dieses Produkt aktualisiert'); ?></p>
+            <div class="grid-x grid-margin-x grid-padding-x align-middle">
+                <div class="cell small-12 medium-6">
+                    <p>
+                        <img src="<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(250, 250) ?>"
+                             alt="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>"
+                             title="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>"
+                             class="float-center"/></p>
+                </div>
+                <div class="cell small-12 medium-6">
+                    <p class="h3"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></p>
+                </div>
+            </div>
+            <div class="button-set text-center">
+                <a data-close aria-label="Close modal" class="hollow button">Weitershoppen</a>
+                <a href="<?php echo Mage::getUrl('', array('_direct' => 'checkout/cart')); ?>" class="button">Zum
+                    Warenkorb</a>
+            </div>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+<?php echo $this->getChildHtml('revslider-block-1') ?>
+<?php echo $this->getChildHtml('revslider-block-2') ?>
+<?php echo $this->getChildHtml('revslider-block-3') ?>

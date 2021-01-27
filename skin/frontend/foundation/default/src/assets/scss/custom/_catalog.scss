@@ -81,7 +81,6 @@
       border: 1px solid $dark-gray;
       -moz-box-shadow: 1px 1px 6px #a0a0a0;
       -webkit-box-shadow: 1px 1px 6px #a0a0a0;
-      -khtml-box-shadow: 1px 1px 6px #a0a0a0;
       box-shadow: 1px 1px 6px #a0a0a0;
       img {
         -moz-transform: scale(1.05);
@@ -180,7 +179,6 @@
       border: 1px solid $dark-gray;
       -moz-box-shadow: 1px 1px 6px #a0a0a0;
       -webkit-box-shadow: 1px 1px 6px #a0a0a0;
-      -khtml-box-shadow: 1px 1px 6px #a0a0a0;
       box-shadow: 1px 1px 6px #a0a0a0;
       .products-image img {
         z-index: 1;
@@ -387,7 +385,7 @@
   .special-ribbon span::before {
     content: "";
     position: absolute;
-    left: 0px;
+    left: 0;
     top: 100%;
     z-index: -1;
     border-left: 3px solid $alert-color;
@@ -398,7 +396,7 @@
   .special-ribbon span::after {
     content: "";
     position: absolute;
-    right: 0px;
+    right: 0;
     top: 100%;
     z-index: -1;
     border-left: 3px solid transparent;
