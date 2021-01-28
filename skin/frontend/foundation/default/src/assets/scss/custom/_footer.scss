@@ -1,6 +1,6 @@
 footer {
   .footer-top {
-    background: $primary-color;
+    background: #2f2f2f;
     padding: 0.8rem 0;
     border-bottom: 1px solid $white;
     text-align: center;
@@ -8,7 +8,7 @@ footer {
       color: $white;
     }
     &:hover, &:focus {
-      background: scale-color($primary-color, $lightness: -60%);
+      background: scale-color(#2f2f2f, $lightness: -60%);
     }
   }
   .footer-extras {
