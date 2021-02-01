@@ -51,9 +51,9 @@
 
 //Import Font Awesome
 $fa-font-path: "../../../dist/assets/fonts";
-@import "../../../node_modules/components-font-awesome/scss/fontawesome";
-@import "../../../node_modules/components-font-awesome/scss/solid";
-@import "../../../node_modules/components-font-awesome/scss/brands";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands";
 
 //Import LightGallery
 $lg-path-fonts: "../../../dist/assets/fonts";

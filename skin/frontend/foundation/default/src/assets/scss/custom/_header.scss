@@ -154,12 +154,13 @@ header {
 
   .header-bottom {
     @include breakpoint(large) {
-      background: #2f2f2f;
+      background: scale-color($primary-color, $lightness: -30%);
     }
     padding: 0 !important;
     margin: 0 !important;
     width: 100%;
     .nav {
+      font-size: 1.2rem;
       padding-left: 1rem;
       .hamburger {
         padding: 1px;
@@ -172,7 +173,7 @@ header {
         li {
           display: inline-block;
           a {
-            font-size: .8rem;
+            font-size: 1.2rem;
             color: white;
             margin: 1px;
             padding: 5px;
@@ -186,9 +187,6 @@ header {
     }
     .account {
       font-size: .8rem;
-      .shopping-cart {
-        position: relative;
-      }
 
       a {
         color: $white;
@@ -198,36 +196,30 @@ header {
           color: scale-color($white, $lightness: -15%);
         }
       }
-
-      .top-cart {
-        background-image: url(../../../dist/assets/img/top-cart.svg);
-        width: 32px;
-        height: 30px;
-        display: inline-block;
+      .fa-shopping-cart {
+        font-size: 18px;
+        vertical-align: middle;
       }
-
-      .cart-qty {
-        position: absolute;
-        left: 32px;
-        color: $secondary-color;
-        font-weight: 700;
-      }
-
-      .cart-qty-10 {
-        position: absolute;
-        left: 26px;
-        color: $secondary-color;
-        font-weight: 700;
+      .cart-qty, .cart-qty-10 {
+        font-size: 12px;
+        background: $secondary-color;
+        color: $white;
+        padding: 1px 3px;
+        vertical-align: top;
+        margin-left: -10px;
+        -webkit-border-radius: 9px;
+        -moz-border-radius: 9px;
+        border-radius: 9px;
       }
 
       .shopping-cart a {
         padding: 0 0 0 1rem;
-      }
-
-      @include breakpoint(small only) {
-        .shopping-cart {
-          .title {
+        .title {
+          @include breakpoint(small only) {
             font-size: 0;
+          }
+          @include breakpoint(medium) {
+            font-size: 1.2rem;
           }
         }
       }

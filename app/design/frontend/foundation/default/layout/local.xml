@@ -112,18 +112,6 @@
                 </action>
                 <remove name="checkout_cart_link"/>
                 <remove name="global_messages"/>
-                <!--<action method="addLink" translate="label title">
-                    <label>Compare</label>
-                    <url>/catalog/product_compare/index/</url>
-                    <title>Compare</title>
-                    <prepare>true</prepare>
-                    <urlParams helper="core/url/getHomeUrl"/>
-                    <position>100</position>
-                    <liParams/>
-                    <aParams/>
-                    <beforeText><![CDATA[<i class="fa fa-exchange"></i>]]></beforeText>
-                    <afterText/>
-                </action>-->
                 <action method="addLink" translate="label title">
                     <label>Checkout</label>
                     <url>/checkout/onepage</url>
@@ -145,7 +133,7 @@
                     <position>30</position>
                     <liParams/>
                     <aParams/>
-                    <beforeText><![CDATA[<span class="top-cart"></span>]]></beforeText>
+                    <beforeText><![CDATA[<i class="fas fa-shopping-cart"></i>]]></beforeText>
                     <afterText/>
                 </action>
             </reference>

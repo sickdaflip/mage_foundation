@@ -45,11 +45,9 @@ PATHS:
   # Path to images
   img:
     - "node_modules/lightgallery/src/img/**"
-    - "node_modules/owl.carousel/dist/assets/owl.video.play.png"
-    - "node_modules/owl.carousel/dist/assets/ajax-loader.gif"
   # Path to fonts & icons
   fonts:
-    - "node_modules/components-font-awesome/webfonts/**"
+    - "node_modules/@fortawesome/fontawesome-free/webfonts/**"
     - "node_modules/lightgallery/src/fonts/**"
   js:
     - "src/assets/js/accordion.js"
