@@ -160,7 +160,7 @@ header {
     margin: 0 !important;
     width: 100%;
     .nav {
-      font-size: 1.2rem;
+      font-size: 1rem;
       padding-left: 1rem;
       .hamburger {
         padding: 1px;
@@ -173,7 +173,7 @@ header {
         li {
           display: inline-block;
           a {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: white;
             margin: 1px;
             padding: 5px;
@@ -219,7 +219,7 @@ header {
             font-size: 0;
           }
           @include breakpoint(medium) {
-            font-size: 1.2rem;
+            font-size: 1rem;
           }
         }
       }
