@@ -10,6 +10,8 @@ import Foundation from 'foundation-sites';
 
 $(document).ready(function () {
 
+    $('.lazy').Lazy();
+
     $(document).foundation();
 
     // Hamburgers is-active on OffCanvas
@@ -84,28 +86,6 @@ $(document).ready(function () {
                 compareBottom = partial === true ? _top : _bottom;
 
             return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
-
     };
-
-    var win = $(window);
-    var allMods = $(".item");
-
-    allMods.each(function(i, el) {
-        var el = $(el);
-        if (el.visible(true)) {
-            el.addClass("already-visible");
-        }
-    });
-
-    win.scroll(function(event) {
-
-        allMods.each(function(i, el) {
-            var el = $(el);
-            if (el.visible(true)) {
-                el.addClass("come-in");
-            }
-        });
-
-    });
 
 });

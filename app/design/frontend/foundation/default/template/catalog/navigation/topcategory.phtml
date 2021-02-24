@@ -15,8 +15,8 @@ $_categories = $this->getCurrentChildCategories(); ?>
                         <?php endif; ?>
                         <a href="<?php echo $_category->getURL() ?>"
                            title="<?php echo $this->htmlEscape($_category->getName()) ?>">
-                            <img src="<?php echo $_category->getCategoryImage(125, 125) ?>"
-                                 data-interchange="[<?php echo $_category->getCategoryImage(125, 125) ?>, small], [<?php echo $_category->getCategoryImage(180, 180) ?>, medium], [<?php echo $_category->getCategoryImage(200, 200) ?>, large]"
+                            <img class="lazy"
+                                 data-src="<?php echo $_category->getCategoryImage(200, 200) ?>"
                                  alt="<?php echo $this->htmlEscape($_category->getName()) ?>"
                                  title="<?php echo $title ?>"/>
                         </a>

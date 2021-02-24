@@ -68,6 +68,11 @@
                 <type>skin_js</type>
                 <name>js/ie6.js</name>
             </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>dist/assets/js/jquery.lazy.js</name>
+                <params>default</params>
+            </action>
 
         </reference>
 

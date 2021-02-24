@@ -15,15 +15,6 @@
                 </div>
                 <div class="product-img-box">
                     <?php echo $this->getChildHtml('media') ?>
-                    <?php if ($_product->getData('umweltpraemie') == '1'): ?>
-                        <div class="product-environmental-bonus">
-                            <picture>
-                                <source srcset="<?php echo $this->getSkinUrl('dist/assets/img/umweltpraemie-700x425px.webp', array('_secure'=>true)) ?>" type="image/webp">
-                                <source srcset="<?php echo $this->getSkinUrl('dist/assets/img/umweltpraemie-700x425px.jpg', array('_secure'=>true)) ?>" type="image/jpeg">
-                                <img class="float-center" src="<?php echo $this->getSkinUrl('dist/assets/img/umweltpraemie-700x425px.jpg', array('_secure'=>true)) ?>" alt="Umweltprämie Banner">
-                            </picture>
-                        </div>
-                    <?php endif; ?>
                 </div>
                 <div class="product-shop">
                     <ul class="pricing-table">
@@ -244,3 +235,6 @@
 <?php echo $this->getChildHtml('revslider-block-1') ?>
 <?php echo $this->getChildHtml('revslider-block-2') ?>
 <?php echo $this->getChildHtml('revslider-block-3') ?>
+<?php echo $this->getChildHtml('revslider-block-4') ?>
+<?php echo $this->getChildHtml('revslider-block-5') ?>
+<?php echo $this->getChildHtml('revslider-block-6') ?>

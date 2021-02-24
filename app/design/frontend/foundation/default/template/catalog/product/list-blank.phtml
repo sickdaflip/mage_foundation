@@ -116,8 +116,8 @@ $_helper = $this->helper('catalog/output');
                             <a href="<?php echo $_product->getProductUrl() ?>"
                                title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
                                class="product-image small-centered">
-                                <img
-                                        src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(200); ?>"
+                                <img    class="lazy"
+                                        data-src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(200); ?>"
                                         width="200" height="200"
                                         alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
                             </a>

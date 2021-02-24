@@ -10,6 +10,9 @@
 <link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon"/>
 <link rel="apple-touch-icon" href="<?php echo $this->getSkinUrl('dist/assets/img/icon152.png') ?>"/>
 <link rel="manifest" href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB).'manifest.json' ?>" />
+<link rel="preload" as="font" href="<?php echo $this->getSkinUrl('dist/assets/fonts/fa-brands-400.woff2') ?>" crossorigin="anonymous" />
+<link rel="preload" as="font" href="<?php echo $this->getSkinUrl('dist/assets/fonts/fa-solid-900.woff2') ?>" crossorigin="anonymous" />
+<link rel="preload" as="font" href="<?php echo $this->getSkinUrl('nwdthemes/revslider/public/assets/fonts/revicons/revicons.woff') ?>" crossorigin="anonymous" />
 <script type="text/javascript" src="<?php echo $this->getSkinUrl('dist/assets/js/jquery.min.js') ?>"></script>
 <script>jQuery.noConflict();</script>
 <?php echo $this->getCssJsHtml() ?>

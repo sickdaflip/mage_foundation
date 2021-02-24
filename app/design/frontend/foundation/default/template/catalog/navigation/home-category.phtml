@@ -5,7 +5,9 @@ $_categories = $this->getCurrentChildCategories(); ?>
         <div class="category-image">
             <a href="<?php echo Mage::getUrl('') . 'hersteller/jura'; ?>"
                title="JURA Shop">
-                <img src="<?php echo $this->getSkinUrl('dist/assets/img/jurashop.jpg'); ?>" alt="JURA Shop"/>
+                <img class="lazy"
+                     data-src="<?php echo $this->getSkinUrl('dist/assets/img/jurashop.jpg'); ?>"
+                     alt="JURA Shop"/>
             </a>
             <h2 class="category-name">
                 <a href="<?php echo Mage::getUrl('') . 'hersteller/jura'; ?>"
@@ -17,7 +19,9 @@ $_categories = $this->getCurrentChildCategories(); ?>
         <div class="category-image">
             <a href="<?php echo Mage::getUrl('') . 'hersteller/bartscher'; ?>"
                title="Bartscher Shop">
-                <img src="<?php echo $this->getSkinUrl('dist/assets/img/bartscher-shop.png'); ?>" alt="Bartscher Shop"/>
+                <img class="lazy"
+                     data-src="<?php echo $this->getSkinUrl('dist/assets/img/bartscher-shop.png'); ?>"
+                     alt="Bartscher Shop"/>
             </a>
             <h2 class="category-name">
                 <a href="<?php echo Mage::getUrl('') . 'hersteller/bartscher'; ?>"
@@ -29,7 +33,8 @@ $_categories = $this->getCurrentChildCategories(); ?>
         <div class="category-image">
             <a href="<?php echo Mage::getUrl('') . 'hersteller/aliseo'; ?>"
                title="Aliseo Shop">
-                <img src="<?php echo $this->getSkinUrl('dist/assets/img/aliseo-profishop.png'); ?>"
+                <img class="lazy"
+                     data-src="<?php echo $this->getSkinUrl('dist/assets/img/aliseo-profishop.png'); ?>"
                      alt="Aliseo Shop"/>
             </a>
             <h2 class="category-name">
@@ -42,7 +47,8 @@ $_categories = $this->getCurrentChildCategories(); ?>
         <div class="category-image">
             <a href="<?php echo Mage::getUrl('') . 'hersteller/pacojet'; ?>"
                title="PacoJet Spezial">
-                <img src="<?php echo $this->getSkinUrl('dist/assets/img/pacojet.jpg'); ?>"
+                <img class="lazy"
+                     data-src="<?php echo $this->getSkinUrl('dist/assets/img/pacojet.jpg'); ?>"
                      alt="PacoJet Spezial"/>
             </a>
             <h2 class="category-name">
@@ -55,7 +61,8 @@ $_categories = $this->getCurrentChildCategories(); ?>
         <div class="category-image">
             <a href="<?php echo Mage::getUrl('') . 'hersteller/hugentobler'; ?>"
                title="Hugentobler Spezial">
-                <img src="<?php echo $this->getSkinUrl('dist/assets/img/holdomat.jpg'); ?>"
+                <img class="lazy"
+                     data-src="<?php echo $this->getSkinUrl('dist/assets/img/holdomat.jpg'); ?>"
                      alt="Hugentobler Spezial"/>
             </a>
             <h2 class="category-name">
@@ -78,8 +85,8 @@ $_categories = $this->getCurrentChildCategories(); ?>
                         <?php endif; ?>
                         <a href="<?php echo $_category->getURL() ?>"
                            title="<?php echo $this->htmlEscape($_category->getName()) ?>">
-                            <img src="<?php echo $_category->getCategoryImage(125, 125) ?>"
-                                 data-interchange="[<?php echo $_category->getCategoryImage(125, 125) ?>, small], [<?php echo $_category->getCategoryImage(150, 150) ?>, medium], [<?php echo $_category->getCategoryImage(250, 250) ?>, large]"
+                            <img class="lazy"
+                                 data-src="<?php echo $_category->getCategoryImage(250, 250) ?>"
                                  alt="<?php echo $this->htmlEscape($_category->getName()) ?>"
                                  title="<?php echo $title ?>"/>
                         </a>
@@ -97,7 +104,8 @@ $_categories = $this->getCurrentChildCategories(); ?>
         <div class="category-image">
             <a href="<?php echo Mage::getUrl('') . 'altgeraeteentsorgung'; ?>"
                title="Umweltprämie & Abwrackprämie">
-                <img src="<?php echo $this->getSkinUrl('dist/assets/img/abwrackpraemie-400x400.jpg'); ?>"
+                <img class="lazy"
+                     data-src="<?php echo $this->getSkinUrl('dist/assets/img/abwrackpraemie-400x400.jpg'); ?>"
                      alt="Umweltprämie & Abwrackprämie"/>
             </a>
             <h2 class="category-name">
