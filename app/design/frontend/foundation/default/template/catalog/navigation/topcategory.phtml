@@ -18,7 +18,8 @@ $_categories = $this->getCurrentChildCategories(); ?>
                             <img class="lazy"
                                  data-src="<?php echo $_category->getCategoryImage(200, 200) ?>"
                                  alt="<?php echo $this->htmlEscape($_category->getName()) ?>"
-                                 title="<?php echo $title ?>"/>
+                                 title="<?php echo $title ?>"
+                                 width="200" />
                         </a>
                     <?php endif; ?>
                     <div class="category-name">
