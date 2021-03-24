@@ -9,18 +9,18 @@
     <div class="footer-extras">
         <div class="content">
             <a href="<?php echo Mage::getUrl('', array('_direct' => 'lieferung')); ?>">
-                <img class="lazy" data-src="<?php echo $this->getSkinUrl('dist/assets/img/versandkostenfrei.png') ?>"
-                     alt="kostenfreie Lieferung ab 99 EUR">
+                <img class="lazy" src="<?php echo $this->getSkinUrl('dist/assets/img/versandkostenfrei.png') ?>"
+                     alt="kostenfreie Lieferung ab 99 EUR" title="kostenfreie Lieferung ab 99 EUR" width="174" height="50" />
             </a>
-            <img class="lazy" data-src="<?php echo $this->getSkinUrl('dist/assets/img/gastrodax-logo.png'); ?>"
-                 alt="Logo" class="footer-logo" width="240"/>
+            <img class="footer-logo lazy" src="<?php echo $this->getSkinUrl('dist/assets/img/gastrodax-logo.png'); ?>"
+                 alt="Gastrodax" title="Gastrodax" width="240" height="46"/>
             <a href="https://www.newgastroline.de" target="_blank">
-                <img class="lazy" data-src="<?php echo $this->getSkinUrl('dist/assets/img/30jahre.png') ?>"
-                     alt="30 Jahre New Gastroline GmbH" width="80">
+                <img class="lazy" src="<?php echo $this->getSkinUrl('dist/assets/img/30jahre.png') ?>"
+                     alt="30 Jahre New Gastroline GmbH" title="30 Jahre New Gastroline GmbH" width="80" height="34" />
             </a>
             <a href="<?php echo Mage::getUrl('', array('_direct' => 'jobs')); ?>">
-                <img class="lazy" data-src="<?php echo $this->getSkinUrl('dist/assets/img/jobs.png') ?>"
-                     alt="Jobs &amp; Careers">
+                <img class="lazy" src="<?php echo $this->getSkinUrl('dist/assets/img/jobs.png') ?>"
+                     alt="Jobs &amp; Careers" title="Jobs &amp; Careers" width="174" height="50" />
             </a>
         </div>
     </div>
@@ -194,50 +194,56 @@
             <ul>
                 <li>
                     <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten#paypal')); ?>">
-                        <img class="lazy" data-src="<?php echo $this->getSkinUrl('dist/assets/img/paypal-white.png') ?>"
-                             alt="PayPal Logo"/>
+                        <img class="lazy" src="<?php echo $this->getSkinUrl('dist/assets/img/paypal-white.png') ?>"
+                             alt="PayPal Logo" title="PayPal Logo" width="100" height="75"/>
                     </a>
                 </li>
                 <li>
                     <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten#amazon')); ?>">
-                        <img class="lazy" data-src="<?php echo $this->getSkinUrl('dist/assets/img/amazon-payments-white.png') ?>"
-                             alt="Amazon payments"/>
+                        <img class="lazy" src="<?php echo $this->getSkinUrl('dist/assets/img/amazon-payments-white.png') ?>"
+                             alt="Amazon Payments Logo" title="Amazon Payments Logo" width="100" height="75"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten#klarna')); ?>">
+                        <img class="lazy" src="<?php echo $this->getSkinUrl('dist/assets/img/klarna-white.png') ?>"
+                             alt="Klarna Logo" title="Klarna Logo" width="100" height="75"/>
                     </a>
                 </li>
                 <li>
                     <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten#sofort')); ?>">
-                        <img class="lazy" data-src="<?php echo $this->getSkinUrl('dist/assets/img/sofort-white.png') ?>"
-                             alt="Sofortüberweisung Logo"/>
+                        <img class="lazy" src="<?php echo $this->getSkinUrl('dist/assets/img/sofort-white.png') ?>"
+                             alt="Sofortüberweisung Logo" title="Sofortüberweisung Logo" width="100" height="75"/>
                     </a>
                 </li>
                 <li>
                     <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten#moneyorder')); ?>">
-                        <img class="lazy" data-src="<?php echo $this->getSkinUrl('dist/assets/img/vorkasse-white.png') ?>"
-                             alt="Vorkasse"/>
+                        <img class="lazy" src="<?php echo $this->getSkinUrl('dist/assets/img/vorkasse-white.png') ?>"
+                             alt="Vorkasse Logo" title="Vorkasse Logo" width="100" height="75"/>
                     </a>
                 </li>
                 <li>
                     <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten#creditcard')); ?>">
-                        <img class="lazy" data-src="<?php echo $this->getSkinUrl('dist/assets/img/creditcard-white.png') ?>"
-                             alt="Kreditkarte"/>
+                        <img class="lazy" src="<?php echo $this->getSkinUrl('dist/assets/img/creditcard-white.png') ?>"
+                             alt="Kreditkarte Logo" title="Kreditkarte Logo" width="100" height="75"/>
                     </a>
                 </li>
                 <li>
                     <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten#invoice')); ?>">
-                        <img class="lazy" data-src="<?php echo $this->getSkinUrl('dist/assets/img/invoice-white.png') ?>"
-                             alt="Rechnung"/>
+                        <img class="lazy" src="<?php echo $this->getSkinUrl('dist/assets/img/invoice-white.png') ?>"
+                             alt="Rechnung Logo" title="Rechnung Logo" width="100" height="75"/>
                     </a>
                 </li>
                 <li>
                     <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten#finanz')); ?>">
-                        <img class="lazy" data-src="<?php echo $this->getSkinUrl('dist/assets/img/finanz-white.png') ?>"
-                             alt="Finanzierung"/>
+                        <img class="lazy" src="<?php echo $this->getSkinUrl('dist/assets/img/finanz-white.png') ?>"
+                             alt="Finanzierung Logo" title="Finanzierung Logo" width="100" height="75"/>
                     </a>
                 </li>
                 <li>
                     <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten#sepa')); ?>">
-                        <img class="lazy" data-src="<?php echo $this->getSkinUrl('dist/assets/img/sepa-white.png') ?>"
-                             alt="Sepa Lastschrift"/>
+                        <img class="lazy" src="<?php echo $this->getSkinUrl('dist/assets/img/sepa-white.png') ?>"
+                             alt="Sepa Lastschrift Logo" title="Sepa Lastschrift Logo" width="100" height="75"/>
                     </a>
                 </li>
             </ul>
@@ -280,11 +286,11 @@
         </div>
         <div class="social">
             <ul>
-                <li><a href="https://facebook.com/gastrodax/" target="_blank" rel="nofollow noopener noreferrer"><i
+                <li><a href="https://facebook.com/gastrodax/" target="_blank" rel="nofollow noopener noreferrer" title="<?php echo $this->__('Facebook') ?>"><i
                                 class="fab fa-facebook-square"></i></a></li>
                 <li><a href="https://www.youtube.com/channel/UCTr6z7_W4adeggGR1Sa717g" target="_blank"
-                       rel="nofollow noopener noreferrer"><i class="fab fa-youtube-square"></i></a></li>
-                <li><a href="https://twitter.com/gastrodax" target="_blank" rel="nofollow noopener noreferrer"><i
+                       rel="nofollow noopener noreferrer" title="<?php echo $this->__('YouTube') ?>"><i class="fab fa-youtube-square"></i></a></li>
+                <li><a href="https://twitter.com/gastrodax" target="_blank" rel="nofollow noopener noreferrer" title="<?php echo $this->__('Twitter') ?>"><i
                                 class="fab fa-twitter-square"></i></a></li>
             </ul>
         </div>

@@ -31,8 +31,8 @@
     <div class="header-top">
         <div class="brand">
             <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo">
-                <img src="<?php echo $this->getSkinUrl('dist/assets/img/gastrodax-logo.png'); ?>"
-                     alt="<?php echo $this->getLogoAlt() ?>"/>
+                <img class="lazy" src="<?php echo $this->getSkinUrl('dist/assets/img/gastrodax-logo.png'); ?>"
+                     alt="<?php echo $this->getLogoAlt() ?>" title="<?php echo $this->getLogoAlt() ?>"/>
             </a>
         </div>
         <div class="trusted">
@@ -40,22 +40,22 @@
                 <li class="quality-since">since 1990 <span>best quality</span></li>
                 <li>
                     <a class="tuvsudmodal">
-                        <img class="lazy" data-src="<?php echo $this->getSkinUrl('dist/assets/img/safer-shopping.png'); ?>"
-                             alt="TÜV Süd s@fer shopping"/>
+                        <img class="lazy" src="<?php echo $this->getSkinUrl('dist/assets/img/safer-shopping.png'); ?>"
+                             alt="TÜV Süd s@fer shopping" title="TÜV Süd s@fer shopping" width="40" height="40"/>
                     </a>
                 </li>
                 <li class="ts-trusted">bis 20.000 € <span>Käuferschutz</span></li>
                 <li>
                     <a href="https://www.trustedshops.eu/buyerrating/info_X6B5E9287FD5871CE74DA1B1775EB2D64.html"
                        target="_blank" rel="nofollow noopener noreferrer">
-                        <img class="lazy" data-src="<?php echo $this->getSkinUrl('dist/assets/img/trusted-shops.png'); ?>"
-                             alt="Trusted Shops"/>
+                        <img class="lazy" src="<?php echo $this->getSkinUrl('dist/assets/img/trusted-shops.png'); ?>"
+                             alt="Trusted Shops Logo" title="Trusted Shops Logo" width="40" height="40"/>
                     </a>
                 </li>
                 <li class="shipping">
                     <a href="<?php echo Mage::getUrl('') . 'lieferung'; ?>">
-                        <img class="lazy" data-src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/versandkostenfrei.png' ?>"
-                             alt="kostenfreie Lieferung ab 99 EUR">
+                        <img class="lazy" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/versandkostenfrei.png' ?>"
+                             alt="kostenfreie Lieferung ab 99 EUR" title="kostenfreie Lieferung ab 99 EUR" width="174" height="50"/>
                     </a>
                 </li>
             </ul>
