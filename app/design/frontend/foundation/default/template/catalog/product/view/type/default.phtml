@@ -33,9 +33,9 @@
     <?php if ($_product->getFinalPrice() >= $_product->getPrice()): ?>
         <li class="bullet-item">
             <div class="custom-quote text-center">
-                <p><?php echo $this->__('Erfragen Sie unseren'); ?>
-                    <strong><?php echo $this->__('aktuellen Tagespreis!'); ?></strong></p>
-                <i class="fa fa-phone"></i> 0800 456 6000
+                <p class="callout success"><?php echo $this->__('Erfragen Sie unseren'); ?>
+                    <strong><?php echo $this->__('aktuellen Tagespreis!'); ?></strong><br>
+                    <i class="fa fa-phone"></i> <?php echo $this->__('0800 456 6000'); ?></p>
             </div>
         </li>
     <?php endif; ?>
