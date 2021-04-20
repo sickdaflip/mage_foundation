@@ -93,6 +93,7 @@ if (!function_exists('clean')) {
                             </a>
                         </li>
                     <?php endif; ?>
+                    <?php echo $this->getChildHtml('related_products') ?>
                     <?php if (!$this->hasOptions()): ?>
                         <?php if ($_product->isSaleable()): ?>
                             <?php echo $this->getChildHtml('addtocart') ?>

@@ -224,13 +224,7 @@
         <remove name="right.reports.product.viewed"/>
         <remove name="product.clone_prices"/>
         <reference name="product.info">
-            <reference name="content">
-                <reference name="product.info.options.wrapper">
-                    <block type="catalog/product_list_related" name="product.info.related" as="related_products"
-                           after="-"
-                           template="catalog/product/list/related.phtml"/>
-                </reference>
-            </reference>
+            <block type="catalog/product_list_related" name="product.info.related" as="related_products" template="catalog/product/list/related.phtml"/>
             <action method="unsetChild">
                 <child>attachments</child>
             </action>

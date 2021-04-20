@@ -397,7 +397,7 @@ header {
         }
       }
 
-      .rp {
+      .option.rp {
         @include xy-cell(12);
 
         li.with-image-desc {
@@ -416,7 +416,7 @@ header {
             @include xy-grid;
             align-items: center;
 
-            span.img {
+            .img {
               @include xy-cell(4, null, 0, none);
             }
 
