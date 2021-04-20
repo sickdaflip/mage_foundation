@@ -203,7 +203,7 @@
 }
 
 .products-list, .products-grid, .top-products-slider {
-  .item {
+  .item, .with-image-desc {
     position: relative;
     .special-ribbon {
       z-index: 2;
@@ -225,7 +225,6 @@
       width: 200px;
       display: block;
       background: $alert-color;
-      box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
       position: absolute;
       top: 38px;
       right: -42px;
@@ -250,7 +249,6 @@
       width: 135px;
       display: block;
       background: $success-color;
-      box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
       position: absolute;
       top: 20px;
       right: -34px;

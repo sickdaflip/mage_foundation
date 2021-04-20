@@ -340,14 +340,13 @@ header {
     dl.last {
       @include xy-grid;
 
-      .option {
+      .option:not(.rp) {
         @include xy-cell(12);
 
         li.with-image {
           label {
             @include xy-grid;
             align-items: center;
-
             img {
               @include xy-cell(4, null, 0, none);
             }
@@ -394,6 +393,36 @@ header {
 
           a {
             @include xy-cell(1, null, 0, none);
+          }
+        }
+      }
+
+      .rp {
+        @include xy-cell(12);
+
+        li.with-image-desc {
+          @include xy-grid;
+          align-items: center;
+
+          .label {
+            @include xy-cell(11, null, 0, none);
+          }
+
+          a {
+            @include xy-cell(1, null, 0, none);
+          }
+
+          label {
+            @include xy-grid;
+            align-items: center;
+
+            span.img {
+              @include xy-cell(4, null, 0, none);
+            }
+
+            span.text {
+              @include xy-cell(8, null, 0, none);
+            }
           }
         }
       }
@@ -976,7 +1005,7 @@ footer {
 
     .product-options {
       dl.last {
-        .option {
+        .option:not(.rp) {
           @include xy-cell(6);
         }
 

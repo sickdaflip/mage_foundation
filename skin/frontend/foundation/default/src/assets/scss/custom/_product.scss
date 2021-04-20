@@ -91,7 +91,6 @@
         width: 300px;
         display: block;
         background: $alert-color;
-        box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
         position: absolute;
         top: 60px;
         right: -60px;
@@ -119,7 +118,6 @@
         width: 200px;
         display: block;
         background: $success-color;
-        box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
         position: absolute;
         top: 30px;
         right: -50px;
@@ -368,116 +366,190 @@
       border-bottom: none !important;
       padding: 0 !important;
 
+      .img {
+        position: relative;
+
+      }
+
+      .with-image-desc {
+        .price-notice {
+          .price-box {
+            .regular-price {
+              .price span.price {
+                color: $primary-color !important;
+              }
+            }
+
+
+          }
+          .mwst-price {
+            display: none;
+          }
+        }
+      }
+
       a {
         background: $primary-color;
         color: $white;
-        margin: 0 0 5px 0;
+        margin: 0 0 5px;
         height: 50%;
-        border-top-right-radius: $global-radius;
-        border-bottom-right-radius: $global-radius;
-
-        i {
-          padding: 30% 0;
-        }
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
       }
-    }
 
-    label {
-      position: relative;
-      z-index: 100;
-
-      .description {
-        z-index: 101;
+      .special-ribbon-related {
+        z-index: 9;
+        position: absolute;
+        right: 0;
+        top: 0;
+        overflow: hidden;
+        width: 115px;
+        height: 83px;
+        text-align: right;
       }
+
+      .special-ribbon-related span {
+        font-size: rem-calc(10);
+        font-weight: bold;
+        color: $white;
+        text-align: center;
+        line-height: 20px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        width: 200px;
+        display: block;
+        background: $alert-color;
+        position: absolute;
+        top: 30px;
+        right: -50px;
+      }
+
+      .new-ribbon-related {
+        z-index: 9;
+        position: absolute;
+        right: 0;
+        top: 0;
+        overflow: hidden;
+        width: 85px;
+        height: 85px;
+        text-align: right;
+      }
+
+      .new-ribbon-related span {
+        font-size: rem-calc(10);
+        font-weight: bold;
+        color: $white;
+        text-align: center;
+        line-height: 20px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        width: 150px;
+        display: block;
+        background: $success-color;
+        position: absolute;
+        top: 16px;
+        right: -46px;
+      }
+
+
     }
+  }
 
-    .label {
-      width: 100%;
-      white-space: normal;
-      padding: 0 0 5px 0;
+  label {
+    position: relative;
+    z-index: 100;
 
+    .description {
+      z-index: 101;
     }
+  }
 
-    input[type='radio'], input[type='checkbox'] {
-      display: none;
-    }
+  .label {
+    width: 100%;
+    white-space: normal;
+    padding: 0 0 5px 0;
 
-    input[type='radio'] + span label, input[type='checkbox'] + span label {
-      margin-bottom: 0;
-      margin-left: 0;
+  }
+
+  input[type='radio'], input[type='checkbox'] {
+    display: none;
+  }
+
+  input[type='radio'] + span label, input[type='checkbox'] + span label {
+    margin-bottom: 0;
+    margin-left: 0;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.25rem;
+    color: $primary-color;;
+    background-color: $white;
+    cursor: pointer;
+    font-size: rem-calc(12);
+    width: 100%;
+    border-radius: $global-radius;
+    border-color: $primary-color;
+    border-width: 1px;
+    border-style: solid;
+
+    & + span label {
+      margin-bottom: 0.4rem;
       position: relative;
       text-align: center;
       text-decoration: none;
       display: inline-block;
-      padding: 0.25rem;
-      color: $primary-color;;
-      background-color: $white;
+      padding: 1rem 2rem 1.0625rem 2rem;
+      color: $primary-color;
       cursor: pointer;
-      font-size: rem-calc(12);
       width: 100%;
-      border-radius: $global-radius;
-      border-color: $primary-color;
-      border-width: 1px;
-      border-style: solid;
-
-      & + span label {
-        margin-bottom: 0.4rem;
-        position: relative;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        padding: 1rem 2rem 1.0625rem 2rem;
-        color: $primary-color;
-        cursor: pointer;
-        width: 100%;
-      }
-
-      .price-notice .price {
-        color: $primary-color;
-      }
     }
 
-    input[type='radio']:checked + span label, input[type='checkbox']:checked + span label {
-      color: $success-color;
-      border-color: $success-color;
-    }
-
-    input[type='radio']:checked + span label span.text, input[type='checkbox']:checked + span label span.text {
-      color: $success-color;
-      border-color: $success-color;
-
-      &:after {
-        @include fa-icon;
-        @extend .fas;
-        content: ' ' fa-content($fa-var-check);
-      }
-
-      .price-notice .price {
-        color: $success-color;
-      }
-    }
-
-    .more {
-      cursor: pointer;
-
-      &:hover {
-        color: $success-color;
-      }
+    .price-notice .price {
+      color: $primary-color;
     }
   }
 
-  .input-box {
-    .super-attribute-select {
-      margin-bottom: 0;
+  input[type='radio']:checked + span label, input[type='checkbox']:checked + span label {
+    color: $success-color;
+    border-color: $success-color;
+  }
+
+  input[type='radio']:checked + span label span.text, input[type='checkbox']:checked + span label span.text {
+    color: $success-color;
+    border-color: $success-color;
+
+    &:after {
+      @include fa-icon;
+      @extend .fas;
+      content: ' ' fa-content($fa-var-check);
     }
 
-    .validation-advice {
-      background-color: $alert-color;
-      color: $white;
-      padding: 0.2rem 0;
-      margin-bottom: 0.3rem;
-      border-radius: $global-radius;
+    .price-notice .price {
+      color: $success-color;
     }
+  }
+
+  .more {
+    cursor: pointer;
+
+    &:hover {
+      color: $success-color;
+    }
+  }
+}
+
+.input-box {
+  .super-attribute-select {
+    margin-bottom: 0;
+  }
+
+  .validation-advice {
+    background-color: $alert-color;
+    color: $white;
+    padding: 0.2rem 0;
+    margin-bottom: 0.3rem;
+    border-radius: $global-radius;
   }
 }
 

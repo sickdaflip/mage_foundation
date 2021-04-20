@@ -160,7 +160,6 @@
         </reference>
 
         <reference name="before_body_end">
-            <block type="core/template" name="safershopping" template="page/html/safershopping.phtml"/>
             <block type="core/template" name="spinner" template="page/html/ajax-spinner.phtml"/>
         </reference>
 
@@ -225,6 +224,13 @@
         <remove name="right.reports.product.viewed"/>
         <remove name="product.clone_prices"/>
         <reference name="product.info">
+            <reference name="content">
+                <reference name="product.info.options.wrapper">
+                    <block type="catalog/product_list_related" name="product.info.related" as="related_products"
+                           after="-"
+                           template="catalog/product/list/related.phtml"/>
+                </reference>
+            </reference>
             <action method="unsetChild">
                 <child>attachments</child>
             </action>
@@ -240,8 +246,6 @@
                     </block>
                 </block>
             </block>
-            <block type="catalog/product_list_related" name="product.info.related" as="related_products" before="-"
-                   template="catalog/product/list/related.phtml"/>
         </reference>
 
     </catalog_product_view>
