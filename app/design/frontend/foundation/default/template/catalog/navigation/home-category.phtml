@@ -1,6 +1,36 @@
 <?php
 $_categories = $this->getCurrentChildCategories(); ?>
 <ul class="categories-home-grid" data-equalizer data-equalize-on="medium">
+    <?php $i = 0; ?>
+    <?php foreach ($_categories as $_category): ?>
+        <?php if ($_category->getIsActive()): ?>
+            <?php $_category = Mage::getModel("catalog/category")->load($_category->getEntityId()); ?>
+            <li class="item" data-equalizer-watch>
+                <div class="category-image">
+                    <?php if ($_category->getCategoryImage()) : ?>
+                        <?php if ($additionalheadline = $_category->getAdditionalHeadline()): ?>
+                            <?php $title = $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->categoryAttribute($_category, $_category->getAdditionalHeadline(), 'additional_headline')) ?>
+                        <?php else: ?>
+                            <?php $title = $this->htmlEscape($_category->getName()) ?>
+                        <?php endif; ?>
+                        <a href="<?php echo $_category->getURL() ?>"
+                           title="<?php echo $this->htmlEscape($_category->getName()) ?>">
+                            <img class="lazy"
+                                 data-src="<?php echo $_category->getCategoryImage(200, 200) ?>"
+                                 alt="<?php echo $this->htmlEscape($_category->getName()) ?>"
+                                 title="<?php echo $title ?>"
+                                 width="200" />
+                        </a>
+                    <?php endif; ?>
+                    <h2 class="category-name">
+                        <a href="<?php echo $_category->getURL() ?>"
+                           title="<?php echo $this->htmlEscape($_category->getName()) ?>"><?php echo $this->htmlEscape($_category->getName()) ?></a>
+                    </h2>
+                </div>
+            </li>
+        <?php endif; ?>
+        <?php $i++; ?>
+    <?php endforeach; ?>
     <li class="item" data-equalizer-watch>
         <div class="category-image">
             <a href="<?php echo Mage::getUrl('') . 'hersteller/jura'; ?>"
@@ -76,36 +106,6 @@ $_categories = $this->getCurrentChildCategories(); ?>
             </h2>
         </div>
     </li>
-    <?php $i = 0; ?>
-    <?php foreach ($_categories as $_category): ?>
-        <?php if ($_category->getIsActive()): ?>
-            <?php $_category = Mage::getModel("catalog/category")->load($_category->getEntityId()); ?>
-            <li class="item" data-equalizer-watch>
-                <div class="category-image">
-                    <?php if ($_category->getCategoryImage()) : ?>
-                        <?php if ($additionalheadline = $_category->getAdditionalHeadline()): ?>
-                            <?php $title = $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->categoryAttribute($_category, $_category->getAdditionalHeadline(), 'additional_headline')) ?>
-                        <?php else: ?>
-                            <?php $title = $this->htmlEscape($_category->getName()) ?>
-                        <?php endif; ?>
-                        <a href="<?php echo $_category->getURL() ?>"
-                           title="<?php echo $this->htmlEscape($_category->getName()) ?>">
-                            <img class="lazy"
-                                 data-src="<?php echo $_category->getCategoryImage(200, 200) ?>"
-                                 alt="<?php echo $this->htmlEscape($_category->getName()) ?>"
-                                 title="<?php echo $title ?>"
-                                 width="200" />
-                        </a>
-                    <?php endif; ?>
-                    <h2 class="category-name">
-                        <a href="<?php echo $_category->getURL() ?>"
-                           title="<?php echo $this->htmlEscape($_category->getName()) ?>"><?php echo $this->htmlEscape($_category->getName()) ?></a>
-                    </h2>
-                </div>
-            </li>
-        <?php endif; ?>
-        <?php $i++; ?>
-    <?php endforeach; ?>
     <li class="item" data-equalizer-watch>
         <div class="category-image">
             <a href="<?php echo Mage::getUrl('') . 'altgeraeteentsorgung'; ?>"
