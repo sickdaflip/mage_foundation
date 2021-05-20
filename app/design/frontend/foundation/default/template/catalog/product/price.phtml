@@ -212,7 +212,7 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                     <?php if (!empty($_msrpPrice) and ($_msrpPrice != $_finalPrice)) { ?>
                         <p class="msrp-price">
                             <span class="price-label"><?php echo $this->__('empfohlener Verkaufspreis') ?></span>
-                            <?php echo $_coreHelper->formatPrice($_msrpPrice, true); ?>
+                            <span class="price" id="msrp-price-<?php echo $_id ?><?php echo $this->getIdSuffix() ?>"><?php echo $_coreHelper->formatPrice($_msrpPrice, true); ?></span>
                         </p>
                     <?php } ?>
                     <?php if (!empty($_product->getAttributeText('manufacturer')) && $_product->getAttributeText('manufacturer') == 'Unox'): ?>
@@ -271,12 +271,21 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                             <span class="price-label"><?php echo $this->__('Ihr Preis') ?></span>
                             <span class="price" id="product-price-<?php echo $_id ?><?php echo $this->getIdSuffix() ?>">
                     <?php if ($_finalPrice == $_price): ?>
-                        <?php echo $_coreHelper->formatPrice($_price, true) ?>
+                        <?php if ($_price > 0): ?>
+                            <?php echo $_coreHelper->formatPrice($_price, true) ?>
+                        <?php else: ?>
+                            <?php echo $this->__('Preis auf Anfrage'); ?>
+                        <?php endif; ?>
                     <?php else: ?>
+                            <?php if ($_price > 0): ?>
                         <?php echo $_coreHelper->formatPrice($_finalPrice, true) ?>
+                            <?php else: ?>
+                                <?php echo $this->__('Preis auf Anfrage'); ?>
+                        <?php endif; ?>
                     <?php endif; ?>
                         </span>
                         </p>
+                        <?php if ($_price > 0): ?>
                         <p class="mwst-price">
                             <span class="price-label"></span>
                             <span class="price_mwst" id="price-including-tax-<?php echo $_id ?><?php echo $this->getIdSuffix() ?>">
@@ -298,6 +307,7 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                             <?php endif; ?>
                         </span>
                         </p>
+                        <?php endif; ?>
                     <?php endif; ?>
                 <?php endif; ?>
             <?php endif; ?>

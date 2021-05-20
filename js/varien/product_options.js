@@ -34,6 +34,7 @@ Product.OptionsPrice.prototype = {
         this.includeTax         = config.includeTax;
         this.defaultTax         = config.defaultTax;
         this.currentTax         = config.currentTax;
+        this.msrp               = config.msrp;
         this.productPrice       = config.productPrice;
         this.showIncludeTax     = config.showIncludeTax;
         this.showBothPrices     = config.showBothPrices;
@@ -59,7 +60,7 @@ Product.OptionsPrice.prototype = {
         this.customPrices   = {};
         this.containers     = {};
 
-        this.displayZeroPrice   = true;
+        this.displayZeroPrice   = false;
 
         this.initPrices();
     },
@@ -74,6 +75,7 @@ Product.OptionsPrice.prototype = {
         this.containers[2] = 'price-including-tax-' + this.productId;
         this.containers[3] = 'price-excluding-tax-' + this.productId;
         this.containers[4] = 'old-price-' + this.productId;
+        this.containers[5] = 'msrp-price-' + this.productId;
     },
 
     changePrice: function(key, price) {
@@ -110,6 +112,8 @@ Product.OptionsPrice.prototype = {
     reload: function() {
         var price;
         var formattedPrice;
+        var msrp;
+        var formattedmsrp;
         var optionPrices = this.getOptionPrices();
         var nonTaxable = optionPrices[1];
         var optionOldPrice = optionPrices[2];
@@ -117,6 +121,7 @@ Product.OptionsPrice.prototype = {
         optionPrices = optionPrices[0];
 
         $H(this.containers).each(function(pair) {
+            var _msrp;
             var _productPrice;
             var _plusDisposition;
             var _minusDisposition;
@@ -129,23 +134,26 @@ Product.OptionsPrice.prototype = {
                 pair.value = "product-price-weee-" + this.productId;
             }
             if ($(pair.value)) {
+
                 if (pair.value == 'old-price-'+this.productId && this.productOldPrice != this.productPrice) {
                     _productPrice = this.productOldPrice;
                     _plusDisposition = this.oldPlusDisposition;
                     _minusDisposition = this.oldMinusDisposition;
-                } else {
+                } else if (pair.value != 'msrp-price-'+this.productId) {
                     _productPrice = this.productPrice;
                     _plusDisposition = this.plusDisposition;
                     _minusDisposition = this.minusDisposition;
                 }
+                _msrp = this.msrp;
                 _priceInclTax = priceInclTax;
+                console.log($(pair.value));
 
                 if (pair.value == 'old-price-'+this.productId && optionOldPrice !== undefined) {
                     price = optionOldPrice+parseFloat(_productPrice);
                 } else if (this.specialTaxPrice == 'true' && this.priceInclTax !== undefined && this.priceExclTax !== undefined) {
                     price = optionPrices+parseFloat(this.priceExclTax);
                     _priceInclTax += this.priceInclTax;
-                } else {
+                } else if (pair.value != 'msrp-price-'+this.productId) {
                     price = optionPrices+parseFloat(_productPrice);
                     _priceInclTax += parseFloat(_productPrice) * (100 + this.currentTax) / 100;
                 }
@@ -158,7 +166,8 @@ Product.OptionsPrice.prototype = {
                     tax = price / (100 + this.defaultTax) * this.defaultTax;
                     excl = price - tax;
                     incl = excl*(1+(this.currentTax/100));
-                } else {
+
+                } else if (pair.value != 'msrp-price-'+this.productId) {
                     tax = price * (this.currentTax / 100);
                     excl = price;
                     incl = excl + tax;
@@ -200,33 +209,47 @@ Product.OptionsPrice.prototype = {
                     } else {
                         price = excl;
                     }
-                } else {
+                } else if (pair.value != 'msrp-price-'+this.productId) {
                     if (this.showIncludeTax) {
                         price = incl;
                     } else {
                         price = excl;
                     }
+                } else if (pair.value == 'msrp-price-'+this.productId) {
+                    if (this.showIncludeTax) {
+                        msrp = _msrp * (100 + this.currentTax) / 100;
+                    } else {
+                        msrp = _msrp;
+                    }
                 }
 
-                if (price < 0) price = 0;
+                if (price < 0 ) price = 0;
 
                 if (price > 0 || this.displayZeroPrice) {
                     formattedPrice = this.formatPrice(price);
+                    formattedmsrp = this.formatPrice(msrp);
                 } else {
                     formattedPrice = '';
+                    formattedmsrp = '';
                 }
 
-                if ($(pair.value).select('.price')[0]) {
+                if ($(pair.value).select('.price')[0] && $(pair.value != 'msrp-price-'+this.productId) && $(pair.value != 'mwst-price-'+this.productId)) {
                     $(pair.value).select('.price')[0].innerHTML = formattedPrice;
                     if ($(pair.value+this.duplicateIdSuffix) && $(pair.value+this.duplicateIdSuffix).select('.price')[0]) {
                         $(pair.value+this.duplicateIdSuffix).select('.price')[0].innerHTML = formattedPrice;
                     }
-                } else {
-                    $(pair.value).innerHTML = formattedPrice;
+                } else if ($(pair.value).select('.price')[0] && $(pair.value != 'msrp-price-'+this.productId) && $(pair.value != 'mwst-price-'+this.productId)) {
+                    $(pair.value).select('.price')[0].innerHTML = formattedPrice;
                     if ($(pair.value+this.duplicateIdSuffix)) {
-                        $(pair.value+this.duplicateIdSuffix).innerHTML = formattedPrice;
+                        $(pair.value+this.duplicateIdSuffix).select('.price')[0].innerHTML = formattedPrice;
+                    }
+                } else if ($(pair.value).select('.price')[0] && $(pair.value == 'msrp-price-'+this.productId)) {
+                    //$(pair.value).select('.price')[0].innerHTML = formattedmsrp;
+                    if ($(pair.value+this.duplicateIdSuffix)) {
+                        //$(pair.value+this.duplicateIdSuffix).select('.price')[0].innerHTML = formattedmsrp;
                     }
                 }
+
             };
         }.bind(this));
 
