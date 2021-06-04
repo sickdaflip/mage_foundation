@@ -16,10 +16,11 @@ $_categories = $this->getCurrentChildCategories(); ?>
                         <a href="<?php echo $_category->getURL() ?>"
                            title="<?php echo $this->htmlEscape($_category->getName()) ?>">
                             <img class="lazy"
-                                 data-src="<?php echo $_category->getCategoryImage(200, 200) ?>"
+                                 src="<?php echo $_category->getCategoryImage(200, 200) ?>"
                                  alt="<?php echo $this->htmlEscape($_category->getName()) ?>"
                                  title="<?php echo $title ?>"
-                                 width="200" />
+                                 width="200"
+                                 height="200" />
                         </a>
                     <?php endif; ?>
                     <div class="category-name">

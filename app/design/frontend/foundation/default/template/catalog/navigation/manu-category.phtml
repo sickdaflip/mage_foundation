@@ -11,9 +11,10 @@ $_manufacturers = $this->getCurrentChildCategories(); ?>
                        title="<?php echo $this->htmlEscape($_manufacturer->getName()) ?>">
                         <?php if ($_imageUrl = $_manufacturer->getImageUrl()) : ?>
                             <img class="lazy"
-                                 data-src="<?php echo $_imageUrl; ?>" alt="<?php echo $this->htmlEscape($_manufacturer->getName()) ?>"
+                                 src="<?php echo $_imageUrl; ?>" alt="<?php echo $this->htmlEscape($_manufacturer->getName()) ?>"
                                  title="<?php echo $this->htmlEscape($_manufacturer->getName()) ?>"
-                                 width="200" />
+                                 width="200"
+                                 height="75" />
                         <?php endif; ?>
                     </a>
                     <div class="category-name">
