@@ -34,7 +34,7 @@ Product.OptionsPrice.prototype = {
         this.includeTax         = config.includeTax;
         this.defaultTax         = config.defaultTax;
         this.currentTax         = config.currentTax;
-        this.msrp               = config.msrp;
+        //this.msrp               = config.msrp;
         this.productPrice       = config.productPrice;
         this.showIncludeTax     = config.showIncludeTax;
         this.showBothPrices     = config.showBothPrices;
@@ -75,7 +75,7 @@ Product.OptionsPrice.prototype = {
         this.containers[2] = 'price-including-tax-' + this.productId;
         this.containers[3] = 'price-excluding-tax-' + this.productId;
         this.containers[4] = 'old-price-' + this.productId;
-        this.containers[5] = 'msrp-price-' + this.productId;
+        //this.containers[5] = 'msrp-price-' + this.productId;
     },
 
     changePrice: function(key, price) {
@@ -112,7 +112,7 @@ Product.OptionsPrice.prototype = {
     reload: function() {
         var price;
         var formattedPrice;
-        var msrp;
+        //var msrp;
         var formattedmsrp;
         var optionPrices = this.getOptionPrices();
         var nonTaxable = optionPrices[1];
@@ -121,7 +121,7 @@ Product.OptionsPrice.prototype = {
         optionPrices = optionPrices[0];
 
         $H(this.containers).each(function(pair) {
-            var _msrp;
+            //var _msrp;
             var _productPrice;
             var _plusDisposition;
             var _minusDisposition;
