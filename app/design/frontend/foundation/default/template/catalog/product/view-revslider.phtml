@@ -1,3 +1,37 @@
+<?php
+if (!function_exists('clean')) {
+    function clean($string)
+    {
+
+        $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+//$string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+        $string = strtolower($string);
+        $utf8 = array(
+            '/[áàâãª]/u' => 'a',
+            '/[ÁÀÂÃ]/u' => 'A',
+            '/[äÄ]/u' => 'ae',
+            '/[ÍÌÎÏ]/u' => 'I',
+            '/[íìîï]/u' => 'i',
+            '/[éèêë]/u' => 'e',
+            '/[ÉÈÊË]/u' => 'E',
+            '/[óòôõºö]/u' => 'o',
+            '/[ÓÒÔÕÖ]/u' => 'O',
+            '/[úùûü]/u' => 'u',
+            '/[ÚÙÛÜ]/u' => 'U',
+            '/ç/' => 'c',
+            '/Ç/' => 'C',
+            '/ñ/' => 'n',
+            '/Ñ/' => 'N',
+            '/–/' => '-', // UTF-8 hyphen to "normal" hyphen
+            '/[’‘‹›‚]/u' => ' ', // Literally a single quote
+            '/[“”«»„]/u' => ' ', // Double quote
+            '/ /' => ' ', // nonbreaking space (equiv. to 0x160)
+        );
+
+        return preg_replace(array_keys($utf8), array_values($utf8), $string); // Replaces multiple hyphens with single one.
+    }
+}
+?>
 <?php $_helper = $this->helper('catalog/output'); ?>
 <?php $_product = $this->getProduct(); ?>
 <script type="text/javascript">
@@ -27,6 +61,23 @@
                             </p>
                         </li>
                         <?php echo $this->getChildHtml('product_type_data') ?>
+                        <?php if (!empty($_product->getAttributeText('manufacturer'))): ?>
+                            <li class="description">
+                                <div class="product-brand">
+                                    <?php $brand = $_product->getAttributeText('manufacturer') ?>
+                                    <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . 'hersteller/' . clean($brand) ?>">
+                                        <img class="lazy" data-src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>catalog/brands/<?php echo clean($brand) ?>.png"
+                                             alt="<?php echo $brand ?> Logo"
+                                             title="<?php echo $this->__('Zeige alle Artikel von %s', $brand) ?>">
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="bullet-item">
+                                <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . 'hersteller/' . clean($brand) ?>">
+                                    <?php echo $this->__('Zeige alle Artikel von %s', $brand) ?>
+                                </a>
+                            </li>
+                        <?php endif; ?>
                         <?php if (!$this->hasOptions()): ?>
                             <?php if ($_product->isSaleable()): ?>
                                 <?php echo $this->getChildHtml('addtocart') ?>
