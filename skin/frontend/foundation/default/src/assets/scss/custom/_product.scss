@@ -181,6 +181,10 @@
     .custom-quote {
       margin-bottom: 0 !important;
       font-size: rem-calc(14);
+      .callout {
+        color: $success-color;
+        font-weight: $global-weight-bold;
+      }
     }
   }
 
