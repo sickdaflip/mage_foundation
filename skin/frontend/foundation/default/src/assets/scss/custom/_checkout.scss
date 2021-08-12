@@ -138,6 +138,60 @@ ol.opc {
   }
 }
 
+#checkout-step-login {
+
+  input[type='radio'], input[type='checkbox'] {
+    display: none;
+  }
+
+  input[type='radio'] + label, input[type='checkbox'] + label {
+    margin-bottom: $global-margin;
+    margin-left: 0;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.25rem;
+    color: $primary-color;;
+    background-color: $white;
+    cursor: pointer;
+    font-size: rem-calc(14);
+    width: 50%;
+    border-radius: $global-radius;
+    border-color: $primary-color;
+    border-width: 1px;
+    border-style: solid;
+
+    & label {
+      margin-bottom: 0.4rem;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      padding: 1rem 2rem 1.0625rem 2rem;
+      color: $primary-color;
+      cursor: pointer;
+      width: 100%;
+    }
+  }
+
+  input[type='radio']:checked + label, input[type='checkbox']:checked + label {
+    color: $success-color;
+    border-color: $success-color;
+
+    &:after {
+      @include fa-icon;
+      @extend .fas;
+      padding-left: .5em;
+      content: fa-content($fa-var-check);
+    }
+
+    .price-notice .price {
+      color: $success-color;
+    }
+  }
+}
+
 .osc-column-wrapper {
   .customer-name, .osc-double-fields {
     @include flex-grid-row(nest);

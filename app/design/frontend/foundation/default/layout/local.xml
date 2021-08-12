@@ -438,6 +438,9 @@
                 <name>css/magesetup/checkout.css</name>
             </action>
         </reference>
+        <reference name="checkout.onepage.login.before">
+            <remove name="onepage.amazonpayments.button"/>
+        </reference>
         <reference name="checkout.onepage.billing">
             <block type="page/switch" name="store_switcher" template="page/switch/stores-checkout.phtml">
                 <action method="setCacheLifetime">
