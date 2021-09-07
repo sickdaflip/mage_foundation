@@ -247,7 +247,7 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                             <span
                                     class="skontoPriceTax"><?php echo $_coreHelper->formatPrice($_skfinalPrice / ($percent / 100 + 1), true) ?></span>
                         <?php endif; ?>
-                        <?php echo 'Zzgl. ' . $percent . '% USt.' ?>
+                        <?php echo 'Zzgl. ' . $percent . ' % USt.' ?>
                     <?php elseif ($_store_id == '4'): /* B2B */ ?>
                         <?php if ($_finalPrice == $_price): ?>
                             <span
@@ -256,7 +256,7 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                             <span
                                     class="skontoPriceTax"><?php echo $_coreHelper->formatPrice($_skfinalPrice * ($percent / 100 + 1), true) ?></span>
                         <?php endif; ?>
-                        <?php echo 'Inkl. ' . $percent . '% USt.' ?>
+                        <?php echo 'Inkl. ' . $percent . ' % USt.' ?>
                     <?php endif; ?>
                     </span>
                         </p>
@@ -288,14 +288,14 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                                 <?php else: ?>
                                     <?php //echo $_coreHelper->formatPrice($_finalPrice / ($percent / 100 + 1), true) ?>
                                 <?php endif; ?>
-                                <?php echo 'zzgl. ' . $percent . '% MwSt.' ?>
+                                <?php echo 'Zzgl. ' . $percent . ' % MwSt.' ?>
                             <?php elseif ($_store_id == '5'): /* B2B */ ?>
                                 <?php if ($_finalPrice == $_price): ?>
                                     <?php //echo $_coreHelper->formatPrice($_price * ($percent / 100 + 1), true) ?>
                                 <?php else: ?>
                                     <?php //echo $_coreHelper->formatPrice($_finalPrice * ($percent / 100 + 1), true) ?>
                                 <?php endif; ?>
-                                <?php echo 'inkl. ' . $percent . '% MwSt.' ?>
+                                <?php echo 'Inkl. ' . $percent . ' % MwSt.' ?>
                             <?php endif; ?>
                         </span>
                         </p>
@@ -453,14 +453,14 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                                 <?php else: ?>
                                     <?php //echo $_coreHelper->formatPrice($_finalPrice / ($percent / 100 + 1), true) ?>
                                 <?php endif; ?>
-                                <?php echo 'zzgl. ' . $percent . '% MwSt.' ?>
+                                <?php echo 'Zzgl. ' . $percent . ' % MwSt.' ?>
                             <?php elseif ($_store_id == '5'): /* B2B */ ?>
                                 <?php if ($_finalPrice == $_price): ?>
                                     <?php //echo $_coreHelper->formatPrice($_price * ($percent / 100 + 1), true) ?>
                                 <?php else: ?>
                                     <?php //echo $_coreHelper->formatPrice($_finalPrice * ($percent / 100 + 1), true) ?>
                                 <?php endif; ?>
-                                <?php echo 'inkl. ' . $percent . '% MwSt.' ?>
+                                <?php echo 'Inkl. ' . $percent . ' % MwSt.' ?>
                             <?php endif; ?>
                         </span>
                     </p>
