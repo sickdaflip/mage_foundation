@@ -45,7 +45,9 @@ $_helper = $this->helper('catalog/output');
     <a href="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" class="item">
         <img class="lazy" data-src="<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(500, 500) ?>"
              alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
-             title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>"/>
+             title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>"
+             width="500"
+             height="500" />
     </a>
     <?php
     $attributeCodevideo = 'video';
@@ -72,7 +74,9 @@ $_helper = $this->helper('catalog/output');
                            title="<?php echo $this->htmlEscape($_image->getLabel()) ?>" class="item">
                             <img class="lazy" data-src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(120, 120); ?>"
                                  alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>"
-                                 title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"/>
+                                 title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"
+                                 width="120"
+                                 height="120"/>
                         </a>
                     </li>
                 <?php endforeach; ?>

@@ -83,7 +83,9 @@ if (!function_exists('clean')) {
                                 <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . 'hersteller/' . clean($brand) ?>">
                                     <img class="lazy" data-src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>catalog/brands/<?php echo clean($brand) ?>.png"
                                          alt="<?php echo $brand ?> Logo"
-                                         title="<?php echo $this->__('Zeige alle Artikel von %s', $brand) ?>">
+                                         title="<?php echo $this->__('Zeige alle Artikel von %s', $brand) ?>"
+                                         width="200"
+                                         height="75">
                                 </a>
                             </div>
                         </li>

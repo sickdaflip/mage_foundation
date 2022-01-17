@@ -209,58 +209,6 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                     $taxclassid = $_product->getData('tax_class_id');
                     $percent = Mage::getSingleton('tax/calculation')->getRate($request->setProductClassId($taxclassid));
                     ?>
-                    <?php if (!empty($_product->getAttributeText('manufacturer')) && $_product->getAttributeText('manufacturer') == 'Unox'): ?>
-                        <?php if ($_finalPrice == $_price): ?>
-                            <?php $_skprice = $_price; ?>
-                            <?php $discount = $_price - $_skprice; ?>
-                        <?php else: ?>
-                            <?php $_skfinalPrice = $_finalPrice; ?>
-                            <?php $discount = $_finalPrice - $_skfinalPrice; ?>
-                        <?php endif; ?>
-                        <p class="skonto-price">
-                        <span class="price-label">
-                            <?php echo $this->__('Ihr Preis') ?>
-                        </span>
-                            <span class="skontoPrice">
-                             <?php if ($_finalPrice == $_price): ?>
-                                 <?php $_skprice = $_price; ?>
-                                 <span class="price">
-                                 <?php echo $_coreHelper->formatPrice($_skprice, false) ?>
-                                 </span>
-                             <?php else: ?>
-                                 <?php $_skfinalPrice = $_finalPrice; ?>
-                                 <span class="price">
-                                 <?php echo $_coreHelper->formatPrice($_skfinalPrice, false) ?>
-                                 </span>
-                             <?php endif; ?>
-                        </span>
-                        </p>
-                        <p class="skontotax-price">
-                            <span class="price-label"></span>
-                            <?php $_store_id = Mage::app()->getStore()->getId(); ?>
-                            <span class="skontoTax">
-                    <?php if ($_store_id == '5'): /* B2C */ ?>
-                        <?php if ($_finalPrice == $_price): ?>
-                            <span
-                                    class="skontoPriceTax"><?php echo $_coreHelper->formatPrice($_skprice / ($percent / 100 + 1), true) ?></span>
-                        <?php else: ?>
-                            <span
-                                    class="skontoPriceTax"><?php echo $_coreHelper->formatPrice($_skfinalPrice / ($percent / 100 + 1), true) ?></span>
-                        <?php endif; ?>
-                        <?php echo 'Zzgl. ' . $percent . ' % USt.' ?>
-                    <?php elseif ($_store_id == '4'): /* B2B */ ?>
-                        <?php if ($_finalPrice == $_price): ?>
-                            <span
-                                    class="skontoPriceTax"><?php echo $_coreHelper->formatPrice($_skprice * ($percent / 100 + 1), true) ?></span>
-                        <?php else: ?>
-                            <span
-                                    class="skontoPriceTax"><?php echo $_coreHelper->formatPrice($_skfinalPrice * ($percent / 100 + 1), true) ?></span>
-                        <?php endif; ?>
-                        <?php echo 'Inkl. ' . $percent . ' % USt.' ?>
-                    <?php endif; ?>
-                    </span>
-                        </p>
-                    <?php else: ?>
                         <p class="regular-price">
                             <span class="price-related" id="product-price-<?php echo $_id ?><?php echo $this->getIdSuffix() ?>"><?php echo $this->__('+') ?>
                     <?php if ($_finalPrice == $_price): ?>
@@ -270,7 +218,6 @@ $_msrpPrice = $this->helper('tax')->getPrice($_product, $_product->getMsrp());
                     <?php endif; ?>
                         </span>
                         </p>
-                    <?php endif; ?>
                 <?php endif; ?>
             <?php endif; ?>
         <?php else: /* if ($_finalPrice == $_price): */ ?>
