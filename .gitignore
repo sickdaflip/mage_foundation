@@ -239,3 +239,4 @@ $RECYCLE.BIN/
 
 mage-scan-verification.html*
 package-lock.json*
+npm-shrinkwrap.json*
