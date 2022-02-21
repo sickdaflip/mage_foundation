@@ -1,32 +1,32 @@
 'use strict';
 
-const gulp = require('gulp');
+import gulp from "gulp";
+const sass = require('gulp-sass')(require('sass'));
 
-const sass = require('gulp-sass');
-const plumber = require('gulp-plumber');
-const glob = require('gulp-sass-glob');
-const babel = require('gulp-babel');
-const uglify = require('gulp-uglify');
-const concat = require('gulp-concat');
-const notify = require('gulp-notify');
-const rename = require('gulp-rename');
-const plugins = require('gulp-load-plugins');
-const gutil = require('gulp-util');
-const yargs = require('yargs');
-const rimraf = require('rimraf');
-const yaml = require('js-yaml');
-const fs = require('fs');
-const dateFormat = require('dateformat');
-const webpackStream = require('webpack-stream');
-const webpack2 = require('webpack');
-const named = require('vinyl-named');
-const autoprefixer = require('autoprefixer');
-const gulpif = require('gulp-if');
-const sourcemaps = require('gulp-sourcemaps');
-const cleanCss = require('gulp-clean-css');
-const imagemin = require('gulp-imagemin');
+import plumber from "gulp-plumber";
+import glob from "gulp-sass-glob";
+import babel from "gulp-babel";
+import uglify from "gulp-uglify";
+import concat from "gulp-concat";
+import notify from "gulp-notify";
+import rename from "gulp-rename";
+import plugins from "gulp-load-plugins";
+import gutil from "gulp-util";
+import yargs from "yargs";
+import rimraf from "rimraf";
+import yaml from "js-yaml";
+import fs from "fs";
+import dateFormat from "dateformat";
+import webpackStream from "webpack-stream";
+import webpack2 from "webpack";
+import named from "vinyl-named";
+import autoprefixer from "autoprefixer";
+import gulpif from "gulp-if";
+import sourcemaps from "gulp-sourcemaps";
+import cleanCss from "gulp-clean-css";
+import imagemin from "gulp-imagemin";
 
-const browser = require('browser-sync').create();
+import browser from "browser-sync";
 
 // Check for --production flag
 const PRODUCTION = !!(yargs.argv.production);

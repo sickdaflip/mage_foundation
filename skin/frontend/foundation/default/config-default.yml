@@ -53,7 +53,6 @@ PATHS:
     - "src/assets/js/accordion.js"
     - "src/assets/js/opcheckout.js"
     - "node_modules/jquery/dist/jquery.min.js"
-    - "src/assets/js/serviceworker-cache-polyfill.js"
     - "node_modules/lightgallery/dist/js/lightgallery.min.js"
     - "node_modules/lightgallery/lib/jquery.mousewheel.min.js"
     - "node_modules/owl.carousel/dist/owl.carousel.min.js"

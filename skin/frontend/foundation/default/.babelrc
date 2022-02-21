@@ -1,4 +1,3 @@
 {
-	"presets": ["es2015"],
-  "compact": false
+  "presets": [ "@babel/preset-env" ]
 }
