@@ -71,10 +71,14 @@ function clean($string)
         <ul class="products-grid">
             <?php foreach ($this->getItems() as $_item): ?>
                 <li class="item">
-                    <div class="content">
-                        <h3 class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"
-                                                    title="<?php echo $this->stripTags($_item->getName(), null, true) ?>"><?php echo $this->escapeHtml($_item->getName()) ?></a>
-                        </h3>
+                    <?php if (date("Y-m-d") >= substr($_item->getNewsFromDate(), 0, 10) && date("Y-m-d") <= substr($_item->getNewsToDate(), 0, 10)) { ?>
+                        <div class="new-ribbon"><span><?php echo $this->__('Neu') ?></div>
+                    <?php } ?>
+                    <?php if ($_item->getFinalPrice() < $_item->getPrice()) { ?>
+                        <?php $_savingPercent = 100 - round(($_item->getFinalPrice() / $_item->getPrice()) * 100); ?>
+                        <div class="special-ribbon">
+                            <span><?php echo $_savingPercent; ?><?php echo $this->__(' % Rabatt') ?></span></div>
+                    <?php } ?>
                         <div class="products-image float-center">
                             <?php if ($_item->getFinalPrice() < $_item->getPrice()) { ?>
                                 <?php $_savingPercent = 100 - round(($_item->getFinalPrice() / $_item->getPrice()) * 100); ?>
@@ -84,7 +88,7 @@ function clean($string)
                             <a href="<?php echo $_item->getProductUrl() ?>"
                                title="<?php echo $this->stripTags($this->getImageLabel($_item, 'small_image'), null, true) ?>"
                                class="product-image small-centered">
-                                <img
+                                <img class="lazy"
                                         src="<?php echo $this->helper('catalog/image')->init($_item, 'small_image')->resize(200); ?>"
                                         width="200" height="200"
                                         alt="<?php echo $this->stripTags($this->getImageLabel($_item, 'small_image'), null, true) ?>"/>
@@ -93,8 +97,6 @@ function clean($string)
                         <?php if ($_item->getRatingSummary()): ?>
                             <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                         <?php endif; ?>
-                        <div class="extra">
-
                             <?php if ($_item->getAttributeText('manufacturer')): ?>
                                 <?php $brand = $_item->getAttributeText('manufacturer') ?>
                                 <div class="product-brand">
@@ -102,7 +104,9 @@ function clean($string)
                                          alt="<?php echo $brand ?> Logo">
                                 </div>
                             <?php endif; ?>
-
+                            <div class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"
+                                                         title="<?php echo $this->stripTags($_item->getName(), null, true) ?>"><?php echo $this->escapeHtml($_item->getName()) ?></a>
+                            </div>
                             <?php echo $this->getLayout()->createBlock('catalog/product_price')
                                 ->setTemplate('catalog/product/price_catalog.phtml')
                                 ->setProduct($_item)
@@ -110,8 +114,7 @@ function clean($string)
                                 ->setIdSuffix($idSuffix = 'amit')
                                 ->toHtml(); ?>
                             <?php //echo $this->getPriceHtml($_product, true) ?>
-                        </div>
-                    </div>
+
                 </li>
             <?php endforeach; ?>
         </ul>
