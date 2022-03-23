@@ -1,6 +1,22 @@
 <?php
 $_categories = $this->getCurrentChildCategories(); ?>
 <ul class="categories-home-grid" data-equalizer data-equalize-on="medium">
+    <li class="item" data-equalizer-watch>
+        <div class="category-image">
+            <a href="<?php echo Mage::getUrl('') . 'hersteller/pacojet'; ?>"
+               title="PacoJet Spezial">
+                <img class="lazy"
+                     data-src="<?php echo $this->getSkinUrl('dist/assets/img/pacojet.jpg'); ?>"
+                     alt="PacoJet Spezial"
+                     width="200"
+                     height="200" />
+            </a>
+            <h2 class="category-name">
+                <a href="<?php echo Mage::getUrl('') . 'hersteller/pacojet'; ?>"
+                   title="PacoJet Spezial">PacoJet Spezial</a>
+            </h2>
+        </div>
+    </li>
     <?php $i = 0; ?>
     <?php foreach ($_categories as $_category): ?>
         <?php if ($_category->getIsActive()): ?>
@@ -77,22 +93,6 @@ $_categories = $this->getCurrentChildCategories(); ?>
             <h2 class="category-name">
                 <a href="<?php echo Mage::getUrl('') . 'hersteller/aliseo'; ?>"
                    title="Aliseo Shop">Aliseo Shop</a>
-            </h2>
-        </div>
-    </li>
-    <li class="item" data-equalizer-watch>
-        <div class="category-image">
-            <a href="<?php echo Mage::getUrl('') . 'hersteller/pacojet'; ?>"
-               title="PacoJet Spezial">
-                <img class="lazy"
-                     data-src="<?php echo $this->getSkinUrl('dist/assets/img/pacojet.jpg'); ?>"
-                     alt="PacoJet Spezial"
-                     width="200"
-                     height="200" />
-            </a>
-            <h2 class="category-name">
-                <a href="<?php echo Mage::getUrl('') . 'hersteller/pacojet'; ?>"
-                   title="PacoJet Spezial">PacoJet Spezial</a>
             </h2>
         </div>
     </li>
