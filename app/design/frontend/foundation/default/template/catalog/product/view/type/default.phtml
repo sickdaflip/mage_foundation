@@ -26,9 +26,20 @@
 ?>
 <?php /* @var $this Mage_Catalog_Block_Product_View_Abstract */ ?>
 <?php $_product = $this->getProduct() ?>
+<?php $_helper = $this->helper('catalog/output'); ?>
 <li class="price">
     <?php echo $this->getPriceHtml($_product) ?>
 </li>
+<?php if ($_product->getData('promo_quote_active') == '1' && !empty($_product->getData('promo_quote_content'))): ?>
+<?php
+    $attributeCode = 'promo_quote_content';
+    $attribute = $_product->getResource()->getAttribute($attributeCode);
+    $content = $attribute->getFrontend()->getValue($_product);
+    ?>
+        <li class="bullet-item">
+            <?php echo $this->helper('catalog/output')->productAttribute($_product, $content, $attributeCode); ?>
+        </li>
+<?php endif; ?>
 <?php if ($_product->getData('custom_quote') == '1'): ?>
     <?php if ($_product->getFinalPrice() >= $_product->getPrice()): ?>
         <li class="bullet-item">
