@@ -53,8 +53,8 @@ $(document).ready(function () {
 
         var LiN = $(this).find('li').length;
 
-        if( LiN > 3){
-            $('li', this).eq(2).nextAll().hide().addClass('toggleable');
+        if( LiN > 1){
+            $('li', this).eq(0).nextAll().hide().addClass('toggleable');
             $(this).append('<li class="more">weitere Optionen anzeigen</li>');
         }
 
