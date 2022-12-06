@@ -58,7 +58,22 @@
             <?php echo $this->getChildHtml('topSearch') ?>
         </div>
         <div class="hotline">
-            <a href="tel:+498004566000"><i class="fas fa-phone"></i> 0800 456 6000 <span>Bestell- und Beratungshotline</span></a>
+            <a><i class="fas fa-phone"></i> 0800 456 6000 <span>Bestell- und Beratungshotline</span></a>
+            <div class="reveal large" id="hotline" data-reveal=""></div>
+            <script type="text/javascript">// <![CDATA[
+                jQuery('.hotline a').click(function () {
+                    jQuery.ajax({
+                        url: '<?php echo $this->getUrl('ajax/cms/block/id/80');?>',
+                        beforeSend: function () {
+                            jQuery('#reveal-wait').show();
+                        }
+                    })
+                            .done(function (data) {
+                                jQuery('#reveal-wait').hide();
+                                jQuery('#hotline').html(data).foundation('open');
+                            });
+                });
+                // ]]></script>
         </div>
     </div>
     <div class="header-bottom">
