@@ -30,6 +30,16 @@
 <li class="price">
     <?php echo $this->getPriceHtml($_product) ?>
 </li>
+<?php if ($_product->getData('custom_quote') == '1'): ?>
+    <?php if ($_product->getFinalPrice() >= $_product->getPrice()): ?>
+        <li class="bullet-item">
+            <div class="custom_quote">
+                <i class="fa fa-exclamation-triangle"></i> <?php echo $this->__('Erfragen Sie unseren aktuellen Tagespreis!'); ?>
+                <a href="tel:+498004566000"><i class="fa fa-phone"></i> <?php echo $this->__('+49 800 456 6000'); ?></a>
+            </div>
+        </li>
+    <?php endif; ?>
+<?php endif; ?>
 <?php if ($_product->getData('promo_quote_active') == '1' && !empty($_product->getData('promo_quote_content'))): ?>
 <?php
     $attributeCode = 'promo_quote_content';
@@ -39,16 +49,6 @@
         <li class="bullet-item">
             <?php echo $this->helper('catalog/output')->productAttribute($_product, $content, $attributeCode); ?>
         </li>
-<?php endif; ?>
-<?php if ($_product->getData('custom_quote') == '1'): ?>
-    <?php if ($_product->getFinalPrice() >= $_product->getPrice()): ?>
-        <li class="bullet-item">
-            <div class="custom-quote text-center">
-                <p class="callout success"><?php echo $this->__('Erfragen Sie unseren aktuellen Tagespreis!'); ?><br>
-                    <i class="fa fa-phone"></i> <?php echo $this->__('0800 456 6000'); ?></p>
-            </div>
-        </li>
-    <?php endif; ?>
 <?php endif; ?>
 <?php echo $this->getTierPriceHtml() ?>
 <?php if ($this->displayProductStockStatus()): ?>
