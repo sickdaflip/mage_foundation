@@ -34,7 +34,7 @@
     <?php if ($_product->getFinalPrice() >= $_product->getPrice()): ?>
         <li class="bullet-item">
             <div class="custom_quote">
-                <i class="fa fa-exclamation-triangle"></i> <?php echo $this->__('Erfragen Sie unseren aktuellen Tagespreis!'); ?>
+                <a href="<?php echo $_product->getProductUrl(); ?>#inquiry" onclick="jQuery('#product-tabs a[href=\'#inquiry\']').click()"><i class="fa fa-envelope"></i> <?php echo $this->__('Erfragen Sie unseren aktuellen Tagespreis!'); ?></a>
                 <a href="tel:+498004566000"><i class="fa fa-phone"></i> <?php echo $this->__('+49 800 456 6000'); ?></a>
             </div>
         </li>
