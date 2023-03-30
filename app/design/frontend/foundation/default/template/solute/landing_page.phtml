@@ -1,0 +1,11 @@
+<script>
+    (function soluteLandingTracking(){
+        if (location.href.indexOf("soluteclid") < 0) return;
+        localStorage.setItem("soluteclid", (new Date()).getTime()+" "+location.href);
+        var url = "https://cmodul.solutenetwork.com/landing";
+        url += "?url=" + encodeURIComponent(location.href);
+        var req = new XMLHttpRequest();
+        req.open("GET", url);
+        req.send();
+    })();
+</script>

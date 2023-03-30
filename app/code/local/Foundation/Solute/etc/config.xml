@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Foundation_Solute>
+            <version>0.0.1</version>
+        </Foundation_Solute>
+    </modules>
+    <global>
+        <models>
+            <solute>
+                <class>Foundation_Solute_Model</class>
+            </solute>
+        </models>
+        <helpers>
+            <solute>
+                <class>Foundation_Solute_Helper</class>
+            </solute>
+        </helpers>
+        <blocks>
+            <solute>
+                <class>Foundation_Solute_Block</class>
+            </solute>
+        </blocks>
+    </global>
+    <frontend>
+        <events>
+            <checkout_onepage_controller_success_action>
+                <observers>
+                    <solute_success_set_order>
+                        <class>solute/observer</class>
+                        <method>setOrder</method>
+                    </solute_success_set_order>
+                </observers>
+            </checkout_onepage_controller_success_action>
+        </events>
+    </frontend>
+</config>
+

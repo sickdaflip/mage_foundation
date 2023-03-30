@@ -1,0 +1,36 @@
+<?php /* @var $this Foundation_Solute_Block_Universal */ ?>
+
+    <?php
+    $order = $this->_getOrder();
+    $shipping = Mage::helper('solute')->convert($order, 'shipping_amount', $order->getOrderCurrencyCode());
+    $tax = Mage::helper('solute')->convert($order, 'tax_amount', $order->getOrderCurrencyCode());
+    $revenue =  Mage::helper('solute')->convert($order, 'grand_total', $order->getOrderCurrencyCode());
+    $revenue -= ($shipping);
+    $revenue -= ($tax);
+    ?>
+    <script>
+        soluteConversionTracking({
+            VALUE: "<?php echo $revenue ?>",
+            ORDER_ID: "<?php echo $this->jsQuoteEscape($order->getIncrementId()) ?>",
+            FACTOR: "1",
+        });
+
+        function soluteConversionTracking(data) {
+            var ttl = 1000 * 60 * 60 * 24 * 30;
+            var a = localStorage.getItem("soluteclid");
+            if (!a) return;
+            var b = a.split(" ", 2);
+            if (parseInt(b[0]) + ttl > (new Date()).getTime()) {
+                var url = "https://cmodul.solutenetwork.com/conversion";
+                url += "?val=" + encodeURIComponent(data.VALUE);
+                url += "&oid=" + encodeURIComponent(data.ORDER_ID);
+                url += "&factor=" + encodeURIComponent(data.FACTOR);
+                url += "&url=" + encodeURIComponent(b[1]);
+                var req = new XMLHttpRequest();
+                req.open("GET", url);
+                req.send();
+            } else {
+                localStorage.removeItem("soluteclid");
+            }
+        }
+    </script>
