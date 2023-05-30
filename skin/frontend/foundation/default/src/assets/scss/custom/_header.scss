@@ -162,7 +162,12 @@ header {
       font-size: 1rem;
       padding-left: 1rem;
       .hamburger {
-        padding: 1px;
+          background-color: $secondary-color;
+          border-radius: 100%;
+          line-height: 0;
+          margin: 2px;
+          width: 40px;
+          height: 40px;
       }
     }
     .top-nav {
