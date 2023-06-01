@@ -131,8 +131,8 @@
                         <a href="<?php echo Mage::getUrl('', array('_direct' => 'streitschlichtung')); ?>"><?php echo $this->__('Streitschlichtung') ?></a>
                     </li>
                     <li>
-                        <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/fax/faxbestellung.pdf'; ?>"
-                           target="_blank">Faxbestellung</a></li>
+                        <a href="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/fax/faxbestellung.pdf'; ?>" target="_blank"><?php echo $this->__('Faxbestellung') ?></a>
+                    </li>
                     <?php echo $this->getChildHtml('store_switcher', false) ?>
                 </ul>
             </div>
@@ -388,3 +388,5 @@ if ($reviewsFound) {
     $ts_snippet .= '</script>';
     echo $ts_snippet;
 }
+?>
+
