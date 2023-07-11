@@ -27,6 +27,7 @@
  * @var Mage_Page_Block_Html_Header $this
  */
 ?>
+
 <header id="top">
     <div class="header-top">
         <div class="brand">
@@ -46,14 +47,9 @@
                     </a>
                 </li>
                 <li class="ts-trusted">bis 20.000 € <span>Käuferschutz</span></li>
-                <li class="shipping">
-                    <a href="<?php echo Mage::getUrl('') . 'lieferung'; ?>">
-                        <img class="lazy" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/versandkostenfrei.png' ?>"
-                             alt="kostenfreie Lieferung ab 99 EUR" title="kostenfreie Lieferung ab 99 EUR" width="174" height="50"/>
-                    </a>
-                </li>
             </ul>
         </div>
+        <?php echo $this->getChildHtml('store_switcher_header', false) ?>
         <div class="search">
             <?php echo $this->getChildHtml('topSearch') ?>
         </div>
@@ -84,7 +80,6 @@
               </span>
             </button>
         </div>
-
         <div class="top-nav">
             <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('top-nav')->toHtml(); ?>
         </div>

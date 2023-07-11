@@ -1,0 +1,27 @@
+<?php $stores = Mage::getModel('core/store')->getCollection()->addFieldToFilter('is_active', 1)->addFieldToFilter('store_id', array('neq' => 0)); ?>
+<?php if (count($stores) > 1): ?>
+    <?php foreach ($stores as $store): ?>
+        <?php if ($store->getId() != $this->getCurrentStoreId()): ?>
+            <div class="store_switch">
+                <?php if (Mage::app()->getStore()->getStoreId() == '4') {
+                    $cur_store = '?___from_store=b2b&___store=b2c';
+                } elseif (Mage::app()->getStore()->getStoreId() == '5') {
+                    $cur_store = '?___from_store=b2c&___store=b2b';
+                }
+                ?>
+                <label class="toggleSwitch nolabel" onclick="window.open('<?php echo $cur_store; ?>', '_self', 'nofollow,noopener,noreferrer');">
+                    <input type="checkbox"
+                     <?php if (Mage::app()->getStore()->getStoreId() == '5') { ?>
+                           checked
+                    <?php } ?>
+                    />
+                    <a></a>
+                    <span>
+                        <span class="left-span"><?php echo $this->__('Geschäftskunden') ?></span>
+                        <span class="right-span"><?php echo $this->__('Privatkunden') ?></span>
+                    </span>
+                </label>
+            </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>

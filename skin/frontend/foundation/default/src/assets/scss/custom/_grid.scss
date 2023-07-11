@@ -112,12 +112,10 @@ header {
     }
     .account {
       @include xy-cell(10);
-    }
-    .account {
-      .menu {
-        justify-content: center;
-        align-items: center;
-      }
+        .menu {
+            justify-content: center;
+            align-items: center;
+        }
     }
   }
 }
@@ -647,14 +645,18 @@ footer {
 
   header {
     .header-top {
+        justify-content: center;
       .brand {
-        @include xy-cell(6);
+        @include xy-cell(4);
       }
       .trusted {
         @include xy-cell(0);
       }
+      .store_switch {
+        @include xy-cell(3);
+      }
       .search {
-        @include xy-cell(6);
+        @include xy-cell(5);
       }
       .hotline {
         @include xy-cell(0);
@@ -900,6 +902,9 @@ footer {
       .trusted {
         @include xy-cell(2);
       }
+      .store_switch {
+        @include xy-cell(3);
+      }
       .search {
         @include xy-cell(3);
       }
@@ -1079,7 +1084,11 @@ footer {
       }
 
       .trusted {
-        @include xy-cell(4);
+        @include xy-cell(2);
+      }
+
+      .store_switch {
+        @include xy-cell(2);
       }
 
       .search {
@@ -1095,11 +1104,9 @@ footer {
       .nav {
         @include xy-cell(1);
       }
-
       .top-nav {
         @include xy-cell(8);
       }
-
       .account {
         @include xy-cell(3);
       }

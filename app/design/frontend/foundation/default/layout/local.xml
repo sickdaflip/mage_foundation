@@ -149,6 +149,14 @@
                    before="-"/>
         </reference>
 
+        <reference name="header">
+            <block type="page/switch" name="store_switcher_header" template="page/switch/stores_header.phtml">
+                <action method="setCacheLifetime">
+                    <s>0</s>
+                </action>
+            </block>
+        </reference>
+
         <reference name="footer">
             <block type="core/template" name="footer.manufacture_list" before="-"
                    template="page/html/manufacture_list.phtml"/>
