@@ -83,10 +83,11 @@ header {
     align-items: center;
     .brand,
     .trusted,
-    .search,
-    .hotline {
+    .search {
       @include xy-cell(12);
     }
+    .store_switch { @include xy-cell(6); }
+    .hotline { @include xy-cell(6); }
     .search {
       #search_mini_form {
         .search-row {
@@ -100,6 +101,23 @@ header {
         }
       }
     }
+      .brand { order: 1; }
+      .search { order: 2; }
+      .store_switch { order: 3; }
+      .hotline {
+          order: 4;
+          @include xy-grid;
+          justify-content: center;
+          align-items: center;
+          .whatsapp {
+              @include xy-cell(2, null, 0, none);
+          }
+          .phone {
+              @include xy-cell(10, null, 0, none);
+          }
+
+      }
+
   }
 
   .header-bottom {
@@ -609,7 +627,23 @@ footer {
 }
 
 @media screen and #{breakpoint(medium)} {
+    header {
+        .brand {
+            order: 1;
+        }
 
+        .store_switch {
+            order: 2;
+        }
+
+        .search {
+            order: 3;
+        }
+
+        .hotline {
+            order: 4;
+        }
+    }
   .col1-layout {
     .col-main {
       #catalog-filters {
@@ -659,7 +693,7 @@ footer {
         @include xy-cell(5);
       }
       .hotline {
-        @include xy-cell(0);
+        @include xy-cell(6);
       }
     }
     .header-bottom {
@@ -883,6 +917,28 @@ footer {
 
 @media screen and #{breakpoint(large)} {
 
+    header {
+        .brand {
+            order: 1;
+        }
+
+        .trusted {
+            order: 2;
+        }
+
+        .store_switch {
+            order: 3;
+        }
+
+        .search {
+            order: 4;
+        }
+
+        .hotline {
+            order: 5;
+        }
+    }
+
   .col2-left-layout,
   .col2-right-layout {
     .sidebar {
@@ -1077,8 +1133,28 @@ footer {
 }
 
 @media screen and #{breakpoint(xlarge)} {
+
   header {
     .header-top {
+        .brand {
+            order: 1;
+        }
+
+        .trusted {
+            order: 2;
+        }
+
+        .store_switch {
+            order: 3;
+        }
+
+        .search {
+            order: 4;
+        }
+
+        .hotline {
+            order: 5;
+        }
       .brand {
         @include xy-cell(2);
       }

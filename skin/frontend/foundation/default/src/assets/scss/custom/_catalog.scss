@@ -487,8 +487,7 @@
       a {
         font-size: 0;
         &:before {
-          @include fa-icon;
-          @extend .fas;
+          font: var(--fa-font-solid);
           font-size: 20px;
         }
       }
@@ -538,44 +537,4 @@
 
   .sticky {
     position: relative;
-  }
-
-  .block-compare {
-    .block-title {
-      font-size: 0.875rem;
-      color: #000c44;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    .block-content {
-      #compare-items {
-        list-style: none;
-        font-size: 0.875rem;
-        li {
-          padding: .3em;
-          &:nth-child(2n) {
-            background: $light-gray;
-          }
-          p {
-            position: relative;
-            margin: 0;
-            color: $black;
-          }
-          .btn-remove {
-            position: absolute;
-            right: 0;
-            font-size: 0;
-            @include fa-icon;
-            @extend .fas;
-            &:before {
-              font-size: 15px;
-              content: fa-content($fa-var-times);
-            }
-          }
-        }
-      }
-      .actions {
-        margin-top: .5em;
-      }
-    }
   }

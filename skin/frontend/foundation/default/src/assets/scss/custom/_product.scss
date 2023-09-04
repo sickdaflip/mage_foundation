@@ -518,9 +518,8 @@
         border-color: $success-color;
 
         &:after {
-            @include fa-icon;
-            @extend .fas;
-            content: ' ' fa-content($fa-var-check);
+            font: var(--fa-font-solid);
+            content: '\f00c'
         }
 
         .price-notice .price {
@@ -711,9 +710,8 @@
         color: $success-color;
 
         &:before {
-            @include fa-icon;
-            @extend .fas;
-            content: fa-content($fa-var-check);
+            font: var(--fa-font-solid);
+            content: '\f00c';
             padding-right: 1em;
         }
     }

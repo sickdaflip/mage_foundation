@@ -50,10 +50,9 @@
 @include motion-ui-animations;
 
 //Import Font Awesome
-$fa-font-path: "../../../dist/assets/fonts";
-@import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
-@import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid";
-@import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands";
+@import "../../../node_modules/@fortawesome/fontawesome-free/css/fontawesome.css";
+@import "../../../node_modules/@fortawesome/fontawesome-free/css/solid.css";
+@import "../../../node_modules/@fortawesome/fontawesome-free/css/brands.css";
 
 //Import LightGallery
 $lg-path-fonts: "../../../dist/assets/fonts";
@@ -76,7 +75,6 @@ $lg-path-images: "../../../dist/assets/img";
 @import "custom/checkout";
 @import "custom/cms";
 @import "custom/cookielaw";
-@import "custom/fontawesome";
 @import "custom/footer";
 @import "custom/globals";
 @import "custom/grid";

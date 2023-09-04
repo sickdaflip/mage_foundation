@@ -71,18 +71,16 @@ a {
 .accordion-navigation {
   > a[aria-expanded="true"]:after {
     color: $primary-color;
-    @include fa-icon;
-    @extend .fas;
-    content: fa-content($fa-var-arrow-circle-down);
+    font: var(--fa-font-solid);
+    content: '\f0ab';
     padding-left: 5px;
     float: right;
     font-size: 1rem;
   }
   > a[aria-expanded="false"]:after {
     color: $primary-color;
-    @include fa-icon;
-    @extend .fas;
-    content: fa-content($fa-var-arrow-circle-up);
+    font: var(--fa-font-solid);
+    content: '\f0aa';
     padding-left: 5px;
     float: right;
     font-size: 1rem;
@@ -95,9 +93,8 @@ a {
 }
 
 a[href^="mailto:"]:before {
-  @include fa-icon;
-  @extend .fas;
-  content: fa-content($fa-var-envelope);
+  font: var(--fa-font-solid);
+  content: '\f0e0';
   margin-right: 0.5em;
 }
 

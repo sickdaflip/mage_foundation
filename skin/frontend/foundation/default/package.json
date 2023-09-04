@@ -24,6 +24,7 @@
     "responsive"
   ],
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.2",
     "autoprefixer": "^10.4.2",
     "babel-loader": "^8.2.3",
     "foundation-sites": "^6.7.4",
@@ -59,7 +60,6 @@
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
     "@babel/register": "^7.17.0",
-    "@fortawesome/fontawesome-free": "^5.15.2",
     "browser-sync": "^2.26.14",
     "gulp-imagemin": "^7.1.0",
     "pwstrength-foundation": "git+https://github.com/sickdaflip/jquery.pwstrength.foundation.git",

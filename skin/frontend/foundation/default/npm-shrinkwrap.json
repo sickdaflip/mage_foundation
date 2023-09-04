@@ -9,6 +9,7 @@
       "version": "2.0.0",
       "license": "MIT",
       "dependencies": {
+        "@fortawesome/fontawesome-free": "^6.4.2",
         "autoprefixer": "^10.4.2",
         "babel-loader": "^8.2.3",
         "foundation-sites": "^6.7.4",
@@ -44,7 +45,6 @@
         "@babel/core": "^7.17.5",
         "@babel/preset-env": "^7.16.11",
         "@babel/register": "^7.17.0",
-        "@fortawesome/fontawesome-free": "^5.15.2",
         "browser-sync": "^2.26.14",
         "gulp-imagemin": "^7.1.0",
         "pwstrength-foundation": "git+https://github.com/sickdaflip/jquery.pwstrength.foundation.git",
@@ -1786,10 +1786,9 @@
       }
     },
     "node_modules/@fortawesome/fontawesome-free": {
-      "version": "5.15.4",
-      "resolved": "https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-5.15.4.tgz",
-      "integrity": "sha512-eYm8vijH/hpzr/6/1CJ/V/Eb1xQFW2nnUKArb3z+yUWv7HTwj6M7SP957oMjfZjAHU6qpoNc2wQvIxBLWYa/Jg==",
-      "dev": true,
+      "version": "6.4.2",
+      "resolved": "https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-6.4.2.tgz",
+      "integrity": "sha512-m5cPn3e2+FDCOgi1mz0RexTUvvQibBebOUlUlW0+YrMjDTPkiJ6VTKukA1GRsvRw+12KyJndNjj0O4AgTxm2Pg==",
       "hasInstallScript": true,
       "engines": {
         "node": ">=6"
@@ -15258,10 +15257,9 @@
       }
     },
     "@fortawesome/fontawesome-free": {
-      "version": "5.15.4",
-      "resolved": "https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-5.15.4.tgz",
-      "integrity": "sha512-eYm8vijH/hpzr/6/1CJ/V/Eb1xQFW2nnUKArb3z+yUWv7HTwj6M7SP957oMjfZjAHU6qpoNc2wQvIxBLWYa/Jg==",
-      "dev": true
+      "version": "6.4.2",
+      "resolved": "https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-6.4.2.tgz",
+      "integrity": "sha512-m5cPn3e2+FDCOgi1mz0RexTUvvQibBebOUlUlW0+YrMjDTPkiJ6VTKukA1GRsvRw+12KyJndNjj0O4AgTxm2Pg=="
     },
     "@gulp-sourcemaps/identity-map": {
       "version": "2.0.1",
