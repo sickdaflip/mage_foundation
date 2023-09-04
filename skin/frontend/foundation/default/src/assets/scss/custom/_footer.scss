@@ -96,6 +96,15 @@ footer {
             &:hover i, &:focus i {
               color: $secondary-color;
             }
+              &.whatsapp {
+                  i {
+                      color: #25d366;
+                      &:hover, &:focus {
+                          color: scale-color(#25d366, $lightness: -30%);
+                          transition: background-color 0.25s ease-out, color 0.25s ease-out;
+                      }
+                  }
+              }
           }
         }
       }
