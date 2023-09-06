@@ -26,7 +26,7 @@ import gulpif from "gulp-if";
 import sourcemaps from "gulp-sourcemaps";
 import cleanCss from "@sequencemedia/gulp-clean-css";
 
-import imagemin from "gulp-imagemin";
+import imagemin from "gulp-image";
 import mode from "gulp-mode";
 import browser from "browser-sync";
 
@@ -166,7 +166,7 @@ function node_images() {
 
 function images() {
     return gulp.src('src/assets/img/**/*')
-        .pipe(gulpif(mode.production, imagemin({progressive: true})))
+        .pipe(gulpif(mode.production, imagemin()))
         .pipe(gulp.dest(PATHS.dist + '/assets/img'));
 }
 
