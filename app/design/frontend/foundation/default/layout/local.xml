@@ -217,7 +217,7 @@
         <reference name="head">
             <action method="addItem">
                 <type>skin_js</type>
-                <name>dist/assets/js/lightgallery.min.js</name>
+                <name>dist/assets/js/lightbox.min.js</name>
             </action>
             <action method="addItem">
                 <type>skin_js</type>

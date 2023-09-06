@@ -86,8 +86,8 @@ header {
     .search {
       @include xy-cell(12);
     }
-    .store_switch { @include xy-cell(6); }
-    .hotline { @include xy-cell(6); }
+    .store_switch { @include xy-cell(4); }
+    .hotline { @include xy-cell(8); }
     .search {
       #search_mini_form {
         .search-row {

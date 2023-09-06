@@ -44,17 +44,15 @@ PATHS:
     - "!**/webpack.config.js"
   # Path to images
   img:
-    - "node_modules/lightgallery/src/img/**"
+    - "node_modules/lightbox2/src/images/**"
   # Path to fonts & icons
   fonts:
     - "node_modules/@fortawesome/fontawesome-free/webfonts/**"
-    - "node_modules/lightgallery/src/fonts/**"
   js:
     - "src/assets/js/accordion.js"
     - "src/assets/js/opcheckout.js"
     - "node_modules/jquery/dist/jquery.min.js"
-    - "node_modules/lightgallery/dist/js/lightgallery.min.js"
-    - "node_modules/lightgallery/lib/jquery.mousewheel.min.js"
+    - "node_modules/lightbox2/dist/js/lightbox.min.js"
     - "node_modules/owl.carousel/dist/owl.carousel.min.js"
     - "node_modules/pwstrength-foundation/dist/pwstrength-foundation.js"
     - "node_modules/jquery-lazy/jquery.lazy.js"

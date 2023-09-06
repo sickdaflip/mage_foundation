@@ -1,7 +1,9 @@
 'use strict';
 
 import gulp from "gulp";
-const sass = require('gulp-sass')(require('sass'));
+import dartSass from "sass";
+import gulpSass from "gulp-sass";
+const sass = gulpSass( dartSass );
 
 import plumber from "gulp-plumber";
 import glob from "gulp-sass-glob";
@@ -16,23 +18,17 @@ import yargs from "yargs";
 import rimraf from "rimraf";
 import yaml from "js-yaml";
 import fs from "fs";
-import dateFormat from "dateformat";
 import webpackStream from "webpack-stream";
 import webpack2 from "webpack";
 import named from "vinyl-named";
 import autoprefixer from "autoprefixer";
 import gulpif from "gulp-if";
 import sourcemaps from "gulp-sourcemaps";
-import cleanCss from "gulp-clean-css";
+import cleanCss from "@sequencemedia/gulp-clean-css";
+
 import imagemin from "gulp-imagemin";
-
+import mode from "gulp-mode";
 import browser from "browser-sync";
-
-// Check for --production flag
-const PRODUCTION = !!(yargs.argv.production);
-
-// Check for --development flag unminified with sourcemaps
-const DEV = !!(yargs.argv.dev);
 
 // Load settings from settings.yml
 const {BROWSERSYNC, COMPATIBILITY, REVISIONING, PATHS} = loadConfig();
@@ -96,6 +92,7 @@ function copy() {
 // Compile Sass into CSS
 // In production, the CSS is compressed
 function css() {
+
     return gulp.src('src/assets/scss/app.scss')
         .pipe(glob())
         .pipe(plumber({
@@ -108,12 +105,12 @@ function css() {
                 this.emit('end');
             }
         }))
-        .pipe(gulpif(!PRODUCTION, sourcemaps.init()))
+        .pipe(gulpif(mode.development, sourcemaps.init()))
         .pipe(sass({
             includePaths: PATHS.sass
         }))
-        .pipe(gulpif(PRODUCTION, cleanCss({level: 2})))
-        .pipe(gulpif(!PRODUCTION, sourcemaps.write()))
+        .pipe(gulpif(mode.production, cleanCss()))
+        .pipe(gulpif(mode.development, sourcemaps.write()))
         .pipe(gulp.dest(PATHS.dist + '/assets/css'))
         .pipe(browser.stream({match: '**/*.css'}));
 }
@@ -150,13 +147,13 @@ function scripts() {
             }
         }))
         .pipe(named())
-        .pipe(gulpif(!PRODUCTION, sourcemaps.init()))
+        .pipe(gulpif(mode.development, sourcemaps.init()))
         .pipe(webpackStream(webpackConfig, webpack2))
-        .pipe(gulpif(PRODUCTION, uglify()
+        .pipe(gulpif(mode.production, uglify()
             .on('error', e => {console.log(e);
             })
         ))
-        .pipe(gulpif(!PRODUCTION, sourcemaps.write()))
+        .pipe(gulpif(mode.development, sourcemaps.write()))
         .pipe( gulp.dest(PATHS.dist + '/assets/js'));
 }
 
@@ -169,7 +166,7 @@ function node_images() {
 
 function images() {
     return gulp.src('src/assets/img/**/*')
-        .pipe(gulpif(PRODUCTION, imagemin({progressive: true})))
+        .pipe(gulpif(mode.production, imagemin({progressive: true})))
         .pipe(gulp.dest(PATHS.dist + '/assets/img'));
 }
 
@@ -182,7 +179,7 @@ function fonts() {
 // Copy JS
 function js() {
     return gulp.src(PATHS.js)
-        .pipe(gulpif(PRODUCTION, uglify().on('error', e => {console.log(e);
+        .pipe(gulpif(mode.production, uglify().on('error', e => {console.log(e);
             })
         ))
         .pipe(gulp.dest(PATHS.dist + '/assets/js'));
