@@ -1,0 +1,75 @@
+<?php
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Auto Add Promo Items
+*/
+?>
+<?php
+/** @var Amasty_Promo_Block_Items_Item $this */
+/** @var Mage_Catalog_Model_Product $product */
+$product = $this->getProduct();
+/** @var Amasty_Promo_Block_Items $parent */
+$parent = $this->getParentBlock();
+$formId = 'ampromo_items_form-' . $product->getId();
+$rule = $this->getData('rule');
+
+$optionsHtml = trim($this->getTypeOptionsHtml() . $this->customOptionsHtml());
+?>
+
+<script>
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+
+<div class="ampromo-item ampromo-type-<?php echo $product->getTypeId() ?>"
+     data-role="item"
+     data-product-id="<?php echo $product->getId()?>"
+     data-product-sku="<?php echo $product->getSku()?>">
+    <form method="POST"
+          action="<?php echo $this->getFormActionUrl()?>"
+          class="ampromo-items-form"
+          id="<?php echo $formId ?>">
+
+        <div class="product-config <?php echo empty($optionsHtml) ? 'simple' : 'options' ?>">
+            <div class="product-title">
+                <div class="ampromo-item-title">
+                    <?php if ($product->getVisibility() != Mage_Catalog_Model_Product_Visibility::VISIBILITY_NOT_VISIBLE):?>
+                        <p class="h5"><a href="<?php echo $product->getProductUrl()?>"><?php echo $product->getName()?></a></p>
+                    <?php else: ?>
+                        <p class="h5"><?php echo $product->getName()?></p>
+                    <?php endif?>
+                </div>
+
+                <div class="ampromo-item-image-wrap">
+                    <img src="<?php echo $this->getImageUrl($product, 160, 160) ?>" class="ampromo-item-image"/>
+                </div>
+            </div>
+
+            <div class="ampromo-item-options">
+                <?php echo $optionsHtml ?>
+            </div>
+        </div>
+
+        <input type="hidden" value="<?php echo $product->getId() ?>" name="product_id" />
+
+        <?php echo $this->getPriceHtml($product); ?>
+
+        <?php if ($rule):?>
+            <div class="mark">
+                <?php if ($rule->getData('ampromo_type') == Amasty_Promo_Helper_Data::RULE_TYPE_ONE_SKU): ?>
+                    <input type="radio" name="checked" value="1" />
+                <?php else: ?>
+                    <input type="checkbox" name="checked" value="1" />
+                <?php endif ?>
+            </div>
+        <?php else: ?>
+            <div class="ampromo-item-buttons">
+                <button type="submit"
+                        title="<?php echo $parent->getAddToCartText()?>"
+                        class="button btn-cart add amcart-ignore">
+                    <?php echo $parent->getAddToCartText()?>
+                </button>
+            </div>
+        <?php endif ?>
+    </form>
+</div>

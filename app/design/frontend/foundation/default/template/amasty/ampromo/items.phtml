@@ -1,0 +1,37 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+ * @package Auto Add Promo Items
+ */
+?>
+<?php
+/** @var Amasty_Promo_Block_Items $this */
+$products = $this->getItems();
+$mode = $this->getModeName();
+?>
+<hr>
+<script type="text/javascript">
+    Object.extend(Product.Config.prototype, {
+        reloadOptionLabels: function () {
+        },
+        changeSelection: function () {
+        },
+        reloadPrice: function () {
+        }
+    });
+</script>
+<p class="h4"><?php echo $this->getPopupHeader() ?></p>
+<ul class="products-grid">
+    <?php foreach ($products as $product): ?>
+        <li class="item">
+            <?php echo $this->renderItem($product) ?>
+        </li>
+    <?php endforeach ?>
+</ul>
+<?php if ($mode == 'inline'): ?>
+    <script>
+        ampromo_init();
+    </script>
+<?php endif ?>
+<hr>

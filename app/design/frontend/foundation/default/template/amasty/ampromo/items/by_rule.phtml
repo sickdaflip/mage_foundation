@@ -1,0 +1,60 @@
+<?php
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Auto Add Promo Items
+*/
+?>
+<?php
+/** @var Amasty_Promo_Block_Items $this */
+$rules = $this->getItemsByRule();
+$counter = 0;
+?>
+<script type="text/javascript">
+    Object.extend(Product.Config.prototype, {
+        reloadOptionLabels: function(){},
+        changeSelection: function(){},
+        reloadPrice: function(){}
+    });
+</script>
+
+<div id="ampromo-overlay" class="mode-inline">
+    <div id="ampromo-items">
+        <h4><?php echo $this->getPopupHeader()?></h4>
+
+        <?php echo $this->getOptionsJs() ?>
+        <?php echo $this->getCalendarJs() ?>
+
+        <?php foreach ($rules as $ruleData): ?>
+            <?php /** @var Mage_SalesRule_Model_Rule $rule */
+            $rule = $ruleData['rule'];
+            $counter++;
+            ?>
+                <div data-role="ampromo-rule-header" class="ampromo-rule-header"><?php echo $rule->getStoreLabel() ?: $rule->getName() ?></div>
+                <ul class="products-grid">
+                <?php foreach ($ruleData['products'] as $product): ?>
+                    <li class="item">
+                        <?php echo $this->renderItem($product, $rule) ?>
+                    </li>
+                <?php endforeach ?>
+                </ul>
+            </div>
+        <?php endforeach; ?>
+        <div class="ampromo-add-all">
+            <button type="button"
+                    data-role="add-all"
+                    title="<?php echo $this->getAddToCartText()?>"
+                    class="button btn-cart amcart-ignore">
+                <span><span><?php echo $this->getAddToCartText()?></span></span>
+            </button>
+        </div>
+        <form id="ampromo_metaform" method="post" action="<?php echo $this->getFormActionUrl() ?>">
+            <input type="hidden" name="data" />
+        </form>
+    </div>
+</div>
+
+<script>
+    ampromo_init();
+</script>
+
