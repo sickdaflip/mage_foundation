@@ -1,0 +1,61 @@
+<?php
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Auto Add Promo Items
+*/
+?>
+<?php /** @var Amasty_Promo_Block_Banner $this */?>
+<?php /** @var Mage_SalesRule_Model_Rule $_rule */?>
+
+<?php if (Mage::helper('ambase')->isModuleActive('Amasty_PromoBannersLite') && !Mage::helper('ambannerslite')->isEnable()): ?>
+    <?php foreach($this->getValidRules() as $_rule) :?>
+        <?php if ($this->getDescription($_rule) || $this->getImage($_rule) || $this->isShowGiftImages($_rule)):?>
+            <?php if (($this->getPosition() == 'top') && ($_rule->getAmpromoTopBannerEnable()) || ($this->getPosition() == 'after_name') && ($_rule->getAmpromoAfterNameBannerEnable())):?>
+                <div class="<?php echo ($this->getPosition() == "top" ? "category-image" : "product-options")?>">
+                    <?php if ($this->getDescription($_rule)): ?>
+                        <div class="ampromo-desc">
+                            <?php echo Mage::helper('cms')->getPageTemplateProcessor()->filter($this->getDescription($_rule)); ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php $img = $this->getImage($_rule); ?>
+                    <?php if ($img) :?>
+                        <p class="ampromo-img">
+                            <a href="<?php echo $this->getLink($_rule);?>" title="<?php echo $this->escapeHtml($this->getHoverText($_rule)) ?>">
+                                <img src="<?php echo $img;?>" alt="<?php echo $this->escapeHtml($this->getAlt($_rule)) ?>" title="<?php echo $this->escapeHtml($this->getHoverText($_rule)) ?>" />
+                            </a>
+                        </p>
+                    <?php endif; ?>
+                    <?php if ($this->isShowGiftImages($_rule)) :?>
+                        <ul class="ampromo-gift">
+                            <?php foreach($this->getProducts($_rule) as $product): ?>
+                                <?php
+                                $product->getAttributeRawValue($product->getId(), $this->getAttributeHeader(), 1);
+                                $id = uniqid("ampromo-gift-img-");
+                                ?>
+                                <li>
+                                    <a class="product-image" href="<?php echo $product->getProductUrl()?>">
+                                        <img id="<?php echo $id;?>" width="<?php echo $this->getWidth();?>" height="<?php echo $this->getHeight();?>" src="<?php echo Mage::helper('catalog/image')->init($product, 'thumbnail')->resize($this->getWidth(), $this->getHeight()); ?>"/>
+                                        <div id="<?php echo $id;?>-data" style="display: none;">
+                                            <div class="ampromo-product-name"><?php echo $product->getResource()->getAttribute($this->getAttributeHeader())->getFrontend()->getValue($product);?></div>
+                                            <div class="ampromo-short-description"><?php echo $product->getResource()->getAttribute($this->getAttributeDescription())->getFrontend()->getValue($product);?></div>
+                                        </div>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                    <div style="clear: both;"></div>
+                </div>
+            <?php endif;?>
+        <?php endif;?>
+    <?php endforeach; ?>
+    <script>
+        $$('.ampromo-gift img').each(function (img){
+            img.observe('mouseover', ampromo_tooltip_show);
+            img.observe('mouseout', ampromo_tooltip_hide);
+        });
+    </script>
+<?php endif; ?>
+
+

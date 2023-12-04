@@ -1,0 +1,24 @@
+<?php
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Auto Add Promo Items
+*/
+?>
+<?php
+$products = Mage::helper('ampromo')->getNewItems(true);
+$autoOpen = Mage::getStoreConfig('ampromo/popup/auto_open_popup');
+?>
+
+<?php if (sizeof($products) > 0): ?>
+    <div id="ampromo-items-add"><?php echo Mage::getStoreConfig('ampromo/popup/add_message')?></div>
+    <script type="text/javascript">
+        var button = $('ampromo-items-add').down('a');
+        button.observe('click', ampromo_check_initialization);
+        if (window.location.hash == '#choose-gift' || <?php echo $autoOpen ? 'true' : 'false' ?>) {
+            Event.observe(window, 'load', function() {
+                button.click();
+            });
+        }
+    </script>
+<?php endif ?>

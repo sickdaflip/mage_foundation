@@ -1,0 +1,57 @@
+<?php
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Banners Lite (System)
+*/
+?>
+<?php /** @var Amasty_PromoBannersLite_Block_Banner $this */?>
+<?php /** @var Mage_SalesRule_Model_Rule $rule */?>
+
+<?php $validRules = $this->getValidRules();
+if (Mage::helper('ambannerslite')->isEnable() && isset($validRules)): ?>
+<?php foreach($validRules as $rule) :?>
+    <?php if ($this->existBanner($rule)) :?>
+        <?php if ($this->enablePosition($rule)):?>
+                <li class="bullet-item">
+                <?php if ($this->getBannerData('_banner_description', $rule)): ?>
+                    <div class="gift-desc">
+                        <?php echo Mage::helper('cms')->getPageTemplateProcessor()
+                            ->filter($this->getBannerData('_banner_description', $rule)); ?>
+                    </div>
+                <?php endif; ?>
+                <?php $img = $this->getImage($rule); ?>
+                <?php if ($img) :?>
+                    <p>
+                        <a href="<?php echo $this->getLink($rule);?>"
+                           title="<?php echo $this->escapeHtml($this->getBannerData('_banner_hover_text', $rule)) ?>">
+                            <img src="<?php echo $img;?>"
+                                 alt="<?php echo $this->escapeHtml($this->getBannerData('_banner_alt', $rule)) ?>"
+                                 title="<?php echo $this->escapeHtml(
+                                     $this->getBannerData('_banner_hover_text', $rule)) ?>" />
+                        </a>
+                    </p>
+                <?php endif; ?>
+                <?php if ($this->getBannerData('_banner_gift_images_enable', $rule) && $this->checkForPromoSku($rule)) :?>
+                    <ul class="gift-grid">
+                        <?php foreach($this->getProducts($rule) as $product): ?>
+                            <?php
+                            $product->getAttributeRawValue($product->getId(), $this->getStoreConfigData('attribute_header'), 1);
+                            ?>
+                            <li class="item">
+                                <div class="gift-ribbon"><span><?php echo $this->__('Free') ?></div>
+                                    <img width="<?php echo $this->getStoreConfigData('gift_image_width');?>"
+                                         height="<?php echo $this->getStoreConfigData('gift_image_height');?>"
+                                         src="<?php echo Mage::helper('catalog/image')->init($product, 'thumbnail')
+                                             ->resize(
+                                                 $this->getStoreConfigData('gift_image_width'),
+                                                 $this->getStoreConfigData('gift_image_height')); ?>"/>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
+                </li>
+        <?php endif;?>
+    <?php endif;?>
+<?php endforeach; ?>
+<?php endif; ?>

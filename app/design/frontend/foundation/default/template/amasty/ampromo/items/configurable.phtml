@@ -1,0 +1,38 @@
+<?php
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Auto Add Promo Items
+*/
+?>
+<?php
+$_product    = $this->getProduct();
+
+$_instance = Mage::getSingleton('catalog/product_type_configurable');
+$_product->setTypeInstance($_instance, true);
+
+$_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
+$_jsonConfig = $this->getJsonConfig();
+
+$_idKey = strtr(uniqid($_product->getId()), '0123456789', 'abcdefghij');
+$_containerId = "ampromo_items_options-{$_product->getId()}-$_idKey";
+?>
+<?php if ($_product->isSaleable() && count($_attributes)):?>
+    <dl id="<?php echo $_containerId?>">
+        <?php foreach($_attributes as $_attribute): ?>
+            <dt><label class="required"><em>*</em> <?php echo $_attribute->getLabel() ?></label></dt>
+            <dd<?php if ($_attribute->decoratedIsLast){?> class="last"<?php }?>>
+                <div class="input-box" style="margin: 2px;">
+                    <select name="<?php echo "super_attributes[{$_attribute->getAttributeId()}]"?>" id="<?php echo $_idKey?>attribute<?php echo $_attribute->getAttributeId() ?>" class="required-entry super-attribute-select">
+                        <option><?php echo $this->__('Choose an Option...') ?></option>
+                    </select>
+                </div>
+                <div id="requared-attribute<?php echo $_attribute->getAttributeId() ?>-<?php echo $_product->getEntityId() ?>" style="color:red"></div>
+            </dd>
+        <?php endforeach; ?>
+    </dl>
+    <script type="text/javascript">
+        var spConfig = new Product.Config(Object.extend(<?php echo $_jsonConfig ?>, {containerId:'<?php echo $_containerId?>'}));
+        var optionsPrice = new Product.OptionsPrice(<?php echo $_jsonConfig?>);
+    </script>
+<?php endif;?>

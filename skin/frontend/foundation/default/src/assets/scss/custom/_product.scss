@@ -55,6 +55,12 @@
             margin: 0;
             font-size: 1rem;
         }
+
+        .ampromo-gift {
+            list-style-type: none;
+            margin: 0;
+        }
+
     }
 
     .product-img-box {
@@ -603,10 +609,6 @@
         border-bottom: dotted 1px $light-gray;
         font-size: rem-calc(12);
         padding: 0.875rem 1.125rem;
-
-        &:last-child {
-            border-bottom: 0;
-        }
 
         table {
             margin-bottom: 0;

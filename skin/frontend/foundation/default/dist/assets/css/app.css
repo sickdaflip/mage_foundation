@@ -22820,7 +22820,11 @@ input.recaptcha_validation {
   padding: 0;
 }
 
-.products-list .item, .products-list .column, .products-list .columns, .products-grid .item, .products-grid .column, .products-grid .columns, .top-products-slider .item, .top-products-slider .column, .top-products-slider .columns {
+.gift-grid .item {
+  cursor: default !important;
+}
+
+.products-list .item, .products-list .column, .products-list .columns, .products-grid .item, .products-grid .column, .products-grid .columns, .gift-grid .item, .gift-grid .column, .gift-grid .columns, .top-products-slider .item, .top-products-slider .column, .top-products-slider .columns {
   padding: 0.5rem;
   border: 1px solid #cacaca;
   border-radius: 5px;
@@ -22831,19 +22835,19 @@ input.recaptcha_validation {
   justify-content: space-between;
   position: relative;
 }
-.products-list .item .products-image img, .products-list .column .products-image img, .products-list .columns .products-image img, .products-grid .item .products-image img, .products-grid .column .products-image img, .products-grid .columns .products-image img, .top-products-slider .item .products-image img, .top-products-slider .column .products-image img, .top-products-slider .columns .products-image img {
+.products-list .item .products-image img, .products-list .column .products-image img, .products-list .columns .products-image img, .products-grid .item .products-image img, .products-grid .column .products-image img, .products-grid .columns .products-image img, .gift-grid .item .products-image img, .gift-grid .column .products-image img, .gift-grid .columns .products-image img, .top-products-slider .item .products-image img, .top-products-slider .column .products-image img, .top-products-slider .columns .products-image img {
   -moz-transition: all 0.3s;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
-.products-list .item.come-in, .products-list .column.come-in, .products-list .come-in.columns, .products-grid .item.come-in, .products-grid .column.come-in, .products-grid .come-in.columns, .top-products-slider .item.come-in, .top-products-slider .column.come-in, .top-products-slider .come-in.columns {
+.products-list .item.come-in, .products-list .column.come-in, .products-list .come-in.columns, .products-grid .item.come-in, .products-grid .column.come-in, .products-grid .come-in.columns, .gift-grid .item.come-in, .gift-grid .column.come-in, .gift-grid .come-in.columns, .top-products-slider .item.come-in, .top-products-slider .column.come-in, .top-products-slider .come-in.columns {
   transform: translateY(150px);
   animation: come-in 1s ease forwards;
 }
-.products-list .item.come-in:nth-child(odd), .products-list .column.come-in:nth-child(odd), .products-list .come-in.columns:nth-child(odd), .products-grid .item.come-in:nth-child(odd), .products-grid .column.come-in:nth-child(odd), .products-grid .come-in.columns:nth-child(odd), .top-products-slider .item.come-in:nth-child(odd), .top-products-slider .column.come-in:nth-child(odd), .top-products-slider .come-in.columns:nth-child(odd) {
+.products-list .item.come-in:nth-child(odd), .products-list .column.come-in:nth-child(odd), .products-list .come-in.columns:nth-child(odd), .products-grid .item.come-in:nth-child(odd), .products-grid .column.come-in:nth-child(odd), .products-grid .come-in.columns:nth-child(odd), .gift-grid .item.come-in:nth-child(odd), .gift-grid .column.come-in:nth-child(odd), .gift-grid .come-in.columns:nth-child(odd), .top-products-slider .item.come-in:nth-child(odd), .top-products-slider .column.come-in:nth-child(odd), .top-products-slider .come-in.columns:nth-child(odd) {
   animation-duration: 0.8s;
 }
-.products-list .item.already-visible, .products-list .column.already-visible, .products-list .already-visible.columns, .products-grid .item.already-visible, .products-grid .column.already-visible, .products-grid .already-visible.columns, .top-products-slider .item.already-visible, .top-products-slider .column.already-visible, .top-products-slider .already-visible.columns {
+.products-list .item.already-visible, .products-list .column.already-visible, .products-list .already-visible.columns, .products-grid .item.already-visible, .products-grid .column.already-visible, .products-grid .already-visible.columns, .gift-grid .item.already-visible, .gift-grid .column.already-visible, .gift-grid .already-visible.columns, .top-products-slider .item.already-visible, .top-products-slider .column.already-visible, .top-products-slider .already-visible.columns {
   transform: translateY(0);
   animation: none;
 }
@@ -22852,7 +22856,7 @@ input.recaptcha_validation {
     transform: translateY(0);
   }
 }
-.products-list .item.sdp:hover, .products-list .item.sdp:active, .products-list .column.sdp:hover, .products-list .sdp.columns:hover, .products-list .column.sdp:active, .products-list .sdp.columns:active, .products-grid .item.sdp:hover, .products-grid .item.sdp:active, .products-grid .column.sdp:hover, .products-grid .sdp.columns:hover, .products-grid .column.sdp:active, .products-grid .sdp.columns:active, .top-products-slider .item.sdp:hover, .top-products-slider .item.sdp:active, .top-products-slider .column.sdp:hover, .top-products-slider .sdp.columns:hover, .top-products-slider .column.sdp:active, .top-products-slider .sdp.columns:active {
+.products-list .item.sdp:hover, .products-list .item.sdp:active, .products-list .column.sdp:hover, .products-list .sdp.columns:hover, .products-list .column.sdp:active, .products-list .sdp.columns:active, .products-grid .item.sdp:hover, .products-grid .item.sdp:active, .products-grid .column.sdp:hover, .products-grid .sdp.columns:hover, .products-grid .column.sdp:active, .products-grid .sdp.columns:active, .gift-grid .item.sdp:hover, .gift-grid .item.sdp:active, .gift-grid .column.sdp:hover, .gift-grid .sdp.columns:hover, .gift-grid .column.sdp:active, .gift-grid .sdp.columns:active, .top-products-slider .item.sdp:hover, .top-products-slider .item.sdp:active, .top-products-slider .column.sdp:hover, .top-products-slider .sdp.columns:hover, .top-products-slider .column.sdp:active, .top-products-slider .sdp.columns:active {
   animation: shake 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
@@ -22872,34 +22876,37 @@ input.recaptcha_validation {
     transform: translate3d(4px, 0, 0);
   }
 }
-.products-list .item.sdp .product-name, .products-list .column.sdp .product-name, .products-list .sdp.columns .product-name, .products-grid .item.sdp .product-name, .products-grid .column.sdp .product-name, .products-grid .sdp.columns .product-name, .top-products-slider .item.sdp .product-name, .top-products-slider .column.sdp .product-name, .top-products-slider .sdp.columns .product-name {
+.products-list .item.sdp .product-name, .products-list .column.sdp .product-name, .products-list .sdp.columns .product-name, .products-grid .item.sdp .product-name, .products-grid .column.sdp .product-name, .products-grid .sdp.columns .product-name, .gift-grid .item.sdp .product-name, .gift-grid .column.sdp .product-name, .gift-grid .sdp.columns .product-name, .top-products-slider .item.sdp .product-name, .top-products-slider .column.sdp .product-name, .top-products-slider .sdp.columns .product-name {
   margin: 5px 5px 0 5px;
   font-size: 0.9375rem;
   line-height: 1rem;
   word-wrap: break-word;
 }
-.products-list .item.sdp .product-name a.button, .products-list .item.sdp .product-name #cookie-law p a, #cookie-law p .products-list .item.sdp .product-name a, .products-list .item.sdp .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .products-list .item.sdp .product-name a, .products-list .column.sdp .product-name a.button, .products-list .column.sdp .product-name #cookie-law p a, #cookie-law p .products-list .column.sdp .product-name a, .products-list .sdp.columns .product-name a.button, .products-list .sdp.columns .product-name #cookie-law p a, #cookie-law p .products-list .sdp.columns .product-name a, .products-list .column.sdp .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .products-list .column.sdp .product-name a, .products-list .sdp.columns .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .products-list .sdp.columns .product-name a, .products-grid .item.sdp .product-name a.button, .products-grid .item.sdp .product-name #cookie-law p a, #cookie-law p .products-grid .item.sdp .product-name a, .products-grid .item.sdp .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .products-grid .item.sdp .product-name a, .products-grid .column.sdp .product-name a.button, .products-grid .column.sdp .product-name #cookie-law p a, #cookie-law p .products-grid .column.sdp .product-name a, .products-grid .sdp.columns .product-name a.button, .products-grid .sdp.columns .product-name #cookie-law p a, #cookie-law p .products-grid .sdp.columns .product-name a, .products-grid .column.sdp .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .products-grid .column.sdp .product-name a, .products-grid .sdp.columns .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .products-grid .sdp.columns .product-name a, .top-products-slider .item.sdp .product-name a.button, .top-products-slider .item.sdp .product-name #cookie-law p a, #cookie-law p .top-products-slider .item.sdp .product-name a, .top-products-slider .item.sdp .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .top-products-slider .item.sdp .product-name a, .top-products-slider .column.sdp .product-name a.button, .top-products-slider .column.sdp .product-name #cookie-law p a, #cookie-law p .top-products-slider .column.sdp .product-name a, .top-products-slider .sdp.columns .product-name a.button, .top-products-slider .sdp.columns .product-name #cookie-law p a, #cookie-law p .top-products-slider .sdp.columns .product-name a, .top-products-slider .column.sdp .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .top-products-slider .column.sdp .product-name a, .top-products-slider .sdp.columns .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .top-products-slider .sdp.columns .product-name a {
+.products-list .item.sdp .product-name a.button, .products-list .item.sdp .product-name #cookie-law p a, #cookie-law p .products-list .item.sdp .product-name a, .products-list .item.sdp .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .products-list .item.sdp .product-name a, .products-list .column.sdp .product-name a.button, .products-list .column.sdp .product-name #cookie-law p a, #cookie-law p .products-list .column.sdp .product-name a, .products-list .sdp.columns .product-name a.button, .products-list .sdp.columns .product-name #cookie-law p a, #cookie-law p .products-list .sdp.columns .product-name a, .products-list .column.sdp .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .products-list .column.sdp .product-name a, .products-list .sdp.columns .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .products-list .sdp.columns .product-name a, .products-grid .item.sdp .product-name a.button, .products-grid .item.sdp .product-name #cookie-law p a, #cookie-law p .products-grid .item.sdp .product-name a, .products-grid .item.sdp .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .products-grid .item.sdp .product-name a, .products-grid .column.sdp .product-name a.button, .products-grid .column.sdp .product-name #cookie-law p a, #cookie-law p .products-grid .column.sdp .product-name a, .products-grid .sdp.columns .product-name a.button, .products-grid .sdp.columns .product-name #cookie-law p a, #cookie-law p .products-grid .sdp.columns .product-name a, .products-grid .column.sdp .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .products-grid .column.sdp .product-name a, .products-grid .sdp.columns .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .products-grid .sdp.columns .product-name a, .gift-grid .item.sdp .product-name a.button, .gift-grid .item.sdp .product-name #cookie-law p a, #cookie-law p .gift-grid .item.sdp .product-name a, .gift-grid .item.sdp .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .gift-grid .item.sdp .product-name a, .gift-grid .column.sdp .product-name a.button, .gift-grid .column.sdp .product-name #cookie-law p a, #cookie-law p .gift-grid .column.sdp .product-name a, .gift-grid .sdp.columns .product-name a.button, .gift-grid .sdp.columns .product-name #cookie-law p a, #cookie-law p .gift-grid .sdp.columns .product-name a, .gift-grid .column.sdp .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .gift-grid .column.sdp .product-name a, .gift-grid .sdp.columns .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .gift-grid .sdp.columns .product-name a, .top-products-slider .item.sdp .product-name a.button, .top-products-slider .item.sdp .product-name #cookie-law p a, #cookie-law p .top-products-slider .item.sdp .product-name a, .top-products-slider .item.sdp .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .top-products-slider .item.sdp .product-name a, .top-products-slider .column.sdp .product-name a.button, .top-products-slider .column.sdp .product-name #cookie-law p a, #cookie-law p .top-products-slider .column.sdp .product-name a, .top-products-slider .sdp.columns .product-name a.button, .top-products-slider .sdp.columns .product-name #cookie-law p a, #cookie-law p .top-products-slider .sdp.columns .product-name a, .top-products-slider .column.sdp .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .top-products-slider .column.sdp .product-name a, .top-products-slider .sdp.columns .product-name .button-arrow ul li:nth-child(2) a, .button-arrow ul li:nth-child(2) .top-products-slider .sdp.columns .product-name a {
   margin: 0;
 }
-.products-list .item .product-name, .products-list .column .product-name, .products-list .columns .product-name, .products-grid .item .product-name, .products-grid .column .product-name, .products-grid .columns .product-name, .top-products-slider .item .product-name, .top-products-slider .column .product-name, .top-products-slider .columns .product-name {
+.products-list .item .product-name, .products-list .column .product-name, .products-list .columns .product-name, .products-grid .item .product-name, .products-grid .column .product-name, .products-grid .columns .product-name, .gift-grid .item .product-name, .gift-grid .column .product-name, .gift-grid .columns .product-name, .top-products-slider .item .product-name, .top-products-slider .column .product-name, .top-products-slider .columns .product-name {
   margin: 0;
   font-size: 0.9375rem;
   line-height: 1rem;
   word-wrap: break-word;
 }
-.products-list .item:hover, .products-list .item:focus, .products-list .column:hover, .products-list .columns:hover, .products-list .column:focus, .products-list .columns:focus, .products-grid .item:hover, .products-grid .item:focus, .products-grid .column:hover, .products-grid .columns:hover, .products-grid .column:focus, .products-grid .columns:focus, .top-products-slider .item:hover, .top-products-slider .item:focus, .top-products-slider .column:hover, .top-products-slider .columns:hover, .top-products-slider .column:focus, .top-products-slider .columns:focus {
+.products-list .item:hover, .products-list .item:focus, .products-list .column:hover, .products-list .columns:hover, .products-list .column:focus, .products-list .columns:focus, .products-grid .item:hover, .products-grid .item:focus, .products-grid .column:hover, .products-grid .columns:hover, .products-grid .column:focus, .products-grid .columns:focus, .gift-grid .item:hover, .gift-grid .item:focus, .gift-grid .column:hover, .gift-grid .columns:hover, .gift-grid .column:focus, .gift-grid .columns:focus, .top-products-slider .item:hover, .top-products-slider .item:focus, .top-products-slider .column:hover, .top-products-slider .columns:hover, .top-products-slider .column:focus, .top-products-slider .columns:focus {
   border: 1px solid #8a8a8a;
   -moz-box-shadow: 1px 1px 6px #a0a0a0;
   -webkit-box-shadow: 1px 1px 6px #a0a0a0;
   box-shadow: 1px 1px 6px #a0a0a0;
 }
-.products-list .item:hover .products-image img, .products-list .item:focus .products-image img, .products-list .column:hover .products-image img, .products-list .columns:hover .products-image img, .products-list .column:focus .products-image img, .products-list .columns:focus .products-image img, .products-grid .item:hover .products-image img, .products-grid .item:focus .products-image img, .products-grid .column:hover .products-image img, .products-grid .columns:hover .products-image img, .products-grid .column:focus .products-image img, .products-grid .columns:focus .products-image img, .top-products-slider .item:hover .products-image img, .top-products-slider .item:focus .products-image img, .top-products-slider .column:hover .products-image img, .top-products-slider .columns:hover .products-image img, .top-products-slider .column:focus .products-image img, .top-products-slider .columns:focus .products-image img {
+.products-list .item:hover .products-image img, .products-list .item:focus .products-image img, .products-list .column:hover .products-image img, .products-list .columns:hover .products-image img, .products-list .column:focus .products-image img, .products-list .columns:focus .products-image img, .products-grid .item:hover .products-image img, .products-grid .item:focus .products-image img, .products-grid .column:hover .products-image img, .products-grid .columns:hover .products-image img, .products-grid .column:focus .products-image img, .products-grid .columns:focus .products-image img, .gift-grid .item:hover .products-image img, .gift-grid .item:focus .products-image img, .gift-grid .column:hover .products-image img, .gift-grid .columns:hover .products-image img, .gift-grid .column:focus .products-image img, .gift-grid .columns:focus .products-image img, .top-products-slider .item:hover .products-image img, .top-products-slider .item:focus .products-image img, .top-products-slider .column:hover .products-image img, .top-products-slider .columns:hover .products-image img, .top-products-slider .column:focus .products-image img, .top-products-slider .columns:focus .products-image img {
   z-index: 1;
   -moz-transform: scale(1.05);
   -webkit-transform: scale(1.05);
   transform: scale(1.05);
 }
-.products-list .itemwide, .products-grid .itemwide, .top-products-slider .itemwide {
+.products-list .item.ampromo-type-simple .product-name, .products-list .column.ampromo-type-simple .product-name, .products-list .ampromo-type-simple.columns .product-name, .products-grid .item.ampromo-type-simple .product-name, .products-grid .column.ampromo-type-simple .product-name, .products-grid .ampromo-type-simple.columns .product-name, .gift-grid .item.ampromo-type-simple .product-name, .gift-grid .column.ampromo-type-simple .product-name, .gift-grid .ampromo-type-simple.columns .product-name, .top-products-slider .item.ampromo-type-simple .product-name, .top-products-slider .column.ampromo-type-simple .product-name, .top-products-slider .ampromo-type-simple.columns .product-name {
+  height: 4em;
+}
+.products-list .itemwide, .products-grid .itemwide, .gift-grid .itemwide, .top-products-slider .itemwide {
   padding: 0.5rem;
   cursor: pointer;
   text-align: center;
@@ -22908,14 +22915,14 @@ input.recaptcha_validation {
   justify-content: space-between;
   position: relative;
 }
-.products-list .itemwide img, .products-grid .itemwide img, .top-products-slider .itemwide img {
+.products-list .itemwide img, .products-grid .itemwide img, .gift-grid .itemwide img, .top-products-slider .itemwide img {
   border-radius: 5px;
 }
 
-.products-list .item, .products-list .with-image-desc, .products-grid .item, .products-grid .with-image-desc, .top-products-slider .item, .top-products-slider .with-image-desc {
+.products-list .item, .products-list .with-image-desc, .products-grid .item, .products-grid .with-image-desc, .gift-grid .item, .gift-grid .with-image-desc, .top-products-slider .item, .top-products-slider .with-image-desc {
   position: relative;
 }
-.products-list .item .special-ribbon, .products-list .with-image-desc .special-ribbon, .products-grid .item .special-ribbon, .products-grid .with-image-desc .special-ribbon, .top-products-slider .item .special-ribbon, .top-products-slider .with-image-desc .special-ribbon {
+.products-list .item .special-ribbon, .products-list .with-image-desc .special-ribbon, .products-grid .item .special-ribbon, .products-grid .with-image-desc .special-ribbon, .gift-grid .item .special-ribbon, .gift-grid .with-image-desc .special-ribbon, .top-products-slider .item .special-ribbon, .top-products-slider .with-image-desc .special-ribbon {
   z-index: 2;
   position: absolute;
   right: -1px;
@@ -22925,7 +22932,7 @@ input.recaptcha_validation {
   height: 150px;
   text-align: right;
 }
-.products-list .item .special-ribbon span, .products-list .with-image-desc .special-ribbon span, .products-grid .item .special-ribbon span, .products-grid .with-image-desc .special-ribbon span, .top-products-slider .item .special-ribbon span, .top-products-slider .with-image-desc .special-ribbon span {
+.products-list .item .special-ribbon span, .products-list .with-image-desc .special-ribbon span, .products-grid .item .special-ribbon span, .products-grid .with-image-desc .special-ribbon span, .gift-grid .item .special-ribbon span, .gift-grid .with-image-desc .special-ribbon span, .top-products-slider .item .special-ribbon span, .top-products-slider .with-image-desc .special-ribbon span {
   font-size: 1rem;
   color: #fefefe;
   text-align: center;
@@ -22939,7 +22946,7 @@ input.recaptcha_validation {
   top: 38px;
   right: -42px;
 }
-.products-list .item .new-ribbon, .products-list .with-image-desc .new-ribbon, .products-grid .item .new-ribbon, .products-grid .with-image-desc .new-ribbon, .top-products-slider .item .new-ribbon, .top-products-slider .with-image-desc .new-ribbon {
+.products-list .item .new-ribbon, .products-list .item .gift-ribbon, .products-list .with-image-desc .new-ribbon, .products-list .with-image-desc .gift-ribbon, .products-grid .item .new-ribbon, .products-grid .item .gift-ribbon, .products-grid .with-image-desc .new-ribbon, .products-grid .with-image-desc .gift-ribbon, .gift-grid .item .new-ribbon, .gift-grid .item .gift-ribbon, .gift-grid .with-image-desc .new-ribbon, .gift-grid .with-image-desc .gift-ribbon, .top-products-slider .item .new-ribbon, .top-products-slider .item .gift-ribbon, .top-products-slider .with-image-desc .new-ribbon, .top-products-slider .with-image-desc .gift-ribbon {
   z-index: 2;
   position: absolute;
   right: -1px;
@@ -22949,7 +22956,7 @@ input.recaptcha_validation {
   height: 150px;
   text-align: right;
 }
-.products-list .item .new-ribbon span, .products-list .with-image-desc .new-ribbon span, .products-grid .item .new-ribbon span, .products-grid .with-image-desc .new-ribbon span, .top-products-slider .item .new-ribbon span, .top-products-slider .with-image-desc .new-ribbon span {
+.products-list .item .new-ribbon span, .products-list .item .gift-ribbon span, .products-list .with-image-desc .new-ribbon span, .products-list .with-image-desc .gift-ribbon span, .products-grid .item .new-ribbon span, .products-grid .item .gift-ribbon span, .products-grid .with-image-desc .new-ribbon span, .products-grid .with-image-desc .gift-ribbon span, .gift-grid .item .new-ribbon span, .gift-grid .item .gift-ribbon span, .gift-grid .with-image-desc .new-ribbon span, .gift-grid .with-image-desc .gift-ribbon span, .top-products-slider .item .new-ribbon span, .top-products-slider .item .gift-ribbon span, .top-products-slider .with-image-desc .new-ribbon span, .top-products-slider .with-image-desc .gift-ribbon span {
   font-size: 1rem;
   color: #fefefe;
   text-align: center;
@@ -22963,98 +22970,98 @@ input.recaptcha_validation {
   top: 20px;
   right: -34px;
 }
-.products-list .item .products-image img, .products-list .with-image-desc .products-image img, .products-grid .item .products-image img, .products-grid .with-image-desc .products-image img, .top-products-slider .item .products-image img, .top-products-slider .with-image-desc .products-image img {
+.products-list .item .products-image img, .products-list .with-image-desc .products-image img, .products-grid .item .products-image img, .products-grid .with-image-desc .products-image img, .gift-grid .item .products-image img, .gift-grid .with-image-desc .products-image img, .top-products-slider .item .products-image img, .top-products-slider .with-image-desc .products-image img {
   z-index: 1;
 }
-.products-list .item .product-brand, .products-list .with-image-desc .product-brand, .products-grid .item .product-brand, .products-grid .with-image-desc .product-brand, .top-products-slider .item .product-brand, .top-products-slider .with-image-desc .product-brand {
+.products-list .item .product-brand, .products-list .with-image-desc .product-brand, .products-grid .item .product-brand, .products-grid .with-image-desc .product-brand, .gift-grid .item .product-brand, .gift-grid .with-image-desc .product-brand, .top-products-slider .item .product-brand, .top-products-slider .with-image-desc .product-brand {
   z-index: 2;
 }
-.products-list .item .product-brand img, .products-list .with-image-desc .product-brand img, .products-grid .item .product-brand img, .products-grid .with-image-desc .product-brand img, .top-products-slider .item .product-brand img, .top-products-slider .with-image-desc .product-brand img {
+.products-list .item .product-brand img, .products-list .with-image-desc .product-brand img, .products-grid .item .product-brand img, .products-grid .with-image-desc .product-brand img, .gift-grid .item .product-brand img, .gift-grid .with-image-desc .product-brand img, .top-products-slider .item .product-brand img, .top-products-slider .with-image-desc .product-brand img {
   max-width: 8rem;
   text-align: center;
 }
-.products-list .item .commissioning, .products-list .with-image-desc .commissioning, .products-grid .item .commissioning, .products-grid .with-image-desc .commissioning, .top-products-slider .item .commissioning, .top-products-slider .with-image-desc .commissioning {
+.products-list .item .commissioning, .products-list .with-image-desc .commissioning, .products-grid .item .commissioning, .products-grid .with-image-desc .commissioning, .gift-grid .item .commissioning, .gift-grid .with-image-desc .commissioning, .top-products-slider .item .commissioning, .top-products-slider .with-image-desc .commissioning {
   font-size: 0.8rem;
   color: #ff0000;
 }
-.products-list .item .price-box, .products-list .with-image-desc .price-box, .products-grid .item .price-box, .products-grid .with-image-desc .price-box, .top-products-slider .item .price-box, .top-products-slider .with-image-desc .price-box {
+.products-list .item .price-box, .products-list .with-image-desc .price-box, .products-grid .item .price-box, .products-grid .with-image-desc .price-box, .gift-grid .item .price-box, .gift-grid .with-image-desc .price-box, .top-products-slider .item .price-box, .top-products-slider .with-image-desc .price-box {
   font-size: 0.8rem;
   margin-top: 0.5rem;
 }
-.products-list .item .price-box .regular-price, .products-list .item .price-box .special-price, .products-list .with-image-desc .price-box .regular-price, .products-list .with-image-desc .price-box .special-price, .products-grid .item .price-box .regular-price, .products-grid .item .price-box .special-price, .products-grid .with-image-desc .price-box .regular-price, .products-grid .with-image-desc .price-box .special-price, .top-products-slider .item .price-box .regular-price, .top-products-slider .item .price-box .special-price, .top-products-slider .with-image-desc .price-box .regular-price, .top-products-slider .with-image-desc .price-box .special-price {
+.products-list .item .price-box .regular-price, .products-list .item .price-box .special-price, .products-list .with-image-desc .price-box .regular-price, .products-list .with-image-desc .price-box .special-price, .products-grid .item .price-box .regular-price, .products-grid .item .price-box .special-price, .products-grid .with-image-desc .price-box .regular-price, .products-grid .with-image-desc .price-box .special-price, .gift-grid .item .price-box .regular-price, .gift-grid .item .price-box .special-price, .gift-grid .with-image-desc .price-box .regular-price, .gift-grid .with-image-desc .price-box .special-price, .top-products-slider .item .price-box .regular-price, .top-products-slider .item .price-box .special-price, .top-products-slider .with-image-desc .price-box .regular-price, .top-products-slider .with-image-desc .price-box .special-price {
   margin: 0;
 }
-.products-list .item .price-box .regular-price .price-label, .products-list .item .price-box .special-price .price-label, .products-list .with-image-desc .price-box .regular-price .price-label, .products-list .with-image-desc .price-box .special-price .price-label, .products-grid .item .price-box .regular-price .price-label, .products-grid .item .price-box .special-price .price-label, .products-grid .with-image-desc .price-box .regular-price .price-label, .products-grid .with-image-desc .price-box .special-price .price-label, .top-products-slider .item .price-box .regular-price .price-label, .top-products-slider .item .price-box .special-price .price-label, .top-products-slider .with-image-desc .price-box .regular-price .price-label, .top-products-slider .with-image-desc .price-box .special-price .price-label {
+.products-list .item .price-box .regular-price .price-label, .products-list .item .price-box .special-price .price-label, .products-list .with-image-desc .price-box .regular-price .price-label, .products-list .with-image-desc .price-box .special-price .price-label, .products-grid .item .price-box .regular-price .price-label, .products-grid .item .price-box .special-price .price-label, .products-grid .with-image-desc .price-box .regular-price .price-label, .products-grid .with-image-desc .price-box .special-price .price-label, .gift-grid .item .price-box .regular-price .price-label, .gift-grid .item .price-box .special-price .price-label, .gift-grid .with-image-desc .price-box .regular-price .price-label, .gift-grid .with-image-desc .price-box .special-price .price-label, .top-products-slider .item .price-box .regular-price .price-label, .top-products-slider .item .price-box .special-price .price-label, .top-products-slider .with-image-desc .price-box .regular-price .price-label, .top-products-slider .with-image-desc .price-box .special-price .price-label {
   line-height: 1rem;
 }
-.products-list .item .price-box .regular-price .price, .products-list .item .price-box .special-price .price, .products-list .with-image-desc .price-box .regular-price .price, .products-list .with-image-desc .price-box .special-price .price, .products-grid .item .price-box .regular-price .price, .products-grid .item .price-box .special-price .price, .products-grid .with-image-desc .price-box .regular-price .price, .products-grid .with-image-desc .price-box .special-price .price, .top-products-slider .item .price-box .regular-price .price, .top-products-slider .item .price-box .special-price .price, .top-products-slider .with-image-desc .price-box .regular-price .price, .top-products-slider .with-image-desc .price-box .special-price .price {
+.products-list .item .price-box .regular-price .price, .products-list .item .price-box .special-price .price, .products-list .with-image-desc .price-box .regular-price .price, .products-list .with-image-desc .price-box .special-price .price, .products-grid .item .price-box .regular-price .price, .products-grid .item .price-box .special-price .price, .products-grid .with-image-desc .price-box .regular-price .price, .products-grid .with-image-desc .price-box .special-price .price, .gift-grid .item .price-box .regular-price .price, .gift-grid .item .price-box .special-price .price, .gift-grid .with-image-desc .price-box .regular-price .price, .gift-grid .with-image-desc .price-box .special-price .price, .top-products-slider .item .price-box .regular-price .price, .top-products-slider .item .price-box .special-price .price, .top-products-slider .with-image-desc .price-box .regular-price .price, .top-products-slider .with-image-desc .price-box .special-price .price {
   margin: 0;
   padding: 0 !important;
   font-size: 1rem;
   vertical-align: middle;
   color: #008B00;
 }
-.products-list .item .price-box .regular-price .price span.price, .products-list .item .price-box .special-price .price span.price, .products-list .with-image-desc .price-box .regular-price .price span.price, .products-list .with-image-desc .price-box .special-price .price span.price, .products-grid .item .price-box .regular-price .price span.price, .products-grid .item .price-box .special-price .price span.price, .products-grid .with-image-desc .price-box .regular-price .price span.price, .products-grid .with-image-desc .price-box .special-price .price span.price, .top-products-slider .item .price-box .regular-price .price span.price, .top-products-slider .item .price-box .special-price .price span.price, .top-products-slider .with-image-desc .price-box .regular-price .price span.price, .top-products-slider .with-image-desc .price-box .special-price .price span.price {
+.products-list .item .price-box .regular-price .price span.price, .products-list .item .price-box .special-price .price span.price, .products-list .with-image-desc .price-box .regular-price .price span.price, .products-list .with-image-desc .price-box .special-price .price span.price, .products-grid .item .price-box .regular-price .price span.price, .products-grid .item .price-box .special-price .price span.price, .products-grid .with-image-desc .price-box .regular-price .price span.price, .products-grid .with-image-desc .price-box .special-price .price span.price, .gift-grid .item .price-box .regular-price .price span.price, .gift-grid .item .price-box .special-price .price span.price, .gift-grid .with-image-desc .price-box .regular-price .price span.price, .gift-grid .with-image-desc .price-box .special-price .price span.price, .top-products-slider .item .price-box .regular-price .price span.price, .top-products-slider .item .price-box .special-price .price span.price, .top-products-slider .with-image-desc .price-box .regular-price .price span.price, .top-products-slider .with-image-desc .price-box .special-price .price span.price {
   padding: 0 !important;
   font-size: 1rem;
   vertical-align: middle;
   color: #008B00;
 }
-.products-list .item .price-box .skonto-price, .products-list .with-image-desc .price-box .skonto-price, .products-grid .item .price-box .skonto-price, .products-grid .with-image-desc .price-box .skonto-price, .top-products-slider .item .price-box .skonto-price, .top-products-slider .with-image-desc .price-box .skonto-price {
+.products-list .item .price-box .skonto-price, .products-list .with-image-desc .price-box .skonto-price, .products-grid .item .price-box .skonto-price, .products-grid .with-image-desc .price-box .skonto-price, .gift-grid .item .price-box .skonto-price, .gift-grid .with-image-desc .price-box .skonto-price, .top-products-slider .item .price-box .skonto-price, .top-products-slider .with-image-desc .price-box .skonto-price {
   margin: 0;
   line-height: 0;
 }
-.products-list .item .price-box .skonto-price .price-label, .products-list .with-image-desc .price-box .skonto-price .price-label, .products-grid .item .price-box .skonto-price .price-label, .products-grid .with-image-desc .price-box .skonto-price .price-label, .top-products-slider .item .price-box .skonto-price .price-label, .top-products-slider .with-image-desc .price-box .skonto-price .price-label {
+.products-list .item .price-box .skonto-price .price-label, .products-list .with-image-desc .price-box .skonto-price .price-label, .products-grid .item .price-box .skonto-price .price-label, .products-grid .with-image-desc .price-box .skonto-price .price-label, .gift-grid .item .price-box .skonto-price .price-label, .gift-grid .with-image-desc .price-box .skonto-price .price-label, .top-products-slider .item .price-box .skonto-price .price-label, .top-products-slider .with-image-desc .price-box .skonto-price .price-label {
   line-height: 1rem;
 }
-.products-list .item .price-box .skonto-price .price, .products-list .with-image-desc .price-box .skonto-price .price, .products-grid .item .price-box .skonto-price .price, .products-grid .with-image-desc .price-box .skonto-price .price, .top-products-slider .item .price-box .skonto-price .price, .top-products-slider .with-image-desc .price-box .skonto-price .price {
+.products-list .item .price-box .skonto-price .price, .products-list .with-image-desc .price-box .skonto-price .price, .products-grid .item .price-box .skonto-price .price, .products-grid .with-image-desc .price-box .skonto-price .price, .gift-grid .item .price-box .skonto-price .price, .gift-grid .with-image-desc .price-box .skonto-price .price, .top-products-slider .item .price-box .skonto-price .price, .top-products-slider .with-image-desc .price-box .skonto-price .price {
   color: #008B00;
   padding: 0 !important;
   font-size: 1rem;
 }
-.products-list .item .price-box .old-price, .products-list .item .price-box .msrp-price, .products-list .item .price-box .mwst-price, .products-list .item .price-box .skontotax-price, .products-list .item .price-box .regular-price, .products-list .with-image-desc .price-box .old-price, .products-list .with-image-desc .price-box .msrp-price, .products-list .with-image-desc .price-box .mwst-price, .products-list .with-image-desc .price-box .skontotax-price, .products-list .with-image-desc .price-box .regular-price, .products-grid .item .price-box .old-price, .products-grid .item .price-box .msrp-price, .products-grid .item .price-box .mwst-price, .products-grid .item .price-box .skontotax-price, .products-grid .item .price-box .regular-price, .products-grid .with-image-desc .price-box .old-price, .products-grid .with-image-desc .price-box .msrp-price, .products-grid .with-image-desc .price-box .mwst-price, .products-grid .with-image-desc .price-box .skontotax-price, .products-grid .with-image-desc .price-box .regular-price, .top-products-slider .item .price-box .old-price, .top-products-slider .item .price-box .msrp-price, .top-products-slider .item .price-box .mwst-price, .top-products-slider .item .price-box .skontotax-price, .top-products-slider .item .price-box .regular-price, .top-products-slider .with-image-desc .price-box .old-price, .top-products-slider .with-image-desc .price-box .msrp-price, .top-products-slider .with-image-desc .price-box .mwst-price, .top-products-slider .with-image-desc .price-box .skontotax-price, .top-products-slider .with-image-desc .price-box .regular-price {
+.products-list .item .price-box .old-price, .products-list .item .price-box .msrp-price, .products-list .item .price-box .mwst-price, .products-list .item .price-box .skontotax-price, .products-list .item .price-box .regular-price, .products-list .with-image-desc .price-box .old-price, .products-list .with-image-desc .price-box .msrp-price, .products-list .with-image-desc .price-box .mwst-price, .products-list .with-image-desc .price-box .skontotax-price, .products-list .with-image-desc .price-box .regular-price, .products-grid .item .price-box .old-price, .products-grid .item .price-box .msrp-price, .products-grid .item .price-box .mwst-price, .products-grid .item .price-box .skontotax-price, .products-grid .item .price-box .regular-price, .products-grid .with-image-desc .price-box .old-price, .products-grid .with-image-desc .price-box .msrp-price, .products-grid .with-image-desc .price-box .mwst-price, .products-grid .with-image-desc .price-box .skontotax-price, .products-grid .with-image-desc .price-box .regular-price, .gift-grid .item .price-box .old-price, .gift-grid .item .price-box .msrp-price, .gift-grid .item .price-box .mwst-price, .gift-grid .item .price-box .skontotax-price, .gift-grid .item .price-box .regular-price, .gift-grid .with-image-desc .price-box .old-price, .gift-grid .with-image-desc .price-box .msrp-price, .gift-grid .with-image-desc .price-box .mwst-price, .gift-grid .with-image-desc .price-box .skontotax-price, .gift-grid .with-image-desc .price-box .regular-price, .top-products-slider .item .price-box .old-price, .top-products-slider .item .price-box .msrp-price, .top-products-slider .item .price-box .mwst-price, .top-products-slider .item .price-box .skontotax-price, .top-products-slider .item .price-box .regular-price, .top-products-slider .with-image-desc .price-box .old-price, .top-products-slider .with-image-desc .price-box .msrp-price, .top-products-slider .with-image-desc .price-box .mwst-price, .top-products-slider .with-image-desc .price-box .skontotax-price, .top-products-slider .with-image-desc .price-box .regular-price {
   display: block;
   margin: 0;
   line-height: 1rem;
 }
-.products-list .item .price-box .old-price .price-label, .products-list .item .price-box .msrp-price .price-label, .products-list .item .price-box .mwst-price .price-label, .products-list .item .price-box .skontotax-price .price-label, .products-list .item .price-box .regular-price .price-label, .products-list .with-image-desc .price-box .old-price .price-label, .products-list .with-image-desc .price-box .msrp-price .price-label, .products-list .with-image-desc .price-box .mwst-price .price-label, .products-list .with-image-desc .price-box .skontotax-price .price-label, .products-list .with-image-desc .price-box .regular-price .price-label, .products-grid .item .price-box .old-price .price-label, .products-grid .item .price-box .msrp-price .price-label, .products-grid .item .price-box .mwst-price .price-label, .products-grid .item .price-box .skontotax-price .price-label, .products-grid .item .price-box .regular-price .price-label, .products-grid .with-image-desc .price-box .old-price .price-label, .products-grid .with-image-desc .price-box .msrp-price .price-label, .products-grid .with-image-desc .price-box .mwst-price .price-label, .products-grid .with-image-desc .price-box .skontotax-price .price-label, .products-grid .with-image-desc .price-box .regular-price .price-label, .top-products-slider .item .price-box .old-price .price-label, .top-products-slider .item .price-box .msrp-price .price-label, .top-products-slider .item .price-box .mwst-price .price-label, .top-products-slider .item .price-box .skontotax-price .price-label, .top-products-slider .item .price-box .regular-price .price-label, .top-products-slider .with-image-desc .price-box .old-price .price-label, .top-products-slider .with-image-desc .price-box .msrp-price .price-label, .top-products-slider .with-image-desc .price-box .mwst-price .price-label, .top-products-slider .with-image-desc .price-box .skontotax-price .price-label, .top-products-slider .with-image-desc .price-box .regular-price .price-label {
+.products-list .item .price-box .old-price .price-label, .products-list .item .price-box .msrp-price .price-label, .products-list .item .price-box .mwst-price .price-label, .products-list .item .price-box .skontotax-price .price-label, .products-list .item .price-box .regular-price .price-label, .products-list .with-image-desc .price-box .old-price .price-label, .products-list .with-image-desc .price-box .msrp-price .price-label, .products-list .with-image-desc .price-box .mwst-price .price-label, .products-list .with-image-desc .price-box .skontotax-price .price-label, .products-list .with-image-desc .price-box .regular-price .price-label, .products-grid .item .price-box .old-price .price-label, .products-grid .item .price-box .msrp-price .price-label, .products-grid .item .price-box .mwst-price .price-label, .products-grid .item .price-box .skontotax-price .price-label, .products-grid .item .price-box .regular-price .price-label, .products-grid .with-image-desc .price-box .old-price .price-label, .products-grid .with-image-desc .price-box .msrp-price .price-label, .products-grid .with-image-desc .price-box .mwst-price .price-label, .products-grid .with-image-desc .price-box .skontotax-price .price-label, .products-grid .with-image-desc .price-box .regular-price .price-label, .gift-grid .item .price-box .old-price .price-label, .gift-grid .item .price-box .msrp-price .price-label, .gift-grid .item .price-box .mwst-price .price-label, .gift-grid .item .price-box .skontotax-price .price-label, .gift-grid .item .price-box .regular-price .price-label, .gift-grid .with-image-desc .price-box .old-price .price-label, .gift-grid .with-image-desc .price-box .msrp-price .price-label, .gift-grid .with-image-desc .price-box .mwst-price .price-label, .gift-grid .with-image-desc .price-box .skontotax-price .price-label, .gift-grid .with-image-desc .price-box .regular-price .price-label, .top-products-slider .item .price-box .old-price .price-label, .top-products-slider .item .price-box .msrp-price .price-label, .top-products-slider .item .price-box .mwst-price .price-label, .top-products-slider .item .price-box .skontotax-price .price-label, .top-products-slider .item .price-box .regular-price .price-label, .top-products-slider .with-image-desc .price-box .old-price .price-label, .top-products-slider .with-image-desc .price-box .msrp-price .price-label, .top-products-slider .with-image-desc .price-box .mwst-price .price-label, .top-products-slider .with-image-desc .price-box .skontotax-price .price-label, .top-products-slider .with-image-desc .price-box .regular-price .price-label {
   vertical-align: middle;
 }
-.products-list .item .price-box .old-price .price, .products-list .item .price-box .msrp-price .price, .products-list .item .price-box .mwst-price .price, .products-list .item .price-box .skontotax-price .price, .products-list .item .price-box .regular-price .price, .products-list .with-image-desc .price-box .old-price .price, .products-list .with-image-desc .price-box .msrp-price .price, .products-list .with-image-desc .price-box .mwst-price .price, .products-list .with-image-desc .price-box .skontotax-price .price, .products-list .with-image-desc .price-box .regular-price .price, .products-grid .item .price-box .old-price .price, .products-grid .item .price-box .msrp-price .price, .products-grid .item .price-box .mwst-price .price, .products-grid .item .price-box .skontotax-price .price, .products-grid .item .price-box .regular-price .price, .products-grid .with-image-desc .price-box .old-price .price, .products-grid .with-image-desc .price-box .msrp-price .price, .products-grid .with-image-desc .price-box .mwst-price .price, .products-grid .with-image-desc .price-box .skontotax-price .price, .products-grid .with-image-desc .price-box .regular-price .price, .top-products-slider .item .price-box .old-price .price, .top-products-slider .item .price-box .msrp-price .price, .top-products-slider .item .price-box .mwst-price .price, .top-products-slider .item .price-box .skontotax-price .price, .top-products-slider .item .price-box .regular-price .price, .top-products-slider .with-image-desc .price-box .old-price .price, .top-products-slider .with-image-desc .price-box .msrp-price .price, .top-products-slider .with-image-desc .price-box .mwst-price .price, .top-products-slider .with-image-desc .price-box .skontotax-price .price, .top-products-slider .with-image-desc .price-box .regular-price .price {
+.products-list .item .price-box .old-price .price, .products-list .item .price-box .msrp-price .price, .products-list .item .price-box .mwst-price .price, .products-list .item .price-box .skontotax-price .price, .products-list .item .price-box .regular-price .price, .products-list .with-image-desc .price-box .old-price .price, .products-list .with-image-desc .price-box .msrp-price .price, .products-list .with-image-desc .price-box .mwst-price .price, .products-list .with-image-desc .price-box .skontotax-price .price, .products-list .with-image-desc .price-box .regular-price .price, .products-grid .item .price-box .old-price .price, .products-grid .item .price-box .msrp-price .price, .products-grid .item .price-box .mwst-price .price, .products-grid .item .price-box .skontotax-price .price, .products-grid .item .price-box .regular-price .price, .products-grid .with-image-desc .price-box .old-price .price, .products-grid .with-image-desc .price-box .msrp-price .price, .products-grid .with-image-desc .price-box .mwst-price .price, .products-grid .with-image-desc .price-box .skontotax-price .price, .products-grid .with-image-desc .price-box .regular-price .price, .gift-grid .item .price-box .old-price .price, .gift-grid .item .price-box .msrp-price .price, .gift-grid .item .price-box .mwst-price .price, .gift-grid .item .price-box .skontotax-price .price, .gift-grid .item .price-box .regular-price .price, .gift-grid .with-image-desc .price-box .old-price .price, .gift-grid .with-image-desc .price-box .msrp-price .price, .gift-grid .with-image-desc .price-box .mwst-price .price, .gift-grid .with-image-desc .price-box .skontotax-price .price, .gift-grid .with-image-desc .price-box .regular-price .price, .top-products-slider .item .price-box .old-price .price, .top-products-slider .item .price-box .msrp-price .price, .top-products-slider .item .price-box .mwst-price .price, .top-products-slider .item .price-box .skontotax-price .price, .top-products-slider .item .price-box .regular-price .price, .top-products-slider .with-image-desc .price-box .old-price .price, .top-products-slider .with-image-desc .price-box .msrp-price .price, .top-products-slider .with-image-desc .price-box .mwst-price .price, .top-products-slider .with-image-desc .price-box .skontotax-price .price, .top-products-slider .with-image-desc .price-box .regular-price .price {
   vertical-align: middle;
   font-weight: 600;
 }
-.products-list .item .price-box .special-price, .products-list .item .price-box .to-date, .products-list .item .price-box .minimal-price-link, .products-list .with-image-desc .price-box .special-price, .products-list .with-image-desc .price-box .to-date, .products-list .with-image-desc .price-box .minimal-price-link, .products-grid .item .price-box .special-price, .products-grid .item .price-box .to-date, .products-grid .item .price-box .minimal-price-link, .products-grid .with-image-desc .price-box .special-price, .products-grid .with-image-desc .price-box .to-date, .products-grid .with-image-desc .price-box .minimal-price-link, .top-products-slider .item .price-box .special-price, .top-products-slider .item .price-box .to-date, .top-products-slider .item .price-box .minimal-price-link, .top-products-slider .with-image-desc .price-box .special-price, .top-products-slider .with-image-desc .price-box .to-date, .top-products-slider .with-image-desc .price-box .minimal-price-link {
+.products-list .item .price-box .special-price, .products-list .item .price-box .to-date, .products-list .item .price-box .minimal-price-link, .products-list .with-image-desc .price-box .special-price, .products-list .with-image-desc .price-box .to-date, .products-list .with-image-desc .price-box .minimal-price-link, .products-grid .item .price-box .special-price, .products-grid .item .price-box .to-date, .products-grid .item .price-box .minimal-price-link, .products-grid .with-image-desc .price-box .special-price, .products-grid .with-image-desc .price-box .to-date, .products-grid .with-image-desc .price-box .minimal-price-link, .gift-grid .item .price-box .special-price, .gift-grid .item .price-box .to-date, .gift-grid .item .price-box .minimal-price-link, .gift-grid .with-image-desc .price-box .special-price, .gift-grid .with-image-desc .price-box .to-date, .gift-grid .with-image-desc .price-box .minimal-price-link, .top-products-slider .item .price-box .special-price, .top-products-slider .item .price-box .to-date, .top-products-slider .item .price-box .minimal-price-link, .top-products-slider .with-image-desc .price-box .special-price, .top-products-slider .with-image-desc .price-box .to-date, .top-products-slider .with-image-desc .price-box .minimal-price-link {
   color: #ff0000;
   display: block;
   line-height: 1rem;
 }
-.products-list .item .price-box .special-price .price-label, .products-list .item .price-box .special-price .label, .products-list .item .price-box .to-date .price-label, .products-list .item .price-box .to-date .label, .products-list .item .price-box .minimal-price-link .price-label, .products-list .item .price-box .minimal-price-link .label, .products-list .with-image-desc .price-box .special-price .price-label, .products-list .with-image-desc .price-box .special-price .label, .products-list .with-image-desc .price-box .to-date .price-label, .products-list .with-image-desc .price-box .to-date .label, .products-list .with-image-desc .price-box .minimal-price-link .price-label, .products-list .with-image-desc .price-box .minimal-price-link .label, .products-grid .item .price-box .special-price .price-label, .products-grid .item .price-box .special-price .label, .products-grid .item .price-box .to-date .price-label, .products-grid .item .price-box .to-date .label, .products-grid .item .price-box .minimal-price-link .price-label, .products-grid .item .price-box .minimal-price-link .label, .products-grid .with-image-desc .price-box .special-price .price-label, .products-grid .with-image-desc .price-box .special-price .label, .products-grid .with-image-desc .price-box .to-date .price-label, .products-grid .with-image-desc .price-box .to-date .label, .products-grid .with-image-desc .price-box .minimal-price-link .price-label, .products-grid .with-image-desc .price-box .minimal-price-link .label, .top-products-slider .item .price-box .special-price .price-label, .top-products-slider .item .price-box .special-price .label, .top-products-slider .item .price-box .to-date .price-label, .top-products-slider .item .price-box .to-date .label, .top-products-slider .item .price-box .minimal-price-link .price-label, .top-products-slider .item .price-box .minimal-price-link .label, .top-products-slider .with-image-desc .price-box .special-price .price-label, .top-products-slider .with-image-desc .price-box .special-price .label, .top-products-slider .with-image-desc .price-box .to-date .price-label, .top-products-slider .with-image-desc .price-box .to-date .label, .top-products-slider .with-image-desc .price-box .minimal-price-link .price-label, .top-products-slider .with-image-desc .price-box .minimal-price-link .label {
+.products-list .item .price-box .special-price .price-label, .products-list .item .price-box .special-price .label, .products-list .item .price-box .to-date .price-label, .products-list .item .price-box .to-date .label, .products-list .item .price-box .minimal-price-link .price-label, .products-list .item .price-box .minimal-price-link .label, .products-list .with-image-desc .price-box .special-price .price-label, .products-list .with-image-desc .price-box .special-price .label, .products-list .with-image-desc .price-box .to-date .price-label, .products-list .with-image-desc .price-box .to-date .label, .products-list .with-image-desc .price-box .minimal-price-link .price-label, .products-list .with-image-desc .price-box .minimal-price-link .label, .products-grid .item .price-box .special-price .price-label, .products-grid .item .price-box .special-price .label, .products-grid .item .price-box .to-date .price-label, .products-grid .item .price-box .to-date .label, .products-grid .item .price-box .minimal-price-link .price-label, .products-grid .item .price-box .minimal-price-link .label, .products-grid .with-image-desc .price-box .special-price .price-label, .products-grid .with-image-desc .price-box .special-price .label, .products-grid .with-image-desc .price-box .to-date .price-label, .products-grid .with-image-desc .price-box .to-date .label, .products-grid .with-image-desc .price-box .minimal-price-link .price-label, .products-grid .with-image-desc .price-box .minimal-price-link .label, .gift-grid .item .price-box .special-price .price-label, .gift-grid .item .price-box .special-price .label, .gift-grid .item .price-box .to-date .price-label, .gift-grid .item .price-box .to-date .label, .gift-grid .item .price-box .minimal-price-link .price-label, .gift-grid .item .price-box .minimal-price-link .label, .gift-grid .with-image-desc .price-box .special-price .price-label, .gift-grid .with-image-desc .price-box .special-price .label, .gift-grid .with-image-desc .price-box .to-date .price-label, .gift-grid .with-image-desc .price-box .to-date .label, .gift-grid .with-image-desc .price-box .minimal-price-link .price-label, .gift-grid .with-image-desc .price-box .minimal-price-link .label, .top-products-slider .item .price-box .special-price .price-label, .top-products-slider .item .price-box .special-price .label, .top-products-slider .item .price-box .to-date .price-label, .top-products-slider .item .price-box .to-date .label, .top-products-slider .item .price-box .minimal-price-link .price-label, .top-products-slider .item .price-box .minimal-price-link .label, .top-products-slider .with-image-desc .price-box .special-price .price-label, .top-products-slider .with-image-desc .price-box .special-price .label, .top-products-slider .with-image-desc .price-box .to-date .price-label, .top-products-slider .with-image-desc .price-box .to-date .label, .top-products-slider .with-image-desc .price-box .minimal-price-link .price-label, .top-products-slider .with-image-desc .price-box .minimal-price-link .label {
   vertical-align: middle;
 }
-.products-list .item .price-box .special-price .price, .products-list .item .price-box .to-date .price, .products-list .item .price-box .minimal-price-link .price, .products-list .with-image-desc .price-box .special-price .price, .products-list .with-image-desc .price-box .to-date .price, .products-list .with-image-desc .price-box .minimal-price-link .price, .products-grid .item .price-box .special-price .price, .products-grid .item .price-box .to-date .price, .products-grid .item .price-box .minimal-price-link .price, .products-grid .with-image-desc .price-box .special-price .price, .products-grid .with-image-desc .price-box .to-date .price, .products-grid .with-image-desc .price-box .minimal-price-link .price, .top-products-slider .item .price-box .special-price .price, .top-products-slider .item .price-box .to-date .price, .top-products-slider .item .price-box .minimal-price-link .price, .top-products-slider .with-image-desc .price-box .special-price .price, .top-products-slider .with-image-desc .price-box .to-date .price, .top-products-slider .with-image-desc .price-box .minimal-price-link .price {
+.products-list .item .price-box .special-price .price, .products-list .item .price-box .to-date .price, .products-list .item .price-box .minimal-price-link .price, .products-list .with-image-desc .price-box .special-price .price, .products-list .with-image-desc .price-box .to-date .price, .products-list .with-image-desc .price-box .minimal-price-link .price, .products-grid .item .price-box .special-price .price, .products-grid .item .price-box .to-date .price, .products-grid .item .price-box .minimal-price-link .price, .products-grid .with-image-desc .price-box .special-price .price, .products-grid .with-image-desc .price-box .to-date .price, .products-grid .with-image-desc .price-box .minimal-price-link .price, .gift-grid .item .price-box .special-price .price, .gift-grid .item .price-box .to-date .price, .gift-grid .item .price-box .minimal-price-link .price, .gift-grid .with-image-desc .price-box .special-price .price, .gift-grid .with-image-desc .price-box .to-date .price, .gift-grid .with-image-desc .price-box .minimal-price-link .price, .top-products-slider .item .price-box .special-price .price, .top-products-slider .item .price-box .to-date .price, .top-products-slider .item .price-box .minimal-price-link .price, .top-products-slider .with-image-desc .price-box .special-price .price, .top-products-slider .with-image-desc .price-box .to-date .price, .top-products-slider .with-image-desc .price-box .minimal-price-link .price {
   display: block;
   font-size: 1rem;
   vertical-align: middle;
   font-weight: 600;
 }
-.products-list .item .price-box .minimal-price-link .label, .products-list .with-image-desc .price-box .minimal-price-link .label, .products-grid .item .price-box .minimal-price-link .label, .products-grid .with-image-desc .price-box .minimal-price-link .label, .top-products-slider .item .price-box .minimal-price-link .label, .top-products-slider .with-image-desc .price-box .minimal-price-link .label {
+.products-list .item .price-box .minimal-price-link .label, .products-list .with-image-desc .price-box .minimal-price-link .label, .products-grid .item .price-box .minimal-price-link .label, .products-grid .with-image-desc .price-box .minimal-price-link .label, .gift-grid .item .price-box .minimal-price-link .label, .gift-grid .with-image-desc .price-box .minimal-price-link .label, .top-products-slider .item .price-box .minimal-price-link .label, .top-products-slider .with-image-desc .price-box .minimal-price-link .label {
   background-color: transparent;
   color: #ff0000;
   font-size: inherit;
   padding: 0;
 }
-.products-list .item .price-box .minimal-price-link .price, .products-list .with-image-desc .price-box .minimal-price-link .price, .products-grid .item .price-box .minimal-price-link .price, .products-grid .with-image-desc .price-box .minimal-price-link .price, .top-products-slider .item .price-box .minimal-price-link .price, .top-products-slider .with-image-desc .price-box .minimal-price-link .price {
+.products-list .item .price-box .minimal-price-link .price, .products-list .with-image-desc .price-box .minimal-price-link .price, .products-grid .item .price-box .minimal-price-link .price, .products-grid .with-image-desc .price-box .minimal-price-link .price, .gift-grid .item .price-box .minimal-price-link .price, .gift-grid .with-image-desc .price-box .minimal-price-link .price, .top-products-slider .item .price-box .minimal-price-link .price, .top-products-slider .with-image-desc .price-box .minimal-price-link .price {
   color: #ff0000;
 }
-.products-list .item .tax-details, .products-list .item .delivery-time, .products-list .with-image-desc .tax-details, .products-list .with-image-desc .delivery-time, .products-grid .item .tax-details, .products-grid .item .delivery-time, .products-grid .with-image-desc .tax-details, .products-grid .with-image-desc .delivery-time, .top-products-slider .item .tax-details, .top-products-slider .item .delivery-time, .top-products-slider .with-image-desc .tax-details, .top-products-slider .with-image-desc .delivery-time {
+.products-list .item .tax-details, .products-list .item .delivery-time, .products-list .with-image-desc .tax-details, .products-list .with-image-desc .delivery-time, .products-grid .item .tax-details, .products-grid .item .delivery-time, .products-grid .with-image-desc .tax-details, .products-grid .with-image-desc .delivery-time, .gift-grid .item .tax-details, .gift-grid .item .delivery-time, .gift-grid .with-image-desc .tax-details, .gift-grid .with-image-desc .delivery-time, .top-products-slider .item .tax-details, .top-products-slider .item .delivery-time, .top-products-slider .with-image-desc .tax-details, .top-products-slider .with-image-desc .delivery-time {
   margin: 0;
   font-size: 0.8rem;
 }
-.products-list .item .btn-cart, .products-list .with-image-desc .btn-cart, .products-grid .item .btn-cart, .products-grid .with-image-desc .btn-cart, .top-products-slider .item .btn-cart, .top-products-slider .with-image-desc .btn-cart {
+.products-list .item .btn-cart, .products-list .with-image-desc .btn-cart, .products-grid .item .btn-cart, .products-grid .with-image-desc .btn-cart, .gift-grid .item .btn-cart, .gift-grid .with-image-desc .btn-cart, .top-products-slider .item .btn-cart, .top-products-slider .with-image-desc .btn-cart {
   margin: 1em 0 0 0;
 }
-.products-list .item .product-shop a, .products-list .with-image-desc .product-shop a, .products-grid .item .product-shop a, .products-grid .with-image-desc .product-shop a, .top-products-slider .item .product-shop a, .top-products-slider .with-image-desc .product-shop a {
+.products-list .item .product-shop a, .products-list .with-image-desc .product-shop a, .products-grid .item .product-shop a, .products-grid .with-image-desc .product-shop a, .gift-grid .item .product-shop a, .gift-grid .with-image-desc .product-shop a, .top-products-slider .item .product-shop a, .top-products-slider .with-image-desc .product-shop a {
   padding: 0;
 }
 
@@ -25223,7 +25230,7 @@ header .header-bottom .account .menu {
   margin-right: 0.3125rem;
 }
 
-.products-grid, .search-grid, .gift-grid {
+.products-grid, .search-grid {
   padding-right: 0;
   padding-left: 0;
   max-width: 81.25rem;
@@ -25233,7 +25240,7 @@ header .header-bottom .account .menu {
   flex-flow: row wrap;
   justify-content: center;
 }
-.products-grid > li, .search-grid > li, .gift-grid > li {
+.products-grid > li, .search-grid > li {
   flex: 0 0 auto;
   width: calc(100% - 0.625rem);
   margin-top: 0.3125rem;
@@ -25242,7 +25249,7 @@ header .header-bottom .account .menu {
   margin-right: 0.3125rem;
 }
 
-.trust-grid {
+.trust-grid, .gift-grid {
   padding-right: 0;
   padding-left: 0;
   max-width: 81.25rem;
@@ -25252,7 +25259,7 @@ header .header-bottom .account .menu {
   flex-flow: row wrap;
   justify-content: center;
 }
-.trust-grid > li {
+.trust-grid > li, .gift-grid > li {
   flex: 0 0 auto;
   width: calc(50% - 0.625rem);
   margin-top: 0.3125rem;
@@ -25947,17 +25954,17 @@ footer .footer-payments .org, footer .footer-payments .social, footer .footer-pa
     margin-left: 0.3125rem;
     margin-right: 0.3125rem;
   }
-  .products-grid > li, .search-grid > li, .gift-grid > li {
+  .products-grid > li, .search-grid > li {
     flex: 0 0 auto;
     width: calc(33.3333333333% - 0.625rem);
     margin-left: 0.3125rem;
     margin-right: 0.3125rem;
   }
-  .products-grid .action, .search-grid .action, .gift-grid .action {
+  .products-grid .action, .search-grid .action {
     align-items: center;
     justify-content: center;
   }
-  .trust-grid > li {
+  .trust-grid > li, .gift-grid > li {
     flex: 0 0 auto;
     width: calc(25% - 0.625rem);
     margin-left: 0.3125rem;
@@ -26277,17 +26284,13 @@ footer .footer-payments .org, footer .footer-payments .social, footer .footer-pa
     margin-left: 0.3125rem;
     margin-right: 0.3125rem;
   }
-  .products-grid > li, .search-grid > li, .gift-grid > li {
+  .products-grid > li, .search-grid > li {
     flex: 0 0 auto;
     width: calc(25% - 0.625rem);
     margin-left: 0.3125rem;
     margin-right: 0.3125rem;
   }
-  .products-grid .karneval, .search-grid .karneval, .gift-grid .karneval {
-    align-items: center;
-    justify-content: center;
-  }
-  .trust-grid > li {
+  .trust-grid > li, .gift-grid > li {
     flex: 0 0 auto;
     width: calc(12.5% - 0.625rem);
     margin-left: 0.3125rem;
@@ -26529,14 +26532,14 @@ footer .footer-payments .org, footer .footer-payments .social, footer .footer-pa
     margin-left: 0.3125rem;
     margin-right: 0.3125rem;
   }
-  .products-grid, .search-grid, .gift-grid {
+  .products-grid, .search-grid {
     padding-right: 0;
     padding-left: 0;
     max-width: 120rem;
     margin-left: auto;
     margin-right: auto;
   }
-  .products-grid > li, .search-grid > li, .gift-grid > li {
+  .products-grid > li, .search-grid > li {
     flex: 0 0 auto;
     width: calc(12.5% - 0.625rem);
     margin-left: 0.3125rem;
@@ -28442,6 +28445,10 @@ header .header-bottom .search-mobile i {
   margin: 0;
   font-size: 1rem;
 }
+.product-view .product-shop .ampromo-gift, .product-view-revslider .product-shop .ampromo-gift {
+  list-style-type: none;
+  margin: 0;
+}
 .product-view .product-img-box .product-image, .product-view-revslider .product-img-box .product-image {
   position: relative;
 }
@@ -28846,9 +28853,6 @@ header .header-bottom .search-mobile i {
   border-bottom: dotted 1px #e6e6e6;
   font-size: 0.75rem;
   padding: 0.875rem 1.125rem;
-}
-.pricing-table li:last-child {
-  border-bottom: 0;
 }
 .pricing-table li table {
   margin-bottom: 0;

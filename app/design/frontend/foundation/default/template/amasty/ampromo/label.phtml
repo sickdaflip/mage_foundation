@@ -1,0 +1,14 @@
+<?php
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+* @package Auto Add Promo Items
+*/
+?>
+<?php
+if (Mage::helper('ambase')->isModuleActive('Amasty_PromoBannersLite') && Mage::helper('ambannerslite')->isEnable()):
+    if ($this->getImage() && $this->getEnabled()): ?>
+        <img class="ampromo-label" alt="<?php echo $this->getAlt();?>" src="<?php echo $this->getImage();?>">
+    <?php endif; ?>
+    <div style="clear: both;"></div>
+<?php endif; ?>

@@ -8,10 +8,10 @@
   "main": "gulpfile.babel.js",
   "type": "module",
   "scripts": {
-    "start": "gulp --development",
-    "dev": "gulp build --development",
-    "build": "gulp build --production",
-    "package": "gulp package --production",
+    "start": "gulp --mode=development",
+    "dev": "gulp build --mode=development",
+    "build": "gulp build --mode=production",
+    "package": "gulp package --mode=production",
     "phpcs": "gulp phpcs",
     "phpcbf": "gulp phpcbf"
   },
@@ -31,7 +31,6 @@
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
     "@fortawesome/fontawesome-free": "^6.4.2",
-    "@sequencemedia/gulp-clean-css": "^1.0.32",
     "autoprefixer": "^10.4.15",
     "babel": "^6.23.0",
     "babel-loader": "^9.1.3",
@@ -41,8 +40,6 @@
     "chai-jquery": "^2.1.0",
     "clipboard": "^2.0.11",
     "corejs-typeahead": "^1.3.3",
-    "css-size": "^6.0.0",
-    "cssnano": "^6.0.1",
     "cz-conventional-changelog": "^3.3.0",
     "doiuse": "^6.0.2",
     "foundation-sites": "^6.8.1",
@@ -53,11 +50,9 @@
     "gulp-check-deps": "^1.4.1",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.4.3",
-    "gulp-cssnano": "^2.1.3",
     "gulp-eslint": "^6.0.0",
     "gulp-filter": "^7.0.0",
     "gulp-if": "^3.0.0",
-    "gulp-image": "^6.3.1",
     "gulp-imagemin": "^8.0.0",
     "gulp-load-plugins": "^2.0.8",
     "gulp-mode": "^1.1.0",
@@ -89,7 +84,7 @@
     "owl.carousel": "^2.3.4",
     "panini": "latest",
     "patch-package": "^8.0.0",
-    "postcss": "^8.4.29",
+    "postcss": "^8.4.28",
     "prettyjson": "^1.1.3",
     "pwstrength-foundation": "github:sickdaflip/jquery.pwstrength.foundation",
     "require-dir": "^1.2.0",
@@ -158,8 +153,5 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "dependencies": {
-    "postcss-discard-comments": "^6.0.0"
   }
 }

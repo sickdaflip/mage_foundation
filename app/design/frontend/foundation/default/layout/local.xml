@@ -34,10 +34,7 @@
                 <type>skin_css</type>
                 <name>css/style-newssubscribers.css</name>
             </action>
-            <action method="removeItem">
-                <type>skin_css</type>
-                <name>css/amasty/ampromo/styles.css</name>
-            </action>
+
             <action method="removeItem">
                 <type>js</type>
                 <script>newssubscribers/script.js</script>
@@ -71,6 +68,22 @@
                 <type>skin_js</type>
                 <name>js/ie6.js</name>
             </action>
+
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/amasty/ambannerslite/styles.css</name>
+            </action>
+
+            <action method="removeItem">
+                <type>skin_css</type>
+                <name>css/amasty/ampromo/styles.css</name>
+            </action>
+
+            <action method="removeItem">
+                <type>skin_js</type>
+                <script>amasty/ampromo/items.js</script>
+            </action>
+
             <action method="addItem">
                 <type>skin_js</type>
                 <name>dist/assets/js/jquery.lazy.js</name>
@@ -97,6 +110,8 @@
         <remove name="paypal.partner.right.logo"/>      <!--Paypal logo Sample Data-->
         <remove name="sale.reorder.sidebar"/>           <!--Reorder Sidebar When User Logged, in Dashboard-->
         <remove name="currency"/>
+
+        <remove name="ampromo.blocks.add"/>
 
         <!-- remove the language and store switcher and footer links blocks, we won't use them -->
         <remove name="store_language"/>

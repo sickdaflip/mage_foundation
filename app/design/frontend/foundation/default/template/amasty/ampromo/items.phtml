@@ -10,28 +10,12 @@
 $products = $this->getItems();
 $mode = $this->getModeName();
 ?>
-<hr>
-<script type="text/javascript">
-    Object.extend(Product.Config.prototype, {
-        reloadOptionLabels: function () {
-        },
-        changeSelection: function () {
-        },
-        reloadPrice: function () {
-        }
-    });
-</script>
-<p class="h4"><?php echo $this->getPopupHeader() ?></p>
-<ul class="products-grid">
+
+<?php echo $this->getPopupHeader() ?>
+<?php echo $this->getOptionsJs() ?>
+<?php echo $this->getCalendarJs() ?>
+<ul id="ampromo-items" class="gift-grid">
     <?php foreach ($products as $product): ?>
-        <li class="item">
-            <?php echo $this->renderItem($product) ?>
-        </li>
+        <?php echo $this->renderItem($product) ?>
     <?php endforeach ?>
 </ul>
-<?php if ($mode == 'inline'): ?>
-    <script>
-        ampromo_init();
-    </script>
-<?php endif ?>
-<hr>

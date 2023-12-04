@@ -13,15 +13,12 @@ $product = $this->getProduct();
 $parent = $this->getParentBlock();
 $formId = 'ampromo_items_form-' . $product->getId();
 $rule = $this->getData('rule');
-
 $optionsHtml = trim($this->getTypeOptionsHtml() . $this->customOptionsHtml());
 ?>
-
 <script>
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>
-
-<div class="ampromo-item ampromo-type-<?php echo $product->getTypeId() ?>"
+<li class="item ampromo-type-<?php echo $product->getTypeId() ?>"
      data-role="item"
      data-product-id="<?php echo $product->getId()?>"
      data-product-sku="<?php echo $product->getSku()?>">
@@ -29,31 +26,18 @@ $optionsHtml = trim($this->getTypeOptionsHtml() . $this->customOptionsHtml());
           action="<?php echo $this->getFormActionUrl()?>"
           class="ampromo-items-form"
           id="<?php echo $formId ?>">
-
-        <div class="product-config <?php echo empty($optionsHtml) ? 'simple' : 'options' ?>">
-            <div class="product-title">
-                <div class="ampromo-item-title">
-                    <?php if ($product->getVisibility() != Mage_Catalog_Model_Product_Visibility::VISIBILITY_NOT_VISIBLE):?>
-                        <p class="h5"><a href="<?php echo $product->getProductUrl()?>"><?php echo $product->getName()?></a></p>
-                    <?php else: ?>
-                        <p class="h5"><?php echo $product->getName()?></p>
-                    <?php endif?>
-                </div>
-
-                <div class="ampromo-item-image-wrap">
-                    <img src="<?php echo $this->getImageUrl($product, 160, 160) ?>" class="ampromo-item-image"/>
-                </div>
-            </div>
-
-            <div class="ampromo-item-options">
-                <?php echo $optionsHtml ?>
-            </div>
+           <div class="gift-ribbon"><span><?php echo $this->__('Free') ?></span></div>
+        <div class="products-image float-center">
+                <img class="lazy"
+                     data-src="<?php echo $this->getImageUrl($product, 160, 160) ?>"
+                     width="200" height="200"
+                     alt="<?php echo $this->stripTags($this->getImageLabel($product, 'small_image'), null, true) ?>"/>
         </div>
-
+        <div class="product-name">
+            <?php echo $product->getName()?>
+        </div>
         <input type="hidden" value="<?php echo $product->getId() ?>" name="product_id" />
-
         <?php echo $this->getPriceHtml($product); ?>
-
         <?php if ($rule):?>
             <div class="mark">
                 <?php if ($rule->getData('ampromo_type') == Amasty_Promo_Helper_Data::RULE_TYPE_ONE_SKU): ?>
@@ -72,4 +56,4 @@ $optionsHtml = trim($this->getTypeOptionsHtml() . $this->customOptionsHtml());
             </div>
         <?php endif ?>
     </form>
-</div>
+</li>
