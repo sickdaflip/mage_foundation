@@ -16,11 +16,11 @@ $_categories = $this->getCurrentChildCategories(); ?>
                         <a href="<?php echo $_category->getURL() ?>"
                            title="<?php echo $this->htmlEscape($_category->getName()) ?>">
                             <img class="lazy"
-                                 data-src="<?php echo $_category->getCategoryImage(200, 200) ?>"
+                                 data-src="<?php echo $_category->getCategoryImage(500, 500) ?>"
                                  alt="<?php echo $this->htmlEscape($_category->getName()) ?>"
                                  title="<?php echo $title ?>"
-                                 width="200"
-                                 height="200" />
+                                 width="500"
+                                 height="500" />
                         </a>
                     <?php endif; ?>
                     <h2 class="category-name">
@@ -32,134 +32,6 @@ $_categories = $this->getCurrentChildCategories(); ?>
         <?php endif; ?>
         <?php $i++; ?>
     <?php endforeach; ?>
-    <li class="item" data-equalizer-watch>
-        <div class="category-image">
-            <a href="<?php echo Mage::getUrl('') . 'hersteller/pacojet'; ?>"
-               title="PacoJet Spezial">
-                <img class="lazy"
-                     data-src="<?php echo $this->getSkinUrl('dist/assets/img/pacojet.jpg'); ?>"
-                     alt="PacoJet Spezial"
-                     width="200"
-                     height="200" />
-            </a>
-            <h2 class="category-name">
-                <a href="<?php echo Mage::getUrl('') . 'hersteller/pacojet'; ?>"
-                   title="PacoJet Spezial">PacoJet Spezial</a>
-            </h2>
-        </div>
-    </li>
-    <li class="item" data-equalizer-watch>
-        <div class="category-image">
-            <a href="<?php echo Mage::getUrl('') . 'hersteller/jura'; ?>"
-               title="JURA Shop">
-                <img class="lazy"
-                     data-src="<?php echo $this->getSkinUrl('dist/assets/img/jurashop.jpg'); ?>"
-                     alt="JURA Shop"
-                     width="200"
-                     height="200" />
-            </a>
-            <h2 class="category-name">
-                <a href="<?php echo Mage::getUrl('') . 'hersteller/jura'; ?>"
-                   title="JURA Shop">JURA Shop</a>
-            </h2>
-        </div>
-    </li>
-    <li class="item" data-equalizer-watch>
-        <div class="category-image">
-            <a href="<?php echo Mage::getUrl('') . 'hersteller/bartscher'; ?>"
-               title="Bartscher Shop">
-                <img class="lazy"
-                     data-src="<?php echo $this->getSkinUrl('dist/assets/img/bartscher-shop.png'); ?>"
-                     alt="Bartscher Shop"
-                     width="200"
-                     height="200" />
-            </a>
-            <h2 class="category-name">
-                <a href="<?php echo Mage::getUrl('') . 'hersteller/bartscher'; ?>"
-                   title="Bartscher Shop">Bartscher Shop</a>
-            </h2>
-        </div>
-    </li>
-    <li class="item" data-equalizer-watch>
-        <div class="category-image">
-            <a href="<?php echo Mage::getUrl('') . 'hersteller/mkn'; ?>"
-               title="MKN Shop">
-                <img class="lazy"
-                     data-src="<?php echo $this->getSkinUrl('dist/assets/img/mkn-profishop.jpg'); ?>"
-                     alt="MKN Shop"
-                     width="200"
-                     height="200" />
-            </a>
-            <h2 class="category-name">
-                <a href="<?php echo Mage::getUrl('') . 'hersteller/mkn'; ?>"
-                   title="MKN Shop">MKN Profishop</a>
-            </h2>
-        </div>
-    </li>
-    <li class="item" data-equalizer-watch>
-        <div class="category-image">
-            <a href="<?php echo Mage::getUrl('') . 'hersteller/aliseo'; ?>"
-               title="Aliseo Shop">
-                <img class="lazy"
-                     data-src="<?php echo $this->getSkinUrl('dist/assets/img/aliseo-profishop.png'); ?>"
-                     alt="Aliseo Shop"
-                     width="200"
-                     height="200" />
-            </a>
-            <h2 class="category-name">
-                <a href="<?php echo Mage::getUrl('') . 'hersteller/aliseo'; ?>"
-                   title="Aliseo Shop">Aliseo Shop</a>
-            </h2>
-        </div>
-    </li>
-    <li class="item" data-equalizer-watch>
-        <div class="category-image">
-            <a href="<?php echo Mage::getUrl('') . 'hersteller/frasco'; ?>"
-               title="Frasco Shop">
-                <img class="lazy"
-                     data-src="<?php echo $this->getSkinUrl('dist/assets/img/frasco-shop.jpg'); ?>"
-                     alt="Frasco Shop"
-                     width="200"
-                     height="200" />
-            </a>
-            <h2 class="category-name">
-                <a href="<?php echo Mage::getUrl('') . 'hersteller/frasco'; ?>"
-                   title="Frasco Shop">Frasco Shop</a>
-            </h2>
-        </div>
-    </li>
-    <li class="item" data-equalizer-watch>
-        <div class="category-image">
-            <a href="<?php echo Mage::getUrl('') . 'hersteller/hugentobler'; ?>"
-               title="Hugentobler Spezial">
-                <img class="lazy"
-                     data-src="<?php echo $this->getSkinUrl('dist/assets/img/holdomat.jpg'); ?>"
-                     alt="Hugentobler Spezial"
-                     width="200"
-                     height="200" />
-            </a>
-            <h2 class="category-name">
-                <a href="<?php echo Mage::getUrl('') . 'hersteller/hugentobler'; ?>"
-                   title="Hugentobler Spezial">Hugentobler Spezial</a>
-            </h2>
-        </div>
-    </li>
-    <li class="item" data-equalizer-watch>
-        <div class="category-image">
-            <a href="<?php echo Mage::getUrl('') . 'altgeraeteentsorgung'; ?>"
-               title="Umweltprämie & Abwrackprämie">
-                <img class="lazy"
-                     data-src="<?php echo $this->getSkinUrl('dist/assets/img/abwrackpraemie-400x400.jpg'); ?>"
-                     alt="Umweltprämie & Abwrackprämie"
-                     width="200"
-                     height="200" />
-            </a>
-            <h2 class="category-name">
-                <a href="<?php echo Mage::getUrl('') . 'altgeraeteentsorgung'; ?>"
-                   title="Umweltprämie & Abwrackprämie">Umwelt-/ Abwrackprämie</a>
-            </h2>
-        </div>
-    </li>
 </ul>
 <script type="text/javascript">
     jQuery('.categories-home-grid .item').on("click", function () {
