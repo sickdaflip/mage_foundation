@@ -375,14 +375,17 @@ header {
         padding: 1px 3px;
         vertical-align: top;
         margin-left: -10px;
-        -webkit-border-radius: 9px;
-        -moz-border-radius: 9px;
-        border-radius: 9px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
       }
 
-      .shopping-cart a {
+      .shopping-cart button {
+        cursor: pointer;
+        color: $white;
         padding: 0 0 0 1rem;
         .title {
+          color: $white;
           @include breakpoint(small only) {
             font-size: 0;
           }

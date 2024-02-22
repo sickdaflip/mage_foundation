@@ -121,185 +121,7 @@ if (!function_exists('clean')) {
                 </ul>
             </div>
         </form>
-        <script>
-            var productAddToCartForm = new VarienForm('product_addtocart_form');
-            productAddToCartForm.submit = function (button, url) {
-                if (this.validator.validate()) {
-                    var form = this.form;
-                    var oldUrl = form.action;
 
-                    if (url) {
-                        form.action = url;
-                    }
-                    var e = null;
-                    if (!url) {
-                        url = jQuery('#product_addtocart_form').attr('action');
-                    }
-                    url = url.replace("checkout/cart", "ajax/cart");
-                    var data = jQuery('#product_addtocart_form').serialize();
-                    data += '&isAjax=1';
-                    jQuery('.please-wait').show();
-                    try {
-                        jQuery.ajax({
-                            url: url,
-                            dataType: 'json',
-                            type: 'post',
-                            data: data,
-                            success: function (data) {
-                                jQuery('.please-wait').hide();
-                                //alert(data.status + ": " + data.message);
-                                if (jQuery('.header-bottom .account .menu')) {
-                                    jQuery('.header-bottom .account .menu').replaceWith(data.toplink);
-                                }
-                                if (jQuery('#productAddToCartModal .qty span')) {
-                                    jQuery('#productAddToCartModal .qty span').html(data.qty);
-                                }
-                                jQuery('#productAddToCartModal').foundation('open');
-                            }
-                        });
-                    } catch (e) {
-                    }
-                    this.form.action = oldUrl;
-                    if (e) {
-                        throw e;
-                    }
-                }
-            }.bind(productAddToCartForm);
-
-            productAddToCartForm.submitLight = function (button, url) {
-                if (this.validator) {
-                    var nv = Validation.methods;
-                    delete Validation.methods['required-entry'];
-                    delete Validation.methods['validate-one-required'];
-                    delete Validation.methods['validate-one-required-by-name'];
-                    // Remove custom datetime validators
-                    for (var methodName in Validation.methods) {
-                        if (methodName.match(/^validate-datetime-.*/i)) {
-                            delete Validation.methods[methodName];
-                        }
-                    }
-
-                    if (this.validator.validate()) {
-                        if (url) {
-                            this.form.action = url;
-                        }
-                        this.form.submit();
-                    }
-                    Object.extend(Validation.methods, nv);
-                }
-            }.bind(productAddToCartForm);
-
-            var productUpdateToCartForm = new VarienForm('product_addtocart_form');
-            productUpdateToCartForm.submit = function (button, url) {
-                if (this.validator.validate()) {
-                    var form = this.form;
-                    var oldUrl = form.action;
-
-                    if (url) {
-                        form.action = url;
-                    }
-                    var e = null;
-                    if (!url) {
-                        url = jQuery('#product_addtocart_form').attr('action');
-                    }
-                    url = url.replace("checkout/cart", "ajax/cart");
-                    var data = jQuery('#product_addtocart_form').serialize();
-                    data += '&isAjax=1';
-                    jQuery('.please-wait').show();
-                    try {
-                        jQuery.ajax({
-                            url: url,
-                            dataType: 'json',
-                            type: 'post',
-                            data: data,
-                            success: function (data) {
-                                jQuery('.please-wait').hide();
-                                //alert(data.status + ": " + data.message);
-                                if (jQuery('.header-bottom .account .menu')) {
-                                    jQuery('.header-bottom .account .menu').replaceWith(data.toplink);
-                                }
-                                jQuery('#productUpdateToCartModal').foundation('open');
-                            }
-                        });
-                    } catch (e) {
-                    }
-                    this.form.action = oldUrl;
-                    if (e) {
-                        throw e;
-                    }
-                }
-            }.bind(productUpdateToCartForm);
-
-            productUpdateToCartForm.submitLight = function (button, url) {
-                if (this.validator) {
-                    var nv = Validation.methods;
-                    delete Validation.methods['required-entry'];
-                    delete Validation.methods['validate-one-required'];
-                    delete Validation.methods['validate-one-required-by-name'];
-                    // Remove custom datetime validators
-                    for (var methodName in Validation.methods) {
-                        if (methodName.match(/^validate-datetime-.*/i)) {
-                            delete Validation.methods[methodName];
-                        }
-                    }
-
-                    if (this.validator.validate()) {
-                        if (url) {
-                            this.form.action = url;
-                        }
-                        this.form.submit();
-                    }
-                    Object.extend(Validation.methods, nv);
-                }
-            }.bind(productUpdateToCartForm);
-        </script>
-    <div class="reveal" id="productAddToCartModal" data-reveal>
-        <p class="color-success"><?php echo $this->__('Sie haben dieses Produkt in Ihren Warenkorb gelegt'); ?></p>
-        <div class="grid-x grid-margin-x grid-padding-x align-middle">
-            <div class="cell small-12 medium-6">
-                <p>
-                    <img src="<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(250, 250) ?>"
-                         alt="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>"
-                         title="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>"
-                    class="float-center"/></p>
-            </div>
-            <div class="cell small-12 medium-6">
-                <p class="h3"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></p>
-                <p class="qty"><?php echo $this->__('Qty:'); ?> <span>0</span></p>
-            </div>
-        </div>
-        <div class="button-set text-center">
-            <a data-close aria-label="Close modal" class="hollow button">Weitershoppen</a>
-            <a href="<?php echo Mage::getUrl('', array('_direct' => 'checkout/cart')); ?>" class="button">Zum
-                Warenkorb</a>
-        </div>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="reveal" id="productUpdateToCartModal" data-reveal>
-        <p class="color-success"><?php echo $this->__('Sie haben dieses Produkt aktualisiert'); ?></p>
-        <div class="grid-x grid-margin-x grid-padding-x align-middle">
-            <div class="cell small-12 medium-6">
-                <p>
-                    <img src="<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(250, 250) ?>"
-                         alt="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>"
-                         title="<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>"
-                         class="float-center"/></p>
-            </div>
-            <div class="cell small-12 medium-6">
-                <p class="h3"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></p>
-            </div>
-        </div>
-        <div class="button-set text-center">
-            <a data-close aria-label="Close modal" class="hollow button">Weitershoppen</a>
-            <a href="<?php echo Mage::getUrl('', array('_direct' => 'checkout/cart')); ?>" class="button">Zum
-                Warenkorb</a>
-        </div>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
     <div class="product-collateral">
         <?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html): ?>
             <div class="box-collateral <?php echo "box-{$alias}" ?>">
@@ -312,4 +134,143 @@ if (!function_exists('clean')) {
         <?php echo $this->getChildHtml('product_additional_data') ?>
         <?php echo $this->getChildHtml('attachments') ?>
     </div>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var productAddToCartForm = new VarienForm('product_addtocart_form');
+        productAddToCartForm.submit = function (button, url) {
+            if (this.validator.validate()) {
+                var form = this.form;
+                var oldUrl = form.action;
+
+                if (url) {
+                    form.action = url;
+                }
+                var e = null;
+                if (!url) {
+                    url = jQuery('#product_addtocart_form').attr('action');
+                }
+                url = url.replace("checkout/cart", "ajax/cart");
+                var data = jQuery('#product_addtocart_form').serialize();
+                data += '&isAjax=1';
+                jQuery('.please-wait').show();
+                try {
+                    jQuery.ajax({
+                        url: url,
+                        dataType: 'json',
+                        type: 'post',
+                        data: data,
+                        success: function (data) {
+                            jQuery('.please-wait').hide();
+                            console.log(data);
+                            if (jQuery('.off-canvas_cart')) {
+                                jQuery('.off-canvas_cart').replaceWith(data.sidecart);
+                            }
+                            if (jQuery('.header-bottom .account .menu')) {
+                                jQuery('.header-bottom .account .menu').replaceWith(data.toplink);
+                            }
+                            if (jQuery('#productAddToCartModal .qty span')) {
+                                jQuery('#productAddToCartModal .qty span').html(data.qty);
+                            }
+                            jQuery('#offCanvasRightCart').foundation('open');
+                        }
+                    });
+                } catch (e) {
+                }
+                this.form.action = oldUrl;
+                if (e) {
+                    throw e;
+                }
+            }
+        }.bind(productAddToCartForm);
+
+        productAddToCartForm.submitLight = function (button, url) {
+            if (this.validator) {
+                var nv = Validation.methods;
+                delete Validation.methods['required-entry'];
+                delete Validation.methods['validate-one-required'];
+                delete Validation.methods['validate-one-required-by-name'];
+                // Remove custom datetime validators
+                for (var methodName in Validation.methods) {
+                    if (methodName.match(/^validate-datetime-.*/i)) {
+                        delete Validation.methods[methodName];
+                    }
+                }
+
+                if (this.validator.validate()) {
+                    if (url) {
+                        this.form.action = url;
+                    }
+                    this.form.submit();
+                }
+                Object.extend(Validation.methods, nv);
+            }
+        }.bind(productAddToCartForm);
+
+        var productUpdateToCartForm = new VarienForm('product_addtocart_form');
+        productUpdateToCartForm.submit = function (button, url) {
+            if (this.validator.validate()) {
+                var form = this.form;
+                var oldUrl = form.action;
+
+                if (url) {
+                    form.action = url;
+                }
+                var e = null;
+                if (!url) {
+                    url = jQuery('#product_addtocart_form').attr('action');
+                }
+                url = url.replace("checkout/cart", "ajax/cart");
+                var data = jQuery('#product_addtocart_form').serialize();
+                data += '&isAjax=1';
+                jQuery('.please-wait').show();
+                try {
+                    jQuery.ajax({
+                        url: url,
+                        dataType: 'json',
+                        type: 'post',
+                        data: data,
+                        success: function (data) {
+                            jQuery('.please-wait').hide();
+                            //alert(data.status + ": " + data.message);
+                            if (jQuery('.header-bottom .account .menu')) {
+                                jQuery('.header-bottom .account .menu').replaceWith(data.toplink);
+                            }
+                            jQuery('#offCanvasRightCart').foundation('open');
+                        }
+                    });
+                } catch (e) {
+                }
+                this.form.action = oldUrl;
+                if (e) {
+                    throw e;
+                }
+            }
+        }.bind(productUpdateToCartForm);
+
+        productUpdateToCartForm.submitLight = function (button, url) {
+            if (this.validator) {
+                var nv = Validation.methods;
+                delete Validation.methods['required-entry'];
+                delete Validation.methods['validate-one-required'];
+                delete Validation.methods['validate-one-required-by-name'];
+                // Remove custom datetime validators
+                for (var methodName in Validation.methods) {
+                    if (methodName.match(/^validate-datetime-.*/i)) {
+                        delete Validation.methods[methodName];
+                    }
+                }
+
+                if (this.validator.validate()) {
+                    if (url) {
+                        this.form.action = url;
+                    }
+                    this.form.submit();
+                }
+                Object.extend(Validation.methods, nv);
+            }
+        }.bind(productUpdateToCartForm);
+        //]]>
+    </script>
+
 </div>

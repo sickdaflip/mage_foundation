@@ -22724,6 +22724,61 @@ input.recaptcha_validation {
   margin: 0 1rem;
 }
 
+.off-canvas_cart {
+  margin: 1rem;
+  padding: 1rem;
+}
+.off-canvas_cart .summary .mini-products-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.off-canvas_cart .summary .mini-products-list .item_details {
+  font-size: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-right: 0;
+  padding-left: 0;
+  max-width: 81.25rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+}
+.off-canvas_cart .summary .mini-products-list .item_details .image {
+  flex: 0 0 auto;
+  width: calc(25% - 0.625rem);
+  margin-left: 0.3125rem;
+  margin-right: 0.3125rem;
+}
+.off-canvas_cart .summary .mini-products-list .item_details .name {
+  flex: 0 0 auto;
+  width: calc(58.3333333333% - 0.625rem);
+  margin-left: 0.3125rem;
+  margin-right: 0.3125rem;
+}
+.off-canvas_cart .summary .mini-products-list .item_details .del {
+  flex: 0 0 auto;
+  width: calc(16.6666666667% - 0.625rem);
+  margin-left: 0.3125rem;
+  margin-right: 0.3125rem;
+}
+.off-canvas_cart .summary .mini-products-list .item_details .del button {
+  cursor: pointer;
+}
+.off-canvas_cart .summary #shopping-cart-totals-table {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+#offCanvasRightCart {
+  border-left: 1px solid #000c44;
+}
+
 .toolbar, .toolbar-3 {
   margin: 0.5rem 0;
 }
@@ -27812,15 +27867,20 @@ header .header-bottom .account .cart-qty, header .header-bottom .account .cart-q
   padding: 1px 3px;
   vertical-align: top;
   margin-left: -10px;
-  -webkit-border-radius: 9px;
-  -moz-border-radius: 9px;
-  border-radius: 9px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
-header .header-bottom .account .shopping-cart a {
+header .header-bottom .account .shopping-cart button {
+  cursor: pointer;
+  color: #fefefe;
   padding: 0 0 0 1rem;
 }
+header .header-bottom .account .shopping-cart button .title {
+  color: #fefefe;
+}
 @media print, screen and (max-width: 39.99875em) {
-  header .header-bottom .account .shopping-cart a .title {
+  header .header-bottom .account .shopping-cart button .title {
     font-size: 0;
   }
 }
@@ -28737,10 +28797,10 @@ header .header-bottom .search-mobile i {
 }
 .product-options label {
   position: relative;
-  z-index: 100;
+  z-index: 1;
 }
 .product-options label .description {
-  z-index: 101;
+  z-index: 2;
 }
 .product-options .label {
   width: 100%;

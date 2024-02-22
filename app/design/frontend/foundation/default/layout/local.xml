@@ -93,7 +93,6 @@
         </reference>
 
         <!--Magento's Default Sidebar Blocks-->
-        <remove name="cart_sidebar"/>                   <!--Cart Sidebar-->
         <remove name="catalog.product.related"/>        <!--Related products sidebar-->
         <remove name="catalog.compare.sidebar"/>
         <remove name="wishlist_sidebar"/>               <!--Wishlist Sidebar-->
@@ -127,6 +126,16 @@
             <block type="core/template" name="top.search" as="topSearch" template="algoliasearch/autocomplete.phtml"/>
             <block type="core/template" name="algolia-beforecontent"
                    template="algoliasearch/internals/beforecontent.phtml"/>
+
+            <block type="checkout/cart_sidebar" name="cart_sidebar" template="checkout/cart/sidebar.phtml" before="-">
+                <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <block type="core/text_list" name="cart_sidebar.extra_actions" as="extra_actions" translate="label" module="checkout">
+                    <label>Shopping Cart Sidebar Extra Actions</label>
+                </block>
+            </block>
+
             <reference name="top.links">
                 <remove name="checkout_cart_link_custom"/>
                 <remove name="wishlist_link"/>

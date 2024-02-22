@@ -1,0 +1,199 @@
+<div class="off-canvas_cart">
+    <button class="close-button" aria-label="Close menu" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <?php $_cartQty = $this->getSummaryCount() ?>
+    <div class="summary">
+        <?php if ($_cartQty > 0): ?>
+            <p class="amount"><?php echo $this->__('There are <a href="%s">%s items</a> in your cart.', $this->getUrl('checkout/cart'), $_cartQty) ?></p>
+        <?php endif ?>
+        <?php $_items = $this->getRecentItems() ?>
+        <?php if (count($_items)): ?>
+            <ul id="cart-sidebar" class="mini-products-list">
+                <?php foreach ($_items as $_item): ?>
+                    <?php echo $this->getItemHtml($_item) ?>
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+            <p class="empty"><?php echo $this->__('You have no items in your shopping cart.') ?></p>
+        <?php endif ?>
+        <?php echo $this->getLayout()->createBlock('checkout/cart_totals')->setTemplate('checkout/cart/totals.phtml')->toHtml(); ?>
+    </div>
+    <?php if ($_cartQty && $this->isPossibleOnepageCheckout()): ?>
+        <div class="expanded button-group">
+            <a title="<?php echo Mage::helper('core')->quoteEscape($this->__('Cart')) ?>" class="button"
+               href="<?php echo $this->getUrl('checkout/cart') ?>"><?php echo $this->__('Cart') ?></a>
+            <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Checkout')) ?>"
+                    class="button"
+                    onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><?php echo $this->__('Checkout') ?></button>
+        </div>
+    <?php endif ?>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var productAddToCartForm = new VarienForm('product_addtocart_form');
+    productAddToCartForm.submit = function (button, url) {
+        if (this.validator.validate()) {
+            var form = this.form;
+            var oldUrl = form.action;
+
+            if (url) {
+                form.action = url;
+            }
+            var e = null;
+            if (!url) {
+                url = jQuery('#product_addtocart_form').attr('action');
+            }
+            url = url.replace("checkout/cart", "ajax/cart");
+            var data = jQuery('#product_addtocart_form').serialize();
+            data += '&isAjax=1';
+            jQuery('.please-wait').show();
+            try {
+                jQuery.ajax({
+                    url: url,
+                    dataType: 'json',
+                    type: 'post',
+                    data: data,
+                    success: function (data) {
+                        jQuery('.please-wait').hide();
+                        //console.log(data);
+                        if (jQuery('.off-canvas_cart')) {
+                            jQuery('.off-canvas_cart').replaceWith(data.sidecart);
+                        }
+                        if (jQuery('.header-bottom .account .menu')) {
+                            jQuery('.header-bottom .account .menu').replaceWith(data.toplink);
+                        }
+                        if (jQuery('#productAddToCartModal .qty span')) {
+                            jQuery('#productAddToCartModal .qty span').html(data.qty);
+                        }
+                        jQuery('#offCanvasRightCart').foundation('open');
+                    }
+                });
+            } catch (e) {
+            }
+            this.form.action = oldUrl;
+            if (e) {
+                throw e;
+            }
+        }
+    }.bind(productAddToCartForm);
+
+    productAddToCartForm.submitLight = function (button, url) {
+        if (this.validator) {
+            var nv = Validation.methods;
+            delete Validation.methods['required-entry'];
+            delete Validation.methods['validate-one-required'];
+            delete Validation.methods['validate-one-required-by-name'];
+            // Remove custom datetime validators
+            for (var methodName in Validation.methods) {
+                if (methodName.match(/^validate-datetime-.*/i)) {
+                    delete Validation.methods[methodName];
+                }
+            }
+
+            if (this.validator.validate()) {
+                if (url) {
+                    this.form.action = url;
+                }
+                this.form.submit();
+            }
+            Object.extend(Validation.methods, nv);
+        }
+    }.bind(productAddToCartForm);
+
+    var productUpdateToCartForm = new VarienForm('product_addtocart_form');
+    productUpdateToCartForm.submit = function (button, url) {
+        if (this.validator.validate()) {
+            var form = this.form;
+            var oldUrl = form.action;
+
+            if (url) {
+                form.action = url;
+            }
+            var e = null;
+            if (!url) {
+                url = jQuery('#product_addtocart_form').attr('action');
+            }
+            url = url.replace("checkout/cart", "ajax/cart");
+            var data = jQuery('#product_addtocart_form').serialize();
+            data += '&isAjax=1';
+            jQuery('.please-wait').show();
+            try {
+                jQuery.ajax({
+                    url: url,
+                    dataType: 'json',
+                    type: 'post',
+                    data: data,
+                    success: function (data) {
+                        jQuery('.please-wait').hide();
+                        //console.log(data);
+                        if (jQuery('.off-canvas_cart')) {
+                            jQuery('.off-canvas_cart').replaceWith(data.sidecart);
+                        }
+                        if (jQuery('.header-bottom .account .menu')) {
+                            jQuery('.header-bottom .account .menu').replaceWith(data.toplink);
+                        }
+                        jQuery('#productUpdateToCartModal').foundation('open');
+                    }
+                });
+            } catch (e) {
+            }
+            this.form.action = oldUrl;
+            if (e) {
+                throw e;
+            }
+        }
+    }.bind(productUpdateToCartForm);
+
+    productUpdateToCartForm.submitLight = function (button, url) {
+        if (this.validator) {
+            var nv = Validation.methods;
+            delete Validation.methods['required-entry'];
+            delete Validation.methods['validate-one-required'];
+            delete Validation.methods['validate-one-required-by-name'];
+            // Remove custom datetime validators
+            for (var methodName in Validation.methods) {
+                if (methodName.match(/^validate-datetime-.*/i)) {
+                    delete Validation.methods[methodName];
+                }
+            }
+
+            if (this.validator.validate()) {
+                if (url) {
+                    this.form.action = url;
+                }
+                this.form.submit();
+            }
+            Object.extend(Validation.methods, nv);
+        }
+    }.bind(productUpdateToCartForm);
+
+    function productRemoveFromCart(url) {
+
+        url = url.replace("checkout/cart/ajaxDelete", "ajax/cart/del");
+        var data = url;
+        data += '&isAjax=1';
+        jQuery('.please-wait').show();
+        try {
+            jQuery.ajax({
+                url: url,
+                dataType: 'json',
+                type: 'post',
+                data: data,
+                success: function (data) {
+                    jQuery('.please-wait').hide();
+                    console.log(data);
+                    if (jQuery('.off-canvas_cart')) {
+                        jQuery('.off-canvas_cart').replaceWith(data.sidecart);
+                    }
+                    if (jQuery('.header-bottom .account .menu')) {
+                        jQuery('.header-bottom .account .menu').replaceWith(data.toplink);
+                    }
+                }
+            });
+        } catch (e) {
+        }
+    }
+    //]]>
+</script>

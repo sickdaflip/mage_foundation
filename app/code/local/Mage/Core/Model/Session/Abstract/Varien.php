@@ -449,11 +449,11 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
         $validatorData = $this->getValidatorData();
 
         if ($this->useValidateRemoteAddr()
-                && $sessionData[self::VALIDATOR_REMOTE_ADDR_KEY] != $validatorData[self::VALIDATOR_REMOTE_ADDR_KEY]) {
+            && $sessionData[self::VALIDATOR_REMOTE_ADDR_KEY] != $validatorData[self::VALIDATOR_REMOTE_ADDR_KEY]) {
             return false;
         }
         if ($this->useValidateHttpVia()
-                && $sessionData[self::VALIDATOR_HTTP_VIA_KEY] != $validatorData[self::VALIDATOR_HTTP_VIA_KEY]) {
+            && $sessionData[self::VALIDATOR_HTTP_VIA_KEY] != $validatorData[self::VALIDATOR_HTTP_VIA_KEY]) {
             return false;
         }
 

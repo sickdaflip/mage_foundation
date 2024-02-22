@@ -1,0 +1,263 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Shoping cart sidebar
+ *
+ * @see Mage_Checkout_Block_Cart_Sidebar
+ */
+
+?>
+
+<?php
+    $_cartQty = $this->getSummaryCount();
+    if(empty($_cartQty)) {
+        $_cartQty = 0;
+    }
+?>
+
+<a href="<?php echo $this->helper('checkout/cart')->getCartUrl(); ?>" data-target-element="#header-cart" class="skip-link skip-cart <?php if($_cartQty <= 0): ?> no-count<?php endif; ?>">
+    <span class="icon"></span>
+    <span class="label"><?php echo $this->__('Cart'); ?></span>
+    <span class="count"><?php echo $_cartQty; ?></span>
+</a>
+
+<div id="header-cart" class="block block-cart skip-content">
+    <?php echo $this->getChildHtml('minicart_content');?>
+</div>
+
+<script>
+    function Minicart(options) {
+        this.formKey = options.formKey;
+        this.previousVal = null;
+
+        this.defaultErrorMessage = 'Error occurred. Try to refresh page.';
+
+        this.selectors = {
+            itemRemove:           '#cart-sidebar1 .remove',
+            container:            '#header-cart1',
+            inputQty:             '.cart-item-quantity',
+            qty:                  'div.header-minicart span.count',
+            overlay:              '.minicart-wrapper1',
+            error:                '#minicart-error-message',
+            success:              '#minicart-success-message',
+            quantityButtonPrefix: '#qbutton-',
+            quantityInputPrefix:  '#qinput-',
+            quantityButtonClass:  '.quantity-button'
+        };
+
+        if (options.selectors) {
+            jQuery.extend(this.selectors, options.selectors);
+        }
+    }
+
+    Minicart.prototype = {
+        initAfterEvents : {},
+        removeItemAfterEvents : {},
+        init: function() {
+            var cart = this;
+
+            // bind remove event
+            jQuery(this.selectors.itemRemove).unbind('click.minicart').bind('click.minicart', function(e) {
+                e.preventDefault();
+                cart.removeItem(jQuery(this));
+            });
+
+            // bind update qty event
+            jQuery(this.selectors.inputQty)
+                .unbind('blur.minicart')
+                .unbind('focus.minicart')
+                .bind('focus.minicart', function() {
+                    cart.previousVal = jQuery(this).val();
+                    cart.displayQuantityButton(jQuery(this));
+                })
+                .bind('blur.minicart', function() {
+                    cart.revertInvalidValue(this);
+                });
+
+            jQuery(this.selectors.quantityButtonClass)
+                .unbind('click.quantity')
+                .bind('click.quantity', function() {
+                    cart.processUpdateQuantity(this);
+                });
+
+            for (var i in this.initAfterEvents) {
+                if (this.initAfterEvents.hasOwnProperty(i) && typeof(this.initAfterEvents[i]) === "function") {
+                    this.initAfterEvents[i]();
+                }
+            }
+
+        },
+
+        removeItem: function(el) {
+            var cart = this;
+            if (confirm(el.data('confirm'))) {
+                cart.hideMessage();
+                cart.showOverlay();
+                jQuery.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {form_key: cart.formKey},
+                    url: el.attr('href')
+                }).done(function(result) {
+                    cart.hideOverlay();
+                    if (result.success) {
+                        cart.updateCartQty(result.qty);
+                        cart.updateContentOnRemove(result, el.closest('li'));
+                    } else {
+                        cart.showMessage(result);
+                    }
+                }).error(function() {
+                    cart.hideOverlay();
+                    cart.showError(cart.defaultErrorMessage);
+                });
+            }
+            for (var i in this.removeItemAfterEvents) {
+                if (this.removeItemAfterEvents.hasOwnProperty(i) && typeof(this.removeItemAfterEvents[i]) === "function") {
+                    this.removeItemAfterEvents[i]();
+                }
+            }
+        },
+
+        revertInvalidValue: function(el) {
+            if (!this.isValidQty(jQuery(el).val()) || jQuery(el).val() == this.previousVal) {
+                jQuery(el).val(this.previousVal);
+                this.hideQuantityButton(el);
+            }
+        },
+
+        displayQuantityButton: function(el) {
+            var buttonId = this.selectors.quantityButtonPrefix + jQuery(el).data('item-id');
+            jQuery(buttonId).addClass('visible').attr('disabled',null);
+        },
+
+        hideQuantityButton: function(el) {
+            var buttonId = this.selectors.quantityButtonPrefix + jQuery(el).data('item-id');
+            jQuery(buttonId).removeClass('visible').attr('disabled','disabled');
+        },
+
+        processUpdateQuantity: function(el) {
+            var input = jQuery(this.selectors.quantityInputPrefix + jQuery(el).data('item-id'));
+            if (this.isValidQty(input.val()) && input.val() != this.previousVal) {
+                this.updateItem(el);
+            } else {
+                this.revertInvalidValue(input);
+            }
+        },
+
+        updateItem: function(el) {
+            var cart = this;
+            var input = jQuery(this.selectors.quantityInputPrefix + jQuery(el).data('item-id'));
+
+            if (!jQuery.isNumeric(input.val())) {
+                cart.hideOverlay();
+                cart.showError(cart.defaultErrorMessage);
+                return false;
+            }
+
+            var quantity = input.val();
+            cart.hideMessage();
+            cart.showOverlay();
+            jQuery.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: input.data('link'),
+                data: {qty: quantity, form_key: cart.formKey}
+            }).done(function(result) {
+                cart.hideOverlay();
+                if (result.success) {
+                    cart.updateCartQty(result.qty);
+                    if (quantity !== 0) {
+                        cart.updateContentOnUpdate(result);
+                    } else {
+                        cart.updateContentOnRemove(result, input.closest('li'));
+                    }
+                } else {
+                    cart.showMessage(result);
+                }
+            }).error(function() {
+                cart.hideOverlay();
+                cart.showError(cart.defaultErrorMessage);
+            });
+            return false;
+        },
+
+        updateContentOnRemove: function(result, el) {
+            var cart = this;
+            el.hide('slow', function() {
+                jQuery(cart.selectors.container).html(result.content);
+                cart.showMessage(result);
+
+            });
+        },
+
+        updateContentOnUpdate: function(result) {
+            jQuery(this.selectors.container).html(result.content);
+            this.showMessage(result);
+        },
+
+        updateCartQty: function(qty) {
+            if (typeof qty != 'undefined') {
+                jQuery(this.selectors.qty).text(qty);
+            }
+        },
+
+        isValidQty: function(val) {
+            return (val.length > 0) && (val - 0 == val) && (val - 0 > 0);
+        },
+
+        showOverlay: function() {
+            jQuery(this.selectors.overlay).addClass('loading');
+        },
+
+        hideOverlay: function() {
+            jQuery(this.selectors.overlay).removeClass('loading');
+        },
+
+        showMessage: function(result) {
+            if (typeof result.notice != 'undefined') {
+                this.showError(result.notice);
+            } else if (typeof result.error != 'undefined') {
+                this.showError(result.error);
+            } else if (typeof result.message != 'undefined') {
+                this.showSuccess(result.message);
+            }
+        },
+
+        hideMessage: function() {
+            jQuery(this.selectors.error).fadeOut('slow');
+            jQuery(this.selectors.success).fadeOut('slow');
+        },
+
+        showError: function(message) {
+            jQuery(this.selectors.error).text(message).fadeIn('slow');
+        },
+
+        showSuccess: function(message) {
+            jQuery(this.selectors.success).text(message).fadeIn('slow');
+        }
+    };
+</script>

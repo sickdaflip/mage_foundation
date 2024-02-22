@@ -2,16 +2,21 @@
 <?php if (count($_links) > 0): ?>
     <ul class="menu">
         <?php foreach ($_links as $_link): ?>
-            <li  <?php if ($_link->getUrl() == '/checkout/cart'): ?>class="shopping-cart"<?php endif; ?>>
-                <a href="<?php echo $_link->getUrl() ?>" <?php echo $_link->getAParams() ?>><?php echo $_link->getBeforeText() ?>
-                    <?php if ($_link->getUrl() == '/checkout/cart'): ?>
-                        <?php $_cartQty = Mage::getSingleton('checkout/cart')->getItemsCount(); ?>
+            <li <?php if ($_link->getUrl() == '/checkout/cart'): ?>class="shopping-cart"<?php endif; ?>>
+                <?php if ($_link->getUrl() == '/checkout/cart'): ?>
+                    <button type="button" data-toggle="offCanvasRightCart">
+                        <?php $_cartQty = $this->helper('checkout/cart')->getSummaryCount(); ?>
+                        <?php echo $_link->getBeforeText() ?>
                         <span class="cart-qty<?php if ($_cartQty >= 10): ?>-10<?php endif; ?>">
-                                <?php echo $_cartQty; ?>
-                            </span>
-                    <?php endif; ?>
-                    <span class="title"><?php echo $_link->getTitle() ?></span>
-                </a>
+                            <?php if ($_cartQty): ?><?php endif; ?>
+                        </span>
+                        <span class="title"><?php echo $_link->getTitle() ?></span>
+                    </button>
+                <?php else: ?>
+                    <a href="<?php echo $_link->getUrl() ?>" <?php echo $_link->getAParams() ?>><?php echo $_link->getBeforeText() ?>
+                        <span class="title"><?php echo $_link->getTitle() ?></span>
+                    </a>
+                <?php endif; ?>
             </li>
         <?php endforeach; ?>
     </ul>

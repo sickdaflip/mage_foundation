@@ -11,7 +11,7 @@
     <div class="page">
         <?php echo $this->getChildHtml('header') ?>
         <div class="off-canvas-wrapper">
-            <div class="off-canvas-absolute position-left" id="offCanvas" data-off-canvas>
+            <div class="off-canvas-absolute position-left" id="offCanvas" data-off-canvas data-transition="overlap">
                 <?php echo $this->getLayout()->createBlock('page/html_topmenu')->setTemplate('page/html/topmenu.phtml')->toHtml(); ?>
             </div>
             <div class="off-canvas-content" data-off-canvas-content>
@@ -23,6 +23,9 @@
                     <div class="col-right sidebar"><?php echo $this->getChildHtml('right') ?></div>
                 </div>
                 <?php echo $this->getChildHtml('footer') ?>
+            </div>
+            <div class="off-canvas position-right" id="offCanvasRightCart" data-off-canvas data-transition="overlap">
+                <?php echo $this->getChildHtml('cart_sidebar') ?>
             </div>
         </div>
     </div>

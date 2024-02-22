@@ -151,7 +151,7 @@ $_helper = $this->helper('catalog/output');
                 <?php endforeach ?>
             </ul>
             <script type="text/javascript">
-                jQuery('.item').on("click", function () {
+                jQuery('.products-grid .item').on("click", function () {
                     location.href = jQuery(this).find('a').attr('href');
                 });
             </script>
