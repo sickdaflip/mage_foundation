@@ -42,7 +42,6 @@ class Foundation_Ajax_CartController extends Mage_Checkout_CartController
                     array('product' => $product, 'request' => $this->getRequest(), 'response' => $this->getResponse())
                 );
 
-                if (!$cart->getQuote()->getHasError()) {
                     $message = $this->__('%s was added to your shopping cart.', Mage::helper('core')->escapeHtml($product->getName()));
                     $response['status'] = 'SUCCESS';
                     $response['message'] = $message;
@@ -54,7 +53,7 @@ class Foundation_Ajax_CartController extends Mage_Checkout_CartController
                     $response['toplink'] = $toplink;
                     $response['sidecart'] = $sidecart;
                     $response['qty'] = $qty;
-                }
+
             } catch (Mage_Core_Exception $e) {
                 $msg = "";
                 if ($this->_getSession()->getUseNotice(true)) {
