@@ -8,7 +8,7 @@
                         <?php $_cartQty = $this->helper('checkout/cart')->getSummaryCount(); ?>
                         <?php echo $_link->getBeforeText() ?>
                         <span class="cart-qty<?php if ($_cartQty >= 10): ?>-10<?php endif; ?>">
-                            <?php if ($_cartQty): ?><?php endif; ?>
+                            <?php if (empty($_cartQty)): ?>0<?php else: echo $_cartQty; endif;?>
                         </span>
                         <span class="title"><?php echo $_link->getTitle() ?></span>
                     </button>
