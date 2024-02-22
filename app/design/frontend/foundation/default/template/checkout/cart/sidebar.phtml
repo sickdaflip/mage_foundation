@@ -56,7 +56,7 @@
                     type: 'post',
                     data: data,
                     success: function (data) {
-                        jQuery('.please-wait').hide();
+                        //jQuery('.please-wait').hide();
                         console.log(data);
                         if (jQuery('.off-canvas_cart')) {
                             jQuery('.off-canvas_cart').replaceWith(data.sidecart);
@@ -127,7 +127,7 @@
                     data: data,
                     success: function (data) {
                         jQuery('.please-wait').hide();
-                        console.log(data);
+                        //console.log(data);
                         if (jQuery('.off-canvas_cart')) {
                             jQuery('.off-canvas_cart').replaceWith(data.sidecart);
                         }
@@ -182,7 +182,7 @@
                 type: 'post',
                 data: data,
                 success: function (data) {
-                    jQuery('.please-wait').hide();
+                    //jQuery('.please-wait').hide();
                     console.log(data);
                     if (jQuery('.off-canvas_cart')) {
                         jQuery('.off-canvas_cart').replaceWith(data.sidecart);
