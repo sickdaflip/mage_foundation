@@ -19,15 +19,15 @@
         <?php endif ?>
         <?php echo $this->getLayout()->createBlock('checkout/cart_totals')->setTemplate('checkout/cart/totals.phtml')->toHtml(); ?>
     </div>
-    <?php if ($_cartQty && $this->isPossibleOnepageCheckout()): ?>
         <div class="expanded button-group">
             <a title="<?php echo Mage::helper('core')->quoteEscape($this->__('Cart')) ?>" class="button"
                href="<?php echo $this->getUrl('checkout/cart') ?>"><?php echo $this->__('Cart') ?></a>
+            <?php if ($_cartQty && $this->isPossibleOnepageCheckout()): ?>
             <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Checkout')) ?>"
                     class="button"
                     onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><?php echo $this->__('Checkout') ?></button>
+            <?php endif ?>
         </div>
-    <?php endif ?>
 </div>
 
 <script type="text/javascript">

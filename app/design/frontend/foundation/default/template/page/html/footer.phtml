@@ -41,7 +41,7 @@
                 <p><?php echo $this->__('Informationen') ?></p>
                 <ul>
                     <li>
-                        <a href="<?php echo Mage::getUrl('', array('_direct' => 'themen')); ?>"><?php echo $this->__('Themen') ?></a>
+                        <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten')); ?>"><?php echo $this->__('Zahlungsarten') ?></a>
                     </li>
                     <li>
                         <a href="<?php echo Mage::getUrl('', array('_direct' => 'lieferung')); ?>"><?php echo $this->__('Versandkosten') ?></a>
@@ -57,9 +57,6 @@
                     </li>
                     <li>
                         <a href="<?php echo Mage::getUrl('', array('_direct' => 'leasing-mietkauf')); ?>"><?php echo $this->__('Finanzierung %') ?></a>
-                    </li>
-                    <li>
-                        <a href="<?php echo Mage::getUrl('', array('_direct' => 'zahlungsarten')); ?>"><?php echo $this->__('Zahlungsarten') ?></a>
                     </li>
                     <?php if (Mage::app()->getStore()->getId() == '5'): /* B2C */ ?>
                         <li>
@@ -77,6 +74,9 @@
                     </li>
                     <li>
                         <a href="<?php echo Mage::getUrl(''); ?>"><?php echo $this->__('Startseite') ?></a>
+                    </li>
+                    <li>
+                        <a href="<?php echo Mage::getUrl('', array('_direct' => 'themen')); ?>"><?php echo $this->__('Themen') ?></a>
                     </li>
                 </ul>
                 <div class="reveal large" id="quality" data-reveal></div>
