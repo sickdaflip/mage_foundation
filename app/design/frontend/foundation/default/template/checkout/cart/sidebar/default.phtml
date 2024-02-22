@@ -119,11 +119,13 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
             <?php endif; //Can apply MSRP ?>
         </li>
         <li class="del">
+            <?php if (!$this->isOnCheckoutPage()): ?>
             <button type="button"
                     title="<?php echo Mage::helper('core')->quoteEscape($this->__('Remove This Item')) ?>"
                     onclick="productRemoveFromCart('<?php echo $this->getAjaxDeleteUrl() ?>');">
                 <i class="fa-solid fa-delete-left"></i>
             </button>
+            <?php endif; ?>
         </li>
     </ul>
 </li>
