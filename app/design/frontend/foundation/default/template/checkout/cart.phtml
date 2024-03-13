@@ -126,27 +126,6 @@
                                     <?php echo $this->__('Clear Shopping Cart'); ?>
                                 </button>
                             </div>
-                            <!--[if lt IE 8]>
-                            <input type="hidden" id="update_cart_action_container"/>
-                            <script type="text/javascript">
-                                //<![CDATA[
-                                Event.observe(window, 'load', function()
-                                {
-                                    // Internet Explorer (lt 8) does not support value attribute in button elements
-                                    $emptyCartButton = $('empty_cart_button');
-                                    $cartActionContainer = $('update_cart_action_container');
-                                    if ($emptyCartButton && $cartActionContainer) {
-                                        Event.observe($emptyCartButton, 'click', function()
-                                        {
-                                            $emptyCartButton.setAttribute('name', 'update_cart_action_temp');
-                                            $cartActionContainer.setAttribute('name', 'update_cart_action');
-                                            $cartActionContainer.setValue('empty_cart');
-                                        });
-                                    }
-                                });
-                            //]]>
-                            </script>
-                            <![endif]-->
                         </td>
                     </tr>
                     </tbody>
@@ -172,7 +151,36 @@
                 <?php endif; ?>
             </div>
         </div>
-
         <?php echo $this->getChildHtml('crosssell') ?>
     </div>
 </div>
+<script type="text/javascript">
+    //<![CDATA[
+    function productRemoveFromCart(url) {
+
+        url = url.replace("checkout/cart/ajaxDelete", "ajax/cart/del");
+        var data = url;
+        data += '&isAjax=1';
+        jQuery('.please-wait').show();
+        try {
+            jQuery.ajax({
+                url: url,
+                dataType: 'json',
+                type: 'post',
+                data: data,
+                success: function (data) {
+                    jQuery('.please-wait').hide();
+                    //console.log(data);
+                    if (jQuery('.off-canvas_cart')) {
+                        jQuery('.off-canvas_cart').replaceWith(data.sidecart);
+                    }
+                    if (jQuery('.header-bottom .account .menu')) {
+                        jQuery('.header-bottom .account .menu').replaceWith(data.toplink);
+                    }
+                }
+            });
+        } catch (e) {
+        }
+    }
+    //]]>
+</script>

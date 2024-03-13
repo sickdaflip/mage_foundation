@@ -34,7 +34,6 @@
                 <type>skin_css</type>
                 <name>css/style-newssubscribers.css</name>
             </action>
-
             <action method="removeItem">
                 <type>js</type>
                 <script>newssubscribers/script.js</script>
@@ -68,28 +67,23 @@
                 <type>skin_js</type>
                 <name>js/ie6.js</name>
             </action>
-
             <action method="removeItem">
                 <type>skin_css</type>
                 <name>css/amasty/ambannerslite/styles.css</name>
             </action>
-
             <action method="removeItem">
                 <type>skin_css</type>
                 <name>css/amasty/ampromo/styles.css</name>
             </action>
-
             <action method="removeItem">
                 <type>skin_js</type>
                 <script>amasty/ampromo/items.js</script>
             </action>
-
             <action method="addItem">
                 <type>skin_js</type>
                 <name>dist/assets/js/jquery.lazy.js</name>
                 <params>default</params>
             </action>
-
         </reference>
 
         <!--Magento's Default Sidebar Blocks-->
