@@ -151,7 +151,7 @@ header {
               width: 50%;
               margin-left: 50px;
               text-align: left;
-              font-size: 0.9em;
+              font-size: 1rem;
               width: auto;
               left: 0;
               top: -1px;
@@ -170,7 +170,7 @@ header {
               padding: 0;
               left: 1px;
               width: 50%;
-              background-color: $primary-color;
+              background-color: $secondary-color;
               border-radius: 4px;
               -webkit-transition: all 0.2s ease-out;
               -moz-transition: all 0.2s ease-out;
@@ -187,7 +187,7 @@ header {
           .toggleSwitch > span span:last-of-type {
               left:auto;
               right:0;
-              color: $primary-color;
+              color: $secondary-color;
               margin: 0;
               width: 50%;
           }
@@ -212,11 +212,11 @@ header {
               color: $primary-color;
           }
           .toggleSwitch input:checked ~ span span:last-of-type {
-              color: $white;
+              color: $primary-color;
           }
           .toggleSwitch input ~ span span:first-of-type {
               left:0;
-              color: $white;
+              color: $primary-color;
           }
           .toggleSwitch input ~ span span:last-of-type {
               color: $primary-color;

@@ -27652,7 +27652,7 @@ header .header-top .store_switch .toggleSwitch > span span {
   width: 50%;
   margin-left: 50px;
   text-align: left;
-  font-size: 0.9em;
+  font-size: 1rem;
   width: auto;
   left: 0;
   top: -1px;
@@ -27671,7 +27671,7 @@ header .header-top .store_switch .toggleSwitch a {
   padding: 0;
   left: 1px;
   width: 50%;
-  background-color: #000c44;
+  background-color: #ff9200;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
@@ -27688,7 +27688,7 @@ header .header-top .store_switch .toggleSwitch > span span:first-of-type {
 header .header-top .store_switch .toggleSwitch > span span:last-of-type {
   left: auto;
   right: 0;
-  color: #000c44;
+  color: #ff9200;
   margin: 0;
   width: 50%;
 }
@@ -27713,11 +27713,11 @@ header .header-top .store_switch .toggleSwitch input:checked ~ span span:first-o
   color: #000c44;
 }
 header .header-top .store_switch .toggleSwitch input:checked ~ span span:last-of-type {
-  color: #fefefe;
+  color: #000c44;
 }
 header .header-top .store_switch .toggleSwitch input ~ span span:first-of-type {
   left: 0;
-  color: #fefefe;
+  color: #000c44;
 }
 header .header-top .store_switch .toggleSwitch input ~ span span:last-of-type {
   color: #000c44;
