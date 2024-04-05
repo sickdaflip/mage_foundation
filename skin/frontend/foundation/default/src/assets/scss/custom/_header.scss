@@ -151,7 +151,10 @@ header {
               width: 50%;
               margin-left: 50px;
               text-align: left;
+              font-size: .8rem;
+            @include breakpoint(large) {
               font-size: 1rem;
+            }
               width: auto;
               left: 0;
               top: -1px;

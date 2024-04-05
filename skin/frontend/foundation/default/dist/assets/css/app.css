@@ -27652,7 +27652,7 @@ header .header-top .store_switch .toggleSwitch > span span {
   width: 50%;
   margin-left: 50px;
   text-align: left;
-  font-size: 1rem;
+  font-size: 0.8rem;
   width: auto;
   left: 0;
   top: -1px;
@@ -27660,6 +27660,11 @@ header .header-top .store_switch .toggleSwitch > span span {
   width: 40%;
   text-align: center;
   line-height: 34px;
+}
+@media print, screen and (min-width: 64em) {
+  header .header-top .store_switch .toggleSwitch > span span {
+    font-size: 1rem;
+  }
 }
 header .header-top .store_switch .toggleSwitch a {
   position: absolute;
