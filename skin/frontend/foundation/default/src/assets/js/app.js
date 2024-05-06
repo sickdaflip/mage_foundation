@@ -84,6 +84,7 @@ $(document).ready(function () {
     };
 
     $('.lazy').Lazy();
+
     Foundation.reInit($('.categories-grid'));
     Foundation.reInit($('.categories-home-grid'));
 

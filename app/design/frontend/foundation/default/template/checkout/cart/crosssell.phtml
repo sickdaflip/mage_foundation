@@ -95,7 +95,7 @@ function clean($string)
                             </a>
                         </div>
                         <?php if ($_item->getRatingSummary()): ?>
-                            <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
+                            <?php echo $this->getReviewsSummaryHtml($_item, 'short') ?>
                         <?php endif; ?>
                             <?php if ($_item->getAttributeText('manufacturer')): ?>
                                 <?php $brand = $_item->getAttributeText('manufacturer') ?>

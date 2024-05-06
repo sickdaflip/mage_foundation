@@ -47,7 +47,7 @@ class Foundation_Ajax_CartController extends Mage_Checkout_CartController
                     $response['message'] = $message;
                     $this->loadLayout();
                     $toplink = $this->getLayout()->getBlock('top.links')->toHtml();
-                    $sidecart = $this->getLayout()->getBlock('cart_sidebar')->toHtml();
+                    $sidecart = $this->getLayout()->getBlock('cart.sidebar')->toHtml();
                     $qty = $params['qty'];
                     Mage::register('referrer_url', $this->_getRefererUrl());
                     $response['toplink'] = $toplink;
@@ -72,8 +72,7 @@ class Foundation_Ajax_CartController extends Mage_Checkout_CartController
                 $response['message'] = $this->__('Cannot add the item to shopping cart.');
                 Mage::logException($e);
             }
-            $this->getResponse()->setHeader('Content-Type', 'text/html')->setBody(Mage::helper('core')->jsonEncode($response));
-            return;
+            return $this->getResponse()->setHeader('Content-Type', 'text/html')->setBody(Mage::helper('core')->jsonEncode($response));
         } else {
             return parent::addAction();
         }
@@ -137,7 +136,7 @@ class Foundation_Ajax_CartController extends Mage_Checkout_CartController
                     $response['message'] = $message;
                     $this->loadLayout();
                     $toplink = $this->getLayout()->getBlock('top.links')->toHtml();
-                    $sidecart = $this->getLayout()->getBlock('cart_sidebar')->toHtml();
+                    $sidecart = $this->getLayout()->getBlock('cart.sidebar')->toHtml();
                     $qty = $params['qty'];
                     Mage::register('referrer_url', $this->_getRefererUrl());
                     $response['toplink'] = $toplink;
@@ -162,8 +161,7 @@ class Foundation_Ajax_CartController extends Mage_Checkout_CartController
                 $response['message'] = $this->__('Cannot add the item to shopping cart.');
                 Mage::logException($e);
             }
-            $this->getResponse()->setHeader('Content-Type', 'text/html')->setBody(Mage::helper('core')->jsonEncode($response));
-            return;
+            return $this->getResponse()->setHeader('Content-Type', 'text/html')->setBody(Mage::helper('core')->jsonEncode($response));
         } else {
             return parent::addAction();
         }
@@ -187,7 +185,7 @@ class Foundation_Ajax_CartController extends Mage_Checkout_CartController
                     $this->loadLayout();
                     $message = $this->__('Item was removed from your shopping cart.');
                     $toplink = $this->getLayout()->getBlock('top.links')->toHtml();
-                    $sidecart = $this->getLayout()->getBlock('cart_sidebar')->toHtml();
+                    $sidecart = $this->getLayout()->getBlock('cart.sidebar')->toHtml();
                     $response['status'] = 'SUCCESS';
                     $response['message'] = $message;
                     $response['toplink'] = $toplink;

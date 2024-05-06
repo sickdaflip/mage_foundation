@@ -103,7 +103,7 @@
         <remove name="paypal.partner.right.logo"/>      <!--Paypal logo Sample Data-->
         <remove name="sale.reorder.sidebar"/>           <!--Reorder Sidebar When User Logged, in Dashboard-->
         <remove name="currency"/>
-
+        <remove name="cart_sidebar"/>
         <remove name="ampromo.blocks.add"/>
 
         <!-- remove the language and store switcher and footer links blocks, we won't use them -->
@@ -121,11 +121,11 @@
             <block type="core/template" name="algolia-beforecontent"
                    template="algoliasearch/internals/beforecontent.phtml"/>
 
-            <block type="checkout/cart_sidebar" name="cart_sidebar" template="checkout/cart/sidebar.phtml" before="-">
+            <block type="checkout/cart_sidebar" name="cart.sidebar" template="checkout/cart/sidebar.phtml" before="-">
                 <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
                 <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
                 <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
-                <block type="core/text_list" name="cart_sidebar.extra_actions" as="extra_actions" translate="label" module="checkout">
+                <block type="core/text_list" name="cart_sidebar_new.extra_actions" as="extra_actions" translate="label" module="checkout">
                     <label>Shopping Cart Sidebar Extra Actions</label>
                 </block>
             </block>
@@ -220,9 +220,9 @@
                 <url helper="customer/getLoginUrl"/>
             </action>
             <action method="addLink" translate="label title">
-                <label>Log In</label>
+                <label>Anmelden</label>
                 <url>/customer/account/login/</url>
-                <title>Log In</title>
+                <title>Anmelden</title>
                 <prepare/>
                 <urlParams helper="customer/getLoginUrl"/>
                 <position>10</position>

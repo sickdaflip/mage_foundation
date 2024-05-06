@@ -70,7 +70,8 @@ function loadConfig() {
 
 // Build the "dist" folder by running all of the below tasks
 gulp.task('build',
-    gulp.series(clean, css, scripts, node_images, images, fonts, js, copy));
+    //gulp.series(clean, css, scripts, node_images, images, fonts, js, copy));
+    gulp.series(clean, css, scripts, images, fonts, js, copy));
 
 // Build the site, run the server, and watch for file changes
 gulp.task('default',

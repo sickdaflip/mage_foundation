@@ -753,7 +753,6 @@ footer {
     #product_addtocart_form {
       .product-img-box {
         @include xy-cell;
-
         .product-images {
           ul {
             @include xy-grid-layout(6, 'li');
@@ -1050,7 +1049,6 @@ footer {
     #product_addtocart_form {
       .product-img-box, .product-shop {
         @include xy-cell(6);
-
         .product-images {
           ul {
             @include xy-grid-layout(4, 'li');

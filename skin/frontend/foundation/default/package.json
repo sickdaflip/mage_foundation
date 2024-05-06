@@ -153,5 +153,12 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "@fancyapps/ui": "^5.0.36",
+    "@sequencemedia/gulp-clean-css": "^1.0.95",
+    "fancybox": "^3.0.1",
+    "gulp-image": "^6.3.1",
+    "simplelightbox": "^2.14.3"
   }
 }
