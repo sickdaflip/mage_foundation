@@ -10,7 +10,7 @@ $_manufacturers = $this->getCurrentChildCategories(); ?>
                     <a href="<?php echo $_manufacturer->getURL() ?>"
                        title="<?php echo $this->htmlEscape($_manufacturer->getName()) ?>">
                         <?php if ($_imageUrl = $_manufacturer->getImageUrl()) : ?>
-                            <img class="lazy"
+                            <img loading="lazy" class="lazy"
                                  src="<?php echo $_imageUrl; ?>" alt="<?php echo $this->htmlEscape($_manufacturer->getName()) ?>"
                                  title="<?php echo $this->htmlEscape($_manufacturer->getName()) ?>"
                                  width="200"

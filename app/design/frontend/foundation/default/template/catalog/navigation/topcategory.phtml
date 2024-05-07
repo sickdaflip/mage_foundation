@@ -15,7 +15,7 @@ $_categories = $this->getCurrentChildCategories(); ?>
                         <?php endif; ?>
                         <a href="<?php echo $_category->getURL() ?>"
                            title="<?php echo $this->htmlEscape($_category->getName()) ?>">
-                            <img class="lazy"
+                            <img loading="lazy" class="lazy"
                                  src="<?php echo $_category->getCategoryImage(200, 200) ?>"
                                  alt="<?php echo $this->htmlEscape($_category->getName()) ?>"
                                  title="<?php echo $title ?>"

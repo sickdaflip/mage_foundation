@@ -43,37 +43,21 @@ $_helper = $this->helper('catalog/output');
         <div class="special-ribbon"><span><?php echo $_savingPercent; ?><?php echo $this->__(' % Rabatt') ?></span></div>
     <?php } ?>
     <a href="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" class="item" data-lightbox="product-images" data-title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>">
-        <img class="lazy" data-src="<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(500, 500) ?>"
+        <img data-src="<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(500, 500) ?>"
              alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
              title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>"
              width="500"
              height="500" />
     </a>
-    <?php
-    $attributeCodevideo = 'video';
-    $attributevideo = $_product->getResource()->getAttribute($attributeCodevideo);
-    $contentvideo = $attributevideo->getFrontend()->getValue($_product);
-    $attributeCodethreesixty = 'threesixty';
-    $attributethreesixty = $_product->getResource()->getAttribute($attributeCodethreesixty);
-    $contentthreesixty = $attributethreesixty->getFrontend()->getValue($_product);
-    $_helper = $this->helper('catalog/output');
-
-    ?>
-    <?php if (count($this->getGalleryImages()) > 0 || !empty($contentthreesixty)): ?>
+    <?php if (count($this->getGalleryImages()) > 0): ?>
         <div class="product-images">
             <ul class="pimages owl-carousel owl-theme">
-                <?php if (!empty($contentthreesixty)) { ?>
-                    <li><a class="item" data-iframe="true"
-                           data-src="<?php echo $_helper->productAttribute($this->getProduct(), $contentthreesixty, $attributeCodethreesixty) ?>" data-lightbox="product-images" data-title="360° Ansicht"><img
-                                    src="<?php echo $this->getSkinUrl('dist/assets/img/360-degree.jpg') ?>"
-                                    alt="360° Ansicht"/></a></li>
-                <?php } ?>
                 <?php foreach ($this->getGalleryImages() as $_image): ?>
                     <li>
                         <a href="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile()); ?>"
                            title="<?php echo $this->htmlEscape($_image->getLabel()) ?>" class="item" data-lightbox="product-images"
                            data-title="<?php echo $this->htmlEscape($_image->getLabel()) ?>">
-                            <img class="lazy" data-src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(120, 120); ?>"
+                            <img loading="lazy" class="lazy" data-src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(120, 120); ?>"
                                  alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>"
                                  title="<?php echo $this->htmlEscape($_image->getLabel()) ?>"
                                  width="120"
