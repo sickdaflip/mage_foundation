@@ -127,7 +127,7 @@ $_helper = $this->helper('catalog/output');
                             <a href="<?php echo $_product->getProductUrl() ?>"
                                title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
                                class="product-image small-centered">
-                                <img class="lazy"
+                                <img loading="lazy" class="lazy"
                                     data-src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(200); ?>"
                                     width="200" height="200"
                                     alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
@@ -136,7 +136,7 @@ $_helper = $this->helper('catalog/output');
                         <?php if ($_product->getAttributeText('manufacturer')): ?>
                             <?php $brand = $_product->getAttributeText('manufacturer') ?>
                             <div class="product-brand">
-                                <img class="lazy"
+                                <img loading="lazy" class="lazy"
                                      data-src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>catalog/brands/<?php echo clean($brand) ?>.png"
                                      width="200" height="75"
                                      alt="<?php echo $brand ?> Logo">

@@ -78,7 +78,7 @@ $_helper = $this->helper('catalog/output');
                 <?php if ($i == $random) { ?>
                     <li class="item action">
                         <a href="<?php echo Mage::getUrl('', array('_direct' => 'kaffee')); ?>" title="Kaffee und Kaffeebohnen">
-                            <img class="lazy"
+                            <img loading="lazy" class="lazy"
                                  data-src="<?php echo $this->getSkinUrl('dist/assets/img/piazza-doro-banner.jpg') ?>"
                                  alt="Piazza Doro"/>
                         </a>
@@ -100,7 +100,7 @@ $_helper = $this->helper('catalog/output');
                         <a href="<?php echo $_product->getProductUrl() ?>"
                            title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
                            class="product-image small-centered">
-                            <img    class="lazy"
+                            <img loading="lazy" class="lazy"
                                     data-src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(200); ?>"
                                     width="200" height="200"
                                     alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>

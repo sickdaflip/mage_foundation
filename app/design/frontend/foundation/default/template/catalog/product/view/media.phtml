@@ -43,7 +43,7 @@ $_helper = $this->helper('catalog/output');
         <div class="special-ribbon"><span><?php echo $_savingPercent; ?><?php echo $this->__(' % Rabatt') ?></span></div>
     <?php } ?>
     <a href="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" class="item" data-lightbox="product-images" data-title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>">
-        <img data-src="<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(500, 500) ?>"
+        <img src="<?php echo $this->helper('catalog/image')->init($_product, 'image')->constrainOnly(false)->keepAspectRatio(true)->keepFrame(true)->resize(500, 500) ?>"
              alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
              title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>"
              width="500"
