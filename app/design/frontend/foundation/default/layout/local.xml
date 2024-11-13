@@ -432,6 +432,18 @@
                 <template>page/contacts.phtml</template>
             </action>
         </reference>
+        <reference name="contactForm">
+            <block type="core/text_list" name="form.additional.info">
+                <block type="captcha/captcha" name="captcha">
+                    <reference name="head">
+                        <action method="addJs"><file>mage/captcha.js</file></action>
+                    </reference>
+                    <action method="setFormId"><formId>contacts</formId></action>
+                    <action method="setImgWidth"><width>230</width></action>
+                    <action method="setImgHeight"><width>50</width></action>
+                </block>
+            </block>
+        </reference>
     </contacts_index_index>
 
     <checkout_cart_index>
