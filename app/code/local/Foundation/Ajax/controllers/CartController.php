@@ -53,6 +53,10 @@ class Foundation_Ajax_CartController extends Mage_Checkout_CartController
                     $response['toplink'] = $toplink;
                     $response['sidecart'] = $sidecart;
                     $response['qty'] = $qty;
+                    $response['item_id'] = $product->getSku();
+                    $response['item_name'] = $product->getName();
+                    $response['item_brand'] = $product->getAttributeText('manufacturer');
+                    $response['price'] = number_format($product->getPrice(), 2, '.','');
 
             } catch (Mage_Core_Exception $e) {
                 $msg = "";
@@ -190,6 +194,7 @@ class Foundation_Ajax_CartController extends Mage_Checkout_CartController
                     $response['message'] = $message;
                     $response['toplink'] = $toplink;
                     $response['sidecart'] = $sidecart;
+
                 } catch (Exception $e) {
                     $response['status'] = 'ERROR';
                     $response['message'] = $this->__('Cannot remove the item from shopping cart.');
