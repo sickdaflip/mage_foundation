@@ -122,6 +122,7 @@
                    template="algoliasearch/internals/beforecontent.phtml"/>
 
             <block type="checkout/cart_sidebar" name="cart.sidebar" template="checkout/cart/sidebar.phtml" before="-">
+                <action method="setCacheLifetime"><s>0</s></action>
                 <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
                 <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
                 <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
