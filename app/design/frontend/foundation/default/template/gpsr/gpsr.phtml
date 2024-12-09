@@ -1,0 +1,36 @@
+<?php $product = $this->getProduct(); ?>
+<table class="hover">
+    <thead>
+    <tr>
+        <th colspan="2"><?php echo $this->__('Angaben zur Produktsicherheit'); ?></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><?php echo $this->__('Hersteller'); ?></td>
+        <td><?php echo $product->getAttributeText('manufacturer'); ?></td>
+    </tr>
+    <?php if ($product->getData('manufacturer_address') != null) { ?>
+    <tr>
+        <td><?php echo $product->getResource()->getAttribute('manufacturer_address')->getFrontendLabel(); ?></td>
+        <td><?php echo $product->getData('manufacturer_address'); ?></td>
+    </tr>
+    <?php } ?>
+    <?php if ($product->getData('manufacturer_mail') != null) { ?>
+    <tr>
+        <td><?php echo $product->getResource()->getAttribute('manufacturer_mail')->getFrontendLabel(); ?></td>
+        <td><?php echo $product->getData('manufacturer_mail'); ?></td>
+    </tr>
+    <?php } ?>
+    <?php if ($product->getData('manufacturer_person') != null) { ?>
+    <tr>
+        <td><?php echo $product->getResource()->getAttribute('manufacturer_person')->getFrontendLabel(); ?></td>
+        <td><?php echo $product->getData('manufacturer_person'); ?></td>
+    </tr>
+    <?php } ?>
+    <tr>
+        <td><?php echo $product->getResource()->getAttribute('manufacturer_notice')->getFrontendLabel(); ?></td>
+        <td><?php echo $product->getData('manufacturer_notice') == null ? $this->__('keine') : $product->getData('manufacturer_notice'); ?></td>
+    </tr>
+    </tbody>
+</table>
