@@ -6,10 +6,6 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td><?php echo $this->__('Hersteller'); ?></td>
-        <td><?php echo $product->getAttributeText('manufacturer'); ?></td>
-    </tr>
     <?php if ($product->getData('manufacturer_address') != null) { ?>
     <tr>
         <td><?php echo $product->getResource()->getAttribute('manufacturer_address')->getFrontendLabel(); ?></td>
