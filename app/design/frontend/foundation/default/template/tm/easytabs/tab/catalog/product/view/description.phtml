@@ -34,5 +34,37 @@
 <?php if ($_description): ?>
     <div class="std">
         <?php echo $this->helper('cms')->getBlockTemplateProcessor()->filter($this->helper('catalog/output')->productAttribute($this->getProduct(), $_description, 'description') )?>
+        <?php $product = $this->getProduct(); ?>
+        <table class="hover stack">
+            <thead>
+            <tr>
+                <th colspan="2"><?php echo $this->__('Herstellerinformation & Angaben zur Produktsicherheit'); ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php if ($product->getData('manufacturer_address') != null) { ?>
+                <tr>
+                    <td><?php echo $product->getResource()->getAttribute('manufacturer_address')->getFrontendLabel(); ?></td>
+                    <td><?php echo $product->getData('manufacturer_address'); ?></td>
+                </tr>
+            <?php } ?>
+            <?php if ($product->getData('manufacturer_mail') != null) { ?>
+                <tr>
+                    <td><?php echo $product->getResource()->getAttribute('manufacturer_mail')->getFrontendLabel(); ?></td>
+                    <td><?php echo $product->getData('manufacturer_mail'); ?></td>
+                </tr>
+            <?php } ?>
+            <?php if ($product->getData('manufacturer_person') != null) { ?>
+                <tr>
+                    <td><?php echo $product->getResource()->getAttribute('manufacturer_person')->getFrontendLabel(); ?></td>
+                    <td><?php echo $product->getData('manufacturer_person'); ?></td>
+                </tr>
+            <?php } ?>
+            <tr>
+                <td><?php echo $product->getResource()->getAttribute('manufacturer_notice')->getFrontendLabel(); ?></td>
+                <td><?php echo $product->getData('manufacturer_notice') == null ? $this->__('keine') : $product->getData('manufacturer_notice'); ?></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 <?php endif; ?>
