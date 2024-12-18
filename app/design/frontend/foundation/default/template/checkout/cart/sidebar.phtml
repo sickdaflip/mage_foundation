@@ -74,6 +74,7 @@
                             event: "add_to_cart",
                             ecommerce: {
                                 currency: "<?php echo Mage::app()->getStore()->getCurrentCurrencyCode() ?>",
+                                value: data.value,
                                 items: [
                                     {
                                         item_id: data.item_id,

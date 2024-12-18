@@ -57,6 +57,7 @@ class Foundation_Ajax_CartController extends Mage_Checkout_CartController
                     $response['item_name'] = $product->getName();
                     $response['item_brand'] = $product->getAttributeText('manufacturer');
                     $response['price'] = number_format($product->getPrice(), 2, '.','');
+                    $response['value'] = number_format($product->getPrice()*$qty, 2, '.','');
 
             } catch (Mage_Core_Exception $e) {
                 $msg = "";
