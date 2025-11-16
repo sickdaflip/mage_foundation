@@ -74,7 +74,7 @@
     "is-empty-object": "^1.1.1",
     "jquery": ">=3.6.0",
     "jquery-lazy": "^1.7.11",
-    "js-yaml": "^3.12.1",
+    "js-yaml": "^4.1.1",
     "kleur": "^3.0.2",
     "lightbox2": "^2.11.4",
     "mocha": "^10.2.0",
